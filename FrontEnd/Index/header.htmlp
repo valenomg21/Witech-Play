@@ -1,0 +1,187 @@
+<div class="panel-lateral">
+            
+  <div class="group-sm">
+    <svg viewBox="0 0 24 24" aria-hidden="true" class="search-icon">
+      <g>
+        <path
+          d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"
+        ></path>
+      </g>
+    </svg>
+  
+    <input
+      id="query-sm"
+      class="input-sm"
+      type="search"
+      placeholder="Buscar..."
+      name="searchbar"
+    />
+</div>
+
+    <ul>
+        <li class="has-submenu">
+            <div class="submenu-toggle">
+                <a href="#">Películas</a>
+                <span class="arrow">&#9662;</span>
+            </div>
+            <ul class="subopciones">
+                <li><a href="#">Estrenos</a></li>
+                <li><a href="#">Populares del momento</a></li>
+            </ul>
+        </li>
+        <li class="has-submenu">
+            <div class="submenu-toggle">
+              <a href="#">Series</a>
+              <span class="arrow">&#9662;</span>
+            </div>
+            <ul class="subopciones">
+              <li><a href="#">Destacadas</a></li>
+              <li><a href="#">Añadidas últimamente</a></li>
+            </ul>
+          </li>
+        <li class="has-submenu">
+            <div class="submenu-toggle">
+                <a href="#">Categorías </a>
+                <span class="arrow">&#9662;</span>
+            </div>
+            <ul class="subopciones">
+                <li><a href="#">Acción</a></li>
+                <li><a href="#">Terror</a></li>
+            </ul>
+        </li>
+    </ul>
+
+
+    <div class="menu-inferior">
+      <a href="/FrontEnd/Index/contacto.html" class="item-inferior">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path fill="currentColor" d="M2 6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6zm2 0v.01l8 5 8-5V6H4zm16 12V9.24l-7.4 4.63a1 1 0 0 1-1.2 0L4 9.24V18h16z"/>
+        </svg>
+        
+        <span>Contacto</span>
+      </a>
+      <a href="/FrontEnd/Index/planes.html" class="item-inferior">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path fill="currentColor" d="M3 5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v2H3V5zm0 4h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9zm4 4a1 1 0 0 0 0 2h2a1 1 0 0 0 0-2H7z" />
+        </svg>
+        <span>Planes</span>
+      </a>
+    </div>
+</div>
+<header id="header">
+    <!-- Contenedor izquierda: menu y barra de busqueda-->
+    <div class="header-left">
+        <div class="menu">
+            <img src="/FrontEnd/Imagenes/Icono/menu.png" alt="Menu">
+        </div>
+
+        
+
+        <div class="group">
+            <svg viewBox="0 0 24 24" aria-hidden="true" class="search-icon">
+              <g>
+                <path
+                  d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"
+                ></path>
+              </g>
+            </svg>
+          
+            <input
+              id="query"
+              class="input"
+              type="search"
+              placeholder="Buscar..."
+              name="searchbar"
+            />
+        </div>
+    </div>
+
+    <!-- Contenedor central: Logo -->
+    <div class="header-center">
+        <a href="/FrontEnd/Index/index.html">
+            <img src="/FrontEnd/Imagenes/Icono/Logowitechplay.png" alt="Logo">
+        </a>
+    </div>
+    <!-- Contenedor derecha: Navegación y botón de inicio de sesión -->
+    <div class="header-right">
+        <div class="nav-and-button">
+
+            <nav>
+                <ul>
+                    <li><a href="#contenido">Contenido</a></li>
+                    <li><a href="#planes">Planes</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+
+            <!-- Boton Iniciar sesion --> 
+            <div aria-label="User Login Button" tabindex="0" role="button" class="btn-login">
+              <div class="btn-login-inner">
+
+                <div class="btn-icon">
+                  <svg viewBox="0 0 24 24">
+                      <path 
+                        d="m15.626 11.769a6 6 0 1 0 -7.252 0 9.008 9.008 0 0 0 -5.374 8.231 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 9.008 9.008 0 0 0 -5.374-8.231zm-7.626-4.769a4 4 0 1 1 4 4 4 4 0 0 1 -4-4zm10 14h-12a1 1 0 0 1 -1-1 7 7 0 0 1 14 0 1 1 0 0 1 -1 1z">
+                      </path>
+                  </svg>
+                </div>
+                
+                <div class="btn-txt">
+                  <span>Iniciar Sesion</span>
+                </div>
+              </div>
+            </div>
+            <div class="popup-overlay" id="popup-overlay">
+              <div class="popup-form" id="popup-form">
+                  <span class="close-popup" id="close-popup">&times;</span>
+                  <h2>Iniciar Sesión</h2>
+                  <form>
+                      <label for="username">Usuario</label>
+                      <input type="text" id="username" name="username" required>
+
+                      <label for="password">Contraseña</label>
+                      <div class="password-wrapper">
+                          <input type="password" id="password" name="password" required>
+                          <button type="button" id="toggle-password" class="toggle-password"
+                              aria-label="Mostrar u ocultar contraseña">👁️</button>
+                      </div>
+                      <button type="submit">Ingresar</button>
+                      <div class="register-link">
+                          ¿No tenés una cuenta? <a href="#" id="show-register">Crear una</a>
+                      </div>
+                  </form>
+                  <!-- Formulario de Registro -->
+<form id="register-form" style="display: none;">
+  <div id="register-fields">
+      <label for="new-username">Usuario</label>
+      <input type="text" id="new-username" name="new-username" required>
+
+      <label for="new-password">Contraseña</label>
+      <input type="password" id="new-password" required>
+
+      <label for="confirm-password">Confirmar Contraseña</label>
+      <input type="password" id="confirm-password" required>
+      <small id="password-error" class="error-message"></small>
+
+      <label for="email">Correo Electrónico</label>
+      <input type="email" id="email" name="email" required>
+
+  </div>
+  <div id="codeSection" style="display: none; margin-top: 10px;">
+      <label for="code">Código de verificación</label>
+      <input type="text" id="code" placeholder="Ingrese el código de verificación" />
+      <button type="submit" id="submit-code-btn">Registrarse</button>
+  </div>
+  <button type="submit" id="submit-register-btn">Registrarse</button>
+  <div class="login-link">
+      ¿Ya tenés una cuenta? <a href="#" id="show-login">Iniciar sesión</a>
+  </div>
+</form>
+              </div>
+
+          </div>
+
+        </div>
+    </div>
+    
+</header>

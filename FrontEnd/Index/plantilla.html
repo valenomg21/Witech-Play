@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="Icon" href="Imagenes/Icono/logo-1173935095-1728869406-0d49a887e4481f6878662eb805f4555b1728869406.png">
+    <link rel="stylesheet" href="/FrontEnd/Estilos/Peliculas-style.css">
+    <link rel="stylesheet" href="/FrontEnd/Estilos/Header-Footer-style.css">
+    <title>Witech Play</title>
+</head>
+
+<body>
+    <div class="imagen-fondo"></div>
+    <div id="header-container"></div>
+    <div id="videoOverlay">
+      <video id="videoFull" controls>
+        <source src="" type="video/mp4">
+        Tu navegador no soporta el video.
+      </video>
+    </div>
+    <main class="contenedor-pelicula">
+        <section class="contenedor-pelicula">
+          
+            <div class="contenido-pelicula">
+              <h1 class="titulo-pelicula">Nombre de la Película</h1>
+          
+              <div class="info-pelicula">
+                <span class="duracion-pelicula">120 min</span> ·
+                <span class="generos-pelicula">
+                  <a href="#" class="link-genero">Acción</a>, 
+                  <a href="#" class="link-genero">Aventura</a>
+                </span> ·
+                <span class="año-pelicula">2024</span>
+              </div>
+          
+              <p class="sinopsis-pelicula">
+                Esta es una sinopsis breve de la película. Una descripción corta que capta el interés del usuario.
+              </p>
+          
+              <div class="botones-pelicula">
+                <button class="boton-ver-ahora">Ver ahora</button>
+          
+                <button class="boton-ver-mas" onclick="mostrarDetalles()">Ver más</button>
+          
+                <div id="detalles-adicionales" class="detalles-ocultos">
+                  <p><strong>Año de lanzamiento:</strong> 2024</p>
+                  <p><strong>Elenco:</strong> Actor 1, Actor 2, Actor 3</p>
+                  <p><strong>Director:</strong> Nombre del director</p>
+                </div>
+              </div>
+          
+              <div id="video-container" class="video-oculto">
+                <iframe id="URL" width="100%" height="400" src="" frameborder="0" allowfullscreen aria-label="."></iframe>
+              </div>
+            </div>
+          </section>
+      </main>
+
+    <div id="footer-container" class="footer"></div>
+    <script src="/FrontEnd/Js/data.js"></script>
+    <script src="/FrontEnd/Js/plantilla.js"></script>
+    <script src="/FrontEnd/Js/main.js"></script>
+</body>
+</html>

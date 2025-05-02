@@ -1,0 +1,9 @@
+<footer id="footer-container">
+    <div class="contacto-info">
+        <p>Contacto: <a href="mailto:contacto@witechplay.com">contacto@witechplay.com</a></p>
+        <p>Síguenos en redes sociales: <a href="#" target="_blank">Facebook</a> | <a href="#" target="_blank">Twitter</a> | <a href="#" target="_blank">Instagram</a></p>
+    </div>
+    <div class="legal">
+        <a href="#">Términos y condiciones</a> | <a href="#">Política de privacidad</a>
+    </div>
+</footer>
