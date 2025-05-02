@@ -20,7 +20,7 @@
 
     <ul>
         <li class="has-submenu">
-            <div class="submenu-toggle">
+            <div class="submenu-toggle" aria-expanded="false" aria-label="Mostrar/Ocultar submenú">
                 <a href="#">Películas</a>
                 <span class="arrow">&#9662;</span>
             </div>
@@ -131,55 +131,55 @@
                 </div>
               </div>
             </div>
+            
             <div class="popup-overlay" id="popup-overlay">
               <div class="popup-form" id="popup-form">
-                  <span class="close-popup" id="close-popup">&times;</span>
-                  <h2>Iniciar Sesión</h2>
-                  <form>
-                      <label for="username">Usuario</label>
-                      <input type="text" id="username" name="username" required>
-
-                      <label for="password">Contraseña</label>
-                      <div class="password-wrapper">
-                          <input type="password" id="password" name="password" required>
-                          <button type="button" id="toggle-password" class="toggle-password"
-                              aria-label="Mostrar u ocultar contraseña">👁️</button>
-                      </div>
-                      <button type="submit">Ingresar</button>
-                      <div class="register-link">
-                          ¿No tenés una cuenta? <a href="#" id="show-register">Crear una</a>
-                      </div>
-                  </form>
-                  <!-- Formulario de Registro -->
-<form id="register-form" style="display: none;">
-  <div id="register-fields">
-      <label for="new-username">Usuario</label>
-      <input type="text" id="new-username" name="new-username" required>
-
-      <label for="new-password">Contraseña</label>
-      <input type="password" id="new-password" required>
-
-      <label for="confirm-password">Confirmar Contraseña</label>
-      <input type="password" id="confirm-password" required>
-      <small id="password-error" class="error-message"></small>
-
-      <label for="email">Correo Electrónico</label>
-      <input type="email" id="email" name="email" required>
-
-  </div>
-  <div id="codeSection" style="display: none; margin-top: 10px;">
-      <label for="code">Código de verificación</label>
-      <input type="text" id="code" placeholder="Ingrese el código de verificación" />
-      <button type="submit" id="submit-code-btn">Registrarse</button>
-  </div>
-  <button type="submit" id="submit-register-btn">Registrarse</button>
-  <div class="login-link">
-      ¿Ya tenés una cuenta? <a href="#" id="show-login">Iniciar sesión</a>
-  </div>
-</form>
+                <span class="close-popup" id="close-popup">×</span>
+                <h2>Iniciar Sesión</h2>
+                <form>
+                  <label for="username">Usuario</label>
+                  <input type="text" id="username" name="username" required>
+            
+                  <label for="password">Contraseña</label>
+                  <div class="password-wrapper">
+                    <input type="password" id="password" name="password" required>
+                    <button type="button" id="toggle-password" class="toggle-password"
+                      aria-label="Mostrar u ocultar contraseña">👁️</button>
+                  </div>
+                  <button type="submit">Ingresar</button>
+                  <div class="register-link">
+                    ¿No tenés una cuenta? <a href="#" id="show-register">Crear una</a>
+                  </div>
+                </form>
+                <!-- Formulario de Registro -->
+                <form id="register-form" style="display: none;">
+                  <div id="register-fields">
+                    <label for="new-username">Usuario</label>
+                    <input type="text" id="new-username" name="new-username" required>
+            
+                    <label for="new-password">Contraseña</label>
+                    <input type="password" id="new-password" required>
+            
+                    <label for="confirm-password">Confirmar Contraseña</label>
+                    <input type="password" id="confirm-password" required>
+                    <small id="password-error" class="error-message"></small>
+            
+                    <label for="email">Correo Electrónico</label>
+                    <input type="email" id="email" name="email" required>
+            
+                  </div>
+                  <div id="codeSection" style="display: none; margin-top: 10px;">
+                    <label for="code">Código de verificación</label>
+                    <input type="text" id="code" placeholder="Ingrese el código de verificación" />
+                    <button type="submit" id="submit-code-btn">Registrarse</button>
+                  </div>
+                  <button type="submit" id="submit-register-btn">Registrarse</button>
+                  <div class="login-link">
+                    ¿Ya tenés una cuenta? <a href="#" id="show-login">Iniciar sesión</a>
+                  </div>
+                </form>
               </div>
-
-          </div>
+            </div>
 
         </div>
     </div>

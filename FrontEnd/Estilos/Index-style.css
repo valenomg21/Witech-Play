@@ -1,16 +1,16 @@
 /* Estilos generales */
 
 body {
-    position: relative;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #000000;
-    color: #fff;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #4b3276;
+  color: #fff;
 }
 
 /*Fondo Oscuro*/
-.fondo-oscuro{
+.fondo-oscuro {
   position: fixed;
   top: 0;
   left: 0;
@@ -30,395 +30,1109 @@ body {
 }
 
 /* Carrusel principal */
-.seccion-carrusel {
-    position: relative;
-    background-color: #000000;
-    z-index: 3;
-}
 .carrusel {
-    background-color: #4b3276;
-    top: 55px;
-    height: 600px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    max-width: 100%;
-    overflow: hidden;
-    padding: 20px 0;
-    z-index: 3;
-    margin-bottom: 40px;
-  }
-  
-  .carrusel-contenedor {
-    overflow: hidden;
-    position: relative;
-    width: 100%;
-    max-width: 1350px;
-    border-radius: 12px;
-    margin: 50px ;
-    box-shadow: 0px 0px 20px 8px rgba(0, 0, 0, 0.4);
-  }
-  
-  .carrusel-items {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-    height: 100%;
-    width: 100%;
-  }
-  
-  .carrusel-imagen {
-    min-width: 100%;
-    height: 500px;
-    object-fit: cover;
-    border-radius: 10px;
-    object-fit: cover;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-    flex-shrink: 0;
-  }
-  
-  .carrusel-boton {
-    background-color: rgba(31, 27, 46, 0.8);
-    border: none;
-    border-radius: 50%;
-    width: 45px;
-    height: 45px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    color: white;
-    cursor: pointer;
-    z-index: 10;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  }
-  
-  .carrusel-boton:hover {
-    background-color: #3bcc5a;
-    box-shadow: 0 0 15px rgba(59, 204, 90, 0.6);
-  }
-  
-  .carrusel-boton svg {
-    width: 24px;
-    height: 24px;
-    pointer-events: none;
-  }
-  
-  .carrusel-boton.izquierdo {
-    left: 10px;
-  }
-  
-  .carrusel-boton.derecho {
-    right: 10px;
-  }
-  
-  /* Indicador Carrusel */
+  padding-block-start: 12vh;
+  padding-block-end: 3vh;
+  position: relative;
+  overflow: hidden; /* Oculta las imágenes que están fuera del contenedor */
+}
 
-  .carrusel-indicadores {
-    position: absolute;
-    bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
-    z-index: 4;
-  }
-  
-  .carrusel-indicador {
-    width: 8px;
-    height: 8px;
-    border-radius: 90%;
-    background-color: #3bcc5a;
-    transition: background-color 0.3s ease;
-    cursor: pointer;
-  }
-  
-  .carrusel-indicador.activo {
-    background-color: #ffffff;
-  }
+.carrusel-contenedor {
+  display: flex; /* Necesario para la alineación horizontal */
+  align-items: center; /* Centra verticalmente los elementos */
+  padding: 0 50px; /* Espacio para los botones y visibilidad parcial de las imágenes */
+}
 
-  /* seccion app */
-  .seccion-promocional {
-    background-color: #1f1b2e;
-    padding: 3rem 1rem;
-    display: flex;
-    justify-content: center;
-  }
-  
-  .promo-contenido {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    align-items: center;
-    max-width: 1200px;
-    width: 100%;
-  }
-  
-  .promo-imagen {
-    flex: 1 1 450px;
-    max-width: 600px;
-    border-radius: 1.5rem;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-    width: 100%;
-  }
-  
-  .promo-texto {
-    flex: 1 1 300px;
-    color: white;
-    text-align: left;
-    background-color: #2a2340;
-    padding: 2rem;
-    border-radius: 1.5rem;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-  }
-  
-  .promo-texto h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    color: #fff;
-  }
-  
-  .promo-texto p {
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-    color: #ccc;
-  }
-  
-  .botones-app {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-  
-  .boton-app {
-    padding: 0.8rem 1.5rem;
-    border: none;
-    border-radius: 1rem;
-    font-weight: bold;
-    text-decoration: none;
-    color: white;
-    transition: background 0.3s ease;
-  }
-  
-  .boton-app.playstore {
-    background-color: #3bcc5a;
-  }
-  
-  .boton-app.appstore {
-    background-color: #5955ff;
-  }
-  
-  .boton-app:hover {
-    opacity: 0.85;
-  }
-   
-  .decorativo-onda {
-    position: absolute;
-    width: 100%;
-    height: 320px;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-    pointer-events: none;
-    z-index: 0;
-    overflow: hidden;
-  }
-  
-  .decorativo-onda svg {
-    width: 100%;
-    height: 100%;
-    display: block;
-  }
-  
-  /* seccion de contenido*/
-  .seccion-peliculas-1, .seccion-peliculas-2, .seccion-peliculas-3 {
-    padding: 10px 40px;
-    background-color: #9673d37c;
-    color: white;
-    text-align: start;
-    z-index: 1;
-    position: relative;
-  }
-  .seccion-peliculas-3 {
-    padding-bottom: 100px;
-    background: #9673d37c;
-    background: linear-gradient(180deg, #9673d37c, rgba(115,89,161,1) 84%, rgba(0, 0, 0, 0.804) 100%);
-  }
-  
-  .titulo-seccion {
-    font-size: 28px;
-    color: #ffffff;
-    padding: 0 20px;
-    position: relative;
-    text-decoration: none;
-    display: inline-block;
-    
-  }
-  
-  .titulo-seccion::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 3px;
-    width: 0%;
-    background-color: #3bcc5a;
-    transition: width 0.3s ease;
-  }
-  .titulo-seccion:hover::after {
-    width: 100%;
-  }
-  
-  .peliculas-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 20px;
-    padding: 0 20px;
-    text-align: center;
-  }
-  
-  .pelicula {
-    background-color: #2a2a2a;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-    transition: transform 0.3s;
-    cursor: pointer;
-  }
-  
-  .pelicula:hover {
-    transform: scale(1.05);
-  }
-  
-  .pelicula img {
-    width: 100%;
-    height: 270px;
-    object-fit: cover;
-    display: block;
-  }
-  
-  .titulo-pelicula {
-    padding: 10px;
-    font-size: 16px;
-    color: #fff;
-  }
-  
+.carrusel-pista {
+  display: flex; /* Alinea las imágenes horizontalmente */
+  transition: transform 0.3s ease; /* Animación para el desplazamiento */
+}
+
+.carrusel-slide {
+  flex-shrink: 0; /* Evita que las imágenes se encojan */
+  width: 100%; /* Ocupa todo el ancho disponible (importante!) */
+  padding: 0 10px; /* Espacio a los lados de cada imagen */
+  box-sizing: border-box; /* Incluye el padding en el ancho */
+}
+
+.carrusel-slide img {
+  width: 100%; /* Ocupa todo el ancho del slide */
+  height: 400px; /* Mantiene la proporción */
+  object-fit:cover; /* Ajusta la imagen al contenedor */
+  border-radius: 5px; /* Bordes redondeados (opcional) */
+}
+
+.carrusel-boton {
+  position: absolute; /* Posición absoluta para colocarlos a los lados */
+  top: 50%;
+  transform: translateY(-50%); /* Centrar verticalmente */
+  background-color: #2a2340f2; /* Fondo semi-transparente */
+  color: #3bcc5a;
+  border: none;
+  padding: 12px 8px;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 1; 
+}
+
+.carrusel-boton.prev {
+  left: 0;
+  border-radius: 0 4px 4px 0;
+}
+
+.carrusel-boton.next {
+  right: 0;
+  border-radius: 4px 0 0 4px;
+}
+
+/* seccion app */
+.seccion-promocional {
+  background-color: #1f1b2e;
+  padding: 3rem 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.promo-contenido {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.promo-imagen {
+  flex: 1 1 450px;
+  max-width: 600px;
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 290px;
+}
+
+.promo-texto {
+  flex: 1 1 300px;
+  color: white;
+  text-align: center;
+  background-color: #2a2340;
+  max-width: 600px;
+  height: 290px;
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.promo-texto h2 {
+  font-size: 2rem;
+  margin-bottom: 1.8rem;
+  color: #fff;
+}
+
+.promo-texto p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin: 1.5rem;
+  color: #ccc;
+}
+
+.botones-app {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  text-align: center;
+}
+
+.boton-app {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 1rem;
+  width: 100px;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+  transition: background 0.3s ease;
+}
+
+.boton-app.playstore {
+  background-color: #3bcc5a;
+}
+
+.boton-app.appstore {
+  background-color: #5955ff;
+}
+
+.boton-app:hover {
+  opacity: 0.85;
+}
+/* */
+.decorativo-onda {
+  position: absolute;
+  width: 100%;
+  height: 320px;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.decorativo-onda svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* seccion de contenido*/
+.seccion-peliculas-1,
+.seccion-peliculas-2,
+.seccion-peliculas-3 {
+  padding: 10px 40px;
+  background-color: #4b3276;
+  color: white;
+  text-align: start;
+  z-index: 1;
+  position: relative;
+}
+
+.seccion-peliculas-3 {
+  padding-bottom: 50px;
+}
+
+.titulo-seccion-pl {
+  font-size: 28px;
+  color: #ffffff;
+  padding: 0 20px;
+  position: relative;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.titulo-seccion-pl::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 0%;
+  background-color: #3bcc5a;
+  transition: width 0.3s ease;
+}
+
+.titulo-seccion-pl:hover::after {
+  width: 100%;
+}
+
+.peliculas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.pelicula {
+  max-width: 250px;
+  background-color: rgb(29 25 43 / 83%);
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.pelicula:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+  border: 2px solid #3bcc5a;
+}
+
+.pelicula img {
+  width: 100%;
+  height: 270px;
+  object-fit: cover;
+  display: block;
+}
+
+.titulo-pelicula {
+  padding: 10px;
+  font-size: 16px;
+  color: #fff;
+}
+
 /* Planes */
-.seccion-premium {
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-                url("../Imagenes/Icono/bg-tiles.png") center/cover no-repeat;
-    background-attachment: fixed;
-    color: white;
-    padding: 60px 30px;
-    text-align: center;
+.planes-premium {
+  background-image: url(../Imagenes/Icono/bg-tiles.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  filter: brightness(1.5);
+  padding: 10px 0 20px;
+  text-align: center;
+}
+
+.contenedor {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.titulo-seccion-pr {
+  font-size: 36px;
+  color: white;
+  margin-bottom: 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+.descripcion-seccion {
+  font-size: 18px;
+  color: white;
+  margin-bottom: 40px;
+  font-family: 'Arial', sans-serif;
+}
+
+.grilla-planes {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.tarjeta-plan {
+  background-color: #4b3276;
+  border-radius: 10px;
+  padding: 30px;
+  width: 300px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid transparent; /* Espacio para la línea en el hover */
+}
+
+.tarjeta-plan:hover {
+  transform: translateY(-5px); /* Subir un poco al hacer hover */
+  box-shadow: 0 8px 20px rgba(179, 3, 255, 0.637);
+  border-color: #4CAF50; /* Resaltar con una línea al hacer hover */
+}
+
+.nombre-plan {
+  font-size: 24px;
+  color:white;
+  margin-bottom: 10px;
+  font-family: 'Arial', sans-serif;
+}
+
+.precio-plan {
+  font-size: 20px;
+  color: #4CAF50; /* Color de acento */
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.lista-caracteristicas {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 30px;
+  color: white;
+}
+
+.lista-caracteristicas li {
+  margin: 10px 0;
+  display: flex;
+  align-items: center; /* Alineación vertical para el icono */
+}
+
+.lista-caracteristicas li i {
+  margin-right: 8px;
+  color: #4CAF50; /* Color de los iconos */
+  font-size: 16px;
+}
+
+/* Iconos Font Awesome */
+/* Para acceder a ellos:  Añade Font Awesome a tu proyecto */
+@import url("https://use.fontawesome.com/releases/v6.4.2/css/all.css");
+
+.boton-cta {
+  display: inline-block;
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.boton-cta:hover {
+  background-color: #3e8e41; /* Ligeramente más oscuro al hacer hover */
+}
+
+/* Responsive momento*/
+
+
+/* @media (max-width: 414px) */
+@media (max-width: 414px) {
+  /* Carrusel */
+  .carrusel {
+    padding-block-start: 10.5vh; /* Ajustar el padding vertical */
+    padding-block-end: 1vh;
   }
-  
-  .contenido-premium {
-    max-width: 1200px;
-    margin: auto;
+  .carrusel-contenedor {
+    padding:  0 20px;
   }
-  
-  .titulo-premium {
-    font-size: 32px;
-    margin-bottom: 15px;
-    color: #ffffff;
+  .carrusel-slide {
+    padding: 0 5px;
   }
-  
-  .descripcion-premium {
-    font-size: 17px;
-    color: #cccccc;
-    margin-bottom: 40px;
-    padding: 0 15px;
+  .carrusel-slide img {
+    height: 200px; /* Ajustar altura de las imágenes */
   }
-  
-  .planes-premium {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    justify-content: center;
+  .carrusel-boton {
+    top:55%;
+    transform: translateY(-30%);
+    display: none;
   }
-  
-  .tarjeta-plan {
-    background-color: #252525;
-    border-radius: 16px;
-    padding: 30px 25px;
-    width: 280px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-    transition: transform 0.3s ease;
+
+  /* Seccion Promo */
+  .seccion-promocional {
+    padding: 0.8rem 0.5rem; /* Reducir el relleno */
   }
-  
-  .tarjeta-plan:hover {
-    transform: scale(1.05);
+  .promo-contenido {
+    gap: 1rem; /* Reducir el espacio entre elementos */
   }
-  
-  .nombre-plan {
-    font-size: 20px;
-    color: #7359a1;
-    margin-bottom: 10px;
+  .promo-imagen {
+    height: 180px; /* Ajustar la altura */
   }
-  
-  .precio-plan {
-    font-size: 18px;
-    margin-bottom: 15px;
+  .promo-texto {
+    max-width: 100%;
+    height: auto; /* Que se ajuste al contenido */
+    padding: 1rem; /* Ajustar relleno */
   }
-  
-  .lista-beneficios {
-    list-style: none;
+  .promo-texto h2 {
+    font-size: 1.5rem; /* Reducir tamaño de fuente */
+    margin-bottom: 1rem;
+  }
+  .promo-texto p {
+    font-size: 1rem; /* Reducir tamaño de fuente */
+    margin: 1rem 0.5rem; /* Ajustar márgenes */
+  }
+  .boton-app {
+    width: 80px; /* Reducir el ancho */
+    font-size: 0.7rem; /* Reducir tamaño de fuente */
+    padding: 0.6rem 0.8rem;
+  }
+  /* Seccion Peliculas */
+  .seccion-peliculas-1,
+  .seccion-peliculas-2,
+  .seccion-peliculas-3 {
+    padding: 10px 20px; /* Reducir el relleno */
+  }
+  .titulo-seccion-pl {
+    font-size: 22px; /* Reducir el tamaño de la fuente */
+    padding: 0 10px;
+  }
+  .peliculas-grid {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 6px; 
+    row-gap: 15px;
     padding: 0;
-    color: #dddddd;
+  }
+  .pelicula {
+    max-width: 150px; /* Ajustar el ancho máximo */
+  }
+  .pelicula img {
+    height: 200px; /* Ajustar la altura */
+  }
+  .titulo-pelicula {
     font-size: 14px;
-    margin-bottom: 20px;
+    padding: 5px; 
+    margin-block-start: 5px;
+    margin-block-end: 5px;
   }
-  
-  .lista-beneficios li {
-    margin: 6px 0;
+  /*seccion planes*/
+  .planes-premium {
+    display: none;
   }
-  
-  .btn-suscribirme {
-    display: inline-block;
-    background-color: #7359a1;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-  }
-  
-  .btn-suscribirme:hover {
-    background-color: #5a3a92;
-  }
-  
+}
 
-  /* Responsive momento*/
+/* @media (min-width: 415px) and (max-width: 600px) */
+@media (min-width: 414px) and (max-width: 464px) {
+  /* Carrusel */
+  .carrusel {
+    padding-block-start: 10.5vh; /* Ajustar el padding vertical */
+    padding-block-end: 1vh;
+  }
+  .carrusel-contenedor {
+    padding:  0 20px;
+  }
+  .carrusel-slide {
+    padding: 0 5px;
+  }
+  .carrusel-slide img {
+    height: 200px; /* Ajustar altura de las imágenes */
+  }
+  .carrusel-boton {
+    top:55%;
+    transform: translateY(-30%);
+    display: none;
+  }
 
-  @media (max-width: 580px) {
+  /* Seccion Promo */
+  .seccion-promocional {
+    padding: 0.8rem 0.5rem; /* Reducir el relleno */
+  }
+  .promo-contenido {
+    gap: 1rem; /* Reducir el espacio entre elementos */
+  }
+  .promo-imagen {
+    height: 180px; /* Ajustar la altura */
+  }
+  .promo-texto {
+    max-width: 100%;
+    height: auto; /* Que se ajuste al contenido */
+    padding: 1rem; /* Ajustar relleno */
+  }
+  .promo-texto h2 {
+    font-size: 1.5rem; /* Reducir tamaño de fuente */
+    margin-bottom: 1rem;
+  }
+  .promo-texto p {
+    font-size: 1rem; /* Reducir tamaño de fuente */
+    margin: 1rem 0.5rem; /* Ajustar márgenes */
+  }
+  .boton-app {
+    width: 80px; /* Reducir el ancho */
+    font-size: 0.7rem; /* Reducir tamaño de fuente */
+    padding: 0.6rem 0.8rem;
+  }
+  /* Seccion Peliculas */
+  .seccion-peliculas-1,
+  .seccion-peliculas-2,
+  .seccion-peliculas-3 {
+    padding: 10px 20px; /* Reducir el relleno */
+  }
+  .titulo-seccion-pl {
+    font-size: 22px; /* Reducir el tamaño de la fuente */
+    padding: 0 10px;
+  }
+  .peliculas-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 6px; 
+    row-gap: 15px;
+    padding: 0;
+  }
+  .pelicula {
+    max-width: 190px; /* Ajustar el ancho máximo */
+  }
+  .pelicula img {
+    height: 230px; /* Ajustar la altura */
+  }
+  .titulo-pelicula {
+    font-size: 14px;
+    padding: 5px; 
+    margin-block-start: 8px;
+    margin-block-end: 8px;
+  }
+  /*seccion planes*/
+  .planes-premium {
+    display: none;
+  }
+}
+
+@media (min-width: 464px) and (max-width: 600px) {
+  /* Carrusel */
+  .carrusel {
+    padding-block-start: 10.5vh; /* Ajustar el padding vertical */
+    padding-block-end: 1vh;
+  }
+  .carrusel-contenedor {
+    padding:  0 20px;
+  }
+  .carrusel-slide {
+    padding: 0 5px;
+  }
+  .carrusel-slide img {
+    height: 200px; /* Ajustar altura de las imágenes */
+  }
+  .carrusel-boton {
+    top:55%;
+    transform: translateY(-30%);
+    display: none;
+  }
+
+  /* Seccion Promo */
+  .seccion-promocional {
+    padding: 0.8rem 0.5rem; /* Reducir el relleno */
+  }
+  .promo-contenido {
+    gap: 1rem; /* Reducir el espacio entre elementos */
+  }
+  .promo-imagen {
+    max-width: 600px;
+    height: auto; /* Ajustar la altura */
+  }
+  .promo-texto {
+    max-width: 100%;
+    height: auto; /* Que se ajuste al contenido */
+    padding: 1rem; /* Ajustar relleno */
+  }
+  .promo-texto h2 {
+    font-size: 1.5rem; /* Reducir tamaño de fuente */
+    margin-bottom: 1rem;
+  }
+  .promo-texto p {
+    font-size: 1rem; /* Reducir tamaño de fuente */
+    margin: 1rem 0.5rem; /* Ajustar márgenes */
+  }
+  .boton-app {
+    width: 80px; /* Reducir el ancho */
+    font-size: 0.7rem; /* Reducir tamaño de fuente */
+    padding: 0.7rem 1rem;
+  }
+  /* Seccion Peliculas */
+  .seccion-peliculas-1,
+  .seccion-peliculas-2,
+  .seccion-peliculas-3 {
+    padding: 10px 20px; /* Reducir el relleno */
+  }
+  .titulo-seccion-pl {
+    font-size: 22px; /* Reducir el tamaño de la fuente */
+    padding: 0 10px;
+  }
+  .peliculas-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 6px; 
+    row-gap: 15px;
+    padding: 0;
+  }
+  .pelicula {
+    max-width: 190px; /* Ajustar el ancho máximo */
+  }
+  .pelicula img {
+    height: 230px; /* Ajustar la altura */
+  }
+  .titulo-pelicula {
+    font-size: 14px;
+    padding: 5px; 
+    margin-block-start: 8px;
+    margin-block-end: 8px;
+  }
+  /*seccion planes*/
+  .planes-premium {
+    display: none;
+  }
+}
+
+/* @media (min-width: 601px) and (max-width: 813px) */
+@media (min-width: 600px) and (max-width: 817px) {
+  /* Carrusel */
+  .carrusel {
+    padding-block-start: 13vh; /* Ajustar el padding vertical */
+    padding-block-end: 2.2vh;
+  }
+  .carrusel-contenedor {
+    padding:  0 30px;
+  }
+  .carrusel-slide {
+    padding: 0 5px;
+  }
+  .carrusel-slide img {
+    height: 350px; /* Ajustar altura de las imágenes */
+  }
+  .carrusel-boton {
+    top:55%;
+    transform: translateY(-30%)
+  }
+
+  /* Seccion Promo */
+  .seccion-promocional {
+    padding: 1.5rem 1.5rem; /* Ajustar el relleno */
+  }
+  .promo-contenido {
+    gap: 2rem; /* Ajustar el espacio */
+  }
+  .promo-imagen {
+    max-width: 814px; /*Ajustar ancho imagen*/
+    height: auto; /* Ajustar la altura */
+  }
+  .promo-texto {
+    height: auto; /* Que se ajuste al contenido */
+    max-width: 755.4px;
+    padding: 1.8rem;  /*Ajustar el relleno */
+  }
+  .promo-texto h2 {
+    font-size: 1.8rem; /* Ajustar tamaño de fuente */
+    margin-bottom: 1.5rem;
+  }
+  .promo-texto p {
+    font-size: 1.1rem; /* Ajustar tamaño de fuente */
+    margin: 1.3rem 0.8rem; /* Ajustar márgenes */
+  }
+  .botones-app {
+    gap: 1rem;
+  }
+  .boton-app {
+    width: 100px; /* Ajustar el ancho */
+    font-size: 0.9rem; /* Ajustar tamaño de fuente */
+  }
+
+  /* Seccion Peliculas */
+  .seccion-peliculas-1,
+  .seccion-peliculas-2,
+  .seccion-peliculas-3 {
+    padding: 10px 35px; /* Ajustar el relleno */
+  }
+  .titulo-seccion-pl {
+    font-size: 26px; /* Ajustar el tamaño de la fuente */
+    padding: 0 17px;
+  }
+  .peliculas-grid {
+    gap: 17px; /* Ajustar el espacio entre elementos */
+    padding: 0 17px;
+  }
+  .pelicula {
+    max-width: 230px; /* Ajustar el ancho máximo */
+  }
+  .pelicula img {
+    height: 260px; /* Ajustar la altura */
+  }
+  .titulo-pelicula {
+    font-size: 15px; /* Ajustar el tamaño de la fuente */
+    padding: 7px;
+  }
+  /*seccion planes*/
+  .planes-premium {
+    display: none;
+  }
+}
+
+@media (min-width: 817px) and (max-width: 919px) {
+  /*Carrusel*/
+  .carrusel {
+    padding-block-start: 13vh;
+    padding-block-end: 2vh;
+  }
+
+  .carrusel-boton {
+    top:55%;
+    transform: translateY(-55%)
+  }
+  /*seccion promo*/
+  .seccion-promocional {
+    padding: 2rem 1rem;
+  }
+
+  .promo-contenido {
+    max-width: 1100px;
+    gap: 1rem;
+  }
+
+  .promo-imagen {
+    max-width: 470px;
+    height: auto;
+  }
+
+  .promo-texto {
+    max-width: 350px;
+    height: 209px;
+  }
+
+  .promo-texto h2 {
+    font-size: 1.2rem;
+    margin-inline: 10px;
+    margin-bottom: 0;
+  }
+
+  .promo-texto p {
+    margin: 0.6rem;
+    margin-top: 0.8rem;
+    margin-bottom: 0.5em;
+    font-size: 0.9rem;
+  }
+
+  .promo-texto .boton-app {
+    padding: 0.6rem 0.8rem;
+    width: 110px;
+    font-size: 15px;
+  }
+
+  /*seccion peliculas*/
+  .seccion-peliculas-1,
+  .seccion-peliculas-2,
+  .seccion-peliculas-3 {
+    padding: 10px 50px;
+  }
+
+  .seccion-peliculas-3 {
+    padding-bottom: 30px;
+  }
+  .titulo-seccion-pl {
+    font-size: 30px;
+  }
+
+  .peliculas-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+  /*seccion planes*/
+  .planes-premium {
+    display: none;
+  }
+
+}
+
+@media (min-width: 919px) and (max-width: 1024px) {
+   /*Carrusel*/
+   .carrusel {
+    padding-block-start: 13vh;
+    padding-block-end: 2vh;
+  }
+
+  .carrusel-boton {
+    top:55%;
+    transform: translateY(-55%)
+  }
+  /*seccion promo*/
+  .seccion-promocional {
+    padding: 2rem 1rem;
+  }
+
+  .promo-contenido {
+    max-width: 1100px;
+    gap: 1rem;
+  }
+
+  .promo-imagen {
+    max-width: 570px;
+    height: auto;
+  }
+
+  .promo-texto {
+    max-width: 500px;
+    height: 252px;
+  }
+
+  .promo-texto h2 {
+    font-size: 1.4rem;
+    margin-block-start: 10px;
+    margin-inline: 10px;
+    margin-bottom: 0;
+  }
+
+  .promo-texto p {
+    margin: 1rem;
+    margin-top: 0.8rem;
+    margin-bottom: 0.5em;
+    font-size: 1rem;
+  }
+
+  .promo-texto .boton-app {
+    padding: 0.6rem 0.8rem;
+    width: 110px;
+    font-size: 15px;
+  }
+
+  /*seccion peliculas*/
+  .seccion-peliculas-1,
+  .seccion-peliculas-2,
+  .seccion-peliculas-3 {
+    padding: 10px 50px;
+  }
+
+  .seccion-peliculas-3 {
+    padding-bottom: 30px;
+  }
+  .titulo-seccion-pl {
+    font-size: 30px;
+  }
+
+  .peliculas-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+  /*seccion planes*/
+  .planes-premium {
+    display: none;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1140px) {
+  /*Carrusel*/
+  .carrusel {
+    padding-block-start: 13vh;
+    padding-block-end: 2vh;
+  }
+
+  .carrusel-boton {
+    top:55%;
+    transform: translateY(-55%)
+  }
+  /*seccion promo*/
+  .seccion-promocional {
+    padding: 2rem 1rem;
+  }
+
+  .promo-contenido {
+    max-width: 1100px;
+  }
+
+  .promo-imagen {
+    max-width: 600px;
+    height: 330px;
+  }
+
+  .promo-texto {
+    max-width: 500px;
+    height: 330px;
+  }
+
+  .promo-texto h2 {
+    font-size: 1.6rem;
+    margin-inline: 10px;
+    margin-bottom: 0;
+  }
+
+  .promo-texto p {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+  }
+
+  .promo-texto .boton-app {
+    padding: 0.8rem 1.2rem;
+    width: 120px;
+    font-size: 18px;
+  }
+
+  /*seccion peliculas*/
+  .seccion-peliculas-1,
+  .seccion-peliculas-2,
+  .seccion-peliculas-3 {
+    padding: 10px 50px;
+  }
+
+  .seccion-peliculas-3 {
+    padding-bottom: 30px;
+  }
+  .titulo-seccion-pl {
+    font-size: 30px;
+  }
+
+  .peliculas-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+  /*seccion planes*/
+  .planes-premium {
+    display: none;
+  }
+
+}
+@media (min-width: 1140px) and (max-width: 1280px) {
+  /*Carrusel*/
+  .carrusel {
+    padding-block-start: 12.5vh;
+    padding-block-end: 2vh;
+  }
+
+  .carrusel-boton {
+    top:55%;
+    transform: translateY(-55%)
+  }
+
+/*seccion promo*/
+.seccion-promocional {
+  padding: 2rem 1rem;
+}
+
+.promo-contenido {
+  max-width: 1100px;
+}
+
+.promo-imagen {
+  max-width: 600px;
+  height: 330px;
+}
+
+.promo-texto {
+  max-width: 500px;
+  height: 330px;
+}
+
+.promo-texto h2 {
+  font-size: 1.8rem;
+  margin-inline: 10px;
+}
+
+.promo-texto p {
+  font-size: 1.3rem;
+}
+
+.promo-texto .boton-app {
+  padding: 1rem 1.4rem;
+  width: 120px;
+  font-size: 18px;
+}
+/*seccion planes*/
+.planes-premium {
+  display: none;
+}
+}
+/*Escritorios normales 1280px a 1920px*/
+
+@media (min-width: 1280px) and (max-width: 1440px) {
+  /*Carrusel*/
+  .carrusel {
+    padding-block-start: 12.5vh;
+    padding-block-end: 2vh;
+  }
+
+  .carrusel-boton {
+    top:55%;
+    transform: translateY(-55%)
+  }
+  /*seccion promo*/
+  .seccion-promocional {
+    padding: 2rem 1rem;
+  }
+
+  .promo-contenido {
+    max-width: 1100px;
+  }
+  .promo-imagen {
+    max-width: 550px;
+    height: 330px;
+  }
+  .promo-texto {
+    max-width: 550px;
+    height: 330px;
+  }
+  .promo-texto h2 {
+    font-size: 2.1rem;
+  }
+  .promo-texto p {
+    font-size: 1.1rem;
+  }
+
+  .promo-texto .boton-app {
+    padding: 1rem 1.8rem;
+    width: 150px;
+    font-size: 20px;
+  }
+
+  /*seccion peliculas*/
+  .seccion-peliculas-1,
+  .seccion-peliculas-2,
+  .seccion-peliculas-3 {
+    padding: 10px 50px;
+  }
+
+  .seccion-peliculas-3 {
+    padding-bottom: 30px;
+  }
+  .titulo-seccion-pl {
+    font-size: 30px;
+  }
+
+  .peliculas-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+  /*seccion planes*/
+  .planes-premium {
+    display: none;
+  }
+}
+
+@media (min-width: 1440px) and (max-width: 1920px) {
+  /*Carrusel*/
+  .carrusel {
+    padding-block-start: 12.5vh;
+    padding-block-end: 2vh;
+  }
+
+  .carrusel-boton {
+    top:60%;
+    transform: translateY(-50%)
+  }
+  /*seccion promo*/
+  
+  /*seccion peliculas*/
+  .seccion-peliculas-1,
+  .seccion-peliculas-2,
+  .seccion-peliculas-3 {
+    padding: 10px 50px;
+  }
+
+  .seccion-peliculas-3 {
+    padding-bottom: 30px;
+  }
+  .titulo-seccion-pl {
+    font-size: 30px;
+  }
+
+  .peliculas-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+  /*seccion planes*/
+  .planes-premium {
+    display: none;
+  }
+}
+
+@media (min-width: 1920px) {
+    /*Carrusel*/
     .carrusel {
-      height: 400px;
-      top: 20px;
+      padding-block-start: 8.4vh;
+      padding-block-end: 2vh;
     }
-
-    .carrusel-imagen {
-      height: 325px;
-    }
-
+  
     .carrusel-boton {
-      width: 35px;
-      height: 35px;
+      top:55%;
+      transform: translateY(-25%)
+    }
+    /*seccion promo*/
+    .seccion-promocional {
+      padding: 2rem 1rem;
     }
 
-    .carrusel-boton svg {
-      width: 18px;
-      height: 18px;
+    .promo-contenido {
+      max-width: 1600px;
+    }
+    .promo-imagen {
+      max-width: 750px;
+      height: 350px;
+    }
+    .promo-texto {
+      max-width: 750px;
+      height: 350px;
+    }
+    .promo-texto h2 {
+      font-size: 2.3rem;
+    }
+    .promo-texto p {
+      font-size: 1.4rem;
     }
 
-    .carrusel-indicadores {
-      gap: 15px;
+    .promo-texto .boton-app {
+      padding: 1rem 1.8rem;
+      width: 150px;
+      font-size: 20px;
     }
-  }
+
+    /*seccion peliculas*/
+    .seccion-peliculas-1,
+    .seccion-peliculas-2,
+    .seccion-peliculas-3 {
+      padding: 10px 50px;
+    }
+  
+    .seccion-peliculas-3 {
+      padding-bottom: 30px;
+    }
+    .titulo-seccion-pl {
+      font-size: 30px;
+    }
+  
+    .peliculas-grid {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+    /*seccion planes*/
+    .planes-premium {
+      display: none;
+    }
+}

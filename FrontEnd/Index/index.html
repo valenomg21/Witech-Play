@@ -17,33 +17,30 @@
      <div class="fondo-oscuro"></div>
     <!-- Carrusel-->
 
-    <section class="seccion-carrusel">
-     <div class="carrusel">
-
-         <button class="carrusel-boton izquierdo" aria-label="Anterior">
-           <svg viewBox="0 0 24 24" fill="none">
-             <path d="M15 6L9 12L15 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-           </svg>
-         </button>
-
-         <div class="carrusel-contenedor">
-           <div class="carrusel-items">
-             <img src="/FrontEnd/Imagenes/Carrusel/chjkfyo57JexWo1YeIZRMk8wA4m.webp" alt="Imagen 1" class="carrusel-imagen">
-             <img src="/FrontEnd/Imagenes/Carrusel/iVped1djsF0tvGkvnHbzsE3ZPTF.webp" alt="Imagen 2" class="carrusel-imagen">
-             <img src="/FrontEnd/Imagenes/Carrusel/jsoz1HlxczSuTx0mDl2h0lxy36l.webp" alt="Imagen 3" class="carrusel-imagen">
-             <img src="/FrontEnd/Imagenes/Carrusel/VuukZLgaCrho2Ar8Scl9HtV3yD.webp" alt="Imagen 3" class="carrusel-imagen">
-           </div>
-         </div>
-
-         <button class="carrusel-boton derecho" aria-label="Siguiente">
-          <svg viewBox="0 0 24 24" fill="none">
-            <path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
+    <div class="carrusel">
+      <div class="carrusel-contenedor">
+        <button class="carrusel-boton prev" aria-label="Anterior">
+          <
         </button>
-
-         <div class="carrusel-indicadores"></div>
-     </div>
-    </section>
+        <div class="carrusel-pista">
+          <div class="carrusel-slide">
+            <img src="/FrontEnd/Imagenes/Carrusel/chjkfyo57JexWo1YeIZRMk8wA4m.webp" alt="Imagen 1">
+          </div>
+          <div class="carrusel-slide">
+            <img src="/FrontEnd/Imagenes/Carrusel/iVped1djsF0tvGkvnHbzsE3ZPTF.webp" alt="Imagen 2">
+          </div>
+          <div class="carrusel-slide">
+            <img src="/FrontEnd/Imagenes/Carrusel/jsoz1HlxczSuTx0mDl2h0lxy36l.webp" alt="Imagen 3">
+          </div>
+          <div class="carrusel-slide">
+            <img src="/FrontEnd/Imagenes/Carrusel/VuukZLgaCrho2Ar8Scl9HtV3yD.webp" alt="Imagen 3">
+          </div>
+        </div>
+        <button class="carrusel-boton next" aria-label="Siguiente">
+          >
+        </button>
+      </div>
+    </div>
     <!-- Banner App -->
 
     <section class="seccion-promocional">
@@ -64,7 +61,7 @@
     <!-- seccion de contenido-->
 
     <section class="seccion-peliculas-1">
-        <h2 class="titulo-seccion">Proximamente</h2>
+        <h2 class="titulo-seccion-pl">Proximamente</h2>
         <div class="peliculas-grid">
           <div class="pelicula" data-id="minecraft">
             <img src="/FrontEnd/Imagenes/Banner-Principal/qNEmbTNjf5hVzecPq96pxGfBhbX.webp" alt="Película 1" data-video="video1.mp4" />
@@ -101,7 +98,7 @@
       </div>
 
       <section class="seccion-peliculas-2">
-        <h2 class="titulo-seccion">Series</h2>
+        <h2 class="-pl">Series</h2>
         <div class="peliculas-grid">
           <div class="pelicula" data-id="daredevilba">
             <img src="/FrontEnd/Imagenes/Banner-Principal/DaredevilBA.webp" alt="Película 1" data-video="video1.mp4" />
@@ -132,7 +129,7 @@
       </section>
 
       <section class="seccion-peliculas-3">
-        <h2 class="titulo-seccion">Accion</h2>
+        <h2 class="titulo-seccion-pl">Accion</h2>
         <div class="peliculas-grid">
           <div class="pelicula" data-id="durodematar4">
             <img src="/FrontEnd/Imagenes/Banner-Principal/DuroMatar4.jpg" alt="Película 1" data-video="video1.mp4" />
@@ -163,38 +160,36 @@
       </section>
 
     <!-- Planes -->
-    <section class="seccion-premium">
-        <div class="contenido-premium">
-          <h2 class="titulo-premium">Hazte Premium</h2>
-          <p class="descripcion-premium">
-            Accede a todo el contenido exclusivo, sin anuncios, en alta definición y desde cualquier dispositivo. ¡Elige tu plan ideal y disfruta de Witech Play al máximo!
-          </p>
-      
-          <div class="planes-premium">
-            <div class="tarjeta-plan">
-              <h3 class="nombre-plan">Mensual</h3>
-              <p class="precio-plan">$5.99 / mes</p>
-              <ul class="lista-beneficios">
-                <li>✔ Acceso completo</li>
-                <li>✔ Sin anuncios</li>
-                <li>✔ HD ilimitado</li>
-              </ul>
-              <a href="#pago-mensual" class="btn-suscribirme">Suscribirme</a>
-            </div>
-      
-            <div class="tarjeta-plan">
-              <h3 class="nombre-plan">Anual</h3>
-              <p class="precio-plan">$59.99 / año</p>
-              <ul class="lista-beneficios">
-                <li>✔ Todo lo del mensual</li>
-                <li>✔ Ahorro del 17%</li>
-                <li>✔ Soporte preferencial</li>
-              </ul>
-              <a href="#pago-anual" class="btn-suscribirme">Suscribirme</a>
-            </div>
+    <section class="planes-premium">
+      <div class="contenedor">
+        <h2 class="titulo-seccion-pr">Escoge tu plan</h2>
+        <p class="descripcion-seccion">
+          Accede a contenido premium, sin anuncios y en alta definición.
+        </p>
+        <div class="grilla-planes">
+          <div class="tarjeta-plan">
+            <h3 class="nombre-plan">Básico</h3>
+            <p class="precio-plan">$5.99/mes</p>
+            <ul class="lista-caracteristicas">
+              <li><i class="fas fa-check"></i> Acceso ilimitado</li>
+              <li><i class="fas fa-check"></i> Sin anuncios</li>
+              <li><i class="fas fa-times"></i> HD</li>
+            </ul>
+            <a href="#" class="boton-cta">Suscribirme</a>
+          </div>
+          <div class="tarjeta-plan destacado">
+            <h3 class="nombre-plan">Premium</h3>
+            <p class="precio-plan">$9.99/mes</p>
+            <ul class="lista-caracteristicas">
+              <li><i class="fas fa-check"></i> Acceso ilimitado</li>
+              <li><i class="fas fa-check"></i> Sin anuncios</li>
+              <li><i class="fas fa-check"></i> HD y 4K</li>
+            </ul>
+            <a href="#" class="boton-cta">Suscribirme</a>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
     <!-- Footer -->
     <div id="footer-container"></div>
