@@ -12,7 +12,9 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Cargar header y footer
-  cargar("header-container", "/FrontEnd/Index/header.htmlp", inicializarHeader);
+  cargar("header-container", "/FrontEnd/Index/header.htmlp", () => {
+    inicializarHeader()
+  });
   cargar("footer-container", "/FrontEnd/Index/footer.htmlp");
 
   // Inicializar comportamientos del header después de cargarlo
@@ -75,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Submenus
   document.querySelectorAll(".panel-lateral .submenu-toggle").forEach(toggle => {
     toggle.addEventListener("click", function (e) {
-      if (e.target.tagName.toLowerCase() === 'a') return;
+      e.preventDefault()
 
       const parentLi = this.closest('.has-submenu');
       parentLi.classList.toggle("open");
@@ -234,69 +236,56 @@ firebase.functions().httpsCallable('verifyCode')({ email: email, code: code })
 
 
   // Carrusel principal
-  const botonIzquierdo = document.querySelector(".carrusel-boton.izquierdo");
-  const botonDerecho = document.querySelector(".carrusel-boton.derecho");
-  const carruselItems = document.querySelector(".carrusel-items");
-  const imagenes = document.querySelectorAll(".carrusel-imagen");
-  const carrusel = document.querySelector(".carrusel");
-  const contenedorIndicadores = document.querySelector(".carrusel-indicadores");
-
-  let indice = 0;
-  let intervalo = null;
-
-  imagenes.forEach((_, i) => {
-    const punto = document.createElement("div");
-    punto.classList.add("carrusel-indicador");
-    if (i === 0) punto.classList.add("activo");
-    punto.addEventListener("click", () => {
-      indice = i;
-      actualizarCarrusel();
-      reiniciarIntervalo();
-    });
-    contenedorIndicadores.appendChild(punto);
+  const carouselTrack = document.querySelector('.carrusel-pista');
+  const carouselSlides = document.querySelectorAll('.carrusel-slide');
+  const prevButton = document.querySelector('.carrusel-boton.prev');
+  const nextButton = document.querySelector('.carrusel-boton.next');
+  
+  let slideIndex = 0;
+  let intervalId;
+  
+  function updateCarousel() {
+    const slideWidth = carouselSlides[0].offsetWidth;
+    carouselTrack.style.transform = `translateX(-${slideIndex * slideWidth}px)`;
+  }
+  
+  function nextSlide() {
+    slideIndex = (slideIndex + 1) % carouselSlides.length;
+    updateCarousel();
+  }
+  
+  function prevSlide() {
+    slideIndex = (slideIndex - 1 + carouselSlides.length) % carouselSlides.length;
+    updateCarousel();
+  }
+  
+  // Función para iniciar el avance automático
+  function startCarousel() {
+    intervalId = setInterval(nextSlide, 10000); // Cambia de slide cada 10 segundos
+  }
+  
+  // Función para detener el avance automático
+  function stopCarousel() {
+    clearInterval(intervalId);
+  }
+  
+  nextButton.addEventListener('click', () => {
+    stopCarousel();  //Detener intervalo automatico al clicar boton siguiente
+    nextSlide();
+    startCarousel(); //Reanudar automaticamente
   });
-
-  function actualizarIndicadores() {
-    const puntos = document.querySelectorAll(".carrusel-indicador");
-    puntos.forEach((punto, i) => {
-      punto.classList.toggle("activo", i === indice);
-    });
-  }
-
-  function actualizarCarrusel() {
-    carruselItems.style.transform = `translateX(calc(-${indice} * 100%))`;
-    actualizarIndicadores();
-  }
-
-  function avanzarAutomaticamente() {
-    intervalo = setInterval(() => {
-      indice = (indice + 1) % imagenes.length;
-      actualizarCarrusel();
-    }, 10000);
-  }
-
-  function reiniciarIntervalo() {
-    clearInterval(intervalo);
-    avanzarAutomaticamente();
-  }
-
-  botonDerecho.addEventListener("click", () => {
-    indice = (indice + 1) % imagenes.length;
-    actualizarCarrusel();
-    reiniciarIntervalo();
+  
+  prevButton.addEventListener('click', () => {
+    stopCarousel();//Detener intervalo automatico al clicar boton anterior
+    prevSlide();
+    startCarousel();//Reanudar automaticamente
   });
-
-  botonIzquierdo.addEventListener("click", () => {
-    indice = (indice - 1 + imagenes.length) % imagenes.length;
-    actualizarCarrusel();
-    reiniciarIntervalo();
-  });
-
-  carrusel.addEventListener("mouseenter", () => clearInterval(intervalo));
-  carrusel.addEventListener("mouseleave", avanzarAutomaticamente);
-
-  actualizarCarrusel();
-  avanzarAutomaticamente();
+  
+  // Llamada inicial a updateCarousel para el desplazamiento
+  updateCarousel();
+  
+  // Iniciar el avance automático al cargar la página
+  startCarousel();
 
   //
 
