@@ -660,15 +660,43 @@ input.error {
 
 
 
-@media (max-width: 464px) {
+@media (min-width: 415px) and (max-width: 464px) {
 
   header {
       height: 50px;
-      padding: 0 10px;
+      padding: 0 5px;
     }
-  
+    
+    /*Header Lado Izquierdo*/
+    .header-left {
+      gap: 8px;
+    }
+    
+    .menu img {
+      width: 35%;
+    }
+
+    .group {
+      flex: 1;
+      margin-left: 33px;
+    }
+
+    .group input {
+      font-size: 12px;
+      padding: 6px;
+      width: 85%;
+      height: 35px;
+    }
+    .search-icon {
+      left: 0.5rem;
+    }
+
+    .group .input {
+      padding-left: 2rem;
+    }
+/* Header Central */
     .header-center img {
-      height: 42px;
+      height: 50px;
     }
   
     .panel-lateral {
@@ -696,10 +724,77 @@ input.error {
     .panel-lateral .subopciones li {
       font-size: 12px;
     }
+
+    .nav-and-button nav {
+      display: none;
+    }
+
+    /* Header lado Derecho*/
+    .header-right {
+      gap: 6px;
+      padding-right: 10px;
+      flex: none;
+    }
+  
+    .btn-login {
+      font-size: 10px;
+      margin: 0;
+      width: 100px;
+      height: 35px;
+    }
+
+    .btn-login-inner {
+      gap: 0;
+      width: 100px;
+      height: 35px;
+      font-size: 0;
+      padding: 0;
+    }
+
+    .btn-login-inner svg {
+      width: 15px;
+      height: 16px;
+    }
+
+    .btn-login-inner span {
+      font-weight: 550;
+      font-size: 9.5px;
+    }
+  
+    .nav-and-button nav {
+      display: none;
+    }
+  
+    .panel-lateral {
+      width: 80%;
+      max-width: 240px;
+      border-top-right-radius: 18px;
+      border-bottom-right-radius: 18px;
+    }
+  
+    .panel-lateral ul li {
+      font-size: 15px;
+      padding: 8px 12px;
+    }
+  
+    .panel-lateral .subopciones li {
+      font-size: 13px;
+      padding: 6px 10px;
+    }
+    /*Footer*/
+    #footer-container {
+      font-size: 14px; /* Reducir el tamaño de la fuente */
+      padding: 10px; /* Reducir el padding interno */
+    }
+  
+    #footer-container .contacto-info p,
+    #footer-container .legal a {
+      margin: 3px 0; /* Reducir el margen vertical */
+    }
 }
 /* Responsive: pantallas menores a 580px */
 
-@media (max-width: 600px) {
+@media (min-width: 465px) and (max-width: 600px) {
   
   header {
       height: 55px;
@@ -713,14 +808,14 @@ input.error {
   
     .group {
       flex: 1;
-      margin-left: 50px;
+      margin-left: 40px;
     }
 
     .group input {
       font-size: 12px;
       padding: 6px;
-      width: 90%;
-      height: 40px;
+      width: 85%;
+      height: 35px;
     }
     .search-icon {
       left: 0.5rem;
@@ -753,18 +848,18 @@ input.error {
     }
   
     .btn-login {
-      font-size: 12px;
+      font-size: 10px;
       margin: 0;
-      width: 110px;
-      height: 40px;
+      width: 100px;
+      height: 35px;
     }
 
     .btn-login-inner {
       gap: 0;
       width: 100px;
-      height: 40px;
+      height: 35px;
       font-size: 0;
-      padding: 0 5px;
+      padding: 0;
     }
 
     .btn-login-inner svg {
@@ -773,8 +868,8 @@ input.error {
     }
 
     .btn-login-inner span {
-      font-weight: 700;
-      font-size: 10px;
+      font-weight: 550;
+      font-size: 9.5px;
     }
   
     .nav-and-button nav {
@@ -810,7 +905,7 @@ input.error {
 }
 /* Responsive: pantallas menores a 480px */
 
-@media (max-width: 817px) {
+@media (min-width: 601px) and (max-width: 817px) {
   
   header {
       height: 55px;
@@ -861,6 +956,7 @@ input.error {
       gap: 6px;
       padding-right: 20px;
       flex: none;
+      margin-left: 70px;
     }
   
     .btn-login {
@@ -920,7 +1016,7 @@ input.error {
     }
 }
 
-@media (max-width: 919px) {
+@media (min-width: 818px) and (max-width: 919px) {
   
   header {
       height: 55px;
@@ -971,6 +1067,7 @@ input.error {
       gap: 6px;
       padding-right: 20px;
       flex: none;
+      margin-left: 150px;
     }
   
     .btn-login {
@@ -1030,7 +1127,7 @@ input.error {
     }
 }
 
-@media (max-width: 1024px) {
+@media (min-width: 920px) and (max-width: 1024px) {
   
   header {
       height: 55px;
@@ -1081,6 +1178,7 @@ input.error {
       gap: 6px;
       padding-right: 20px;
       flex: none;
+      margin-left: 150px;
     }
   
     .btn-login {
@@ -1140,7 +1238,7 @@ input.error {
     }
 }
 
-@media (max-width: 1140px) {
+@media (min-width: 1025px) and (max-width: 1140px) {
   
   header {
       height: 55px;
@@ -1218,9 +1316,6 @@ input.error {
       font-size: 10px;
     }
   
-    .nav-and-button nav {
-      display: none;
-    }
   
     .panel-lateral {
       width: 80%;
