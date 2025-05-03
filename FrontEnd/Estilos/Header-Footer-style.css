@@ -620,42 +620,136 @@ input.error {
 }
 
 
-@media (max-width: 414px) {
+@media (max-width: 415px) {
 
   header {
-      height: 50px;
-      padding: 0 10px;
-    }
+    height: 50px;
+    padding: 0 5px;
+  }
   
-    .header-center img {
-      height: 42px;
-    }
+  /*Header Lado Izquierdo*/
+  .header-left {
+    gap: 8px;
+  }
   
-    .panel-lateral {
-      width: 100%;
-      border-radius: 0;
-    }
-  
-    .item-inferior {
-      width: 100%;
-      padding: 8px;
-      font-size: 12px;
-      justify-content: center;
-      text-align: center;
-    }
-  
-    .item-inferior svg {
-      width: 16px;
-      height: 16px;
-    }
-  
-    .panel-lateral ul li {
-      font-size: 14px;
-    }
-  
-    .panel-lateral .subopciones li {
-      font-size: 12px;
-    }
+  .menu img {
+    width: 33%;
+  }
+
+  .group {
+    flex: 1;
+    margin-left: 33px;
+  }
+
+  .group input {
+    font-size: 11px;
+    padding: 6px;
+    width: 80%;
+    height: 33px;
+  }
+  .search-icon {
+    left: 0.3rem;
+  }
+
+  .group .input {
+    padding-left: 1.8rem;
+  }
+/* Header Central */
+  .header-center img {
+    height: 50px;
+  }
+
+  .panel-lateral {
+    width: 100%;
+    border-radius: 0;
+  }
+
+  .item-inferior {
+    width: 100%;
+    padding: 8px;
+    font-size: 12px;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .item-inferior svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .panel-lateral ul li {
+    font-size: 14px;
+  }
+
+  .panel-lateral .subopciones li {
+    font-size: 12px;
+  }
+
+  .nav-and-button nav {
+    display: none;
+  }
+
+  /* Header lado Derecho*/
+  .header-right {
+    gap: 6px;
+    padding-right: 10px;
+    flex: none;
+  }
+
+  .btn-login {
+    font-size: 10px;
+    margin: 0;
+    width: 45px;
+    height: 33px;
+  }
+
+  .btn-login-inner {
+    gap: 0;
+    width: 45px;
+    height: 33px;
+    font-size: 0;
+    padding: 0;
+  }
+
+  .btn-login-inner svg {
+    width: 18px;
+    height: 16px;
+  }
+
+  .btn-login-inner span {
+    display: none;
+  }
+
+  .nav-and-button nav {
+    display: none;
+  }
+
+  .panel-lateral {
+    width: 80%;
+    max-width: 240px;
+    border-top-right-radius: 18px;
+    border-bottom-right-radius: 18px;
+  }
+
+  .panel-lateral ul li {
+    font-size: 15px;
+    padding: 8px 12px;
+  }
+
+  .panel-lateral .subopciones li {
+    font-size: 13px;
+    padding: 6px 10px;
+  }
+  /*Footer*/
+  #footer-container {
+    font-size: 14px; /* Reducir el tamaño de la fuente */
+    padding: 10px; /* Reducir el padding interno */
+  }
+
+  #footer-container .contacto-info p,
+  #footer-container .legal a {
+    margin: 3px 0; /* Reducir el margen vertical */
+  }
 }
 
 
