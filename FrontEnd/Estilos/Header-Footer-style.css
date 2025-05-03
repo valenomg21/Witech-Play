@@ -665,7 +665,7 @@ input.error {
   }
 
   .item-inferior {
-    width: 100%;
+    width: 90px;
     padding: 8px;
     font-size: 12px;
     justify-content: center;
@@ -742,7 +742,7 @@ input.error {
   }
   /*Footer*/
   #footer-container {
-    font-size: 14px; /* Reducir el tamaño de la fuente */
+    font-size: 13px; /* Reducir el tamaño de la fuente */
     padding: 10px; /* Reducir el padding interno */
   }
 
@@ -799,7 +799,7 @@ input.error {
     }
   
     .item-inferior {
-      width: 100%;
+      width: 90px;
       padding: 8px;
       font-size: 12px;
       justify-content: center;
