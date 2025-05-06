@@ -8,6 +8,26 @@ body {
   position: relative;
 }
 
+/*Fondo Oscuro*/
+.fondo-oscuro {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 5;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3 ease;
+}
+
+.fondo-oscuro.visible {
+  opacity: 1;
+  visibility: visible;
+  z-index: 6;
+}
+
 /* Fondo con imagen de fondo y degradado */
 
 .imagen-fondo {
@@ -81,7 +101,7 @@ body {
 }
 
 .link-genero {
-  color: #1d1d1e;
+  color: #3bcc5a;
   text-decoration: none;
   transition: transform 0.2s;
 }
@@ -191,38 +211,226 @@ body {
 
 /*Responsive momento*/
 
-@media (max-width: 768px) {
+
+@media (max-width: 464px) {
+  .contenedor-pelicula {
+    margin: 0 5px;
+    padding-top: 33px;
+  }
   .contenido-pelicula {
+    padding: 15px 35px;
+    max-width: 650px;
     margin: 0 auto;
-    padding: 0 20px;
-    text-align: center;
   }
 
   .titulo-pelicula {
-    font-size: 32px;
-  }
-
-  .info-pelicula {
-    font-size: 14px;
+    font-size: 26px; /* más chico */
   }
 
   .sinopsis-pelicula {
-    font-size: 16px;
-    text-align: justify;
-  }
-
-  .botones-pelicula {
-    flex-direction: column;
-    align-items: center;
-    max-width: 100%;
-  }
-
-  .botones-pelicula button {
-    width: 100%;
-    max-width: 300px;
+    font-size: 15px;
   }
 
   #video-container iframe {
     height: 250px;
+  }
+}
+
+
+@media (min-width: 465px) and (max-width: 600px) {
+  .contenedor-pelicula {
+    margin: 0 8px;
+    padding-top: 33px;
+  }
+  .contenido-pelicula {
+    padding: 15px 35px;
+    max-width: 650px;
+    margin: 0 auto;
+  }
+
+  .titulo-pelicula {
+    font-size: 30px;
+  }
+
+  .sinopsis-pelicula {
+    font-size: 15px;
+  }
+
+  #video-container iframe {
+    height: 220px;
+  }
+}
+
+
+@media (min-width: 601px) and (max-width: 817px) {
+  .contenedor-pelicula {
+    margin: 0 12px;
+    padding-top: 37px;
+  }
+  .contenido-pelicula {
+    padding: 35px;
+    max-width: 650px;
+    margin: 0 auto;
+  }
+
+  .titulo-pelicula {
+    font-size: 34px;
+  }
+
+  .sinopsis-pelicula {
+    font-size: 16px;
+  }
+
+  #video-container iframe {
+    height: 250px;
+  }
+}
+
+
+@media (min-width: 818px) and (max-width: 919px) {
+  .contenedor-pelicula {
+    margin: 0 20px;
+    padding-top: 40px;
+  }
+  .contenido-pelicula {
+    padding: 38px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .titulo-pelicula {
+    font-size: 36px;
+  }
+
+  .sinopsis-pelicula {
+    font-size: 16.5px;
+  }
+
+  #video-container iframe {
+    height: 280px;
+  }
+}
+
+
+@media (min-width: 920px) and (max-width: 1024px) {
+  .contenedor-pelicula {
+    margin: 0 20px;
+    padding-top: 40px;
+  }
+  .contenido-pelicula {
+    padding: 38px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .titulo-pelicula {
+    font-size: 40px;
+  }
+
+  .sinopsis-pelicula {
+    font-size: 17px;
+  }
+
+  #video-container iframe {
+    height: 320px;
+  }
+}
+
+
+@media (min-width: 1025px) and (max-width: 1140px) {
+  .contenedor-pelicula {
+    margin: 0 20px;
+    padding-top: 40px;
+  }
+  .contenido-pelicula {
+    padding: 38px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .titulo-pelicula {
+    font-size: 42px;
+  }
+
+  .sinopsis-pelicula {
+    font-size: 17.5px;
+  }
+
+  #video-container iframe {
+    height: 350px;
+  }
+}
+
+
+@media (min-width: 1141px) and (max-width: 1280px) {
+  .contenedor-pelicula {
+    margin: 0 20px;
+  }
+  .contenido-pelicula {
+    padding: 38px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .titulo-pelicula {
+    font-size: 45px;
+  }
+
+  .sinopsis-pelicula {
+    font-size: 18px;
+  }
+
+  #video-container iframe {
+    height: 400px;
+  }
+}
+
+
+@media (min-width: 1281px) and (max-width: 1440px) {
+  .contenido-pelicula {
+    padding: 40px;
+  }
+
+  .titulo-pelicula {
+    font-size: 48px; /* ya es el tuyo actual */
+  }
+
+  .sinopsis-pelicula {
+    font-size: 18px;
+  }
+
+  #video-container iframe {
+    height: 450px;
+  }
+}
+
+
+@media (min-width: 1441px) and (max-width: 1920px) {
+  .contenido-pelicula {
+    padding: 45px;
+  }
+
+  .titulo-pelicula {
+    font-size: 50px;
+  }
+
+  #video-container iframe {
+    height: 500px;
+  }
+}
+
+
+@media (min-width: 1921px) {
+  .contenido-pelicula {
+    padding: 50px;
+    max-width: 1400px;
+  }
+
+  .titulo-pelicula {
+    font-size: 54px;
+  }
+
+  #video-container iframe {
+    height: 600px;
   }
 }
