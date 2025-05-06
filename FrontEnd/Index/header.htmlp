@@ -134,6 +134,7 @@
             
             <div class="popup-overlay" id="popup-overlay">
               <div class="popup-form" id="popup-form">
+                
                 <span class="close-popup" id="close-popup">×</span>
                 <h2>Iniciar Sesión</h2>
                 <form>
