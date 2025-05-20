@@ -9,9 +9,15 @@
     <link rel="Icon" href="/FrontEnd/Imagenes/Icono/logo-1173935095-1728869406-0d49a887e4481f6878662eb805f4555b1728869406.png">
     <link rel="stylesheet" href="/FrontEnd/Estilos/Index-style.css">
     <link rel="stylesheet" href="/FrontEnd/Estilos/Header-Footer-style.css">
+    <link rel="stylesheet" href="/FrontEnd/Estilos/Pantalla-carga.css">
 </head>
 
 <body>
+<div id="pantalla-carga">
+  <div class="spinner">
+
+  </div>
+</div>
     <!-- Header -->
      <div id="header-container"></div>
      <div class="fondo-oscuro"></div>
@@ -19,8 +25,10 @@
 
     <div class="carrusel">
       <div class="carrusel-contenedor">
-        <button class="carrusel-boton prev" aria-label="Anterior">
-          <
+        <button class="carrusel-boton prev">
+          <svg viewBox="0 0 24 24">
+            <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6z"/>
+          </svg>
         </button>
         <div class="carrusel-pista">
           <div class="carrusel-slide">
@@ -33,11 +41,25 @@
             <img src="/FrontEnd/Imagenes/Carrusel/jsoz1HlxczSuTx0mDl2h0lxy36l.webp" alt="Imagen 3">
           </div>
           <div class="carrusel-slide">
-            <img src="/FrontEnd/Imagenes/Carrusel/VuukZLgaCrho2Ar8Scl9HtV3yD.webp" alt="Imagen 3">
+            <img src="/FrontEnd/Imagenes/Carrusel/VuukZLgaCrho2Ar8Scl9HtV3yD.webp" alt="Imagen 4">
+          </div>
+          <div class="carrusel-slide">
+            <img src="/FrontEnd/Imagenes/Carrusel/j0NUh5irX7q2jIRtbLo8TZyRn6y.webp" alt="Imagen 5">
+          </div>
+          <div class="carrusel-slide">
+            <img src="/FrontEnd/Imagenes/Carrusel/nn9vM29SKN227zupaOOmaJz5SA0.webp" alt="Imagen 6">
+          </div>
+          <div class="carrusel-slide">
+            <img src="/FrontEnd/Imagenes/Carrusel/qdKGpTHVaaKaFTnRynQDg4qHdEv.webp" alt="Imagen 7">
+          </div>
+          <div class="carrusel-slide">
+            <img src="/FrontEnd/Imagenes/Carrusel/uJ16DD1dj4CQLPNCWIoiOF3l8np.webp" alt="Imagen 8">
           </div>
         </div>
-        <button class="carrusel-boton next" aria-label="Siguiente">
-          >
+        <button class="carrusel-boton next">
+          <svg viewBox="0 0 24 24">
+            <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/>
+          </svg>
         </button>
       </div>
     </div>
@@ -60,104 +82,395 @@
     
     <!-- seccion de contenido-->
 
-    <section class="seccion-peliculas-1">
-        <h2 class="titulo-seccion-pl">Proximamente</h2>
-        <div class="peliculas-grid">
-          <div class="pelicula" data-id="minecraft">
-            <img src="/FrontEnd/Imagenes/Banner-Principal/qNEmbTNjf5hVzecPq96pxGfBhbX.webp" alt="Película 1" data-video="video1.mp4" />
-            <h3 class="titulo-pelicula">Una Pelicula de Minecraft</h3>
-          </div>
-          <div class="pelicula" data-id="capamer-nm">
-            <img src="/FrontEnd/Imagenes/Banner-Principal/capitanamerica.webp" alt="Película 2" data-video="video2.mp4" />
-            <h3 class="titulo-pelicula">Capitan America: Un Nuevo Mundo</h3>
-          </div>
-          <div class="pelicula" data-id="blancanieves">
-            <img src="/FrontEnd/Imagenes/Banner-Principal/Blancanieves.webp" alt="Película 3" data-video="video2.mp4" />
-            <h3 class="titulo-pelicula">Blanca Nieves</h3>
-          </div>
-          <div class="pelicula" data-id="aworkingman">
-            <img src="/FrontEnd/Imagenes/Banner-Principal/aworkingman.webp" alt="Película 4" data-video="video2.mp4" />
-            <h3 class="titulo-pelicula">A Working Man</h3>
-          </div>
-          <div class="pelicula" data-id="invencible">
-            <img src="/FrontEnd/Imagenes/Banner-Principal/Invencible.webp" alt="Película 5" data-video="video2.mp4" />
-            <h3 class="titulo-pelicula">Invencible: Un Niño Fuera de Serie</h3>
-          </div>
-          <div class="pelicula" data-id="confidencial">
-            <img src="/FrontEnd/Imagenes/Banner-Principal/ConfidencialBB.webp" alt="Película 6" data-video="video2.mp4" />
-            <h3 class="titulo-pelicula">Confidencial: Black Bag</h3>
-          </div>
-          
-        </div>
-      </section>
+    <section class="seccion-contenido">
+  <div class="contenedor-principal">
 
-      <div class="decorativo-onda">
-        <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
-          <path fill="#7359a1" fill-opacity="0.08" d="M0,192L30,186.7C60,181,120,171,180,176C240,181,300,203,360,213.3C420,224,480,224,540,202.7C600,181,660,139,720,112C780,85,840,75,900,101.3C960,128,1020,192,1080,224C1140,256,1200,256,1260,224C1320,192,1380,128,1410,96L1440,64L1440,0L1410,0C1380,0,1320,0,1260,0C1200,0,1140,0,1080,0C1020,0,960,0,900,0C840,0,780,0,720,0C660,0,600,0,540,0C480,0,420,0,360,0C300,0,240,0,180,0C120,0,60,0,30,0L0,0Z"></path>
-        </svg>
+    <div class="contenedor-carruseles">
+
+      <!-- Carrusel Tendencias Peliculas -->
+      <div class="carrusel-horizontal">
+        <h2 class="titulo-seccion-pl">Tendencias - Películas</h2>
+
+        <div class="carrusel-control">
+         <button class="flecha izquierda">&#10094;</button>
+
+           <div class="peliculas-carrusel ">
+
+            <div class="pelicula-wrapper">
+              <div class="pelicula" data-id="adolescencia">
+               <img src="/FrontEnd/Imagenes/Banner-Principal/Adolescencia.webp" alt="adolescencia" />
+               <h3 class="titulo-pelicula">Adolescencia</h3>
+             </div>
+            </div>
+            
+             <div class="pelicula-wrapper">
+              <div class="pelicula" data-id="minecraft">
+               <img src="/FrontEnd/Imagenes/Banner-Principal/qNEmbTNjf5hVzecPq96pxGfBhbX.webp" alt="Minecraft" />
+               <h3 class="titulo-pelicula">Una Pelicula de Minecraft</h3>
+             </div>
+             </div>
+             
+             <div class="pelicula-wrapper">
+              <div class="pelicula" data-id="blancanieves">
+               <img src="/FrontEnd/Imagenes/Banner-Principal/Blancanieves.webp" alt="Blanca Nieves" />
+               <h3 class="titulo-pelicula">Blanca Nieves</h3>
+             </div>
+             </div>
+             
+             <div class="pelicula-wrapper">
+              <div class="pelicula" data-id="aworkingman">
+               <img src="/FrontEnd/Imagenes/Banner-Principal/aworkingman.webp" alt="A Working Man" />
+               <h3 class="titulo-pelicula">A Working Man</h3>
+             </div>
+             </div>
+             
+             <div class="pelicula-wrapper">
+              <div class="pelicula" data-id="capitanamerica">
+               <img src="/FrontEnd/Imagenes/Banner-Principal/capitanamerica.webp" alt="Capitan America" />
+               <h3 class="titulo-pelicula">Capitan America: Un Nuevo Mundo</h3>
+             </div>
+             </div>
+             
+             <div class="pelicula-wrapper">
+              <div class="pelicula" data-id="minecraft">
+               <img src="/FrontEnd/Imagenes/Banner-Principal/qNEmbTNjf5hVzecPq96pxGfBhbX.webp" alt="Minecraft" />
+               <h3 class="titulo-pelicula">Una Pelicula de Minecraft</h3>
+             </div>
+             </div>
+             
+             <div class="pelicula-wrapper">
+              <div class="pelicula" data-id="minecraft">
+               <img src="/FrontEnd/Imagenes/Banner-Principal/qNEmbTNjf5hVzecPq96pxGfBhbX.webp" alt="Minecraft" />
+               <h3 class="titulo-pelicula">Una Pelicula de Minecraft</h3>
+             </div>
+             </div>
+
+             <div class="pelicula-wrapper">
+               <div class="pelicula" data-id="minecraft">
+               <img src="/FrontEnd/Imagenes/Banner-Principal/qNEmbTNjf5hVzecPq96pxGfBhbX.webp" alt="Minecraft" />
+               <h3 class="titulo-pelicula">Una Pelicula de Minecraft</h3>
+             </div>
+             </div>
+             
+             <div class="pelicula-wrapper">
+              <div class="pelicula" data-id="minecraft">
+               <img src="/FrontEnd/Imagenes/Banner-Principal/qNEmbTNjf5hVzecPq96pxGfBhbX.webp" alt="Minecraft" />
+               <h3 class="titulo-pelicula">Una Pelicula de Minecraft</h3>
+             </div>
+             </div>
+             
+             <div class="pelicula-wrapper">
+              <div class="pelicula" data-id="minecraft">
+               <img src="/FrontEnd/Imagenes/Banner-Principal/qNEmbTNjf5hVzecPq96pxGfBhbX.webp" alt="Minecraft" />
+               <h3 class="titulo-pelicula">Una Pelicula de Minecraft</h3>
+             </div>
+             </div>
+
+             <div class="pelicula-wrapper">
+              <div class="pelicula" data-id="minecraft">
+               <img src="/FrontEnd/Imagenes/Banner-Principal/qNEmbTNjf5hVzecPq96pxGfBhbX.webp" alt="Minecraft" />
+               <h3 class="titulo-pelicula">Una Pelicula de Minecraft</h3>
+             </div>
+             </div>
+
+             <div class="pelicula-wrapper">
+              <div class="pelicula" data-id="minecraft">
+               <img src="/FrontEnd/Imagenes/Banner-Principal/qNEmbTNjf5hVzecPq96pxGfBhbX.webp" alt="Minecraft" />
+               <h3 class="titulo-pelicula">Una Pelicula de Minecraft</h3>
+             </div>
+             </div>
+
+           </div>
+         <button class="flecha derecha">&#10095;</button>
+        </div>
+        
       </div>
 
-      <section class="seccion-peliculas-2">
-        <h2 class="-pl">Series</h2>
-        <div class="peliculas-grid">
-          <div class="pelicula" data-id="daredevilba">
-            <img src="/FrontEnd/Imagenes/Banner-Principal/DaredevilBA.webp" alt="Película 1" data-video="video1.mp4" />
-            <h3 class="titulo-pelicula">Daredevil: Born Again</h3>
-          </div>
-          <div class="pelicula" data-id="reacher">
-            <img src="/FrontEnd/Imagenes/Banner-Principal/Reacher.webp" alt="Película 2" data-video="video2.mp4" />
-            <h3 class="titulo-pelicula">Reacher</h3>
-          </div>
-          <div class="pelicula" data-id="adolescence">
-            <img src="/FrontEnd/Imagenes/Banner-Principal/Adolescencia.webp" alt="Película 2" data-video="video2.mp4" />
-            <h3 class="titulo-pelicula">Adolescence</h3>
-          </div>
-          <div class="pelicula" data-id="invencibleanime">
-            <img src="/FrontEnd/Imagenes/Banner-Principal/InvencibleAnime.webp" alt="Película 2" data-video="video2.mp4" />
-            <h3 class="titulo-pelicula">Invencible</h3>
-          </div>
-          <div class="pelicula" data-id="flash">
-            <img src="/FrontEnd/Imagenes/Banner-Principal/Flash.webp" alt="Película 2" data-video="video2.mp4" />
-            <h3 class="titulo-pelicula">The Flash</h3>
-          </div>
-          <div class="pelicula" data-id="greysanatomy">
-            <img src="/FrontEnd/Imagenes/Banner-Principal/Anatomia de grey.webp" alt="Película 2" data-video="video2.mp4" />
-            <h3 class="titulo-pelicula">Grey's Anatomy </h3>
-          </div>
-          
-        </div>
-      </section>
+      <!-- Carrusel Accion Peliculas -->
+      <div class="carrusel-horizontal">
+        <h2 class="titulo-seccion-pl">Acción - Películas</h2>
 
-      <section class="seccion-peliculas-3">
-        <h2 class="titulo-seccion-pl">Accion</h2>
-        <div class="peliculas-grid">
-          <div class="pelicula" data-id="durodematar4">
-            <img src="/FrontEnd/Imagenes/Banner-Principal/DuroMatar4.jpg" alt="Película 1" data-video="video1.mp4" />
+        <div class="carrusel-control">
+          <button class="flecha izquierda">&#10094</button>
+           <div class="peliculas-carrusel">
+          
+            <div class="pelicula-wrapper">
+              <div class="pelicula" data-id="durodematar4">
+              <img src="/FrontEnd/Imagenes/Banner-Principal/DuroMatar4.jpg" alt="Duro de Matar 4.0" />
+              <h3 class="titulo-pelicula">Duro de Matar 4.0</h3>
+              </div>
+            </div>
+          
+          <div class="pelicula-wrapper">
+            <div class="pelicula" data-id="durodematar4">
+            <img src="/FrontEnd/Imagenes/Banner-Principal/DuroMatar4.jpg" alt="Duro de Matar 4.0" />
             <h3 class="titulo-pelicula">Duro de Matar 4.0</h3>
+            </div>
           </div>
-          <div class="pelicula" data-id="durodematarubpm">
-            <img src="/FrontEnd/Imagenes/Banner-Principal/DuroMatar5.jpg" alt="Película 2" data-video="video2.mp4" />
-            <h3 class="titulo-pelicula">Duro de Matar: Un Buen Día Para Morir</h3>
+          
+          <div class="pelicula-wrapper">
+            <div class="pelicula" data-id="durodematar4">
+            <img src="/FrontEnd/Imagenes/Banner-Principal/DuroMatar4.jpg" alt="Duro de Matar 4.0" />
+            <h3 class="titulo-pelicula">Duro de Matar 4.0</h3>
+            </div>
           </div>
-          <div class="pelicula" data-id="venom">
-            <img src="/FrontEnd/Imagenes/Banner-Principal/Venom.jpg" alt="Película 2" data-video="video2.mp4" />
-            <h3 class="titulo-pelicula">Venom</h3>
+          
+          <div class="pelicula-wrapper">
+            <div class="pelicula" data-id="durodematar4">
+            <img src="/FrontEnd/Imagenes/Banner-Principal/DuroMatar4.jpg" alt="Duro de Matar 4.0" />
+            <h3 class="titulo-pelicula">Duro de Matar 4.0</h3>
+            </div>
           </div>
-          <div class="pelicula" data-id="venom2">
-            <img src="/FrontEnd/Imagenes/Banner-Principal/Venom2.jpg" alt="Película 2" data-video="video2.mp4" />
-            <h3 class="titulo-pelicula">Venom: The Last Dance</h3>
+          
+          <div class="pelicula-wrapper">
+            <div class="pelicula" data-id="durodematar4">
+            <img src="/FrontEnd/Imagenes/Banner-Principal/DuroMatar4.jpg" alt="Duro de Matar 4.0" />
+            <h3 class="titulo-pelicula">Duro de Matar 4.0</h3>
+            </div>
           </div>
-          <div class="pelicula" data-id="ironman3">
-            <img src="/FrontEnd/Imagenes/Banner-Principal/IronMan3.jpg" alt="Película 2" data-video="video2.mp4" />
-            <h3 class="titulo-pelicula">Iron Man 3</h3>
+          
+          <div class="pelicula-wrapper">
+            <div class="pelicula" data-id="durodematar4">
+            <img src="/FrontEnd/Imagenes/Banner-Principal/DuroMatar4.jpg" alt="Duro de Matar 4.0" />
+            <h3 class="titulo-pelicula">Duro de Matar 4.0</h3>
+            </div>
           </div>
-          <div class="pelicula" data-id="madmaxfr">
-            <img src="/FrontEnd/Imagenes/Banner-Principal/MadMax.jpg" alt="Película 2" data-video="video2.mp4" />
-            <h3 class="titulo-pelicula">Mad Max: Fury Road</h3>
+
+          <div class="pelicula-wrapper">
+            <div class="pelicula" data-id="durodematar4">
+            <img src="/FrontEnd/Imagenes/Banner-Principal/DuroMatar4.jpg" alt="Duro de Matar 4.0" />
+            <h3 class="titulo-pelicula">Duro de Matar 4.0</h3>
+            </div>
+          </div>
+
+          <div class="pelicula-wrapper">
+            <div class="pelicula" data-id="durodematar4">
+            <img src="/FrontEnd/Imagenes/Banner-Principal/DuroMatar4.jpg" alt="Duro de Matar 4.0" />
+            <h3 class="titulo-pelicula">Duro de Matar 4.0</h3>
+            </div>
+          </div>
+
+          <div class="pelicula-wrapper">
+            <div class="pelicula" data-id="durodematar4">
+            <img src="/FrontEnd/Imagenes/Banner-Principal/DuroMatar4.jpg" alt="Duro de Matar 4.0" />
+            <h3 class="titulo-pelicula">Duro de Matar 4.0</h3>
+            </div>
+          </div>
+
+          <div class="pelicula-wrapper">
+            <div class="pelicula" data-id="durodematar4">
+            <img src="/FrontEnd/Imagenes/Banner-Principal/DuroMatar4.jpg" alt="Duro de Matar 4.0" />
+            <h3 class="titulo-pelicula">Duro de Matar 4.0</h3>
+            </div>
+          </div>
+          </div>
+          <button class="flecha derecha">&#10095</button>
+        </div>
+       
+      </div>
+
+      <!-- Carrusel Tendencias Series -->
+      <div class="carrusel-horizontal">
+        <h2 class="titulo-seccion-pl">Tendencias - Series</h2>
+        <div class="carrusel-control">
+          <button class="flecha izquierda">&#10094;</button>
+
+        <div class="peliculas-carrusel">
+
+          <div class="pelicula-wrapper">
+            <div class="pelicula" data-id="daredevilba">
+            <img src="/FrontEnd/Imagenes/Banner-Principal/DaredevilBA.webp" alt="Daredevil" />
+            <h3 class="titulo-pelicula">Daredevil: Born Again</h3>
+            </div>
+          </div>
+          
+          <div class="pelicula-wrapper">
+            <div class="pelicula" data-id="daredevilba">
+            <img src="/FrontEnd/Imagenes/Banner-Principal/DaredevilBA.webp" alt="Daredevil" />
+            <h3 class="titulo-pelicula">Daredevil: Born Again</h3>
+            </div>
+          </div>
+          
+          <div class="pelicula-wrapper">
+            <div class="pelicula" data-id="daredevilba">
+            <img src="/FrontEnd/Imagenes/Banner-Principal/DaredevilBA.webp" alt="Daredevil" />
+            <h3 class="titulo-pelicula">Daredevil: Born Again</h3>
+            </div>
+          </div>
+          
+          <div class="pelicula-wrapper">
+            <div class="pelicula" data-id="daredevilba">
+            <img src="/FrontEnd/Imagenes/Banner-Principal/DaredevilBA.webp" alt="Daredevil" />
+            <h3 class="titulo-pelicula">Daredevil: Born Again</h3>
+            </div>
+          </div>
+          
+          <div class="pelicula-wrapper">
+            <div class="pelicula" data-id="daredevilba">
+            <img src="/FrontEnd/Imagenes/Banner-Principal/DaredevilBA.webp" alt="Daredevil" />
+            <h3 class="titulo-pelicula">Daredevil: Born Again</h3>
+            </div>
+          </div>
+           
+          <div class="pelicula-wrapper">
+            <div class="pelicula" data-id="daredevilba">
+            <img src="/FrontEnd/Imagenes/Banner-Principal/DaredevilBA.webp" alt="Daredevil" />
+            <h3 class="titulo-pelicula">Daredevil: Born Again</h3>
+            </div>
+          </div>
+
+          <div class="pelicula-wrapper">
+            <div class="pelicula" data-id="daredevilba">
+            <img src="/FrontEnd/Imagenes/Banner-Principal/DaredevilBA.webp" alt="Daredevil" />
+            <h3 class="titulo-pelicula">Daredevil: Born Again</h3>
+            </div>
+          </div>
+
+          <div class="pelicula-wrapper">
+            <div class="pelicula" data-id="daredevilba">
+            <img src="/FrontEnd/Imagenes/Banner-Principal/DaredevilBA.webp" alt="Daredevil" />
+            <h3 class="titulo-pelicula">Daredevil: Born Again</h3>
+            </div>
+          </div>
+
+          <div class="pelicula-wrapper">
+            <div class="pelicula" data-id="daredevilba">
+            <img src="/FrontEnd/Imagenes/Banner-Principal/DaredevilBA.webp" alt="Daredevil" />
+            <h3 class="titulo-pelicula">Daredevil: Born Again</h3>
+            </div>
+          </div>
+
+          <div class="pelicula-wrapper">
+            <div class="pelicula" data-id="daredevilba">
+            <img src="/FrontEnd/Imagenes/Banner-Principal/DaredevilBA.webp" alt="Daredevil" />
+            <h3 class="titulo-pelicula">Daredevil: Born Again</h3>
+            </div>
+          </div>
+        </div>
+          <button class="flecha derecha">&#10095</button>
+        </div>
+        
+      </div>
+
+      <!-- Carrusel Accion Series -->
+      <div class="carrusel-horizontal">
+        <h2 class="titulo-seccion-pl">Acción - Series</h2>
+
+        <div class="carrusel-control">
+          <button class="flecha izquierda">&#10094</button>
+          <div class="peliculas-carrusel">
+          
+          <div class="pelicula-wrapper">
+            <div class="pelicula" data-id="invencibleanime">
+            <img src="/FrontEnd/Imagenes/Banner-Principal/InvencibleAnime.webp" alt="Invencible" />
+            <h3 class="titulo-pelicula">Invencible</h3>
+            </div>
+          </div>
+          
+          <div class="pelicula-wrapper">
+            <div class="pelicula" data-id="invencibleanime">
+            <img src="/FrontEnd/Imagenes/Banner-Principal/InvencibleAnime.webp" alt="Invencible" />
+            <h3 class="titulo-pelicula">Invencible</h3>
+            </div>
+          </div>
+          
+          <div class="pelicula-wrapper">
+            <div class="pelicula" data-id="invencibleanime">
+            <img src="/FrontEnd/Imagenes/Banner-Principal/InvencibleAnime.webp" alt="Invencible" />
+            <h3 class="titulo-pelicula">Invencible</h3>
+            </div>
+          </div>
+          
+          <div class="pelicula-wrapper">
+            <div class="pelicula" data-id="invencibleanime">
+            <img src="/FrontEnd/Imagenes/Banner-Principal/InvencibleAnime.webp" alt="Invencible" />
+            <h3 class="titulo-pelicula">Invencible</h3>
+            </div>
+          </div>
+          
+          <div class="pelicula-wrapper">
+            <div class="pelicula" data-id="invencibleanime">
+            <img src="/FrontEnd/Imagenes/Banner-Principal/InvencibleAnime.webp" alt="Invencible" />
+            <h3 class="titulo-pelicula">Invencible</h3>
+            </div>
+          </div>
+          
+          <div class="pelicula-wrapper">
+            <div class="pelicula" data-id="invencibleanime">
+            <img src="/FrontEnd/Imagenes/Banner-Principal/InvencibleAnime.webp" alt="Invencible" />
+            <h3 class="titulo-pelicula">Invencible</h3>
+            </div>
+          </div>
+
+          <div class="pelicula-wrapper">
+            <div class="pelicula" data-id="invencibleanime">
+            <img src="/FrontEnd/Imagenes/Banner-Principal/InvencibleAnime.webp" alt="Invencible" />
+            <h3 class="titulo-pelicula">Invencible</h3>
+            </div>
+          </div>
+
+          <div class="pelicula-wrapper">
+            <div class="pelicula" data-id="invencibleanime">
+            <img src="/FrontEnd/Imagenes/Banner-Principal/InvencibleAnime.webp" alt="Invencible" />
+            <h3 class="titulo-pelicula">Invencible</h3>
+            </div>
+          </div>
+
+          <div class="pelicula-wrapper">
+            <div class="pelicula" data-id="invencibleanime">
+            <img src="/FrontEnd/Imagenes/Banner-Principal/InvencibleAnime.webp" alt="Invencible" />
+            <h3 class="titulo-pelicula">Invencible</h3>
+            </div>
+          </div>
+
+          <div class="pelicula-wrapper">
+            <div class="pelicula" data-id="invencibleanime">
+            <img src="/FrontEnd/Imagenes/Banner-Principal/InvencibleAnime.webp" alt="Invencible" />
+            <h3 class="titulo-pelicula">Invencible</h3>
+            </div>
           </div>
           
         </div>
-      </section>
+          <button class="flecha derecha">&#10095</button>
+        </div>
+        
+      </div>
+
+      
+    </div>
+    <!-- Carrusel Vertical (Promocion-Producto) -->
+     <div class="contenedor-lateral">
+        <div class="prese-promo-vertical">
+           <div class="titulo-promo-vertical">
+             <h2>Mejora tu experiencia con nuestros productos en:</h2>
+           </div>
+           <div class="logo-zona-promo">
+             <a href="https://www.witech.com.ar"><img src="/FrontEnd/Imagenes/Icono/logo-WT.webp" alt=""></a>
+           </div>
+        </div>
+
+        <aside class="carrusel-vertical">
+          <div class="seccion-promo-produ">
+            <!-- contenido productos... -->
+             <div class="productos" data-id="flash">
+                <a href="https://www.witech.com.ar/productos/proyector-ultra-hd-highlight-coating-lens/"><img src="/FrontEnd/Imagenes/Promo-Productos/8eb74ac0-4592-4a7d-aed0-79d5f16dc3fe-3f3653e4652f0b88ef17457260428397-1024-1024.webp" alt=""><h3>Proyector Ultra HD Highlight Coating Lens</h3></a>     
+              </div>
+              <div class="productos" data-id="flash">
+                <a href="https://www.witech.com.ar/productos/tv-box-amazon-prime/"><img src="/FrontEnd/Imagenes/Promo-Productos/preventa-fotos-48-510x510-cf4bfae8cc65096f6417264175613056-1024-1024.webp" alt=""/> <h3>TV Box Amazon Prime</h3></a>         
+              </div>
+              <div class="productos" data-id="flash">
+                <a href="https://www.witech.com.ar/productos/proyector-android-turbo-ultra-hd/"><img src="/FrontEnd/Imagenes/Promo-Productos/x60-unidades-30-510x510-e9fd4f4ee3229a295317435686092742-1024-1024.webp" alt=""/><h3>Proyector Android Turbo Ultra HD</h3></a>         
+              </div>
+              <div class="productos" data-id="flash">
+                <a href="https://www.witech.com.ar/productos/televisor-smartv-kodak-led-50/"><img src="/FrontEnd/Imagenes/Promo-Productos/x60-unidades-37-1-9dc671a0828ee1d3d217401443698122-1024-1024.webp" alt=""/><h3>Televisor Smartv KODAK LED 50″</h3></a>       
+              </div>
+          </div>
+        </aside>
+     </div>
+  </div>
+
+</section>
+
 
     <!-- Planes -->
     <section class="planes-premium">
@@ -195,6 +508,7 @@
     <div id="footer-container"></div>
 
 <script src="/FrontEnd/Js/main.js"></script>
+<script src="/FrontEnd/Js/peli-carrusel.js"></script>
 <script src="/FrontEnd/Js/data.js"></script>
 
 </body>

@@ -9,8 +9,7 @@ header {
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
-  background: rgb(94,73,130);
-  background: linear-gradient(0deg, rgba(70, 50, 100,1) 0%, rgba(120, 100, 160,1) 48%, rgba(70, 50, 100,1) 100%);
+  background: rgb(31, 27, 46);
   transition: top 0.4s ease;
   z-index: 6;
   align-items: center;

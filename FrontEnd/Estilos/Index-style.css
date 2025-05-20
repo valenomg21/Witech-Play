@@ -31,58 +31,118 @@ body {
 
 /* Carrusel principal */
 .carrusel {
-  padding-block-start: 12vh;
-  padding-block-end: 3vh;
+  padding-block-start: 14vh;
+  padding-block-end: 4vh;
   position: relative;
-  overflow: hidden; /* Oculta las imágenes que están fuera del contenedor */
+  width: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.carrusel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('/FrontEnd/Imagenes/Assets/patron-diamantes.svg') center/cover no-repeat;
+  z-index: -1;
 }
 
 .carrusel-contenedor {
-  display: flex; /* Necesario para la alineación horizontal */
-  align-items: center; /* Centra verticalmente los elementos */
-  padding: 0 50px; /* Espacio para los botones y visibilidad parcial de las imágenes */
+  position: relative;
+  width: 100%;
 }
-
+.carrusel-pista.no-transition{
+  transition: none !important;
+}
 .carrusel-pista {
-  display: flex; /* Alinea las imágenes horizontalmente */
-  transition: transform 0.3s ease; /* Animación para el desplazamiento */
+  display: flex; 
+  position: relative;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .carrusel-slide {
-  flex-shrink: 0; /* Evita que las imágenes se encojan */
-  width: 100%; /* Ocupa todo el ancho disponible (importante!) */
-  padding: 0 10px; /* Espacio a los lados de cada imagen */
-  box-sizing: border-box; /* Incluye el padding en el ancho */
+  flex-shrink: 0; 
+  width: 60vw;
+  max-width: 700px;
+  margin: 0 10px;
+  box-sizing: border-box;
+
+  position: relative;
+  opacity: 0.4;
+  transform: scale(0.80) perspective(500px);
+
+  transition: 
+  transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+  opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+  z-index 0s linear 0.3s;
+
+  z-index: 1;
+  cursor: pointer;
+}
+
+.carrusel-slide.is-active {
+  opacity: 1;
+  transform: scale(1.1) perspective(0px);
+  z-index: 3;
+}
+
+.carrusel-slide.is-prev,.carrusel-slide.is-next {
+  opacity: 0.7;
+  transform: scale(0.90) perspective(500px);
+  z-index: 2;
 }
 
 .carrusel-slide img {
-  width: 100%; /* Ocupa todo el ancho del slide */
-  height: 400px; /* Mantiene la proporción */
-  object-fit:cover; /* Ajusta la imagen al contenedor */
-  border-radius: 5px; /* Bordes redondeados (opcional) */
+  width: 100%;
+  height: 45vh;
+  min-height: 350px; 
+  max-height: 500px; 
+  object-fit: cover; 
+  border-radius: 7px; 
+  display: block;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
 }
 
+/*Botones Carrusel*/
 .carrusel-boton {
-  position: absolute; /* Posición absoluta para colocarlos a los lados */
+  position: absolute;
   top: 50%;
-  transform: translateY(-50%); /* Centrar verticalmente */
-  background-color: #2a2340f2; /* Fondo semi-transparente */
-  color: #3bcc5a;
-  border: none;
-  padding: 12px 8px;
-  font-size: 20px;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.603);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.297);
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
-  z-index: 1; 
+  transform-origin: center;
+  will-change: transform;
+  overflow: visible;
+  z-index: 5;
 }
 
-.carrusel-boton.prev {
-  left: 0;
-  border-radius: 0 4px 4px 0;
+.carrusel-boton:hover {
+  background: rgba(0, 0, 0, 0.603);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
 }
 
 .carrusel-boton.next {
-  right: 0;
-  border-radius: 4px 0 0 4px;
+  right: 5vw;
+}
+.carrusel-boton.prev {
+  left: 5vw;
+}
+.carrusel-boton svg {
+  width: 25px;
+  height: 25px;
+  fill: white;
 }
 
 /* seccion app */
@@ -165,47 +225,40 @@ body {
 .boton-app:hover {
   opacity: 0.85;
 }
-/* */
-.decorativo-onda {
-  position: absolute;
-  width: 100%;
-  height: 320px;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  pointer-events: none;
-  z-index: 0;
-  overflow: hidden;
-}
 
-.decorativo-onda svg {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
 
-/* seccion de contenido*/
-.seccion-peliculas-1,
-.seccion-peliculas-2,
-.seccion-peliculas-3 {
-  padding: 10px 40px;
+/* ==========================================================================
+   ESTRUCTURA GENERAL Y LAYOUT PRINCIPAL DE PELICULAS
+   ========================================================================== */
+
+.seccion-contenido {
+  padding: 10px 0; 
   background-color: #4b3276;
   color: white;
-  text-align: start;
+  position: relative; 
   z-index: 1;
-  position: relative;
 }
 
-.seccion-peliculas-3 {
-  padding-bottom: 50px;
+.contenedor-principal {
+  display: flex;
+  gap: 20px; 
 }
+
+/* ==========================================================================
+   TÍTULOS DE SECCIÓN
+   ========================================================================== */
 
 .titulo-seccion-pl {
-  font-size: 28px;
-  color: #ffffff;
-  padding: 0 20px;
+  font-family: 'Roboto', 'Segoe UI', sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: #e8e8f3;
+  letter-spacing: 0.5px;
+  text-transform: capitalize;
+
+  margin: 0 0 0 10px;
+  padding: 5px 0;
   position: relative;
-  text-decoration: none;
   display: inline-block;
 }
 
@@ -213,54 +266,393 @@ body {
   content: "";
   position: absolute;
   left: 0;
-  bottom: 0;
+  bottom: 0; 
   height: 3px;
-  width: 0%;
-  background-color: #3bcc5a;
-  transition: width 0.3s ease;
+  width: 0%; 
+  background-color: #4CAF50;
+
+  transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); 
 }
 
 .titulo-seccion-pl:hover::after {
+  content: "";
   width: 100%;
 }
 
-.peliculas-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 20px;
-  padding: 0 20px;
-  text-align: center;
+/* ==========================================================================
+  CARRUSEL HORIZONTAL
+   ========================================================================== */
+
+ .carrusel-horizontal {
+  width: 100%;
+  margin-bottom: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1)
+ }
+
+ .carrusel-horizontal:first-child {
+  border-top: none;
+  margin-top: 0;
+ }
+/* ==========================================================================
+   COMPONENTES DEL CARRUSEL HORIZONTAL
+   ========================================================================== */
+
+/* Contenedor principal de todos los carruseles horizontales */
+.contenedor-carruseles {
+  flex: 3; 
+  display: flex;
+  flex-direction: column;
 }
 
-.pelicula {
-  max-width: 250px;
-  background-color: rgb(29 25 43 / 83%);
-  border-radius: 5px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-  transition: transform 0.3s;
+/* Contenedor de un carrusel individual (incluye flechas y viewport de películas) */
+.carrusel-control {
+  display: flex;
+  align-items: center; 
+  overflow: hidden;   
+  position: relative; 
+  width: 100%; 
+}
+
+/* Efecto de fade en los bordes del carrusel-control */
+.carrusel-control::before, 
+.carrusel-control::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 10px; 
+  z-index: 2;  
+  pointer-events: none; 
+}
+
+.carrusel-control::before {
+  left: 0;
+  background: linear-gradient(to right, #4b3276, transparent);
+}
+
+.carrusel-control::after {
+  right: 0;
+  background: linear-gradient(to left, #4b3276, transparent);
+}
+
+/* Viewport donde se mueven las tarjetas de películas */
+.peliculas-carrusel {
+  display: flex;
+  gap: 15px;     
+  position: relative;  
+  padding-top: 40px;   
+  padding-bottom: 20px;
+  padding-right: 60px;
+  padding-left: 30px; 
+  flex-wrap: nowrap;    
+  width: calc(160px * 5 + 15px * 4); 
+  z-index: 1;     
+  align-items: center;  
+}
+
+/* Wrapper de cada tarjeta. Mantiene el espacio en el flujo flex. */
+.pelicula-wrapper {
+  width: 160px; 
+  height: 220px; 
+  position: relative; 
+  flex: 0 0 auto;
+}
+
+/* Atenúa las tarjetas no activas cuando una está en hover */
+.carrusel-item-active .pelicula-wrapper:not(:has(.is-hovered)) .pelicula {
+  opacity: 0.8;    
+  pointer-events: none; 
+}
+
+/* Flechas de navegación del carrusel */
+.carrusel-control .flecha {
+  position: absolute;
+  top: 55%;
+  transform: translateY(-55%);
+  z-index: 5;
+
+  background-color: rgba(20, 20, 30, 0.5);
+  color: rgba(255, 255, 255, 0.1);
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translateY(-55%) scale(0.8);
+
+  transition:
+  background-color 0.25s ease-out,
+  color 0.25s ease-out,
+  border-color 0.25s ease-out,
+  opacity 0.3s ease-out,
+  transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+  visibility 0.3s ease-out;
+}
+
+.carrusel-control .flecha:hover {
+  background-color: rgba(98, 179, 12, 0.9);
+  color: #ffffff;
+  border-color: rgba(98, 179, 12, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  transform: translateY(-55%) scale(1.1);
   cursor: pointer;
 }
 
-.pelicula:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
-  border: 2px solid #3bcc5a;
+.carrusel-control .flecha:active {
+  background-color: rgba(78, 143, 9, 0.9);
+  transform: translateY(-55%) scale(1.05);
+  transition-duration: 0.1s;
+}
+.carrusel-control:hover .flecha {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-55%) scale(1);
+}
+
+.flecha.izquierda {
+  left: 20px; 
+}
+
+.flecha.derecha {
+  right: 0; 
+}
+
+.carrusel-control .flecha{
+  font-size: 18px;
+  font-weight: bold;
+}
+/* ==========================================================================
+   TARJETA DE PELÍCULA INDIVIDUAL (.pelicula)
+   ========================================================================== */
+
+.pelicula {
+  position: absolute; 
+  top: 0;
+  left: 0;
+  width: 100%;    
+  height: 100%; 
+  
+  background-color: rgb(29 25 43 / 83%); 
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  cursor: pointer;
+  box-sizing: border-box;
+  transform-origin: center center; 
+  overflow: hidden; 
+  z-index: 1;       
+
+  /* Transiciones para volver al estado normal y para atenuación */
+  transition: 
+    transform 0.3s ease,
+    width 0.3s ease,
+    height 0.3s ease,
+    opacity 0.3s ease,
+    box-shadow 0.3s ease,
+    outline 0.3s ease,
+    z-index 0s linear 0.3s; 
+
+  will-change: transform, width, height, opacity; 
+}
+
+/* Estado hover de la tarjeta (controlado por JS con clase .is-hovered) */
+.pelicula.is-hovered {
+  width: 180px;  
+  height: auto;   
+  transform: translateX(-10px) translateY(-25px) scale(1.10); 
+      
+  
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6); 
+  outline: 3px solid #3bcc5a;
+  z-index: 20; 
+  opacity: 1; 
+  background-color: rgb(29, 25, 43); 
 }
 
 .pelicula img {
   width: 100%;
-  height: 270px;
+  height: 220px;  
+  object-fit: cover;
+  display: block; 
+  border-radius: 8px;
+  transition: height 0.3s ease 0.1s; 
+}
+
+.pelicula.is-hovered img {
+  height: 240px;
+  border-radius: 8px 8px 0 0; 
+}
+
+/* Título de la película, posicionado absolutamente dentro de .pelicula */
+.titulo-pelicula {
+  position: absolute; 
+  bottom: 0;       
+  left: 0;
+  right: 0; 
+  width: 100%;     
+  box-sizing: border-box; 
+
+  padding: 10px 8px; 
+  margin: 0;
+  font-size: 13px;
+  color: #fff;
+  text-align: center;
+  background-color: rgba(29, 25, 43, 0.963); 
+  border-radius: 0 0 8px 8px; 
+
+  opacity: 0;    
+  visibility: hidden;
+  max-height: 0;
+
+  
+  transition: 
+    opacity 0.3s ease 0.15s, 
+    max-height 0.3s ease 0.15s;
+}
+
+.pelicula.is-hovered .titulo-pelicula {
+  opacity: 1;
+  visibility: visible;
+  max-height: 60px; 
+}
+
+
+/* ==========================================================================
+   COMPONENTES DEL CARRUSEL VERTICAL (Promoción Productos)
+   ========================================================================== */
+
+/* Contenedor lateral para la promoción */
+.contenedor-lateral {
+  flex: 1; 
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 280px;
+  margin-top: 66px; 
+  padding: 12px;
+}
+
+/* Bloque de presentación del logo de la tienda */
+.prese-promo-vertical {
+  flex-grow: 0; 
+  flex-shrink: 0; 
+  background-color: #2a2440; 
+  padding: 20px 15px; 
+  border-radius: 10px; 
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); 
+  text-align: center; 
+  margin-bottom: 20px; 
+}
+
+.titulo-promo-vertical {
+  padding: 5px;
+}
+
+.titulo-promo-vertical h2 {
+  font-size: 18px; 
+  font-weight: 600; 
+  color: #e0e0e0;  
+  margin: 0 0 15px 0;
+  line-height: 1.4;
+}
+
+.titulo-promo-vertical h2::after {
+  content: '';
+  display: block;
+  width: 70px; 
+  height: 2px;
+  background-color: #3bcc5a; 
+  margin: 8px auto 0;
+}
+
+.logo-zona-promo a{
+  display: inline-block;
+}
+
+.logo-zona-promo img {
+  width: 180px; 
+  max-width: 100%; 
+  height: auto;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.logo-zona-promo img:hover {
+  transform: scale(1.08);
+  opacity: 0.85;
+}
+
+/* Carrusel vertical de productos */
+.carrusel-vertical {  
+  flex-grow: 1;
+  max-height: 905px;
+  background-color: #2a2440;
+  padding: 20px 10px;
+  border-radius: 10px;
+  overflow-y: auto;
+  scrollbar-width: none; 
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.carrusel-vertical::-webkit-scrollbar { 
+  display: none;
+}
+
+/* Contenedor interno de los productos en el carrusel vertical */
+.seccion-promo-produ {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; 
+  align-items: center;
+}
+
+/* Tarjeta de producto individual */
+.productos {
+  width: 100%;
+  max-width: 220px;
+  background-color: #3a3153;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+  overflow: hidden; 
+  transition: transform  0.3s ease, box-shadow 0.3s ease, outline-color 0.3s ease;
+  cursor: pointer;
+  outline: 2px solid transparent;
+}
+
+.productos img {
+  height: 100%; 
+  width: 100%;  
   object-fit: cover;
   display: block;
 }
 
-.titulo-pelicula {
-  padding: 10px;
-  font-size: 16px;
-  color: #fff;
+.productos:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 8px 16px rgba(50, 50, 93, 0.25), 0 4px 12px rgba(0, 0, 0, 0.2); /* Sombra más elaborada */
+  outline: 2px solid #3bcc5a;
 }
 
+.productos a {
+  text-decoration: none;
+  display: block; 
+  color: #e0e0e0; 
+}
+
+.productos h3 {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 12px 10px;
+  margin: 0;
+  line-height: 1.3;
+  background-color: rgba(0,0,0, 0.1);
+}
 /* Planes */
 .planes-premium {
   background-image: url(../Imagenes/Icono/bg-tiles.png);
@@ -306,13 +698,13 @@ body {
   width: 300px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 2px solid transparent; /* Espacio para la línea en el hover */
+  border: 2px solid transparent; 
 }
 
 .tarjeta-plan:hover {
-  transform: translateY(-5px); /* Subir un poco al hacer hover */
+  transform: translateY(-5px); 
   box-shadow: 0 8px 20px rgba(179, 3, 255, 0.637);
-  border-color: #4CAF50; /* Resaltar con una línea al hacer hover */
+  border-color: #4CAF50;
 }
 
 .nombre-plan {
@@ -324,7 +716,7 @@ body {
 
 .precio-plan {
   font-size: 20px;
-  color: #4CAF50; /* Color de acento */
+  color: #4CAF50;
   margin-bottom: 20px;
   font-weight: bold;
 }
@@ -339,12 +731,12 @@ body {
 .lista-caracteristicas li {
   margin: 10px 0;
   display: flex;
-  align-items: center; /* Alineación vertical para el icono */
+  align-items: center; 
 }
 
 .lista-caracteristicas li i {
   margin-right: 8px;
-  color: #4CAF50; /* Color de los iconos */
+  color: #4CAF50; 
   font-size: 16px;
 }
 
@@ -373,24 +765,7 @@ body {
 /* @media (max-width: 414px) */
 @media (max-width: 414px) {
   /* Carrusel */
-  .carrusel {
-    padding-block-start: 10.5vh; /* Ajustar el padding vertical */
-    padding-block-end: 1vh;
-  }
-  .carrusel-contenedor {
-    padding:  0 20px;
-  }
-  .carrusel-slide {
-    padding: 0 5px;
-  }
-  .carrusel-slide img {
-    height: 200px; /* Ajustar altura de las imágenes */
-  }
-  .carrusel-boton {
-    top:55%;
-    transform: translateY(-30%);
-    display: none;
-  }
+  
 
   /* Seccion Promo */
   .seccion-promocional {
@@ -421,33 +796,7 @@ body {
     padding: 0.6rem 0.8rem;
   }
   /* Seccion Peliculas */
-  .seccion-peliculas-1,
-  .seccion-peliculas-2,
-  .seccion-peliculas-3 {
-    padding: 10px 20px; /* Reducir el relleno */
-  }
-  .titulo-seccion-pl {
-    font-size: 22px; /* Reducir el tamaño de la fuente */
-    padding: 0 10px;
-  }
-  .peliculas-grid {
-    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-    gap: 6px; 
-    row-gap: 15px;
-    padding: 0;
-  }
-  .pelicula {
-    max-width: 150px; /* Ajustar el ancho máximo */
-  }
-  .pelicula img {
-    height: 200px; /* Ajustar la altura */
-  }
-  .titulo-pelicula {
-    font-size: 14px;
-    padding: 5px; 
-    margin-block-start: 5px;
-    margin-block-end: 5px;
-  }
+  
   /*seccion planes*/
   .planes-premium {
     display: none;
@@ -457,24 +806,7 @@ body {
 /* @media (min-width: 415px) and (max-width: 600px) */
 @media (min-width: 414px) and (max-width: 464px) {
   /* Carrusel */
-  .carrusel {
-    padding-block-start: 10.5vh; /* Ajustar el padding vertical */
-    padding-block-end: 1vh;
-  }
-  .carrusel-contenedor {
-    padding:  0 20px;
-  }
-  .carrusel-slide {
-    padding: 0 5px;
-  }
-  .carrusel-slide img {
-    height: 200px; /* Ajustar altura de las imágenes */
-  }
-  .carrusel-boton {
-    top:55%;
-    transform: translateY(-30%);
-    display: none;
-  }
+ 
 
   /* Seccion Promo */
   .seccion-promocional {
@@ -505,33 +837,7 @@ body {
     padding: 0.6rem 0.8rem;
   }
   /* Seccion Peliculas */
-  .seccion-peliculas-1,
-  .seccion-peliculas-2,
-  .seccion-peliculas-3 {
-    padding: 10px 20px; /* Reducir el relleno */
-  }
-  .titulo-seccion-pl {
-    font-size: 22px; /* Reducir el tamaño de la fuente */
-    padding: 0 10px;
-  }
-  .peliculas-grid {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 6px; 
-    row-gap: 15px;
-    padding: 0;
-  }
-  .pelicula {
-    max-width: 190px; /* Ajustar el ancho máximo */
-  }
-  .pelicula img {
-    height: 230px; /* Ajustar la altura */
-  }
-  .titulo-pelicula {
-    font-size: 14px;
-    padding: 5px; 
-    margin-block-start: 8px;
-    margin-block-end: 8px;
-  }
+  
   /*seccion planes*/
   .planes-premium {
     display: none;
@@ -540,24 +846,7 @@ body {
 
 @media (min-width: 464px) and (max-width: 600px) {
   /* Carrusel */
-  .carrusel {
-    padding-block-start: 10.5vh; /* Ajustar el padding vertical */
-    padding-block-end: 1vh;
-  }
-  .carrusel-contenedor {
-    padding:  0 20px;
-  }
-  .carrusel-slide {
-    padding: 0 5px;
-  }
-  .carrusel-slide img {
-    height: 200px; /* Ajustar altura de las imágenes */
-  }
-  .carrusel-boton {
-    top:55%;
-    transform: translateY(-30%);
-    display: none;
-  }
+ 
 
   /* Seccion Promo */
   .seccion-promocional {
@@ -589,33 +878,7 @@ body {
     padding: 0.7rem 1rem;
   }
   /* Seccion Peliculas */
-  .seccion-peliculas-1,
-  .seccion-peliculas-2,
-  .seccion-peliculas-3 {
-    padding: 10px 20px; /* Reducir el relleno */
-  }
-  .titulo-seccion-pl {
-    font-size: 22px; /* Reducir el tamaño de la fuente */
-    padding: 0 10px;
-  }
-  .peliculas-grid {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 6px; 
-    row-gap: 15px;
-    padding: 0;
-  }
-  .pelicula {
-    max-width: 190px; /* Ajustar el ancho máximo */
-  }
-  .pelicula img {
-    height: 230px; /* Ajustar la altura */
-  }
-  .titulo-pelicula {
-    font-size: 14px;
-    padding: 5px; 
-    margin-block-start: 8px;
-    margin-block-end: 8px;
-  }
+  
   /*seccion planes*/
   .planes-premium {
     display: none;
@@ -625,23 +888,7 @@ body {
 /* @media (min-width: 601px) and (max-width: 813px) */
 @media (min-width: 600px) and (max-width: 817px) {
   /* Carrusel */
-  .carrusel {
-    padding-block-start: 13vh; /* Ajustar el padding vertical */
-    padding-block-end: 2.2vh;
-  }
-  .carrusel-contenedor {
-    padding:  0 30px;
-  }
-  .carrusel-slide {
-    padding: 0 5px;
-  }
-  .carrusel-slide img {
-    height: 350px; /* Ajustar altura de las imágenes */
-  }
-  .carrusel-boton {
-    top:55%;
-    transform: translateY(-30%)
-  }
+  
 
   /* Seccion Promo */
   .seccion-promocional {
@@ -676,29 +923,7 @@ body {
   }
 
   /* Seccion Peliculas */
-  .seccion-peliculas-1,
-  .seccion-peliculas-2,
-  .seccion-peliculas-3 {
-    padding: 10px 35px; /* Ajustar el relleno */
-  }
-  .titulo-seccion-pl {
-    font-size: 26px; /* Ajustar el tamaño de la fuente */
-    padding: 0 17px;
-  }
-  .peliculas-grid {
-    gap: 17px; /* Ajustar el espacio entre elementos */
-    padding: 0 17px;
-  }
-  .pelicula {
-    max-width: 230px; /* Ajustar el ancho máximo */
-  }
-  .pelicula img {
-    height: 260px; /* Ajustar la altura */
-  }
-  .titulo-pelicula {
-    font-size: 15px; /* Ajustar el tamaño de la fuente */
-    padding: 7px;
-  }
+  
   /*seccion planes*/
   .planes-premium {
     display: none;
@@ -707,15 +932,8 @@ body {
 
 @media (min-width: 817px) and (max-width: 919px) {
   /*Carrusel*/
-  .carrusel {
-    padding-block-start: 13vh;
-    padding-block-end: 2vh;
-  }
+  
 
-  .carrusel-boton {
-    top:55%;
-    transform: translateY(-55%)
-  }
   /*seccion promo*/
   .seccion-promocional {
     padding: 2rem 1rem;
@@ -756,22 +974,7 @@ body {
   }
 
   /*seccion peliculas*/
-  .seccion-peliculas-1,
-  .seccion-peliculas-2,
-  .seccion-peliculas-3 {
-    padding: 10px 50px;
-  }
-
-  .seccion-peliculas-3 {
-    padding-bottom: 30px;
-  }
-  .titulo-seccion-pl {
-    font-size: 30px;
-  }
-
-  .peliculas-grid {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  }
+  
   /*seccion planes*/
   .planes-premium {
     display: none;
@@ -781,15 +984,8 @@ body {
 
 @media (min-width: 919px) and (max-width: 1024px) {
    /*Carrusel*/
-   .carrusel {
-    padding-block-start: 13vh;
-    padding-block-end: 2vh;
-  }
+  
 
-  .carrusel-boton {
-    top:55%;
-    transform: translateY(-55%)
-  }
   /*seccion promo*/
   .seccion-promocional {
     padding: 2rem 1rem;
@@ -831,22 +1027,7 @@ body {
   }
 
   /*seccion peliculas*/
-  .seccion-peliculas-1,
-  .seccion-peliculas-2,
-  .seccion-peliculas-3 {
-    padding: 10px 50px;
-  }
-
-  .seccion-peliculas-3 {
-    padding-bottom: 30px;
-  }
-  .titulo-seccion-pl {
-    font-size: 30px;
-  }
-
-  .peliculas-grid {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  }
+  
   /*seccion planes*/
   .planes-premium {
     display: none;
@@ -855,15 +1036,8 @@ body {
 
 @media (min-width: 1024px) and (max-width: 1140px) {
   /*Carrusel*/
-  .carrusel {
-    padding-block-start: 13vh;
-    padding-block-end: 2vh;
-  }
+  
 
-  .carrusel-boton {
-    top:55%;
-    transform: translateY(-55%)
-  }
   /*seccion promo*/
   .seccion-promocional {
     padding: 2rem 1rem;
@@ -901,22 +1075,7 @@ body {
   }
 
   /*seccion peliculas*/
-  .seccion-peliculas-1,
-  .seccion-peliculas-2,
-  .seccion-peliculas-3 {
-    padding: 10px 50px;
-  }
-
-  .seccion-peliculas-3 {
-    padding-bottom: 30px;
-  }
-  .titulo-seccion-pl {
-    font-size: 30px;
-  }
-
-  .peliculas-grid {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  }
+ 
   /*seccion planes*/
   .planes-premium {
     display: none;
@@ -925,15 +1084,7 @@ body {
 }
 @media (min-width: 1140px) and (max-width: 1280px) {
   /*Carrusel*/
-  .carrusel {
-    padding-block-start: 12.5vh;
-    padding-block-end: 2vh;
-  }
-
-  .carrusel-boton {
-    top:55%;
-    transform: translateY(-55%)
-  }
+  
 
 /*seccion promo*/
 .seccion-promocional {
@@ -977,15 +1128,8 @@ body {
 
 @media (min-width: 1280px) and (max-width: 1440px) {
   /*Carrusel*/
-  .carrusel {
-    padding-block-start: 12.5vh;
-    padding-block-end: 2vh;
-  }
+ 
 
-  .carrusel-boton {
-    top:55%;
-    transform: translateY(-55%)
-  }
   /*seccion promo*/
   .seccion-promocional {
     padding: 2rem 1rem;
@@ -1016,22 +1160,7 @@ body {
   }
 
   /*seccion peliculas*/
-  .seccion-peliculas-1,
-  .seccion-peliculas-2,
-  .seccion-peliculas-3 {
-    padding: 10px 50px;
-  }
-
-  .seccion-peliculas-3 {
-    padding-bottom: 30px;
-  }
-  .titulo-seccion-pl {
-    font-size: 30px;
-  }
-
-  .peliculas-grid {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  }
+  
   /*seccion planes*/
   .planes-premium {
     display: none;
@@ -1040,34 +1169,12 @@ body {
 
 @media (min-width: 1440px) and (max-width: 1920px) {
   /*Carrusel*/
-  .carrusel {
-    padding-block-start: 12.5vh;
-    padding-block-end: 2vh;
-  }
+  
 
-  .carrusel-boton {
-    top:60%;
-    transform: translateY(-50%)
-  }
   /*seccion promo*/
   
   /*seccion peliculas*/
-  .seccion-peliculas-1,
-  .seccion-peliculas-2,
-  .seccion-peliculas-3 {
-    padding: 10px 50px;
-  }
-
-  .seccion-peliculas-3 {
-    padding-bottom: 30px;
-  }
-  .titulo-seccion-pl {
-    font-size: 30px;
-  }
-
-  .peliculas-grid {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  }
+ 
   /*seccion planes*/
   .planes-premium {
     display: none;
@@ -1076,15 +1183,8 @@ body {
 
 @media (min-width: 1920px) {
     /*Carrusel*/
-    .carrusel {
-      padding-block-start: 8.4vh;
-      padding-block-end: 2vh;
-    }
+    
   
-    .carrusel-boton {
-      top:55%;
-      transform: translateY(-25%)
-    }
     /*seccion promo*/
     .seccion-promocional {
       padding: 2rem 1rem;
@@ -1115,22 +1215,7 @@ body {
     }
 
     /*seccion peliculas*/
-    .seccion-peliculas-1,
-    .seccion-peliculas-2,
-    .seccion-peliculas-3 {
-      padding: 10px 50px;
-    }
-  
-    .seccion-peliculas-3 {
-      padding-bottom: 30px;
-    }
-    .titulo-seccion-pl {
-      font-size: 30px;
-    }
-  
-    .peliculas-grid {
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    }
+   
     /*seccion planes*/
     .planes-premium {
       display: none;
