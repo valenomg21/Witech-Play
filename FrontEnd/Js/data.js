@@ -9,7 +9,7 @@ window.peliculas = {
     elenco: "Jason Momoa, Jack Black, Sebastian Eugene Hansen, Emma Myers, Danielle Brooks",
     director: "Jared Hess",
     imagenFondo: "/FrontEnd/Imagenes/Fondo-Peliculas/minecraft.webp",
-    video: "/FrontEnd/Videos/tet.mp4"
+    video: "https://swiftplayers.com/e/16qoioz6njmo"
   },
   capitanamerica: {
     titulo: "Capitán América: Un Nuevo Mundo",
