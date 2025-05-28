@@ -50,202 +50,196 @@ header.hidden {
   position: fixed;
   top: 0;
   left: 0;
-  width: 265px;
+  width: 280px;
   height: 100vh;
-  background: rgba(115, 89, 161, 0.85);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  box-shadow: 2px 0 20px rgba(0, 0, 0, 0.3);
-  color: white;
+  /* Ajuste: Color de fondo más sólido y oscuro, similar al de tu imagen */
+  background-color: #3b2a57; /* Un morado oscuro, puedes ajustarlo a tu gusto */
+  /* background: rgba(59, 42, 87, 0.95); Si quieres mantener algo de transparencia y blur */
+  /* -webkit-backdrop-filter: blur(8px); */ /* Reducir el blur si se usa */
+  /* backdrop-filter: blur(8px); */
+  box-shadow: 3px 0 25px rgba(0, 0, 0, 0.4); /* Sombra un poco más pronunciada */
+  color: #e8e8f3; /* Color de texto base (un blanco suave) */
   transform: translateX(-100%);
-  transition: transform 0.4s ease;
-  padding: 30px 20px;
-  z-index: 10;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  padding: 20px; /* Padding general */
+  z-index: 100;
+  /* Los border-radius ya los tenías y parecen correctos */
+  border-top-right-radius: 18px;
+  border-bottom-right-radius: 18px;
   overflow-y: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .panel-lateral.open {
   transform: translateX(0);
-  z-index: 10;
 }
 
-/* Lista principal */
-.panel-lateral ul {
+/* Botón de cerrar (X) */
+.panel-close-btn {
+  position: absolute;
+  top: 25px; /* Ajustar para alinear con el logo/texto */
+  right: 20px;
+  background: transparent;
+  border: none;
+  color: #b0aac0;
+  cursor: pointer;
+  padding: 5px;
+  line-height: 1;
+  border-radius: 50%;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.panel-close-btn svg {
+  width: 22px; /* Un poco más pequeño si es necesario */
+  height: 22px;
+  display: block;
+}
+
+.panel-close-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+/* Área del logo */
+.panel-logo-area {
+  display: flex;
+  align-items: center;
+  padding: 10px 0; /* Padding vertical */
+  padding-right: 40px; /* Espacio para el botón de cerrar si se superpone */
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Línea separadora sutil */
+}
+
+.panel-logo-area img {
+  width: 36px; /* Ajusta al tamaño en tu imagen */
+  height: 36px;
+  margin-right: 10px;
+  border-radius: 50%; /* Icono circular como en la imagen */
+}
+
+.panel-logo-area span {
+  font-size: 17px; /* Ajustar tamaño de fuente */
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* Barra de búsqueda (hereda de group-sm, input-sm, search-icon) */
+.panel-lateral .group-sm {
+  margin-bottom: 25px;
+  position: relative; /* Para el icono de búsqueda */
+}
+
+.panel-lateral .input-sm {
+  background-color: #2a2340; /* Fondo oscuro para el input como en tu Index-style */
+  color: #bdbecb;
+  border: 1px solid #4f545c; /* Borde sutil como en la imagen */
+  box-shadow: none; /* Quitar la sombra por defecto si no la quieres aquí */
+  padding-left: 40px; /* Espacio para el icono de búsqueda */
+  height: 40px; /* Altura consistente */
+  border-radius: 8px; /* Bordes redondeados */
+}
+.panel-lateral .input-sm::placeholder {
+  color: #8a86a0; /* Placeholder un poco más tenue */
+}
+
+.panel-lateral .input-sm:focus {
+   border-color: #3bcc5a; /* Verde de acento en focus */
+   box-shadow: 0 0 0 2px rgba(59, 204, 90, 0.3); /* Sombra de foco verde */
+}
+
+.panel-lateral .group-sm .search-icon {
+    position: absolute;
+    left: 12px; /* Posicionar icono dentro del input */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    fill: #8a86a0; /* Color del icono de búsqueda */
+    pointer-events: none;
+}
+
+
+/* Lista de menú principal */
+.panel-menu-list {
   list-style: none;
   padding: 0;
   margin: 0;
+  flex-grow: 1;
 }
 
-.panel-lateral li {
-  padding: 12px 8px;
-  text-align: left;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  transition: background 0.3s ease;
-}
-
-.panel-lateral a {
-  color: white;
+.panel-menu-list li a {
+  display: flex;
+  align-items: center;
+  padding: 12px 10px; /* Ajustar padding */
+  color: #e8e8f3; /* Texto de los items */
   text-decoration: none;
   font-weight: 500;
-  font-size: 15px;
+  font-size: 15px; /* Ajustar tamaño de fuente */
+  border-radius: 6px; /* Bordes redondeados para el hover/activo */
+  margin-bottom: 4px;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-/* Hover para enlaces principales */
-.panel-lateral a:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
+.panel-menu-list li a svg {
+  width: 20px; /* Tamaño de iconos */
+  height: 20px;
+  margin-right: 12px; /* Espacio entre icono y texto */
+  fill: #c0bcd1; /* Color base de iconos, un gris claro */
+  transition: fill 0.2s ease;
 }
 
-/* Submenús */
-.panel-lateral .subopciones {
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: max-height 0.4s ease, opacity 0.3s ease;
-  padding-left: 10px;
-}
-
-.panel-lateral .has-submenu.open .subopciones {
-  max-height: 500px;
-  opacity: 1;
-}
-
-.panel-lateral .subopciones li {
-  font-size: 14px;
-  padding: 8px 10px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 6px;
-  margin: 4px 0;
-}
-
-/* Flecha */
-.has-submenu .arrow {
-  float: right;
-  font-size: 18px;
-  transition: transform 0.3s ease;
-}
-
-.has-submenu.open .arrow {
-  transform: rotate(180deg);
-}
-
-/* Contenedor clickeable para submenu */
-.submenu-toggle {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
-}
-
-/* Barra de busqueda menu lateral*/
-.group-sm {
-  display: flex;
-  justify-content: space-between;
-  line-height: 28px;
-  align-items: center;
-  position: relative;
-  padding-bottom: 20px;
-}
-
-.input-sm {
-  font-family: "Montserrat", sans-serif;
-  width: 100%;
-  height: 45px;
-  padding-left: 2.5rem;
-  box-shadow: 0 0 0 1.5px #8c6dc2, 0 0 25px -17px #000;
-  border: 0;
-  border-radius: 12px;
-  background-color: #1f1b2e;
-  outline: none;
-  color: #bdbecb;
-  transition: all 0.25s cubic-bezier(0.19, 1, 0.22, 1);
-  cursor: text;
-  z-index: 0;
-}
-
-.input-sm::placeholder {
-  color: #bdbecb;
-}
-
-.input-sm:hover {
-  box-shadow: 0 0 0 2.5px #2f303d, 0px 0px 25px -15px #000;
-}
-
-.input-sm:active {
-  transform: scale(0.95);
-}
-
-.input-sm:focus {
-  box-shadow: 0 0 0 2.5px #2f303d;
-}
-
-.search-icon {
-  position: absolute;
-  left: 1rem;
-  fill: #bdbecb;
-  width: 1rem;
-  height: 1rem;
-  pointer-events: none;
-  z-index: 1;
-}
-
-
-
-/*item de abajo*/
-
-.menu-inferior {
-  position: absolute;
-  bottom: 60px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 20px;
-  padding: 20px 0;
-}
-
-.item-inferior {
-  width: 100px;
-  display: flex;
-  align-items: center; 
-  justify-content: center; 
-  gap: 8px;
+.panel-menu-list li a:hover {
+  background-color: rgba(255, 255, 255, 0.08); /* Hover sutil */
   color: #ffffff;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 14px;
-  padding: 10px;
-  border-radius: 8px;
-  box-shadow: 0 0 0 1.5px #8c6dc2, 0 0 25px -17px #000;
-  background-color: #1f1b2e; 
-  border: 0; 
-  cursor: pointer; 
-  transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease, box-shadow 0.25s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-.item-inferior svg {
-  width: 20px; 
-  height: 20px; 
-  fill: #bdbecb;
-  transition: fill 0.3s ease;
+.panel-menu-list li a:hover svg {
+  fill: #3bcc5a; /* Verde de acento al hacer hover en icono */
 }
 
-.item-inferior span {
-  display: inline-block;
-  vertical-align: middle; 
-}
-
-.item-inferior:hover {
-  background-color: #1f1b2e !important;
-  box-shadow: 0 0 0 2.5px #2f303d, 0 0 25px -15px #000 !important;
-}
-
-.item-inferior:hover span, .item-inferior:hover svg{
+.panel-menu-list li a:hover span { /* Para que el texto también cambie a verde */
   color: #3bcc5a;
 }
-.item-inferior:active {
-  transform: scale(0.95)
+
+
+/* Estilo para el item activo (opcional, si quieres marcar la sección actual) */
+.panel-menu-list li a.active,
+.panel-menu-list li a.active:hover { /* Asegurar que el activo se mantenga */
+  background-color: #3bcc5a; /* Fondo verde */
+  color: #2a2340; /* Texto oscuro sobre fondo verde */
+  font-weight: 600;
+}
+
+.panel-menu-list li a.active svg,
+.panel-menu-list li a.active:hover svg {
+  fill: #2a2340; /* Icono oscuro sobre fondo verde */
+}
+.panel-menu-list li a.active span, /* Para que el span también sea oscuro */
+.panel-menu-list li a.active:hover span {
+    color: #2a2340;
+}
+
+
+/* Menú inferior (Conócenos, Contacto) */
+.panel-menu-bottom {
+  flex-grow: 0;
+  margin-top: auto;
+  padding-top: 15px;
+  padding-bottom: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Línea separadora sutil */
+}
+
+/* Scrollbar (sigue siendo útil) */
+.panel-lateral::-webkit-scrollbar {
+  width: 5px;
+}
+.panel-lateral::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 3px;
+}
+.panel-lateral::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.25);
 }
 
 /* Barra de busqueda*/
@@ -415,129 +409,240 @@ nav ul li a:hover::before {
   box-shadow: 0 0 0 2.5px #2f303d;
 }
 
-/* Popup Login */
+/* === ESTILOS PARA EL POPUP DE LOGIN/REGISTRO === */
 
+/* Overlay para el popup */
 .popup-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  display: none;
+  background: rgba(0, 0, 0, 0.75); /* Fondo más oscuro y translúcido */
+  display: none; /* Se mostrará con JS */
   justify-content: center;
   align-items: center;
-  z-index: 999;
-  color: black;
+  z-index: 1000; /* Asegurar que esté por encima de otros elementos */
+  -webkit-backdrop-filter: blur(5px); /* Para Safari */
+  backdrop-filter: blur(5px); /* Efecto de desenfoque para el fondo */
 }
 
 /* Contenedor del formulario */
 .popup-form {
-  background: white;
-  padding: 30px;
-  border-radius: 10px;
-  width: 300px;
+  background: #2c2f33; /* Fondo oscuro para el formulario */
+  color: #e0e0e0; /* Texto claro */
+  padding: 35px 40px; /* Más padding */
+  border-radius: 12px; /* Bordes más redondeados */
+  width: 360px; /* Un poco más ancho */
+  max-width: 90%;
   position: relative;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Sombra más pronunciada */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente moderna */
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+  transform: scale(0.95);
+  opacity: 1;
+}
+
+/* Estilo para cuando el popup está visible (añadir clase 'visible' con JS) */
+.popup-overlay.visible .popup-form {
+  transform: scale(1);
+  opacity: 1;
 }
 
 /* Botón para cerrar el popup */
 .close-popup {
   position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 20px;
+  top: 15px;
+  right: 20px;
+  font-size: 28px; /* Más grande */
+  font-weight: bold;
+  color: #a0a0a0; /* Color sutil */
   cursor: pointer;
-  color: #888;
+  transition: color 0.2s ease;
 }
 
+.close-popup:hover {
+  color: #ffffff; /* Blanco al pasar el mouse */
+}
+
+/* Título del formulario */
 .popup-form h2 {
   margin-top: 0;
+  margin-bottom: 25px; /* Más espacio debajo del título */
+  color: #ffffff; /* Título en blanco */
+  text-align: center;
+  font-weight: 600; /* Un poco más de peso */
+  font-size: 24px;
 }
 
-/* Inputs y botón del formulario */
-.popup-form input {
+/* Labels */
+.popup-form label {
+  display: block; /* Para que ocupe todo el ancho */
+  margin-bottom: 8px; /* Espacio antes del input */
+  font-size: 14px;
+  color: #b0b0b0; /* Color de label ligeramente más suave */
+  font-weight: 500;
+}
+
+/* Inputs del formulario */
+.popup-form input[type="text"],
+.popup-form input[type="password"],
+.popup-form input[type="email"] {
   width: 100%;
-  padding: 8px;
-  margin-top: 5px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  padding: 12px 15px; /* Padding más generoso */
+  margin-bottom: 10px; /* Más espacio entre inputs */
+  border: 1px solid #4f545c; /* Borde sutil */
+  border-radius: 8px; /* Bordes redondeados para inputs */
+  background-color: #36393f; /* Fondo de input ligeramente diferente */
+  color: #e0e0e0; /* Texto del input */
+  font-size: 16px;
+  box-sizing: border-box; /* Importante para que el padding no afecte el ancho */
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
+.popup-form input[type="text"]:focus,
+.popup-form input[type="password"]:focus,
+.popup-form input[type="email"]:focus {
+  border-color: #5865f2; /* Color de acento al enfocar */
+  box-shadow: 0 0 0 3px rgba(88, 101, 242, 0.3); /* Sombra de foco sutil */
+  outline: none; /* Quitar el outline por defecto */
+}
+
+/* Placeholder text */
+.popup-form input::placeholder {
+  color: #72767d;
+}
+
+/* Botón de submit */
 .popup-form button[type="submit"] {
   width: 100%;
-  padding: 10px;
-  background: #3498db;
+  padding: 12px 15px;
+  background: #5865f2; /* Color de acento principal (ej. un azul moderno) */
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase; /* Mayúsculas para un look más definido */
+  letter-spacing: 0.5px;
+  transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
 .popup-form button[type="submit"]:hover {
-  background: #2980b9;
+  background: #4752c4; /* Un poco más oscuro al pasar el mouse */
 }
 
+.popup-form button[type="submit"]:active {
+  transform: scale(0.98); /* Pequeño efecto al presionar */
+}
+
+/* Contenedor de la contraseña */
 .password-wrapper {
   position: relative;
   width: 100%;
+  margin-bottom: 20px; /* Asegurar que el wrapper tenga el margin-bottom, no el input dentro */
 }
 
-.password-wrapper input {
+.password-wrapper input[type="password"],
+.password-wrapper input[type="text"] {
   width: 100%;
-  padding: 8px 35px 8px 8px; /* deja espacio a la derecha para el botón */
+  padding: 12px 15px;
+  padding-right: 45px; /* Espacio para el ícono de mostrar/ocultar */
+  margin-bottom: 0 !important; /* Quitar margen del input, ya está en el wrapper */
   box-sizing: border-box;
 }
 
 .toggle-password {
   position: absolute;
-  top: 38%;
-  right: 1%;
+  top: 50%; /* En tu CSS más reciente. Originalmente era 38% */
+  right: 15px; /* En tu CSS más reciente. Originalmente era 1% */
   transform: translateY(-50%);
   background: transparent;
   border: none;
   cursor: pointer;
-  font-size: 18px;
-  padding: 0;
-  margin: 0;
-  line-height: 1;
-  color: #555;
+  padding: 0;  
+  color: #a0a0a0; 
+  line-height: 1; 
+  display: inline-flex; 
+  align-items: center;
+  justify-content: center; 
+  width: 20px;
+  height: 20px;
+}
+
+.toggle-password:hover {
+  color: #ffffff; /* El SVG también cambiará a blanco en hover */
 }
 
 .toggle-password:focus {
   outline: none;
 }
 
+/* Enlaces para registrarse o iniciar sesión */
 .register-link,
 .login-link {
   text-align: center;
-  margin-top: 10px;
+  margin-top: 20px; /* Más espacio arriba */
   font-size: 14px;
+  color: #b0b0b0;
 }
 
 .register-link a,
 .login-link a {
-  color: #3498db;
+  color: #5865f2; /* Color de acento para los enlaces */
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 600;
+  transition: color 0.2s ease, text-decoration 0.2s ease;
 }
 
 .register-link a:hover,
 .login-link a:hover {
+  color: #7682f5; /* Un poco más claro al pasar el mouse */
   text-decoration: underline;
 }
 
+/* Mensajes de error */
 .error-message {
-  color: red;
-  font-size: 12px;
-  margin-top: -10px;
-  margin-bottom: 10px;
-  display: none;
+  color: #f04747; /* Rojo para errores */
+  font-size: 13px;
+  margin-top: -10px; /* Pegar más al input de arriba */
+  margin-bottom: 15px; /* Espacio antes del siguiente elemento */
+  display: none; /* Se mostrará con JS */
+  text-align: left; /* Alinear a la izquierda */
 }
 
 input.error {
-  border: 1px solid red;
+  border-color: #f04747 !important; /* Borde rojo para input con error */
+  box-shadow: 0 0 0 3px rgba(240, 71, 71, 0.3) !important; /* Sombra roja */
+}
+
+/* Estilos para la sección de código de verificación (si aplica) */
+#codeSection {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #4f545c; /* Separador sutil */
+}
+
+/* Ajuste para el botón de registrarse dentro de codeSection */
+#codeSection button[type="submit"] {
+  margin-top: 10px; /* Espacio si hay un input de código arriba */
+}
+
+/* Pequeña animación de entrada para los campos de registro si se muestran dinámicamente */
+#register-fields, #codeSection {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Contenedor interno del botón */

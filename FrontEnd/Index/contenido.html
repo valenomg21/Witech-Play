@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Contenido - Witech Play</title>
+    <link rel="Icon" href="/FrontEnd/Imagenes/Icono/logo-1173935095-1728869406-0d49a887e4481f6878662eb805f4555b1728869406.png">
+    <!-- Estilos compartidos -->
+    <link rel="stylesheet" href="/FrontEnd/Estilos/Header-Footer-style.css">
+    <link rel="stylesheet" href="/FrontEnd/Estilos/Pantalla-carga.css">
+    <!-- Estilos específicos de esta página -->
+    <link rel="stylesheet" href="/FrontEnd/Estilos/Contenido-style.css">
+</head>
+
+<body>
+    <div id="pantalla-carga">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Header dinámico -->
+    <div id="header-container"></div>
+    <div class="fondo-oscuro"></div> <!-- Para el menú del header, si lo usas igual -->
+
+    <main class="contenido-principal">
+        <!-- Sección Hero con texto y video de fondo -->
+        <section class="contenido-hero">
+            <video autoplay loop muted playsinline class="hero-video-fondo">
+                <!-- Deberás reemplazar esto con la ruta a tu video/gif -->
+                <source src="https://wow.cuevana3.nu/wp-content/uploads/2024/02/Madame-Web-–-Official-Trailer-Hd1.mp4" type="video/mp4">
+                Tu navegador no soporta videos HTML5.
+            </video>
+            <div class="hero-texto-superpuesto">
+                <h1>Encuentra todo lo que buscas aquí en Witech Play</h1>
+                <p>Explora un universo de películas y series. Desde los clásicos inolvidables hasta los estrenos más candentes, tu próxima obsesión está a solo un clic.</p>
+            </div>
+        </section>
+
+        <!-- Sección de Filtros -->
+        <section class="filtros-contenido">
+            <div class="filtros-barra">
+                <div class="filtro-grupo">
+                    <label for="filtro-tipo">Tipo:</label>
+                    <select id="filtro-tipo" name="tipo">
+                        <option value="todos">Todos</option>
+                        <option value="pelicula">Películas</option>
+                        <option value="serie">Series</option>
+                    </select>
+                </div>
+
+                <div class="filtro-grupo">
+                    <label for="filtro-genero">Género:</label>
+                    <select id="filtro-genero" name="genero">
+                        <option value="todos">Todos</option>
+                        <!-- Estos géneros se cargarán dinámicamente o puedes poner algunos por defecto -->
+                        <option value="accion">Acción</option>
+                        <option value="comedia">Comedia</option>
+                        <option value="drama">Drama</option>
+                        <option value="ciencia-ficcion">Ciencia Ficción</option>
+                        <option value="terror">Terror</option>
+                        <option value="romance">Romance</option>
+                        <option value="animacion">Animación</option>
+                        <option value="documental">Documental</option>
+                    </select>
+                </div>
+
+                <div class="filtro-grupo">
+                    <label for="filtro-año">Año de Estreno:</label>
+                    <select id="filtro-año" name="año">
+                        <option value="todos">Todos</option>
+                        <!-- Se podrían cargar dinámicamente los años disponibles -->
+                        <option value="2024">2024</option>
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                        <option value="2021">2021</option>
+                        <option value="2020">2020</option>
+                        <option value="anteriores">Anteriores</option>
+                    </select>
+                </div>
+                
+                <div class="filtro-grupo">
+                    <label for="filtro-orden">Ordenar por:</label>
+                    <select id="filtro-orden" name="orden">
+                        <option value="recientes">Recientemente Agregados</option>
+                        <option value="populares">Más Populares</option>
+                        <option value="az">A-Z</option>
+                        <option value="za">Z-A</option>
+                        <option value="año-desc">Año (Más nuevo)</option>
+                        <option value="año-asc">Año (Más antiguo)</option>
+                    </select>
+                </div>
+
+                <button class="boton-limpiar-filtros" id="limpiarFiltros">Limpiar Filtros</button>
+            </div>
+        </section>
+
+        <!-- Sección del Catálogo (Grid de películas/series) -->
+        <section class="catalogo-contenido">
+            <h2 class="titulo-seccion-catalogo">Nuestro Catálogo</h2>
+            <div id="grid-catalogo" class="grid-catalogo">
+                <!-- Las tarjetas de películas/series se insertarán aquí mediante JavaScript -->
+                <p class="mensaje-carga-catalogo">Cargando contenido...</p>
+            </div>
+            <div class="paginacion-catalogo" id="paginacion-catalogo">
+                <!-- Los controles de paginación se insertarán aquí -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer dinámico -->
+    <div id="footer-container"></div>
+
+    <script src="/FrontEnd/Js/main.js"></script> <!-- Para header/footer y pantalla de carga -->
+    <script src="/FrontEnd/Js/data.js"></script> <!-- Si tienes datos mock o globales -->
+    <script src="/FrontEnd/Js/contenido.js"></script>
+</body>
+
+</html>
