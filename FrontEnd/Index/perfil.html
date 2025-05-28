@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cuenta | Witech Play</title>
+  <link rel="stylesheet" href="/FrontEnd/Estilos/Perfil.css"> <!-- CONFIRMA QUE ESTE ES EL NOMBRE CORRECTO DEL ARCHIVO CSS -->
+</head>
+<body>
+
+  <!-- ========================================================================== -->
+  <!-- ======================= HEADER DE LA PÁGINA DE CUENTA ======================= -->
+  <!-- ========================================================================== -->
+  <header class="cuenta-header">
+    <a href="index.html" class="volver">⟵ Regresar a Witech Play</a>
+    <img src="/FrontEnd/Imagenes/Icono/Logowitechplay.png" alt="Witech Play" class="logo-header">
+    <div class="usuario-icono">
+      <img id="avatar-usuario" src="/FrontEnd/Imagenes/Icono/play.png" alt="Usuario"> <!-- Se actualizará con JS -->
+    </div>
+  </header>
+
+  <!-- ========================================================================== -->
+  <!-- ======================= CONTENEDOR PRINCIPAL DE LA PÁGINA ======================= -->
+  <!-- (Incluye el menú lateral y el área de contenido principal) -->
+  <!-- ========================================================================== -->
+  <div class="cuenta-container">
+
+    <!-- ========================================================================== -->
+    <!-- ======================= MENÚ DE NAVEGACIÓN LATERAL ======================= -->
+    <!-- ========================================================================== -->
+    <nav class="menu-lateral">
+      <ul>
+        <!-- Ítem del menú para 'Descripción general', activo por defecto -->
+        <li class="activo" data-text="Descripción general">
+          <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          <span>Descripción general</span>
+        </li>
+        <!-- Ítem del menú para 'Info de la cuenta' -->
+        <li data-text="Info de la cuenta">
+          <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          <span>Info de la cuenta</span>
+        </li>
+        <!-- Ítem del menú para 'Suscripción y pagos' -->
+        <li data-text="Suscripción y pagos">
+          <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line>
+          </svg>
+          <span>Suscripción y pagos</span>
+        </li>
+        <!-- Ítem del menú para 'Seguridad' -->
+        <li data-text="Seguridad">
+          <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+          <span>Seguridad</span>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- ========================================================================== -->
+    <!-- ======================= ÁREA DE CONTENIDO PRINCIPAL ======================= -->
+    <!-- (Aquí se mostrará una sección a la vez) -->
+    <!-- ========================================================================== -->
+    <main class="contenido-principal">
+
+      <!-- ======================= SECCIÓN: DESCRIPCIÓN GENERAL ======================= -->
+      <section id="descripcion-general" class="seccion">
+        <h1 class="titulo-pagina-cuenta">Cuenta</h1>
+        
+        <h3 class="subtitulo-seccion-general">Información de la membresía</h3>
+        <div class="tarjeta-info-membresia">
+          <span class="etiqueta-miembro-desde" id="dg-fecha-creacion">Miembro desde --</span>
+          <div class="detalle-plan-dg">
+            <h4 id="dg-plan-actual-nombre">--</h4>
+            <p class="proximo-pago-dg">Próximo pago: <span id="dg-proximo-pago">--</span></p>
+            <div class="metodo-pago-info-dg">
+              <img src="/FrontEnd/Imagenes/Assets/mastercard-icon.png" alt="Método de pago" class="icono-tarjeta-dg" id="dg-icono-tarjeta"> <!-- REVISA RUTA Y TIPO DE IMAGEN -->
+              <span class="numero-tarjeta-dg" id="dg-numero-tarjeta">•••• •••• •••• ----</span>
+            </div>
+          </div>
+          <a href="#" class="opcion-link-membresia" data-link-action="administrar-membresia">
+            <span>Administrar membresía</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+        </div>
+
+        <h3 class="subtitulo-seccion-general">Vínculos rápidos</h3>
+        <div class="grupo-vinculos-rapidos">
+          <!-- Vínculo: Cambiar de plan -->
+          <a href="#" class="opcion-vinculo-rapido" data-link-action="cambiar-plan">
+            <div class="opcion-icono">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0L12 2.69z"></path><path d="M12 12v0"></path><path d="M15 9.5A2.5 2.5 0 0 0 12.5 7H12v2.5Z"></path><path d="M9 9.5A2.5 2.5 0 0 1 11.5 7H12v2.5Z"></path></svg>
+            </div>
+            <span class="opcion-titulo">Cambiar de plan</span>
+            <div class="opcion-accion">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </div>
+          </a>
+          <!-- Vínculo: Administrar forma de pago -->
+          <a href="#" class="opcion-vinculo-rapido" data-link-action="administrar-pago">
+            <div class="opcion-icono">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+            </div>
+            <span class="opcion-titulo">Administrar forma de pago</span>
+            <div class="opcion-accion">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </div>
+          </a>
+          <!-- Vínculo: Actualizar la contraseña -->
+          <a href="#" class="opcion-vinculo-rapido" data-link-action="actualizar-contraseña">
+            <div class="opcion-icono">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            </div>
+            <span class="opcion-titulo">Actualizar la contraseña</span>
+            <div class="opcion-accion">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </div>
+          </a>
+          <!-- Vínculo: Ajustar control parental -->
+          <a href="#" class="opcion-vinculo-rapido" data-link-action="control-parental">
+            <div class="opcion-icono">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9.5 9.5 5 5M14.5 9.5l-5 5"></path></svg> 
+            </div>
+            <span class="opcion-titulo">Ajustar control parental</span>
+            <div class="opcion-accion">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </div>
+          </a>
+          <!-- Vínculo: Lenguaje -->
+          <a href="#" class="opcion-vinculo-rapido" data-link-action="lenguaje">
+            <div class="opcion-icono">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            </div>
+            <span class="opcion-titulo">Lenguaje</span>
+            <div class="opcion-accion">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </div>
+          </a>
+          <!-- Vínculo: Administrar acceso y dispositivos -->
+          <a href="#" class="opcion-vinculo-rapido" data-link-action="administrar-dispositivos">
+            <div class="opcion-icono">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="2" y1="19" x2="22" y2="19"></line><line x1="6" y1="7" x2="6.01" y2="7"></line><line x1="10" y1="7" x2="10.01" y2="7"></line></svg>
+            </div>
+            <span class="opcion-titulo">Administrar acceso y dispositivos</span>
+            <div class="opcion-accion">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- ======================= SECCIÓN: INFO DE LA CUENTA ======================= -->
+      <section id="info-cuenta" class="seccion oculto">
+        <h2>Información de la cuenta</h2>
+        <div class="grupo-opciones-info">
+          <!-- Opción: Nombre completo (editable) -->
+          <div class="opcion-info editable" id="opcion-nombre-completo">
+            <div class="opcion-icono">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            </div>
+            <div class="opcion-contenido">
+              <span class="opcion-titulo">Nombre completo</span>
+              <span class="opcion-valor" id="info-nombre-completo">--</span>
+              <div class="campo-edicion oculto">
+                <input type="text" id="editar-nombre-completo-input" value="">
+                <button class="btn-guardar-edicion">Guardar</button><button class="btn-cancelar-edicion">Cancelar</button>
+              </div>
+            </div>
+            <div class="opcion-accion"><span class="texto-accion">Editar</span><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></div>
+          </div>
+          <!-- Opción: Correo electrónico -->
+          <div class="opcion-info" id="opcion-correo">
+            <div class="opcion-icono">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </div>
+            <div class="opcion-contenido">
+              <span class="opcion-titulo">Correo electrónico</span>
+              <span class="opcion-valor" id="info-correo">--</span>
+            </div>
+          </div>
+          <!-- Opción: Fecha de creación -->
+          <div class="opcion-info">
+            <div class="opcion-icono">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            </div>
+            <div class="opcion-contenido">
+              <span class="opcion-titulo">Fecha de creación</span>
+              <span class="opcion-valor" id="info-creacion">--</span>
+            </div>
+          </div>
+          <!-- Opción: Plan actual -->
+          <div class="opcion-info">
+            <div class="opcion-icono">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            </div>
+            <div class="opcion-contenido">
+              <span class="opcion-titulo">Plan actual</span>
+              <span class="opcion-valor" id="info-plan">--</span>
+            </div>
+            <div class="opcion-accion"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></div>
+          </div>
+        </div>
+        <div class="acciones-info-cuenta">
+          <button class="boton-link administrar-perfiles-btn" id="btn-administrar-perfiles">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            <span>Administrar perfiles</span>
+          </button>
+        </div>
+        <p id="info-cuenta-mensaje" class="mensaje oculto"></p>
+      </section>
+
+      <!-- ======================= SECCIÓN: SUSCRIPCIÓN Y PAGOS ======================= -->
+      <section id="suscripcion" class="seccion oculto">
+        <h2>Suscripción y pagos</h2>
+        <div class="detalle-plan-actual">
+          <h3 id="suscripcion-plan-nombre">--</h3>
+          <p id="suscripcion-plan-descripcion">--</p>
+        </div>
+        <div class="grupo-opciones-suscripcion">
+          <a href="#" class="opcion-suscripcion" data-link-action="suscripcion-cambiar-plan"><div class="opcion-contenido"><span class="opcion-titulo">Cambiar de plan</span></div><div class="opcion-accion"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></div></a>
+          <!-- Si se omite "Adquirir cupo extra", se elimina de aquí -->
+        </div>
+        <h3 class="subtitulo-seccion">Información de pago</h3>
+        <div class="tarjeta-proximo-pago">
+          <h4>Próximo pago</h4>
+          <p class="fecha-pago" id="suscripcion-fecha-proximo-pago">--</p>
+          <div class="metodo-pago-info">
+            <img src="/FrontEnd/Imagenes/Assets/mastercard-icon.png" alt="Método de pago" class="icono-tarjeta" id="suscripcion-icono-tarjeta"> <!-- REVISA RUTA Y TIPO DE IMAGEN -->
+            <span class="numero-tarjeta" id="suscripcion-numero-tarjeta">•••• •••• •••• ----</span>
+          </div>
+        </div>
+        <div class="grupo-opciones-suscripcion">
+          <a href="#" class="opcion-suscripcion" data-link-action="suscripcion-administrar-pago"><div class="opcion-contenido"><span class="opcion-titulo">Administrar la forma de pago</span></div><div class="opcion-accion"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></div></a>
+          <a href="#" class="opcion-suscripcion" data-link-action="suscripcion-canjear-codigo"><div class="opcion-contenido"><span class="opcion-titulo">Canjear código de regalo o promocional</span></div><div class="opcion-accion"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></div></a>
+          <a href="#" class="opcion-suscripcion" data-link-action="suscripcion-historial-pagos"><div class="opcion-contenido"><span class="opcion-titulo">Ver historial de pagos</span></div><div class="opcion-accion"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></div></a>
+        </div>
+        <div class="acciones-finales-suscripcion">
+          <button class="boton-link cancelar cancelar-suscripcion-btn">Cancelar suscripción</button>
+        </div>
+      </section>
+
+      <!-- ======================= SECCIÓN: SEGURIDAD ======================= -->
+      <section id="seguridad" class="seccion oculto">
+        <h2>Seguridad</h2>
+        <div class="grupo-opciones-seguridad">
+          <!-- Opción: Contraseña -->
+          <div class="opcion-seguridad" data-link-action="seguridad-contraseña">
+            <div class="opcion-icono"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></div>
+            <div class="opcion-contenido"><span class="opcion-titulo">Contraseña</span></div>
+            <div class="opcion-accion"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></div>
+          </div>
+          <!-- Opción: Email -->
+          <div class="opcion-seguridad" data-link-action="seguridad-email">
+            <div class="opcion-icono">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              <!-- <span class="indicador-alerta"></span> -->
+            </div>
+            <div class="opcion-contenido"><span class="opcion-titulo">Email</span><span class="opcion-subtitulo" id="seguridad-email">--</span><span class="opcion-alerta" id="seguridad-email-alerta" style="display:none;">Requiere verificación</span></div>
+            <div class="opcion-accion"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></div>
+          </div>
+          <!-- Opción: Teléfono celular -->
+          <div class="opcion-seguridad" data-link-action="seguridad-telefono">
+            <div class="opcion-icono"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></div>
+            <div class="opcion-contenido"><span class="opcion-titulo">Teléfono celular</span><span class="opcion-subtitulo" id="seguridad-telefono">--</span></div>
+            <div class="opcion-accion"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></div>
+          </div>
+        </div>
+        <h3 class="subtitulo-seccion">Acceso y privacidad</h3>
+        <div class="grupo-opciones-seguridad">
+          <!-- Opción: Acceso y dispositivos -->
+          <div class="opcion-seguridad" data-link-action="seguridad-acceso-dispositivos">
+            <div class="opcion-icono"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="2" y1="19" x2="22" y2="19"></line><line x1="6" y1="7" x2="6.01" y2="7"></line><line x1="10" y1="7" x2="10.01" y2="7"></line></svg></div>
+            <div class="opcion-contenido"><span class="opcion-titulo">Acceso y dispositivos</span><span class="opcion-subtitulo">Administrar dispositivos con sesión iniciada</span></div>
+            <div class="opcion-accion"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></div>
+          </div>
+        </div>
+        <div class="acciones-finales-seguridad">
+          <button class="boton-link cancelar eliminar-cuenta-btn">Eliminar cuenta</button>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+
+
+
+  <!-- ========================================================================== -->
+<!-- ======================= MODAL GENÉRICO ======================= -->
+<!-- ========================================================================== -->
+<div id="modal-generico-overlay" class="modal-overlay oculto">
+  <div class="modal-contenido" id="modal-generico-contenido">
+    <button class="modal-cerrar-btn" id="modal-cerrar-btn" aria-label="Cerrar modal">×</button>
+    <!-- El contenido específico del modal se insertará aquí por JavaScript -->
+  </div>
+</div>
+
+<!-- ========================================================================== -->
+<!-- ======================= PLANTILLAS HTML PARA LOS PASOS DEL MODAL ======================= -->
+<!-- (Estas se usarán para inyectar en #modal-generico-contenido) -->
+<!-- ========================================================================== -->
+
+<!-- Plantilla para el Paso 1: Ingresar Contraseña Actual -->
+<template id="plantilla-modal-paso1-contraseña">
+  <div class="modal-paso">
+    <h3 class="modal-titulo">Verificar tu identidad</h3>
+    <p class="modal-descripcion">Por tu seguridad, ingresa tu contraseña actual para continuar.</p>
+    <form id="form-contraseña-actual">
+      <div class="form-grupo-modal">
+        <label for="contraseña-actual-input">Contraseña actual</label>
+        <input type="password" id="contraseña-actual-input" name="contraseña-actual-input" required>
+        <span class="input-error-mensaje" id="error-contraseña-actual"></span>
+      </div>
+      <div class="modal-acciones">
+        <button type="button" class="btn-modal-cancelar">Cancelar</button>
+        <button type="submit" class="btn-modal-primario">Continuar</button>
+      </div>
+    </form>
+  </div>
+</template>
+
+<!-- Plantilla para el Paso 2: Ingresar Nueva Contraseña -->
+<template id="plantilla-modal-paso2-nueva-contraseña">
+  <div class="modal-paso">
+    <h3 class="modal-titulo">Actualizar contraseña</h3>
+    <p class="modal-descripcion">Ingresa tu nueva contraseña. Asegúrate de que sea segura.</p>
+    <form id="form-nueva-contraseña">
+      <div class="form-grupo-modal">
+        <label for="nueva-contraseña-input">Nueva contraseña</label>
+        <input type="password" id="nueva-contraseña-input" name="nueva-contraseña-input" required minlength="8">
+        <span class="input-error-mensaje" id="error-nueva-contraseña"></span>
+      </div>
+      <div class="form-grupo-modal">
+        <label for="confirmar-nueva-contraseña-input">Confirmar nueva contraseña</label>
+        <input type="password" id="confirmar-nueva-contraseña-input" name="confirmar-nueva-contraseña-input" required>
+        <span class="input-error-mensaje" id="error-confirmar-nueva-contraseña"></span>
+      </div>
+      <div class="modal-acciones">
+        <button type="button" class="btn-modal-cancelar">Cancelar</button>
+        <button type="submit" class="btn-modal-primario">Guardar Contraseña</button>
+      </div>
+    </form>
+  </div>
+</template>
+
+
+
+  <!-- ======================= SCRIPTS JAVASCRIPT ======================= -->
+  <script src="/FrontEnd/Js/perfil.js"></script> <!-- CONFIRMA QUE ESTE ES EL NOMBRE CORRECTO DEL ARCHIVO JS -->
+</body>
+</html>

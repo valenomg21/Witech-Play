@@ -16,52 +16,76 @@
     <div class="fondo-oscuro"></div>
 
     <div id="video-overlay">
-      <video id="video-full" controls>
-        <source src="" type="video/mp4">
-        Tu navegador no soporta el video.
-      </video>
+      <iframe id="video-player-iframe" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+    </iframe>
+    <button id="close-video-overlay-button">X</button>
     </div>
 
-    <main class="contenedor-pelicula">
-        <section class="contenedor-pelicula">
-            <div class="contenido-pelicula">
-              <h1 class="titulo-pelicula">Nombre de la Película</h1>
+     <main class="contenedor-pelicula">
+        <section class="contenedor-principal-detalle"> <!-- Cambié clase para evitar confusión -->
+            <div class="contenido-detalle"> <!-- Cambié clase para evitar confusión -->
+              <h1 class="titulo-contenido">Nombre del Contenido</h1> <!-- Título genérico -->
 
-              <div class="info-pelicula">
-                <span class="duracion-pelicula">120 min</span> ·
-                <span class="generos-pelicula">
-                  <a href="#" class="link-genero">Acción</a>, 
-                  <a href="#" class="link-genero">Aventura</a>
-                </span> ·
-                <span class="año-pelicula">2024</span>
+              <div class="info-contenido">
+                <!-- Para Películas -->
+                <span class="info-pelicula-duracion" style="display: none;"></span>
+                
+                <!-- Para Series -->
+                <span class="info-serie-temporadas-estado" style="display: none;"></span>
+                
+                <span class="separador-info" style="display: none;">·</span>
+                <span class="generos-contenido">
+                  <!-- Géneros se llenan aquí -->
+                </span>
+                <span class="separador-info" style="display: none;">·</span>
+                <span class="año-contenido"></span> <!-- Año o rango de años -->
               </div>
 
-              <p class="sinopsis-pelicula">
-                Esta es una sinopsis breve de la película. Una descripción corta que capta el interés del usuario.
+              <p class="sinopsis-contenido">
+                <!-- Sinopsis se llena aquí -->
               </p>
 
-              <div class="botones-pelicula">
-                <button class="boton-ver-ahora">Ver ahora</button>
-                <button class="boton-ver-mas">Ver más</button>
-
-                <div id="detalles-adicionales" class="detalles-ocultos">
-                  <p><strong>Año de lanzamiento:</strong> 2024</p>
-                  <p><strong>Elenco:</strong> Actor 1, Actor 2, Actor 3</p>
-                  <p><strong>Director:</strong> Nombre del director</p>
+              <div class="controles-contenido"> <!-- Contenedor para botones/selectores -->
+                
+                <!-- Botones para Películas -->
+                <div class="botones-pelicula" style="display: none;">
+                    <button class="boton-ver-ahora">Ver ahora</button>
+                    <button class="boton-ver-mas">Ver más</button>
+                    <div id="detalles-adicionales-pelicula" class="detalles-ocultos">
+                        <!-- Detalles específicos de película -->
+                    </div>
                 </div>
+
+                <!-- Selectores para Series (Por ahora solo el contenedor general) -->
+                <div class="controles-serie" style="display: none;">
+                    <p><strong>Elenco:</strong> <span class="serie-elenco"></span></p>
+                    <p><strong>Creadores:</strong> <span class="serie-creadores"></span></p>
+                    
+                    <div class="selector-temporadas-container">
+                        <!-- Aquí irán los botones de temporada más adelante -->
+                        <h3>Temporadas</h3>
+                        <div class="lista-botones-temporadas"></div>
+                    </div>
+                    <div class="lista-capitulos-container" style="display:none;">
+                        <h4>Capítulos:</h4>
+                        <ul class="lista-capitulos"></ul>
+                    </div>
+                </div>
+
               </div>
 
-              <div id="video-container" class="video-oculto">
-                <iframe id="URL" width="100%" height="400" src="" frameborder="0" allowfullscreen aria-label="."></iframe>
-              </div>
+       
             </div>
         </section>
     </main>
 
     <div id="footer-container" class="footer"></div>
     <script src="/FrontEnd/Js/data.js"></script>
-    <script src="/FrontEnd/Js/main.js"></script> 
     <script src="/FrontEnd/Js/plantilla.js"></script>
+    <script src="/FrontEnd/Js/main.js"></script> 
+    
 
 </body>
 </html>

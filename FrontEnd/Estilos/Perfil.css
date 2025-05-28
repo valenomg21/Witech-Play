@@ -1,0 +1,845 @@
+/* ========================================================================== */
+/* ======================= ESTILOS GLOBALES Y RESET BÁSICO ======================= */
+/* ========================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #181522;
+  color: #e8e8f3;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+}
+
+/* ========================================================================== */
+/* ======================= HEADER DE CUENTA ======================= */
+/* ========================================================================== */
+.cuenta-header {
+  background-color: #1f1b2e;
+  padding: 12px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.35);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  /* min-height: 84px; /* Altura del header, ajustar según contenido real */
+}
+.cuenta-header .volver { /* Botón/Enlace para regresar */
+  color: #a09dbc;
+  text-decoration: none;
+  font-size: 0.9em;
+  font-weight: 500;
+  transition: color 0.25s ease;
+}
+.cuenta-header .volver:hover { color: #3bcc5a; }
+.cuenta-header .logo-header { /* Logo centrado en el header */
+  height: 60px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.cuenta-header .usuario-icono img { /* Icono/Avatar del usuario */
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #7359a1;
+  box-shadow: 0 0 8px rgba(115, 89, 161, 0.5);
+}
+
+/* ========================================================================== */
+/* ======================= CONTENEDOR PRINCIPAL DE LA PÁGINA ======================= */
+/* ========================================================================== */
+.cuenta-container {
+  display: flex;
+  flex-grow: 1;
+  padding-top: calc(84px + 20px); /* ALTURA_HEADER + ESPACIO_EXTRA */
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+  gap: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* ========================================================================== */
+/* ======================= MENÚ DE NAVEGACIÓN LATERAL ======================= */
+/* ========================================================================== */
+.menu-lateral {
+  width: 260px;
+  flex-shrink: 0;
+  background-color: #1f1b2e;
+  padding: 25px 15px;
+  border-right: 1px solid #3a3153;
+  height: calc(100vh - 84px); /* ALTURA_HEADER */
+  position: sticky;
+  top: 84px; /* ALTURA_HEADER */
+  overflow-y: auto;
+  border-radius: 0 0 8px 8px;
+}
+.menu-lateral ul { list-style: none; }
+.menu-lateral li { /* Estilo de cada ítem del menú */
+  display: flex;
+  align-items: center;
+  padding: 14px 18px;
+  margin-bottom: 6px;
+  color: #b0aec9;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.25s ease, color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+  font-weight: 500;
+  font-size: 0.95em;
+  position: relative;
+}
+.menu-lateral li .menu-icon { /* Icono SVG dentro del ítem del menú */
+  margin-right: 12px;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  stroke: currentColor; /* Hereda color del texto del <li> */
+}
+.menu-lateral li span { flex-grow: 1; } /* Texto del ítem del menú */
+.menu-lateral li:hover { /* Efecto hover para ítems del menú */
+  background-color: #2a2340;
+  color: #fff;
+  transform: translateX(3px);
+}
+.menu-lateral li.activo { /* Estilo del ítem activo */
+  background-color: #7359a1;
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 2px 10px rgba(115, 89, 161, 0.3);
+}
+.menu-lateral li.activo::before { /* Indicador visual del ítem activo */
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 70%;
+  background-color: #3bcc5a;
+  border-radius: 0 3px 3px 0;
+}
+
+/* ========================================================================== */
+/* ======================= ÁREA DE CONTENIDO PRINCIPAL Y SECCIONES ======================= */
+/* ========================================================================== */
+.contenido-principal {
+  flex-grow: 1;
+  padding: 0px 0px 30px 0px;
+  overflow-y: auto;
+  height: calc(100vh - 84px); /* ALTURA_HEADER */
+}
+.seccion { /* Estilo base para todas las secciones (Descripción General, Info Cuenta, etc.) */
+  background-color: #1f1b2e;
+  padding: 30px;
+  margin-bottom: 25px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+  border: 1px solid #2a2340;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.seccion.oculto { display: none; } /* Clase para ocultar secciones no activas */
+.seccion h2 { /* Título principal de cada sección (ej. "Información de la cuenta") */
+  color: #fff;
+  font-size: 2em;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #3a3153;
+  font-weight: 600;
+}
+/* Subtítulos dentro de una sección (ej. "Información de la membresía") */
+.seccion h3.subtitulo-seccion,
+.seccion h3.subtitulo-seccion-general {
+  font-size: 1.1em;
+  color: #b0aec9;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 35px;
+  margin-bottom: 15px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #2a2340;
+}
+.seccion h3.subtitulo-seccion:first-of-type,
+.seccion h3.subtitulo-seccion-general:first-of-type {
+    margin-top: 0;
+}
+
+/* ========================================================================== */
+/* ======================= SECCIÓN: DESCRIPCIÓN GENERAL ======================= */
+/* ========================================================================== */
+.titulo-pagina-cuenta { /* Título "Cuenta" al inicio de la sección */
+  font-size: 2.4em;
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+#descripcion-general h2 { display: none; } /* Oculta el h2 genérico si se usa .titulo-pagina-cuenta */
+
+/* Tarjeta de información de membresía */
+.tarjeta-info-membresia {
+  background-color: #2a2340;
+  border-radius: 10px;
+  padding: 20px 25px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+.etiqueta-miembro-desde {
+  display: inline-block;
+  background: linear-gradient(to right, #7359a1, #c94b4b);
+  color: #fff;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 0.9em;
+  font-weight: 600;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+.detalle-plan-dg { margin-bottom: 20px; } /* Detalles del plan actual */
+.detalle-plan-dg h4 { /* Nombre del plan */
+  font-size: 1.6em;
+  color: #fff;
+  font-weight: 600;
+  margin: 0 0 5px 0;
+}
+.detalle-plan-dg .proximo-pago-dg { /* Información del próximo pago */
+  font-size: 0.95em;
+  color: #b0aec9;
+  margin: 0 0 10px 0;
+}
+.detalle-plan-dg .proximo-pago-dg span { /* Fecha específica del próximo pago */
+    color: #e0e0e0;
+    font-weight: 500;
+}
+.metodo-pago-info-dg { display: flex; align-items: center; } /* Info del método de pago */
+.metodo-pago-info-dg .icono-tarjeta-dg { /* Icono de la tarjeta */
+  width: 32px;
+  height: auto;
+  margin-right: 10px;
+}
+.metodo-pago-info-dg .numero-tarjeta-dg { /* Número de tarjeta (ofuscado) */
+  font-size: 0.95em;
+  color: #b0aec9;
+  letter-spacing: 1px;
+}
+.opcion-link-membresia { /* Enlace "Administrar membresía" */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  border-top: 1px solid #3a3153;
+  text-decoration: none;
+  color: #e0e0e0;
+  font-weight: 500;
+  font-size: 1em;
+  transition: color 0.25s ease;
+}
+.opcion-link-membresia:hover { color: #3bcc5a; }
+.opcion-link-membresia:hover svg { stroke: #3bcc5a; }
+.opcion-link-membresia svg {
+  stroke: #7359a1;
+  transition: stroke 0.25s ease;
+}
+
+/* Vínculos Rápidos en Descripción General */
+.grupo-vinculos-rapidos {
+  background-color: #2a2340;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+}
+.opcion-vinculo-rapido { /* Cada fila de vínculo rápido */
+  display: flex;
+  align-items: center;
+  padding: 18px 20px;
+  border-bottom: 1px solid #3a3153;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+.opcion-vinculo-rapido:last-child { border-bottom: none; }
+.opcion-vinculo-rapido:hover { background-color: #3a3153; }
+.opcion-vinculo-rapido .opcion-icono svg { stroke: #a09dbc; }
+.opcion-vinculo-rapido:hover .opcion-icono svg { stroke: #c0bccf; }
+.opcion-vinculo-rapido .opcion-titulo {
+  flex-grow: 1;
+  font-size: 1em;
+  color: #e8e8f3;
+  font-weight: 500;
+}
+.opcion-vinculo-rapido .opcion-accion svg { stroke: #7359a1; }
+
+
+/* ========================================================================== */
+/* ======================= ESTILOS COMUNES PARA GRUPOS DE OPCIONES ======================= */
+/* (Aplicable a Info Cuenta, Suscripción, Seguridad) */
+/* ========================================================================== */
+.grupo-opciones-info, .grupo-opciones-suscripcion, .grupo-opciones-seguridad {
+  background-color: #2a2340;
+  border-radius: 10px;
+  overflow: hidden; /* Para que los border-radius afecten a los items internos */
+  margin-bottom: 30px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+}
+/* Estilo base para cada fila de opción clickeable */
+.opcion-info, .opcion-suscripcion, .opcion-seguridad {
+  display: flex;
+  align-items: center;
+  padding: 18px 20px;
+  border-bottom: 1px solid #3a3153;
+  transition: background-color 0.25s ease;
+  text-decoration: none;
+  color: inherit;
+}
+.opcion-info:last-child, .opcion-suscripcion:last-child, .opcion-seguridad:last-child {
+  border-bottom: none;
+}
+/* Hacer que las filas sean clickeables si son editables o tienen acción */
+.opcion-info.editable, .opcion-info:has(.opcion-accion svg),
+.opcion-suscripcion, /* Todas las de suscripción son clickeables */
+.opcion-seguridad { /* Todas las de seguridad son clickeables */
+    cursor: pointer;
+}
+.opcion-info.editable:hover, .opcion-info:has(.opcion-accion svg):hover,
+.opcion-suscripcion:hover, .opcion-seguridad:hover {
+    background-color: #3a3153;
+}
+
+/* Estructura interna común para filas (icono, contenido, acción) */
+.opcion-icono {
+  margin-right: 18px;
+  flex-shrink: 0;
+  display: flex;
+  position: relative; /* Para el indicador de alerta opcional */
+}
+.opcion-icono svg {
+  width: 24px;
+  height: 24px;
+  stroke: #a09dbc;
+  transition: stroke 0.25s ease;
+}
+.opcion-info:hover .opcion-icono svg,
+.opcion-suscripcion:hover .opcion-icono svg, /* Asume que .opcion-suscripcion podría tener .opcion-icono */
+.opcion-seguridad:hover .opcion-icono svg {
+  stroke: #c0bccf; /* Icono más claro en hover de la fila */
+}
+.opcion-contenido { /* Contenedor para título y subtítulo/valor */
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+.opcion-titulo { /* Título principal de la opción */
+  font-size: 1.05em;
+  color: #e8e8f3;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+.opcion-subtitulo, .opcion-valor { /* Descripción o valor actual */
+  font-size: 0.9em;
+  color: #a09dbc;
+}
+.opcion-alerta { /* Para mensajes como "Requiere verificación" */
+  font-size: 0.8em;
+  color: #e74c3c;
+  font-weight: 500;
+  margin-top: 3px;
+}
+.opcion-accion { /* Contenedor para la flecha chevron a la derecha */
+  margin-left: 15px;
+  flex-shrink: 0;
+}
+.opcion-accion svg { /* Flecha chevron */
+  width: 18px;
+  height: 18px;
+  stroke: #7359a1;
+}
+.opcion-icono .indicador-alerta { /* Punto rojo de alerta (ej. email no verificado) */
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  width: 8px;
+  height: 8px;
+  background-color: #e74c3c;
+  border-radius: 50%;
+  border: 1px solid #2a2340;
+}
+
+
+/* ======================= INFO DE LA CUENTA: EDICIÓN INLINE ======================= */
+.opcion-info .campo-edicion { /* Contenedor para input y botones de edición */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+.opcion-info .campo-edicion.oculto { display: none; }
+.opcion-info .campo-edicion input[type="text"] { /* Input de edición */
+  flex-grow: 1;
+  padding: 8px 10px;
+  background-color: #1f1b2e;
+  border: 1px solid #4b3276;
+  color: #e0e0e0;
+  border-radius: 6px;
+  font-size: 0.9em;
+}
+.opcion-info .campo-edicion input[type="text"]:focus {
+  border-color: #7359a1;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(115, 89, 161, 0.3);
+}
+/* Botones de Guardar/Cancelar edición */
+.opcion-info .campo-edicion .btn-guardar-edicion,
+.opcion-info .campo-edicion .btn-cancelar-edicion {
+  padding: 7px 12px;
+  font-size: 0.85em;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  font-weight: 500;
+}
+.opcion-info .campo-edicion .btn-guardar-edicion { background-color: #3bcc5a; color: #1f1b2e; }
+.opcion-info .campo-edicion .btn-cancelar-edicion { background-color: #4b3276; color: #e0e0e0; }
+.opcion-info .opcion-accion .texto-accion { /* Texto "Editar" junto a la flecha */
+  font-size: 0.9em;
+  color: #7359a1;
+  margin-right: 5px;
+  font-weight: 500;
+}
+/* Ocultar "Editar" y flecha cuando se está en modo edición */
+.opcion-info.editando .opcion-accion .texto-accion,
+.opcion-info.editando .opcion-accion svg { display: none; }
+
+/* Botón "Administrar perfiles" */
+.acciones-info-cuenta { margin-top: 25px; text-align: center; }
+.administrar-perfiles-btn {
+  display: inline-flex; /* Para alinear icono y texto dentro del botón */
+  align-items: center;
+  gap: 8px;
+  padding-left: 20px; /* Más padding para acomodar el icono */
+  padding-right: 20px;
+}
+.administrar-perfiles-btn svg { stroke: currentColor; } /* Icono hereda color del texto del botón */
+
+
+/* ======================= SUSCRIPCIÓN Y PAGOS: DETALLES ESPECÍFICOS ======================= */
+#suscripcion .detalle-plan-actual { /* Bloque con info del plan actual */
+  margin-bottom: 25px;
+  padding: 20px;
+  background-color: #2a2340;
+  border-radius: 8px;
+  border-left: 4px solid #7359a1; /* Línea de acento */
+}
+#suscripcion .detalle-plan-actual h3 { /* Nombre del plan */
+  font-size: 1.4em;
+  color: #fff;
+  margin: 0 0 8px 0;
+  font-weight: 600;
+}
+#suscripcion .detalle-plan-actual p { /* Descripción del plan */
+  font-size: 0.95em;
+  color: #b0aec9;
+  margin: 0;
+}
+.opcion-suscripcion .opcion-extras { margin-left: auto; padding-right: 15px; } /* Para etiqueta "Novedad" */
+.etiqueta-novedad { /* Estilo para la etiqueta "Novedad" */
+  background-color: #5c8aeb;
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.75em;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.tarjeta-proximo-pago { /* Tarjeta para info del próximo pago */
+  background-color: #2a2340;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  border: 1px solid #3a3153;
+}
+.tarjeta-proximo-pago h4 { /* Título "Próximo pago" */
+  font-size: 1.1em;
+  color: #e8e8f3;
+  margin: 0 0 5px 0;
+  font-weight: 600;
+}
+.tarjeta-proximo-pago .fecha-pago { /* Fecha del próximo pago */
+  font-size: 1em;
+  color: #fff;
+  margin: 0 0 10px 0;
+  font-weight: 500;
+}
+.metodo-pago-info { display: flex; align-items: center; } /* Contenedor icono tarjeta + número */
+.metodo-pago-info .icono-tarjeta { /* Icono de la tarjeta de crédito */
+  width: 32px;
+  height: auto;
+  margin-right: 10px;
+}
+.metodo-pago-info .numero-tarjeta { /* Número de tarjeta ofuscado */
+  font-size: 0.95em;
+  color: #b0aec9;
+  letter-spacing: 1px;
+}
+/* Botones al final de las secciones (Cancelar Suscripción, Eliminar Cuenta) */
+.acciones-finales-suscripcion, .acciones-finales-seguridad {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+.cancelar-suscripcion-btn, .eliminar-cuenta-btn { /* Estilo específico para estos botones */
+  width: 100%;
+  max-width: 500px; /* Para que no sean excesivamente anchos en desktop */
+  padding-top: 14px;
+  padding-bottom: 14px;
+  font-size: 1em;
+}
+
+/* ========================================================================== */
+/* ======================= MENSAJES DE FEEDBACK (ÉXITO/ERROR/INFO) ======================= */
+/* ========================================================================== */
+.mensaje.oculto { display: none; }
+.mensaje {
+    margin-top: 15px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 0.9em;
+}
+.mensaje.success { background-color: rgba(59,204,90,0.15); color: #3bcc5a; border: 1px solid rgba(59,204,90,0.5);}
+.mensaje.error { background-color: rgba(217,83,79,0.15); color: #d9534f; border: 1px solid rgba(217,83,79,0.5);}
+.mensaje.info { background-color: rgba(91,192,222,0.15); color: #5bc0de; border: 1px solid rgba(91,192,222,0.5);}
+
+/* ========================================================================== */
+/* ======================= ESTILOS GENERALES PARA BOTONES (BOTON-LINK) ======================= */
+/* ========================================================================== */
+.boton-link {
+  display: inline-block;
+  background-color: #3bcc5a; /* Verde primario */
+  color: #1f1b2e; /* Texto oscuro para contraste */
+  padding: 12px 22px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background-color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+  margin-right: 12px;
+  margin-top: 15px;
+  font-size: 0.9em;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: none;
+  box-shadow: 0 2px 5px rgba(59, 204, 90, 0.2);
+}
+.boton-link:hover {
+  background-color: #35a54e; /* Verde más oscuro */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(59, 204, 90, 0.3);
+}
+.boton-link:active {
+    transform: translateY(0px);
+    box-shadow: 0 2px 5px rgba(59, 204, 90, 0.2);
+}
+.boton-link.secundario { /* Para botones con menor énfasis */
+  background-color: #7359a1; /* Morado */
+  color: #fff;
+  box-shadow: 0 2px 5px rgba(115, 89, 161, 0.2);
+}
+.boton-link.secundario:hover {
+  background-color: #5e4690;
+  box-shadow: 0 4px 10px rgba(115, 89, 161, 0.3);
+}
+.boton-link.cancelar { /* Para botones de acción destructiva o cancelación */
+  background-color: #d9534f; /* Rojo */
+  color: white;
+  box-shadow: 0 2px 5px rgba(217, 83, 79, 0.2);
+}
+.boton-link.cancelar:hover {
+  background-color: #c9302c;
+  box-shadow: 0 4px 10px rgba(217, 83, 79, 0.3);
+}
+
+/* ========================================================================== */
+/* ======================= ESTILOS PARA SCROLLBARS (WEBKIT) ======================= */
+/* ========================================================================== */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #1f1b2e; border-radius: 10px; }
+::-webkit-scrollbar-thumb { background-color: #3a3153; border-radius: 10px; border: 2px solid #1f1b2e; }
+::-webkit-scrollbar-thumb:hover { background-color: #4b3276; }
+
+
+
+
+
+
+
+
+/* ========================================================================== */
+/* ======================= ESTILOS PARA MODAL GENÉRICO ======================= */
+/* ========================================================================== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(24, 21, 34, 0.85); /* Fondo oscuro semi-transparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000; /* Asegurar que esté por encima de otros elementos */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+}
+
+.modal-overlay:not(.oculto) {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease, visibility 0s linear 0s;
+}
+
+.modal-contenido {
+  background-color: #2a2340; /* Fondo del modal */
+  padding: 30px 35px;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+  width: 100%;
+  max-width: 480px; /* Ancho máximo del modal */
+  position: relative;
+  transform: scale(0.95);
+  transition: transform 0.3s ease;
+}
+.modal-overlay:not(.oculto) .modal-contenido {
+    transform: scale(1);
+}
+
+
+.modal-cerrar-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 28px; /* Tamaño de la 'X' */
+  color: #a09dbc; /* Color de la 'X' */
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  transition: color 0.2s ease;
+}
+.modal-cerrar-btn:hover {
+  color: #fff;
+}
+
+.modal-paso { /* Contenedor para el contenido de cada paso del modal */
+  /* No necesita estilos específicos por ahora, es solo un contenedor */
+}
+
+.modal-titulo {
+  font-size: 1.8em;
+  color: #fff;
+  margin-bottom: 15px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.modal-descripcion {
+  font-size: 0.95em;
+  color: #b0aec9;
+  margin-bottom: 25px;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.form-grupo-modal {
+  margin-bottom: 20px;
+}
+.form-grupo-modal label {
+  display: block;
+  font-size: 0.9em;
+  color: #c0bccf;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+.form-grupo-modal input[type="password"],
+.form-grupo-modal input[type="text"] { /* Si usas otros inputs en modales */
+  width: 100%;
+  padding: 12px 15px;
+  background-color: #1f1b2e;
+  border: 1px solid #4b3276;
+  color: #e0e0e0;
+  border-radius: 8px;
+  font-size: 1em;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.form-grupo-modal input[type="password"]:focus,
+.form-grupo-modal input[type="text"]:focus {
+  border-color: #7359a1;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(115, 89, 161, 0.25);
+}
+.input-error-mensaje { /* Para mostrar errores de validación debajo del input */
+    display: block;
+    font-size: 0.8em;
+    color: #e74c3c; /* Rojo para errores */
+    margin-top: 6px;
+    min-height: 1em; /* Para evitar saltos de layout */
+}
+
+
+.modal-acciones {
+  margin-top: 30px;
+  display: flex;
+  justify-content: flex-end; /* Alinea botones a la derecha */
+  gap: 12px;
+}
+
+.btn-modal-cancelar,
+.btn-modal-primario {
+  /* Usar estilos similares a .boton-link pero adaptados para modal */
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9em;
+  cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.15s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: none;
+}
+.btn-modal-cancelar {
+  background-color: #4b3276; /* Un color secundario/neutro */
+  color: #e0e0e0;
+}
+.btn-modal-cancelar:hover {
+  background-color: #5f4392;
+}
+.btn-modal-primario {
+  background-color: #3bcc5a; /* Color primario de acción */
+  color: #1f1b2e;
+}
+.btn-modal-primario:hover {
+  background-color: #35a54e;
+}
+.btn-modal-primario:active, .btn-modal-cancelar:active {
+    transform: scale(0.98);
+}
+
+/* Responsividad para el modal */
+@media (max-width: 600px) {
+  .modal-contenido {
+    max-width: 90%;
+    padding: 25px 20px;
+  }
+  .modal-titulo {
+    font-size: 1.5em;
+  }
+  .modal-descripcion {
+    font-size: 0.9em;
+  }
+  .modal-acciones {
+    flex-direction: column-reverse; /* Apilar botones en móvil, primario arriba */
+    gap: 10px;
+  }
+  .btn-modal-cancelar,
+  .btn-modal-primario {
+    width: 100%; /* Botones de ancho completo */
+  }
+}
+
+.spinner-boton {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ========================================================================== */
+/* ======================= ESTILOS RESPONSIVOS ======================= */
+/* ========================================================================== */
+/* Para tablets y pantallas medianas */
+@media (max-width: 992px) {
+  .cuenta-container { gap: 20px; padding-left: 15px; padding-right: 15px; }
+  .menu-lateral { width: 220px; padding: 20px 10px; }
+  .seccion { padding: 25px; }
+  .seccion h2 { font-size: 1.8em; }
+}
+/* Para móviles y tablets pequeñas */
+@media (max-width: 768px) {
+  body { font-size: 15px; }
+  .cuenta-container {
+    flex-direction: column;
+    padding-top: calc(60px + 15px); /* ALTURA_HEADER_MOVIL + ESPACIO */
+    gap: 0; padding-left: 0; padding-right: 0;
+  }
+  .cuenta-header { padding: 10px 15px; min-height: 60px; /* Altura header móvil */}
+  .cuenta-header .logo-header { display: none; } /* Ocultar logo en móvil */
+  .cuenta-header .usuario-icono img { width: 38px; height: 38px; }
+
+  .menu-lateral { /* Menú se vuelve horizontal y scrollable */
+    width: 100%; height: auto; border-right: none; border-bottom: 1px solid #3a3153;
+    margin-bottom: 0; position: static; overflow-y: visible; border-radius: 0; padding: 10px;
+    top: 60px; height: calc(100vh - 60px); /* ALTURA_HEADER_MOVIL */
+  }
+  .menu-lateral ul { display: flex; overflow-x: auto; padding-bottom: 10px; white-space: nowrap; }
+  .menu-lateral li { flex-shrink: 0; margin-right: 8px; margin-bottom: 0; padding: 10px 15px; font-size: 0.9em; }
+  .menu-lateral li.activo::before { /* Indicador activo para menú horizontal */
+    width: 70%; height: 3px; left: 50%; top: auto; bottom: -5px;
+    transform: translateX(-50%); border-radius: 3px 3px 0 0;
+  }
+  .contenido-principal { /* Contenido principal ocupa el resto */
+    height: auto; padding: 20px;
+    top: 60px; height: calc(100vh - 60px); /* ALTURA_HEADER_MOVIL */
+  }
+  .seccion { margin-bottom: 20px; }
+
+  /* Ajustes responsivos para filas de opciones */
+  .opcion-info, .opcion-suscripcion, .opcion-seguridad, .opcion-vinculo-rapido { padding: 15px; }
+  .opcion-icono svg { width: 22px; height: 22px; }
+  .opcion-titulo { font-size: 1em; }
+  .opcion-subtitulo, .opcion-valor { font-size: 0.85em; }
+  .tarjeta-info-membresia, #suscripcion .detalle-plan-actual, .tarjeta-proximo-pago { padding: 15px; }
+  .detalle-plan-dg h4, #suscripcion .detalle-plan-actual h3 { font-size: 1.3em; }
+}
+/* Para móviles pequeños */
+@media (max-width: 480px) {
+  body { font-size: 14px; }
+  .seccion { padding: 20px; }
+  .seccion h2 { font-size: 1.6em; }
+  .boton-link { /* Botones ocupan todo el ancho */
+    display: block; margin-right: 0; margin-bottom: 12px; text-align: center;
+    font-size: 1em; padding: 14px 20px;
+  }
+  .boton-link:last-child { margin-bottom: 0; }
+  /* Edición inline en móvil */
+  .opcion-info .campo-edicion { flex-direction: column; align-items: stretch; }
+  .opcion-info .campo-edicion input[type="text"] { margin-bottom: 8px; }
+  .opcion-info .campo-edicion .btn-guardar-edicion,
+  .opcion-info .campo-edicion .btn-cancelar-edicion { width: 100%; }
+}
