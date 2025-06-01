@@ -1,0 +1,178 @@
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(135deg, #1f1b2e, #2a2340);
+  color: #ffffff;
+}
+
+.blur-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      backdrop-filter: blur(10px);
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      color: white;
+      font-family: 'Montserrat', sans-serif;
+      text-align: center;
+    }
+
+    .blur-overlay h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .volver-link {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 1rem;
+      color: #3bcc5a;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      font-weight: 600;
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 8px 12px;
+      border-radius: 8px;
+      backdrop-filter: blur(5px);
+      transition: background-color 0.3s;
+    }
+
+    .volver-link:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .volver-link i {
+      margin-right: 6px;
+    }
+    
+.membresia {
+  padding: 20px 30px;
+  text-align: center;
+}
+
+.titulo {
+  font-size: 2.8em;
+  margin-bottom: 10px;
+  font-weight: 800;
+}
+
+.subtitulo {
+  font-size: 1.2em;
+  color: #bbb;
+  margin-bottom: 50px;
+}
+
+.grid-planes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  justify-content: center;
+}
+
+.tarjeta-plan {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 30px 20px;
+  border-radius: 20px;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta-plan:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 20px rgba(115, 89, 161, 0.5);
+}
+
+.tarjeta-plan h2 {
+  font-size: 1.6em;
+  margin-bottom: 10px;
+}
+
+.precio {
+  font-size: 2em;
+  font-weight: bold;
+  color: #3bcc5a;
+  margin-bottom: 25px;
+}
+
+.precio span {
+  font-size: 0.6em;
+  color: #ccc;
+}
+
+.tarjeta-plan ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.tarjeta-plan ul li {
+  margin: 8px 0;
+  font-size: 0.95em;
+  line-height: 1.4;
+}
+
+.tarjeta-plan ul li::before {
+  content: "•";
+  color: #3bcc5a;
+  display: inline-block;
+  width: 1em;
+}
+
+.tarjeta-plan ul li:has(span) {
+  color: #ff6666;
+}
+
+button {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 50px;
+  background: #3bcc5a;
+  color: #121212;
+  font-weight: bold;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #2da94a;
+}
+
+.destacado {
+  border: 2px solid #7359a1;
+  box-shadow: 0 0 15px #7359a1;
+  position: relative;
+}
+
+.etiqueta {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #7359a1;
+  color: #fff;
+  font-size: 0.75em;
+  font-weight: bold;
+  padding: 5px 15px;
+  border-radius: 20px;
+}
+
+.btn-pro {
+  background: #7359a1;
+  color: #fff;
+}
+
+.btn-pro:hover {
+  background: #5d4792;
+}

@@ -168,38 +168,44 @@ header.hidden {
   flex-grow: 1;
 }
 
+.panel-menu-list:not(.panel-menu-bottom) {
+  background-color: rgba(0,0,0,0.05);
+  padding: 10px 0;
+  border-radius: 8px;
+}
+
 .panel-menu-list li a {
   display: flex;
   align-items: center;
-  padding: 12px 10px; /* Ajustar padding */
-  color: #e8e8f3; /* Texto de los items */
+  padding: 12px 10px; 
+  padding-left: 15px;
+  color: #e8e8f3; 
   text-decoration: none;
   font-weight: 500;
-  font-size: 15px; /* Ajustar tamaño de fuente */
-  border-radius: 6px; /* Bordes redondeados para el hover/activo */
+  font-size: 15px; 
+  border-radius: 6px;
+  border-left: 3px solid transparent;
   margin-bottom: 4px;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease, border-left-color 0.2s ease;
+  position: relative;
 }
 
-.panel-menu-list li a svg {
-  width: 20px; /* Tamaño de iconos */
-  height: 20px;
+.panel-menu-list li a img {
+  width: 30px; /* Tamaño de iconos */
+  height: 30px;
   margin-right: 12px; /* Espacio entre icono y texto */
-  fill: #c0bcd1; /* Color base de iconos, un gris claro */
   transition: fill 0.2s ease;
 }
 
 .panel-menu-list li a:hover {
-  background-color: rgba(255, 255, 255, 0.08); /* Hover sutil */
+  background-color: rgba(255, 255, 255, 0.1); /* Hover sutil */
   color: #ffffff;
+  border-left-color: rgba(59, 204, 90, 0.5);
 }
 
-.panel-menu-list li a:hover svg {
+.panel-menu-list li a:hover img,
+.panel-menu-list li a:hover span {
   fill: #3bcc5a; /* Verde de acento al hacer hover en icono */
-}
-
-.panel-menu-list li a:hover span { /* Para que el texto también cambie a verde */
-  color: #3bcc5a;
 }
 
 
@@ -209,10 +215,11 @@ header.hidden {
   background-color: #3bcc5a; /* Fondo verde */
   color: #2a2340; /* Texto oscuro sobre fondo verde */
   font-weight: 600;
+  border-left-color: #2a2340;
 }
 
-.panel-menu-list li a.active svg,
-.panel-menu-list li a.active:hover svg {
+.panel-menu-list li a.active img,
+.panel-menu-list li a.active:hover img {
   fill: #2a2340; /* Icono oscuro sobre fondo verde */
 }
 .panel-menu-list li a.active span, /* Para que el span también sea oscuro */

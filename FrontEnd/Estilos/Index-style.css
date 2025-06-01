@@ -342,7 +342,7 @@ body {
   gap: 15px;     
   position: relative;  
   padding-top: 40px;   
-  padding-bottom: 20px;
+  padding-bottom: 25px;
   padding-right: 60px;
   padding-left: 30px; 
   flex-wrap: nowrap;    
@@ -466,8 +466,8 @@ body {
 /* Estado hover de la tarjeta (controlado por JS con clase .is-hovered) */
 .pelicula.is-hovered {
   width: 180px;  
-  height: auto;   
-  transform: translateX(-10px) translateY(-25px) scale(1.10); 
+  height: 230px;   
+  transform: translateX(-10px) translateY(-10px) scale(1.10); 
       
   
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6); 
