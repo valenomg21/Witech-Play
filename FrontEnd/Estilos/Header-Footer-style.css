@@ -170,7 +170,7 @@ header.hidden {
 
 .panel-menu-list:not(.panel-menu-bottom) {
   background-color: rgba(0,0,0,0.05);
-  padding: 10px 0;
+  padding: 0;
   border-radius: 8px;
 }
 

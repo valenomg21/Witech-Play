@@ -41,7 +41,19 @@
         <li>
             <a href="#transmisiones">
                  <img src="/FrontEnd/Imagenes/Assets/live-icon.svg" alt="">
-                <span>Transmisiones</span>
+                <span>Transmision en VIVO</span>
+            </a>
+        </li>
+        <li>
+            <a href="#Shorts">
+                 <img src="/FrontEnd/Imagenes/Assets/shorts-icon.svg" alt="">
+                <span>Shorts</span>
+            </a>
+        </li>
+        <li>
+            <a href="https://sportsbet.bet.ar">
+                 <img src="/FrontEnd/Imagenes/Assets/sportbet-icon.svg" alt="">
+                <span>SportBet</span>
             </a>
         </li>
         <li>
