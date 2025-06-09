@@ -1,0 +1,523 @@
+/* Importar fuentes y variables globales si no están en Header-Footer-style.css */
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap');
+
+:root {
+    --color-primario-fondo: #14111c;
+    --color-secundario-fondo: #1f1b2e;
+    --color-terciario-fondo: #2a2340;
+    --color-cuaternario-fondo: #3a3153; /* Un tono más para variedad en tarjetas/secciones */
+    --color-principal-texto: #e8eaf6;
+    --color-secundario-texto: #b0bec5;
+    --color-acento-morado: #7e00fe;
+    --color-acento-morado-hover: #6a00d7;
+    --color-acento-verde: #3bcc5a;      /* Tu verde existente */
+    --color-acento-verde-hover: #35a54e;
+    --color-borde-sutil: rgba(255, 255, 255, 0.08);
+    --color-borde-destacado: rgba(126, 0, 254, 0.3);
+    --sombra-suave: 0 8px 25px rgba(0, 0, 0, 0.2);
+    --sombra-profunda: 0 12px 35px rgba(0, 0, 0, 0.3);
+    --border-radius-estandar: 10px;
+    --border-radius-grande: 15px;
+}
+
+body { /* Ya definidos en otros CSS, pero para asegurar */
+    font-family: 'Jost', sans-serif;
+    background-color: var(--color-primario-fondo);
+    color: var(--color-principal-texto);
+    margin: 0;
+    padding: 0;
+}
+
+/* ----- Contenedor Principal y Layout ----- */
+.cursos-main-container {
+    padding-top: 70px; /* Ajustar según altura real del header */
+    padding-bottom: 30px;
+    max-width: 1600px; /* O el ancho máximo que prefieras para el contenido */
+    margin: 0 auto;
+}
+
+.cursos-layout-principal {
+    display: flex;
+    gap: 30px; /* Espacio entre sidebar y contenido principal */
+    padding: 20px;
+}
+
+/* ----- Barra Lateral ----- */
+.cursos-barra-lateral {
+    flex: 0 0 300px; /* Ancho fijo para la barra lateral */
+    background-color: var(--color-secundario-fondo);
+    border-radius: var(--border-radius-grande);
+    padding: 25px 20px;
+    height: calc(100vh - 70px - 40px - 30px); /* (Viewport - header - padding superior main - padding inferior main) */
+    overflow-y: auto; /* Scroll si el contenido es muy largo */
+    position: sticky; /* Para que se quede fija al hacer scroll en el contenido principal */
+    top: calc(70px + 20px); /* Altura del header + padding superior del layout */
+    border: 1px solid var(--color-borde-sutil);
+}
+
+.sidebar-sticky-content {
+    /* Si necesitas que el contenido interno no se pegue a los bordes al hacer scroll */
+}
+
+.sidebar-titulo-general {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-principal-texto);
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--color-borde-sutil);
+    text-align: center;
+}
+
+.cursos-sidebar-seccion {
+    margin-bottom: 30px;
+}
+.cursos-sidebar-seccion:last-child {
+    margin-bottom: 0;
+}
+
+.sidebar-subtitulo {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--color-secundario-texto);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.live-indicator-dot {
+    width: 10px;
+    height: 10px;
+    background-color: #ff4d4d; /* Rojo vivo para LIVE */
+    border-radius: 50%;
+    margin-right: 8px;
+    animation: pulse-live 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse-live {
+    0% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(255, 77, 77, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(255, 77, 77, 0); }
+    100% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(255, 77, 77, 0); }
+}
+
+.lista-items-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.curso-sidebar-item {
+    background-color: var(--color-terciario-fondo);
+    padding: 12px 15px;
+    border-radius: var(--border-radius-estandar);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    text-decoration: none;
+    border: 1px solid transparent;
+}
+.curso-sidebar-item:hover {
+    background-color: var(--color-cuaternario-fondo);
+    transform: translateX(3px);
+    border-color: var(--color-acento-morado);
+}
+
+.curso-sidebar-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.curso-sidebar-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    overflow: hidden; /* Para que los textos largos no desborden */
+}
+
+.curso-sidebar-titulo-curso {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-principal-texto);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.curso-sidebar-tematica,
+.curso-sidebar-instructor,
+.curso-sidebar-fecha {
+    font-size: 0.8rem;
+    color: var(--color-secundario-texto);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.curso-sidebar-tematica {
+    font-weight: 500;
+    color: var(--color-acento-verde); /* O un color temático */
+}
+
+.curso-sidebar-boton-notificar {
+    background: none;
+    border: none;
+    color: var(--color-secundario-texto);
+    cursor: pointer;
+    padding: 5px;
+    margin-left: auto; /* Empuja el botón a la derecha */
+    flex-shrink: 0;
+}
+.curso-sidebar-boton-notificar img { /* Asumiendo que usas un SVG en img */
+    width: 20px;
+    height: 20px;
+    fill: currentColor; /* Para que tome el color del texto del botón */
+}
+.curso-sidebar-boton-notificar:hover {
+    color: var(--color-acento-morado);
+}
+
+.curso-sidebar-item-vacio {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--color-secundario-texto);
+    padding: 20px 0;
+}
+
+/* Scrollbar para la barra lateral (ya tienes estilos generales, ajustar si es necesario) */
+.cursos-barra-lateral::-webkit-scrollbar { width: 6px; }
+.cursos-barra-lateral::-webkit-scrollbar-thumb { background-color: var(--color-cuaternario-fondo); }
+
+
+/* ----- Contenido Principal de Cursos ----- */
+.cursos-contenido-principal {
+    flex-grow: 1;
+    /* background-color: #1a1724; /* Un poco diferente para distinguir */
+    /* padding: 30px; */
+    /* border-radius: var(--border-radius-grande); */
+}
+
+.cursos-titulo-seccion { /* Título general para secciones como "Explora por Temática", "Virtudes" */
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--color-principal-texto);
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    position: relative;
+    display: inline-block; /* Para que el ::after no ocupe todo el ancho */
+}
+.cursos-titulo-seccion::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-acento-morado) 0%, var(--color-acento-verde) 100%);
+    border-radius: 2px;
+}
+
+/* i. Carrusel Hero de Streams en Vivo */
+.cursos-carrusel-hero {
+    margin-bottom: 40px;
+    /* background-color: var(--color-terciario-fondo); */
+    /* padding: 20px; */
+    /* border-radius: var(--border-radius-estandar); */
+}
+.cursos-carrusel-hero .cursos-titulo-seccion { /* Para el título "Destacados en Vivo" */
+    margin-left: 0; /* Si no tiene padding el contenedor padre */
+}
+
+.carrusel-live-contenedor {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding: 10px;
+    scrollbar-width: none; 
+}
+.carrusel-live-contenedor::-webkit-scrollbar { display: none; } 
+
+
+.curso-live-slide {
+    flex: 0 0 300px; 
+    background-color: var(--color-terciario-fondo);
+    border-radius: var(--border-radius-estandar);
+    overflow: hidden;
+    box-shadow: var(--sombra-suave);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    border: 1px solid var(--color-borde-sutil);
+}
+.curso-live-slide:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 0 0 2px var(--color-acento-morado), var(--sombra-profunda);
+}
+
+.slide-imagen-wrapper {
+    position: relative;
+    width: 100%;
+    height: 170px; /* Altura de la miniatura */
+}
+.slide-imagen {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.slide-live-tag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #ff4d4d;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 5px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.slide-viewers-tag { /* Opcional */
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: rgba(0,0,0,0.6);
+    color: white;
+    padding: 3px 7px;
+    border-radius: 5px;
+    font-size: 0.7rem;
+}
+
+.slide-info {
+    padding: 15px;
+}
+.slide-titulo-curso {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-principal-texto);
+    margin: 0 0 5px 0;
+    line-height: 1.3;
+    /* Para truncar texto si es muy largo */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-height: 2.6em; /* Para dos líneas aprox. */
+}
+.slide-instructor, .slide-categoria {
+    font-size: 0.85rem;
+    color: var(--color-secundario-texto);
+    display: block;
+}
+.slide-categoria {
+    margin-top: 3px;
+    color: var(--color-acento-verde);
+}
+
+/* Placeholder para el carrusel */
+.curso-live-slide-placeholder {
+    flex: 0 0 300px;
+    background-color: var(--color-terciario-fondo);
+    border-radius: var(--border-radius-estandar);
+    padding: 15px;
+    opacity: 0.5;
+}
+.placeholder-imagen {
+    height: 170px;
+    background-color: var(--color-cuaternario-fondo);
+    border-radius: var(--border-radius-estandar);
+    margin-bottom: 10px;
+}
+.placeholder-texto-grande {
+    height: 20px;
+    background-color: var(--color-cuaternario-fondo);
+    border-radius: 4px;
+    margin-bottom: 8px;
+    width: 80%;
+}
+.placeholder-texto-pequeno {
+    height: 15px;
+    background-color: var(--color-cuaternario-fondo);
+    border-radius: 4px;
+    width: 60%;
+}
+
+
+/* ii. Sección "Explora por Temática" */
+.cursos-explorar-tematicas {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.cursos-categorias-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* Ajustar minmax según necesidad */
+    gap: 20px;
+}
+.curso-categoria-card {
+    background-color: var(--color-terciario-fondo);
+    padding: 25px 20px;
+    border-radius: var(--border-radius-estandar);
+    text-align: center;
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    text-decoration: none;
+    border: 1px solid var(--color-borde-sutil);
+}
+.curso-categoria-card:hover {
+    transform: translateY(-5px);
+    background-color: var(--color-cuaternario-fondo);
+    border-color: var(--color-acento-morado);
+    box-shadow: var(--sombra-suave);
+}
+.categoria-card-icono {
+    width: 48px; /* Ajusta el tamaño de tus SVGs */
+    height: 48px;
+    margin-bottom: 15px;
+    /* Si tus SVGs no tienen fill="currentColor", necesitarás definir el color aquí */
+    /* fill: var(--color-acento-verde); */
+}
+.categoria-card-nombre {
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--color-principal-texto);
+    display: block;
+}
+
+/* iii. Sección "Asistencia Gratuita" */
+.cursos-mensaje-importante {
+    background-color: var(--color-secundario-fondo);
+    padding: 30px;
+    border-radius: var(--border-radius-grande);
+    margin-bottom: 50px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    border-left: 5px solid var(--color-acento-verde);
+}
+.mensaje-importante-icono img {
+    width: 60px; /* Ajusta el tamaño de tu SVG */
+    height: 60px;
+    /* fill: var(--color-acento-verde); */
+}
+.mensaje-importante-texto h3 {
+    font-size: 1.4rem;
+    color: var(--color-principal-texto);
+    margin: 0 0 10px 0;
+    font-weight: 600;
+}
+.mensaje-importante-texto p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-secundario-texto);
+    margin: 0;
+}
+.enlace-resaltado-cursos {
+    color: var(--color-acento-morado);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px dotted var(--color-acento-morado);
+    transition: color 0.2s ease, border-bottom-color 0.2s ease;
+}
+.enlace-resaltado-cursos:hover {
+    color: var(--color-acento-morado-hover);
+    border-bottom-color: var(--color-acento-morado-hover);
+}
+
+/* iv. Sección "Virtudes de Witech Play Cursos" */
+.cursos-virtudes-seccion {
+    margin-bottom: 50px;
+}
+.virtudes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+.virtud-card {
+    background-color: var(--color-terciario-fondo);
+    padding: 25px;
+    border-radius: var(--border-radius-estandar);
+    text-align: center;
+    border: 1px solid var(--color-borde-sutil);
+}
+.virtud-card-icono {
+    width: 42px; /* Ajusta el tamaño de tus SVGs */
+    height: 42px;
+    margin-bottom: 15px;
+    /* fill: var(--color-acento-morado); */
+}
+.virtud-card h4 {
+    font-size: 1.2rem;
+    color: var(--color-principal-texto);
+    font-weight: 600;
+    margin: 0 0 10px 0;
+}
+.virtud-card p {
+    font-size: 0.9rem;
+    color: var(--color-secundario-texto);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* v. Sección CTA para Ser Instructor */
+.cursos-cta-ser-instructor {
+    background-color: var(--color-secundario-fondo);
+    border-radius: var(--border-radius-grande);
+    display: flex;
+    align-items: center;
+    overflow: hidden; /* Para que la imagen no se salga del border-radius */
+    /* min-height: 300px; */ /* Opcional */
+    border: 1px solid var(--color-borde-destacado);
+}
+.cta-instructor-imagen {
+    flex: 1 1 45%; /* La imagen ocupa un poco menos de la mitad */
+    max-width: 45%;
+}
+.cta-instructor-imagen img {
+    width: 100%;
+    height: 100%; /* Ajustar para que la imagen llene el contenedor */
+    max-height: 350px; /* Limitar altura de imagen */
+    object-fit: cover;
+    display: block;
+}
+.cta-instructor-texto {
+    flex: 1 1 55%;
+    padding: 35px 40px;
+    color: var(--color-principal-texto);
+}
+.cta-instructor-texto h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 0 0 15px 0;
+    line-height: 1.3;
+}
+.cta-instructor-texto p {
+    font-size: 1rem;
+    color: var(--color-secundario-texto);
+    margin: 0 0 25px 0;
+    line-height: 1.7;
+}
+.boton-cta-cursos {
+    padding: 12px 28px;
+    background: linear-gradient(90deg, var(--color-acento-morado) 0%, var(--color-acento-morado-hover) 100%);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius-estandar);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.boton-cta-cursos:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(126, 0, 254, 0.3);
+}
+
+/* Scrollbars generales (ya definidos en otros CSS, pero por si acaso) */
+body::-webkit-scrollbar { width: 8px; height: 8px; }
+body::-webkit-scrollbar-track { background: var(--color-primario-fondo); }
+body::-webkit-scrollbar-thumb { background-color: var(--color-terciario-fondo); border-radius: 10px; }
+body::-webkit-scrollbar-thumb:hover { background-color: var(--color-cuaternario-fondo); }

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursos en Vivo - Witech Play</title>
+    <link rel="Icon" href="/FrontEnd/Imagenes/Icono/logo-1173935095-1728869406-0d49a887e4481f6878662eb805f4555b1728869406.png"> <!-- Asegúrate que la ruta sea correcta -->
+    <!-- Estilos Compartidos -->
+    <link rel="stylesheet" href="/FrontEnd/Estilos/Header-Footer-style.css">
+    <link rel="stylesheet" href="/FrontEnd/Estilos/Pantalla-carga.css">
+    <!-- Estilos Específicos de esta Página -->
+    <link rel="stylesheet" href="/FrontEnd/Estilos/Trans-Curso-style.css">
+</head>
+<body>
+    <div id="pantalla-carga">
+        <div class="spinner"></div>
+    </div>
+
+    <div id="header-container"></div>
+    <div class="fondo-oscuro"></div>
+    
+    <main class="cursos-main-container">
+        <div class="cursos-layout-principal">
+
+            <!-- ======================= BARRA LATERAL ======================= -->
+            <aside class="cursos-barra-lateral">
+                <div class="sidebar-sticky-content"> <!-- Contenedor para que el contenido se quede fijo si hay scroll -->
+                    <h2 class="sidebar-titulo-general">Cursos en Witech Play</h2>
+
+                    <div class="cursos-sidebar-seccion" id="cursos-activos-sidebar">
+                        <h3 class="sidebar-subtitulo">
+                            <span class="live-indicator-dot"></span> EN VIVO AHORA
+                        </h3>
+                        <div class="lista-items-sidebar" id="lista-cursos-activos">
+                            <!-- EJEMPLO de item (se generará con JS) -->
+                            
+                            <a href="#" class="curso-sidebar-item activo">
+                                <img src="/FrontEnd/Imagenes/Assets/user-icon.svg" alt="Avatar" class="curso-sidebar-avatar">
+                                <div class="curso-sidebar-info">
+                                    <span class="curso-sidebar-titulo-curso">Introducción a Python Avanzado</span>
+                                    <span class="curso-sidebar-tematica">Programación</span>
+                                    <span class="curso-sidebar-instructor">Por: Ana Programadora</span>
+                                </div>
+                            </a>
+                            <a href="#" class="curso-sidebar-item activo">
+                                <img src="/FrontEnd/Imagenes/Assets/user-icon.svg" alt="Avatar" class="curso-sidebar-avatar">
+                                <div class="curso-sidebar-info">
+                                    <span class="curso-sidebar-titulo-curso">Introducción a Python Avanzado</span>
+                                    <span class="curso-sidebar-tematica">Programación</span>
+                                    <span class="curso-sidebar-instructor">Por: Ana Programadora</span>
+                                </div>
+                            </a>
+                            <a href="#" class="curso-sidebar-item activo">
+                                <img src="/FrontEnd/Imagenes/Assets/user-icon.svg" alt="Avatar" class="curso-sidebar-avatar">
+                                <div class="curso-sidebar-info">
+                                    <span class="curso-sidebar-titulo-curso">Reparacion de Telefono Principiantes</span>
+                                    <span class="curso-sidebar-tematica">Programación</span>
+                                    <span class="curso-sidebar-instructor">Por: Raul Cerrano</span>
+                                </div>
+                            </a>
+                            <div class="curso-sidebar-item-vacio">
+                                <p>No hay cursos en vivo en este momento. ¡Vuelve pronto!</p>
+                            </div>
+                        
+                        </div>
+                    </div>
+
+                    <div class="cursos-sidebar-seccion" id="cursos-proximos-sidebar">
+                        <h3 class="sidebar-subtitulo">PRÓXIMAMENTE</h3>
+                        <div class="lista-items-sidebar" id="lista-cursos-proximos">
+                            <!-- EJEMPLO de item (se generará con JS) -->
+                            
+                            <div class="curso-sidebar-item proximo">
+                                <div class="curso-sidebar-info">
+                                    <span class="curso-sidebar-titulo-curso">Diseño de Interfaces con Figma</span>
+                                    <span class="curso-sidebar-tematica">Diseño UX/UI</span>
+                                    <span class="curso-sidebar-instructor">Por: David Diseñador</span>
+                                    <span class="curso-sidebar-fecha">Mañana - 18:00hs</span>
+                                </div>
+                                <button class="curso-sidebar-boton-notificar" aria-label="Notificarme sobre este curso">
+                                    <img src="/FrontEnd/Imagenes/Assets/notification-icon.svg" alt="Notificar">
+                                </button>
+                            </div>
+                            <div class="curso-sidebar-item proximo">
+                                <div class="curso-sidebar-info">
+                                    <span class="curso-sidebar-titulo-curso">Diseño de Interfaces con Figma</span>
+                                    <span class="curso-sidebar-tematica">Diseño UX/UI</span>
+                                    <span class="curso-sidebar-instructor">Por: David Diseñador</span>
+                                    <span class="curso-sidebar-fecha">Mañana - 18:00hs</span>
+                                </div>
+                                <button class="curso-sidebar-boton-notificar" aria-label="Notificarme sobre este curso">
+                                    <img src="/FrontEnd/Imagenes/Assets/notification-icon.svg" alt="Notificar">
+                                </button>
+                            </div>
+                            <div class="curso-sidebar-item proximo">
+                                <div class="curso-sidebar-info">
+                                    <span class="curso-sidebar-titulo-curso">Diseño de Interfaces con Figma</span>
+                                    <span class="curso-sidebar-tematica">Diseño UX/UI</span>
+                                    <span class="curso-sidebar-instructor">Por: David Diseñador</span>
+                                    <span class="curso-sidebar-fecha">Mañana - 18:00hs</span>
+                                </div>
+                                <button class="curso-sidebar-boton-notificar" aria-label="Notificarme sobre este curso">
+                                    <img src="/FrontEnd/Imagenes/Assets/notification-icon.svg" alt="Notificar">
+                                </button>
+                            </div>
+                            <div class="curso-sidebar-item-vacio">
+                                <p>Aún no hay cursos programados. ¡Mantente atento!</p>
+                            </div>
+                        
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- ======================= CONTENIDO PRINCIPAL ======================= -->
+            <section class="cursos-contenido-principal">
+
+                <!-- i. Carrusel de Streams Actuales -->
+                <div class="cursos-carrusel-hero">
+                    <h2 class="cursos-titulo-seccion">Destacados en Vivo</h2>
+                    <div class="carrusel-live-contenedor" id="carrusel-streams-vivos">
+                        <!-- Slides se cargarán aquí con JS -->
+                        <!-- EJEMPLO de slide (se generará con JS) -->
+                        
+                        <a href="#" class="curso-live-slide">
+                            <div class="slide-imagen-wrapper">
+                                <img src="/FrontEnd/Imagenes/Temps/OIP.webp" alt="Miniatura del curso en vivo" class="slide-imagen">
+                                <span class="slide-live-tag">EN VIVO</span>
+                                <span class="slide-viewers-tag"> <!-- Opcional SVG + 1.2k --> </span>
+                            </div>
+                            <div class="slide-info">
+                                <h4 class="slide-titulo-curso">Masterclass de JavaScript Moderno</h4>
+                                <span class="slide-instructor">Carlos Developer</span>
+                                <span class="slide-categoria">Programación</span>
+                            </div>
+                        </a>
+                        <a href="#" class="curso-live-slide">
+                            <div class="slide-imagen-wrapper">
+                                <img src="/FrontEnd/Imagenes/Temps/OIP (1).webp" alt="Miniatura del curso en vivo" class="slide-imagen">
+                                <span class="slide-live-tag">EN VIVO</span>
+                                <span class="slide-viewers-tag"> <!-- Opcional SVG + 1.2k --> </span>
+                            </div>
+                            <div class="slide-info">
+                                <h4 class="slide-titulo-curso">Curso Express de CSS</h4>
+                                <span class="slide-instructor">Carlos Developer</span>
+                                <span class="slide-categoria">Programación</span>
+                            </div>
+                        </a>
+                        <a href="#" class="curso-live-slide">
+                            <div class="slide-imagen-wrapper">
+                                <img src="/FrontEnd/Imagenes/Temps/OIP (2).webp" alt="Miniatura del curso en vivo" class="slide-imagen">
+                                <span class="slide-live-tag">EN VIVO</span>
+                                <span class="slide-viewers-tag"> <!-- Opcional SVG + 1.2k --> </span>
+                            </div>
+                            <div class="slide-info">
+                                <h4 class="slide-titulo-curso">Service de Autos Para Principiantes</h4>
+                                <span class="slide-instructor">Carlos Developer</span>
+                                <span class="slide-categoria">Mecanica</span>
+                            </div>
+                        </a>
+                        <a href="#" class="curso-live-slide">
+                            <div class="slide-imagen-wrapper">
+                                <img src="/FrontEnd/Imagenes/Temps/descarga.webp" alt="Miniatura del curso en vivo" class="slide-imagen">
+                                <span class="slide-live-tag">EN VIVO</span>
+                                <span class="slide-viewers-tag"> <!-- Opcional SVG + 1.2k --> </span>
+                            </div>
+                            <div class="slide-info">
+                                <h4 class="slide-titulo-curso">Reparacion de Celulares Para Principiantes</h4>
+                                <span class="slide-instructor">Carlos Developer</span>
+                                <span class="slide-categoria">Electronica</span>
+                            </div>
+                        </a>
+                    
+                         <!-- Placeholder mientras carga o si está vacío -->
+                         <!--
+                        <div class="curso-live-slide-placeholder">
+                            <div class="placeholder-imagen"></div>
+                            <div class="placeholder-texto-grande"></div>
+                            <div class="placeholder-texto-pequeno"></div>
+                        </div>
+                        -->
+                    </div>
+                    <!-- Aquí podrías agregar controles de carrusel si no los gestiona la librería JS -->
+                </div>
+
+                <!-- ii. Sección: "Explora por Temática" -->
+                <section class="cursos-explorar-tematicas">
+                    <h2 class="cursos-titulo-seccion">Explora por Temática</h2>
+                    <div class="cursos-categorias-grid" id="grid-tematicas">
+                        <!-- Tarjetas de categorías se cargarán aquí con JS -->
+                        <!-- EJEMPLO de tarjeta de categoría (se generará con JS) -->
+                        
+                        <a href="#" class="curso-categoria-card">
+                            <img src="tu_svg_programacion.svg" alt="" class="categoria-card-icono">
+                            <span class="categoria-card-nombre">Programación</span>
+                        </a>
+                        <a href="#" class="curso-categoria-card">
+                            <img src="tu_svg_programacion.svg" alt="" class="categoria-card-icono">
+                            <span class="categoria-card-nombre">Mecanica</span>
+                        </a>
+                        <a href="#" class="curso-categoria-card">
+                            <img src="tu_svg_programacion.svg" alt="" class="categoria-card-icono">
+                            <span class="categoria-card-nombre">Matematica</span>
+                        </a>
+                        <a href="#" class="curso-categoria-card">
+                            <img src="tu_svg_programacion.svg" alt="" class="categoria-card-icono">
+                            <span class="categoria-card-nombre">Lengua</span>
+                        </a>
+                        <a href="#" class="curso-categoria-card">
+                            <img src="tu_svg_programacion.svg" alt="" class="categoria-card-icono">
+                            <span class="categoria-card-nombre">Idiomas</span>
+                        </a>
+                        <a href="#" class="curso-categoria-card">
+                            <img src="tu_svg_programacion.svg" alt="" class="categoria-card-icono">
+                            <span class="categoria-card-nombre">Electronica</span>
+                        </a>
+                        <a href="#" class="curso-categoria-card">
+                            <img src="tu_svg_programacion.svg" alt="" class="categoria-card-icono">
+                            <span class="categoria-card-nombre">Pintura</span>
+                        </a>
+                        <a href="#" class="curso-categoria-card">
+                            <img src="tu_svg_programacion.svg" alt="" class="categoria-card-icono">
+                            <span class="categoria-card-nombre">Fisica</span>
+                        </a>
+                        <a href="#" class="curso-categoria-card">
+                            <img src="tu_svg_programacion.svg" alt="" class="categoria-card-icono">
+                            <span class="categoria-card-nombre">Fitness</span>
+                        </a>
+                        <a href="#" class="curso-categoria-card">
+                            <img src="tu_svg_programacion.svg" alt="" class="categoria-card-icono">
+                            <span class="categoria-card-nombre">Marketing</span>
+                        </a>
+                    
+                    </div>
+                </section>
+
+                <!-- iii. Sección: "Asistencia Gratuita para Estudiantes Verificados" -->
+                <section class="cursos-mensaje-importante">
+                    <div class="mensaje-importante-icono">
+                        <img src="/FrontEnd/Imagenes/Temps/OIP (4).webp" alt="Estudiante verificado"> <!-- TU SVG AQUÍ -->
+                    </div>
+                    <div class="mensaje-importante-texto">
+                        <h3>¡Aprende Gratis en Witech Play!</h3>
+                        <p>La asistencia a una gran selección de nuestros cursos en vivo es <strong>totalmente gratuita para estudiantes verificados</strong>. Creemos en el acceso universal al conocimiento. Verifica tu condición de alumno presentando un formulario <a href="#tu-pagina-de-verificacion" class="enlace-resaltado-cursos">aquí</a> y desbloquea contenido exclusivo sin costo.</p>
+                    </div>
+                </section>
+
+                <!-- iv. Sección: "Virtudes de Witech Play Cursos" -->
+                <section class="cursos-virtudes-seccion">
+                    <h2 class="cursos-titulo-seccion">¿Por Qué Aprender en Witech Play?</h2>
+                    <div class="virtudes-grid">
+                        <div class="virtud-card">
+                            <img src="/FrontEnd/Imagenes/Temps/OIP (3).webp" alt="" class="virtud-card-icono"> <!-- TU SVG AQUÍ -->
+                            <h4>Instructores Apasionados</h4>
+                            <p>Aprende directamente de profesionales con experiencia real y pasión por enseñar en su campo.</p>
+                        </div>
+                        <div class="virtud-card">
+                            <img src="/FrontEnd/Imagenes/Temps/descar.webp" alt="" class="virtud-card-icono"> <!-- TU SVG AQUÍ -->
+                            <h4>Comunidad Interactiva</h4>
+                            <p>Haz preguntas en tiempo real, participa en debates y conecta con otros estudiantes y profesionales.</p>
+                        </div>
+                        <div class="virtud-card">
+                            <img src="/FrontEnd/Imagenes/Temps/descargd1).webp" alt="" class="virtud-card-icono"> <!-- TU SVG AQUÍ -->
+                            <h4>Variedad de Temas</h4>
+                            <p>Desde las últimas tecnologías hasta artes creativas y desarrollo personal, siempre hay algo nuevo que descubrir.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- v. Sección: CTA para Ser Instructor -->
+                <section class="cursos-cta-ser-instructor">
+                    <div class="cta-instructor-imagen">
+                        <!-- Puedes usar un <img> o un div con background-image -->
+                        <img src="/FrontEnd/Imagenes/Temps/profesor-placeholder.jpg" alt="Instructor enseñando en línea"> <!-- CAMBIA ESTA IMAGEN -->
+                    </div>
+                    <div class="cta-instructor-texto">
+                        <h3>¿Quieres Dar Tus Propios Cursos?</h3>
+                        <p>Comparte tu pasión y conocimiento con nuestra creciente comunidad. En Witech Play, te facilitamos las herramientas para llegar a estudiantes de todo el mundo e inspirarlos.</p>
+                        <button class="boton-cta-cursos" id="btnSolicitarPermisoInstructor">Solicita un Permiso Ahora</button>
+                    </div>
+                </section>
+
+            </section> <!-- Fin .cursos-contenido-principal -->
+        </div> <!-- Fin .cursos-layout-principal -->
+    </main>
+
+    <!-- Footer dinámico (ya lo tienes) -->
+    <div id="footer-container"></div>
+
+    <script src="/FrontEnd/Js/header-footer.js"></script>
+    <script src="/FrontEnd/Js/main.js"></script>
+    <script src="/FrontEnd/Js/trans-curso.js"></script>
+</body>
+</html>

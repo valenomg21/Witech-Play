@@ -39,7 +39,7 @@
             </a>
         </li>
         <li>
-            <a href="#transmisiones">
+            <a href="/FrontEnd/Index/trans-curso.html">
                  <img src="/FrontEnd/Imagenes/Assets/live-icon.svg" alt="">
                 <span>Transmision en VIVO</span>
             </a>
