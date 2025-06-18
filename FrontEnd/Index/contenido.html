@@ -21,13 +21,13 @@
 
     <!-- Header dinámico -->
     <div id="header-container"></div>
-    <div class="fondo-oscuro"></div> <!-- Para el menú del header, si lo usas igual -->
+    <div class="fondo-oscuro"></div>
 
     <main class="contenido-principal">
         <!-- Sección Hero con texto y video de fondo -->
         <section class="contenido-hero">
             <video autoplay loop muted playsinline class="hero-video-fondo">
-                <!-- Deberás reemplazar esto con la ruta a tu video/gif -->
+                
                 <source src="https://wow.cuevana3.nu/wp-content/uploads/2024/02/Madame-Web-–-Official-Trailer-Hd1.mp4" type="video/mp4">
                 Tu navegador no soporta videos HTML5.
             </video>
@@ -54,14 +54,7 @@
                     <select id="filtro-genero" name="genero">
                         <option value="todos">Todos</option>
                         <!-- Estos géneros se cargarán dinámicamente o puedes poner algunos por defecto -->
-                        <option value="accion">Acción</option>
-                        <option value="comedia">Comedia</option>
-                        <option value="drama">Drama</option>
-                        <option value="ciencia-ficcion">Ciencia Ficción</option>
-                        <option value="terror">Terror</option>
-                        <option value="romance">Romance</option>
-                        <option value="animacion">Animación</option>
-                        <option value="documental">Documental</option>
+                        
                     </select>
                 </div>
 
@@ -70,11 +63,7 @@
                     <select id="filtro-año" name="año">
                         <option value="todos">Todos</option>
                         <!-- Se podrían cargar dinámicamente los años disponibles -->
-                        <option value="2024">2024</option>
-                        <option value="2023">2023</option>
-                        <option value="2022">2022</option>
-                        <option value="2021">2021</option>
-                        <option value="2020">2020</option>
+                        
                         <option value="anteriores">Anteriores</option>
                     </select>
                 </div>
@@ -111,7 +100,7 @@
 
     <!-- Footer dinámico -->
     <div id="footer-container"></div>
-
+    <script src="/FrontEnd/Js/header-footer.js"></script>
     <script src="/FrontEnd/Js/main.js"></script> <!-- Para header/footer y pantalla de carga -->
     <script src="/FrontEnd/Js/data.js"></script> <!-- Si tienes datos mock o globales -->
     <script src="/FrontEnd/Js/contenido.js"></script>

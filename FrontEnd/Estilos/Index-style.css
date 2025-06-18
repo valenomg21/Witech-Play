@@ -291,7 +291,7 @@ body {
    ========================================================================== */
 
  .carrusel-horizontal {
-  width: 100%;
+  position: relative;
   margin-bottom: 0;
   border-top: 1px solid rgba(255, 255, 255, 0.1)
  }
@@ -309,6 +309,7 @@ body {
   flex: 3; 
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 /* Contenedor de un carrusel individual (incluye flechas y viewport de películas) */
@@ -320,8 +321,7 @@ body {
   width: 100%; 
 }
 
-/* Efecto de fade en los bordes del carrusel-control */
-.carrusel-control::before, 
+/* Efecto de fade en los bordes del carrusel-control */ 
 .carrusel-control::after {
   content: "";
   position: absolute;
@@ -330,11 +330,6 @@ body {
   width: 10px; 
   z-index: 2;  
   pointer-events: none; 
-}
-
-.carrusel-control::before {
-  left: 0;
-  background: linear-gradient(to right, #4b3276, transparent);
 }
 
 .carrusel-control::after {
@@ -347,12 +342,12 @@ body {
   display: flex;
   gap: 15px;     
   position: relative;  
-  padding-top: 40px;   
+  padding-top: 25px;   
   padding-bottom: 25px;
   padding-right: 60px;
   padding-left: 30px; 
   flex-wrap: nowrap;    
-  width: calc(160px * 5 + 15px * 4); 
+  width: max-content;
   z-index: 1;     
   align-items: center;  
 }
@@ -374,8 +369,8 @@ body {
 /* Flechas de navegación del carrusel */
 .carrusel-control .flecha {
   position: absolute;
-  top: 55%;
-  transform: translateY(-55%);
+  top: 50%;
+  transform: translateY(-50%);
   z-index: 5;
 
   background-color: rgba(20, 20, 30, 0.5);
@@ -542,7 +537,7 @@ body {
   flex-direction: column;
   gap: 20px;
   max-width: 280px;
-  margin-top: 66px; 
+  margin-top: 50px; 
   padding: 12px;
 }
 
@@ -621,22 +616,16 @@ body {
 
 /* Tarjeta de producto individual */
 .productos {
-  width: 100%;
-  max-width: 220px;
   background-color: #3a3153;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
-  overflow: hidden; 
-  transition: transform  0.3s ease, box-shadow 0.3s ease, outline-color 0.3s ease;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, outline-color 0.3s ease;
   cursor: pointer;
   outline: 2px solid transparent;
-}
+  width: 220px;
 
-.productos img {
-  height: 100%; 
-  width: 100%;  
-  object-fit: cover;
-  display: block;
+  display: flex;
 }
 
 .productos:hover {
@@ -647,18 +636,44 @@ body {
 
 .productos a {
   text-decoration: none;
-  display: block; 
-  color: #e0e0e0; 
+  color: #e0e0e0;
+  
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.producto-imagen-wrapper {
+  height: 200px; 
+  width: 100%;
+  overflow: hidden;
+  background-color: white;
+}
+
+.productos img {
+  width: 100%;
+  height: 100%;
+   
+  object-fit: contain;
+  display: block;
 }
 
 .productos h3 {
+  height: 30px;
+
   text-align: center;
   font-size: 14px;
   font-weight: 500;
-  padding: 12px 10px;
+  padding: 10px;
   margin: 0;
   line-height: 1.3;
   background-color: rgba(0,0,0, 0.1);
+
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
 /* ==========================================================================
@@ -670,12 +685,10 @@ body {
    -------------------------------------------------------------------------- */
 @media (min-width: 1920px) {
   .carrusel {
-    /* Más espacio vertical para un look más cinematográfico */
     padding-block-start: 15vh;
     padding-block-end: 5vh;
   }
   .carrusel-slide {
-    /* Aumentamos aún más el tamaño máximo y el margen */
     max-width: 950px;
     margin: 0 25px;
   }
@@ -686,9 +699,72 @@ body {
     width: 60px;
     height: 60px;
   }
-  /* Movemos los botones más hacia afuera para que no queden pegados al carrusel */
-  .carrusel-boton.next { right: 10vw; }
-  .carrusel-boton.prev { left: 10vw; }
+  .carrusel-boton.next { right: 5vw; }
+  .carrusel-boton.prev { left: 5vw; }
+
+  /* --- Sección Promocional App --- */
+
+  .seccion-promo-glass {
+    padding: 1.5rem;
+  }
+  
+  .promo-contenido-glass {
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .promo-imagen-glass, .promo-texto-glass {
+    height: 100%;
+  }
+
+  .promo-texto-glass {
+    padding: 0;
+  }
+
+  .promo-texto-glass h2 {
+    font-size: 3rem;
+    margin-top: 10px;
+  }
+
+  .promo-texto-glass p {
+    font-size: 1.5rem;
+    margin: 0.8rem;
+  }
+
+  .botones-app {
+    gap: 0.8rem;
+  }
+
+  .boton-app {
+    padding: 1.2rem 2rem;
+    font-size: 20px;
+    width: 120px;
+  }
+
+  /* --- Sección de Contenido --- */
+  .contenedor-principal {
+    gap: 30px;
+  }
+  .titulo-seccion-pl {
+    font-size: 26px;
+  }
+  .pelicula-wrapper {
+    width: 200px;
+    height: 280px;
+  }
+  .pelicula img {
+    height: 280px;
+  }
+  .pelicula.is-hovered {
+    width: 220px;
+    height: 290px;
+  }
+  .pelicula.is-hovered img {
+    height: 300px;
+  }
+  .contenedor-lateral {
+    max-width: 320px;
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -711,56 +787,47 @@ body {
   }
   /* --- Layout Principal --- */
   .contenedor-principal {
-    flex-direction: column; 
-    align-items: center; 
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
   }
-
   .contenedor-carruseles {
-    width: 100%; 
+    width: 100%;
+    flex: 1;
   }
-
-  /* --- Barra lateral (Promoción Productos) --- */
-  .contenedor-lateral {
-    max-width: 95%;  
-    margin-top: 40px; 
-    padding: 0;
+  .carrusel-control::before,
+  .carrusel-control::after {
+    display: block;
+    width: 40px;
   }
   
+  .carrusel-control {
+    overflow: hidden;
+  }
+  /* --- Barra lateral (Promoción Productos) --- */
+  .contenedor-lateral {
+    max-width: 100%;
+    margin-top: 40px;
+    padding: 0 15px;
+    box-sizing: border-box;
+  }
+  .prese-promo-vertical {
+    max-width: 500px;
+    margin: 0 auto 20px auto;
+  }
   .carrusel-vertical {
-    max-height: none; 
-    overflow-y: visible; 
-    overflow-x: auto;       
-    padding: 20px 15px;
+    max-height: none;
+    padding: 20px 10px;
   }
-
   .carrusel-vertical::-webkit-scrollbar {
-    height: 8px;
+    height: 6px;
   }
-  .carrusel-vertical::-webkit-scrollbar-thumb {
-    background: #3bcc5a;
-    border-radius: 4px;
-  }
-
   .seccion-promo-produ {
     flex-direction: row;
     gap: 15px;
   }
 
-  .productos {
-    flex: 0 0 200px;
-  }
-
-  .prese-promo-vertical {
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto 20px auto;
-  }
-
   /* --- Carruseles Horizontales de Películas --- */
-  .peliculas-carrusel {
-    overflow-x: auto; 
-    scrollbar-width: none;
-  }
   .peliculas-carrusel::-webkit-scrollbar {
     display: none;
   }
@@ -849,6 +916,10 @@ body {
     padding: 0.5rem;
     border-radius: 0.8rem;
   }
+  
+  .productos {
+    flex: 0 0 200px;
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -915,6 +986,7 @@ body {
 
   .botones-app {
     gap: 0.8rem;
+    margin-bottom: 6px;
   }
 
   .boton-app {
@@ -923,31 +995,35 @@ body {
 
   /* --- Títulos de sección --- */
   .titulo-seccion-pl {
-    font-size: 18px;
+    font-size: 20px;
     margin-left: 15px;
   }
-
-  /* --- Tarjetas de Película --- */
   .pelicula-wrapper {
-    width: 140px; /* Hacemos las tarjetas un poco más pequeñas */
+    width: 140px;
     height: 200px;
   }
   .pelicula img {
     height: 200px;
   }
-  
-  .peliculas-carrusel {
-    padding-left: 15px; /* Menos padding lateral */
-    padding-right: 15px;
-    gap: 10px;
+  .pelicula {
+    transition:
+      opacity 0.3s ease,
+      outline 0.3s ease,
+      box-shadow 0.3s ease;
   }
-  
-  /* Desactivamos el efecto de hover complejo en móvil, no es necesario */
+
+  .peliculas-carrusel {
+    padding-left: 15px;
+    padding-right: 15px;
+    gap: 12px;
+  }
   .pelicula.is-hovered {
     transform: none;
     width: 100%;
     height: 100%;
     outline: 2px solid #3bcc5a;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+    z-index: 1;
   }
   .pelicula.is-hovered img {
     height: 100%;
@@ -957,9 +1033,13 @@ body {
     opacity: 1;
     visibility: visible;
     max-height: 60px;
+    background-color: rgba(29, 25, 43, 0.8);
   }
-
+  .productos {
+    flex: 0 0 200px;
+  }
 }
+
 
 /* --------------------------------------------------------------------------
    Para Móviles más pequeños (hasta 480px)
@@ -1019,6 +1099,18 @@ body {
   }
 
   /* --- Tarjetas de Película --- */
+  .titulo-seccion-pl {
+    font-size: 18px;
+  }
+
+  .peliculas-carrusel {
+    padding-top: 0;
+  }
+
+  .carrusel-slide.is-active {
+  opacity: 1;
+  transform: none;
+}
   .pelicula-wrapper {
     width: 120px;
     height: 170px;
@@ -1030,8 +1122,12 @@ body {
     font-size: 12px;
     padding: 8px 5px;
   }
-
-  /* --- seccion promocional --- */
+  .productos {
+    flex: 0 0 180px;
+  }
+  .productos h3 {
+    font-size: 13px;
+  }
   
 }
 
@@ -1091,7 +1187,19 @@ body {
     padding: 0.5rem;
   }
 
-  /**/
-
-  /**/
+   /* --- Sección de Contenido --- */
+  .pelicula-wrapper {
+    width: 110px;
+    height: 155px;
+  }
+  .pelicula img {
+    height: 155px;
+  }
+  .peliculas-carrusel {
+    padding-top: 25px;
+    padding-bottom: 20px;
+  }
+  .productos {
+    flex: 0 0 160px;
+  }
 }

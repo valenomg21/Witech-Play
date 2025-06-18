@@ -1,5 +1,6 @@
 
 window.peliculas = {
+  
   minecraft: {
     titulo: "Una Película de Minecraft",
     duracion: "1h 41min",

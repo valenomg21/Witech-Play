@@ -21,13 +21,13 @@
 
     <ul class="panel-menu-list">
         <li>
-            <a href="#peliculas">
+            <a href="/FrontEnd/Paginas/contenido.html?tipo=pelicula"">
                 <img src="/FrontEnd/Imagenes/Assets/movie-icon.svg" alt="">
                 <span>Películas</span>
             </a>
         </li>
         <li>
-            <a href="#series">
+            <a href="/FrontEnd/Paginas/contenido.html?tipo=pelicula"">
                 <img src="/FrontEnd/Imagenes/Assets/series-icon.svg" alt="">
                 <span>Series</span>
             </a>
