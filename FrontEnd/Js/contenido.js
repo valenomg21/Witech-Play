@@ -339,6 +339,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (mensajeCargaCatalogo) mensajeCargaCatalogo.style.display = 'block';
         
+        const urlParams = new URLSearchParams(window.location.search);
+        const tipoDesdeURL = urlParams.get('tipo'); // Busca un parámetro llamado 'tipo'
+
+        if (tipoDesdeURL && filtroTipoSelect) {
+            // Si encontramos el parámetro 'tipo' en la URL...
+            console.log(`Filtro detectado desde URL: ${tipoDesdeURL}`);
+            
+            // 1. Establecemos el valor del <select> para que coincida con el parámetro.
+            filtroTipoSelect.value = tipoDesdeURL;
+
+            // 2. IMPORTANTE: Llamamos manualmente a la función de filtrado para aplicar el cambio.
+            //    Simplemente cambiar el .value no dispara el evento 'change', así que lo hacemos nosotros.
+            //    No es necesario llamar a manejarCambioDeFiltro() aquí, ya que se llamará al final de init().
+            //    Solo con haber cambiado el valor del select es suficiente para el primer renderizado.
+        }
+
         prepararDatosIniciales();
         cargarGeneros();
         cargarAños();
