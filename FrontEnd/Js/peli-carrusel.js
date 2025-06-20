@@ -1,152 +1,155 @@
-document.querySelectorAll('.carrusel-control').forEach(contenedor => {
+// Función para "retrasar" la ejecución de un evento, mejora el rendimiento en 'resize'
+function debounce(func, wait = 20, immediate = true) {
+  let timeout;
+  return function() {
+    const context = this, args = arguments;
+    const later = function() {
+      timeout = null;
+      if (!immediate) func.apply(context, args);
+    };
+    const callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func.apply(context, args);
+  };
+}
+
+// Función principal que configura un carrusel individual
+function initCarousel(contenedor) {
   const carrusel = contenedor.querySelector('.peliculas-carrusel');
   const btnIzquierda = contenedor.querySelector('.flecha.izquierda');
   const btnDerecha = contenedor.querySelector('.flecha.derecha');
 
-  // --- Verificación inicial ---
-  if (!carrusel || !btnIzquierda || !btnDerecha) {
-    console.error("Error: No se encontraron todos los elementos necesarios (carrusel, botones) en:", contenedor);
-    return;
-  }
+  if (!carrusel || !btnIzquierda || !btnDerecha) return;
 
-  const tarjetas = carrusel.querySelectorAll('.pelicula');
+  const tarjetas = carrusel.querySelectorAll('.pelicula-wrapper');
+  if (tarjetas.length === 0) return;
 
-  if (tarjetas.length === 0) {
-     console.warn("Advertencia: El carrusel está vacío:", carrusel);
-     // Deshabilitar botones si no hay tarjetas
-     btnIzquierda.disabled = true;
-     btnDerecha.disabled = true;
-     return; // Salir si no hay tarjetas
-  }
-  // --- Fin Verificación inicial ---
-
-  const tarjetaAncho = tarjetas[0].offsetWidth + 15; // 15 gap
+  // --- VARIABLES ---
+  let tarjetaAnchoTotal;
   const cantidadTarjetasAMover = 3;
-  const duracionTransicion = 500; // ms - coincidir con css
+  const duracionTransicion = 500;
   let posicion = 0;
-  let isAnimating = false; // Para prevenir clics múltiples
+  let isAnimating = false;
+  
+  // --- FUNCIÓN PARA OBTENER EL ANCHO TOTAL DE LA TARJETA (INCLUYENDO GAP) ---
+  function getTarjetaAnchoTotal() {
+    if (tarjetas.length === 0) return 0;
+    
+    // Obtenemos el estilo computado del CONTENEDOR del carrusel para leer el gap
+    const carruselStyle = window.getComputedStyle(carrusel);
+    // Leemos el valor de 'column-gap' (o 'gap') y lo convertimos a número
+    const gap = parseFloat(carruselStyle.columnGap) || 0;
+    
+    // El ancho total es el ancho del elemento + el gap que acabamos de medir
+    return tarjetas[0].offsetWidth + gap;
+  }
 
+  // --- LÓGICA DE ACTUALIZACIÓN AL REDIMENSIONAR ---
+  function resetearCarrusel() {
+    posicion = 0;
+    carrusel.style.transition = 'none';
+    carrusel.style.transform = `translateX(${posicion}px)`;
+  }
+
+  // --- LÓGICA DE MOVIMIENTO ---
   function mover(direccion) {
-    if (isAnimating) {
-      // console.log("Animación en progreso, ignorando clic.");
-      return; 
-    }
-    isAnimating = true; 
+    if (isAnimating) return;
+    isAnimating = true;
 
-    const desplazamiento = tarjetaAncho * cantidadTarjetasAMover;
-    const totalTarjetas = carrusel.children.length;
+    // ¡CAMBIO CLAVE! Calculamos el ancho justo antes de cada movimiento.
+    tarjetaAnchoTotal = getTarjetaAnchoTotal();
+    
+    const desplazamiento = tarjetaAnchoTotal * cantidadTarjetasAMover;
 
-     // Verificar si hay suficientes tarjetas para mover (básico)
-     if (totalTarjetas <= cantidadTarjetasAMover) {
-         console.warn("No hay suficientes tarjetas para realizar el ciclo completo.");
-         isAnimating = false; // Desbloquear
-         return;
-     }
-
-    // --- Mover a la DERECHA ---
     if (direccion === 'derecha') {
       posicion -= desplazamiento;
       carrusel.style.transition = `transform ${duracionTransicion / 1000}s ease`;
       carrusel.style.transform = `translateX(${posicion}px)`;
-      
+
       setTimeout(() => {
-  
         for (let i = 0; i < cantidadTarjetasAMover; i++) {
           if (carrusel.firstElementChild) {
             carrusel.appendChild(carrusel.firstElementChild);
           }
         }
-
-        // Ajustar 'posicion' para reflejar el movimiento de elementos
         posicion += desplazamiento;
-        // console.log(`--> Derecha. Posición reajustada (sin anim): ${posicion}`);
-        carrusel.style.transition = 'none'; // Quitar transición para el reajuste
-        carrusel.style.transform = `translateX(${posicion}px)`; // Reajustar instantáneamente
-        // console.log(`--> Derecha. Transform reajustado: translateX(${posicion}px)`);
-
-        isAnimating = false; // Desbloquear clics
-        // console.log("--> Derecha. Animación completada.");
-      }, duracionTransicion); 
-
-    // --- Mover a la IZQUIERDA ---
+        carrusel.style.transition = 'none';
+        carrusel.style.transform = `translateX(${posicion}px)`;
+        isAnimating = false;
+      }, duracionTransicion);
     } else if (direccion === 'izquierda') {
-       console.log(`<-- Izquierda. Posición ANTES: ${posicion}`);
-
-
-       console.log("<-- Izquierda. Moviendo elementos del final al principio...");
-      const elementosAMover = [];
       for (let i = 0; i < cantidadTarjetasAMover; i++) {
-          if(carrusel.lastElementChild){
-              elementosAMover.push(carrusel.lastElementChild);
-              carrusel.removeChild(carrusel.lastElementChild); 
-          } else {
-              console.warn("<-- Izquierda. ¡No se encontró lastElementChild para mover!");
-              break;
-          }
+        if (carrusel.lastElementChild) {
+            carrusel.prepend(carrusel.lastElementChild);
+        }
       }
-     
-      elementosAMover.reverse().forEach(elemento => {
-          if(carrusel.firstElementChild){
-              carrusel.insertBefore(elemento, carrusel.firstElementChild);
-              
-          } else {
-              
-              carrusel.appendChild(elemento);
-              console.warn("<-- Izquierda. No había firstElementChild, usando appendChild.");
-          }
-      });
-
-      posicion -= desplazamiento;
       
+      posicion -= desplazamiento;
       carrusel.style.transition = 'none';
       carrusel.style.transform = `translateX(${posicion}px)`;
-    
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => { 
-            carrusel.style.transition = `transform ${duracionTransicion / 1000}s ease`;
-            posicion += desplazamiento; 
-            
-            carrusel.style.transform = `translateX(${posicion}px)`;
+      
+      void carrusel.offsetWidth; 
 
-           
-             setTimeout(() => {
-                isAnimating = false;
-             
-             }, duracionTransicion);
-        });
-      });
+      carrusel.style.transition = `transform ${duracionTransicion / 1000}s ease`;
+      posicion += desplazamiento;
+      carrusel.style.transform = `translateX(${posicion}px)`;
+
+      setTimeout(() => {
+        isAnimating = false;
+      }, duracionTransicion);
     }
   }
-
   
+  // --- EVENT LISTENERS ---
   btnDerecha.addEventListener('click', () => mover('derecha'));
   btnIzquierda.addEventListener('click', () => mover('izquierda'));
 
-  const anchoVisibleEstimado = contenedor.offsetWidth;
-  const anchoTotalContenido = tarjetas.length * tarjetaAncho;
-  if (anchoTotalContenido <= anchoVisibleEstimado) {
-      
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  carrusel.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
+  carrusel.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+  }, { passive: true });
+
+  function handleSwipe() {
+    if (isAnimating) return;
+    const swipeThreshold = 50;
+    if (touchEndX < touchStartX - swipeThreshold) {
+      mover('derecha');
+    } else if (touchEndX > touchStartX + swipeThreshold) {
+      mover('izquierda');
+    }
   }
+  
+  window.addEventListener('resize', debounce(resetearCarrusel, 250));
+}
 
-});
+// --- INICIAR TODOS LOS CARRUSELES Y EFECTOS DE HOVER ---
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.carrusel-control').forEach(initCarousel);
 
-// --- NUEVO CÓDIGO PARA EL EFECTO HOVER DE LAS TARJETAS ---
-document.querySelectorAll('.pelicula').forEach(tarjeta => {
-  const wrapper = tarjeta.parentElement; // El .pelicula-wrapper
-  const carruselContenedor = wrapper.closest('.peliculas-carrusel');
+  document.querySelectorAll('.pelicula').forEach(tarjeta => {
+    const wrapper = tarjeta.parentElement;
+    const carruselContenedor = wrapper.closest('.peliculas-carrusel');
 
-  tarjeta.addEventListener('mouseenter', function() {
-    if (carruselContenedor) {
-      carruselContenedor.classList.add('carrusel-item-active');
-    }
-    this.classList.add('is-hovered');
+    tarjeta.addEventListener('mouseenter', function() {
+      if (carruselContenedor) {
+        carruselContenedor.classList.add('carrusel-item-active');
+      }
+      this.classList.add('is-hovered');
+    });
 
-  });
-
-  tarjeta.addEventListener('mouseleave', function() {
-    if (carruselContenedor) {
-      carruselContenedor.classList.remove('carrusel-item-active');
-    }
-    this.classList.remove('is-hovered');
+    tarjeta.addEventListener('mouseleave', function() {
+      if (carruselContenedor) {
+        carruselContenedor.classList.remove('carrusel-item-active');
+      }
+      this.classList.remove('is-hovered');
+    });
   });
 });

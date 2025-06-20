@@ -1,0 +1,28 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- 
+    Análisis visual del logo original:
+    - El centro del anillo blanco es (100,100) en un canvas de 200x200.
+    - El radio del anillo blanco (hasta su línea media) es aproximadamente 70.
+    - El grosor del anillo blanco es aproximadamente 20.
+    - El círculo verde tiene un radio aproximado de 30.
+    - El centro del círculo verde está aproximadamente en (50,50).
+  -->
+
+  <!-- Anillo Blanco -->
+  <circle 
+    cx="100" 
+    cy="100" 
+    r="70" 
+    stroke="#FFFFFF" 
+    stroke-width="20" 
+    fill="none" 
+  />
+
+  <!-- Círculo Verde -->
+  <circle 
+    cx="50" 
+    cy="50" 
+    r="30" 
+    fill="#3CB878" 
+  />
+</svg>

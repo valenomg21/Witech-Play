@@ -147,53 +147,59 @@ body {
 }
 
 /* seccion app */
-.seccion-promocional {
+.seccion-promo-glass {
+  /* ¡Mantenemos el fondo oscuro que querías como divisor! */
   background-color: #1f1b2e;
-  padding: 3rem 1rem;
-  display: flex;
-  justify-content: center;
+  padding: 3rem 2rem;
+  /* Añadimos el patrón de diamantes que usas en el carrusel para consistencia */
+  position: relative;
 }
 
-.promo-contenido {
-  display: flex;
-  flex-wrap: wrap;
+.promo-contenido-glass {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch; /* Clave: alinea verticalmente la imagen y la tarjeta */
   gap: 2rem;
-  align-items: center;
-  max-width: 1200px;
-  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
 }
 
-.promo-imagen {
-  flex: 1 1 450px;
-  max-width: 600px;
-  border-radius: 1.5rem;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+.promo-imagen-glass {
   width: 100%;
-  height: 290px;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  align-self: center;
 }
 
-.promo-texto {
-  flex: 1 1 300px;
-  color: white;
+.promo-texto-glass {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
-  background-color: #2a2340;
-  max-width: 600px;
-  height: 290px;
-  border-radius: 1.5rem;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+
+  padding: 2rem;
+
+  background: rgba(42, 35, 64, 0.5);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
-.promo-texto h2 {
-  font-size: 2rem;
-  margin-bottom: 1.8rem;
+.promo-texto-glass h2 {
+  font-size: 2.3rem;
   color: #fff;
+  margin: 0 0 1rem 0;
 }
 
-.promo-texto p {
-  font-size: 1.2rem;
-  line-height: 1.6;
-  margin: 1.5rem;
-  color: #ccc;
+.promo-texto-glass p {
+  font-size: 1.1rem;
+  color: #e0e0e0;
+  line-height: 1.7;
+  margin: 0 0 2rem 0;
 }
 
 .botones-app {
@@ -234,7 +240,7 @@ body {
 
 .seccion-contenido {
   padding: 10px 0; 
-  background-color: #4b3276;
+  background-color: #0f0f0f;
   color: white;
   position: relative; 
   z-index: 1;
@@ -270,7 +276,7 @@ body {
   bottom: 0; 
   height: 3px;
   width: 0%; 
-  background-color: #4CAF50;
+  background-color: #4b3276;
 
   transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); 
 }
@@ -285,7 +291,7 @@ body {
    ========================================================================== */
 
  .carrusel-horizontal {
-  width: 100%;
+  position: relative;
   margin-bottom: 0;
   border-top: 1px solid rgba(255, 255, 255, 0.1)
  }
@@ -303,6 +309,7 @@ body {
   flex: 3; 
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 /* Contenedor de un carrusel individual (incluye flechas y viewport de películas) */
@@ -314,26 +321,20 @@ body {
   width: 100%; 
 }
 
-/* Efecto de fade en los bordes del carrusel-control */
-.carrusel-control::before, 
+/* Efecto de fade en los bordes del carrusel-control */ 
 .carrusel-control::after {
   content: "";
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 10px; 
+  width: 20px; 
   z-index: 2;  
   pointer-events: none; 
 }
 
-.carrusel-control::before {
-  left: 0;
-  background: linear-gradient(to right, #4b3276, transparent);
-}
-
 .carrusel-control::after {
   right: 0;
-  background: linear-gradient(to left, #4b3276, transparent);
+  background: linear-gradient(to left, #0f0f0f, transparent);
 }
 
 /* Viewport donde se mueven las tarjetas de películas */
@@ -341,12 +342,12 @@ body {
   display: flex;
   gap: 15px;     
   position: relative;  
-  padding-top: 40px;   
-  padding-bottom: 20px;
+  padding-top: 25px;   
+  padding-bottom: 25px;
   padding-right: 60px;
   padding-left: 30px; 
   flex-wrap: nowrap;    
-  width: calc(160px * 5 + 15px * 4); 
+  width: max-content;
   z-index: 1;     
   align-items: center;  
 }
@@ -368,8 +369,8 @@ body {
 /* Flechas de navegación del carrusel */
 .carrusel-control .flecha {
   position: absolute;
-  top: 55%;
-  transform: translateY(-55%);
+  top: 50%;
+  transform: translateY(-50%);
   z-index: 5;
 
   background-color: rgba(20, 20, 30, 0.5);
@@ -399,16 +400,16 @@ body {
 }
 
 .carrusel-control .flecha:hover {
-  background-color: rgba(98, 179, 12, 0.9);
+  background-color: #4b3276;
   color: #ffffff;
-  border-color: rgba(98, 179, 12, 0.9);
+  border-color: #5955ff;
   border: 1px solid rgba(0, 0, 0, 0.3);
   transform: translateY(-55%) scale(1.1);
   cursor: pointer;
 }
 
 .carrusel-control .flecha:active {
-  background-color: rgba(78, 143, 9, 0.9);
+  background-color: #504097;
   transform: translateY(-55%) scale(1.05);
   transition-duration: 0.1s;
 }
@@ -466,12 +467,12 @@ body {
 /* Estado hover de la tarjeta (controlado por JS con clase .is-hovered) */
 .pelicula.is-hovered {
   width: 180px;  
-  height: auto;   
-  transform: translateX(-10px) translateY(-25px) scale(1.10); 
+  height: 230px;   
+  transform: translateX(-10px) translateY(-10px) scale(1.10); 
       
   
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6); 
-  outline: 3px solid #3bcc5a;
+  box-shadow: 0 0 15px #7359a1; 
+  outline: 2px solid #7359a1;
   z-index: 20; 
   opacity: 1; 
   background-color: rgb(29, 25, 43); 
@@ -536,7 +537,7 @@ body {
   flex-direction: column;
   gap: 20px;
   max-width: 280px;
-  margin-top: 66px; 
+  margin-top: 50px; 
   padding: 12px;
 }
 
@@ -547,7 +548,7 @@ body {
   background-color: #2a2440; 
   padding: 20px 15px; 
   border-radius: 10px; 
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); 
+  box-shadow: 0 0 15px #7359a1; 
   text-align: center; 
   margin-bottom: 20px; 
 }
@@ -615,610 +616,590 @@ body {
 
 /* Tarjeta de producto individual */
 .productos {
-  width: 100%;
-  max-width: 220px;
   background-color: #3a3153;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
-  overflow: hidden; 
-  transition: transform  0.3s ease, box-shadow 0.3s ease, outline-color 0.3s ease;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, outline-color 0.3s ease;
   cursor: pointer;
   outline: 2px solid transparent;
-}
+  width: 220px;
 
-.productos img {
-  height: 100%; 
-  width: 100%;  
-  object-fit: cover;
-  display: block;
+  display: flex;
 }
 
 .productos:hover {
   transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 8px 16px rgba(50, 50, 93, 0.25), 0 4px 12px rgba(0, 0, 0, 0.2); /* Sombra más elaborada */
+  box-shadow: 0 0 15px #3bcc5a; /* Sombra más elaborada */
   outline: 2px solid #3bcc5a;
 }
 
 .productos a {
   text-decoration: none;
-  display: block; 
-  color: #e0e0e0; 
+  color: #e0e0e0;
+  
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.producto-imagen-wrapper {
+  height: 200px; 
+  width: 100%;
+  overflow: hidden;
+  background-color: white;
+}
+
+.productos img {
+  width: 100%;
+  height: 100%;
+   
+  object-fit: contain;
+  display: block;
 }
 
 .productos h3 {
+  height: 30px;
+
   text-align: center;
   font-size: 14px;
   font-weight: 500;
-  padding: 12px 10px;
+  padding: 10px;
   margin: 0;
   line-height: 1.3;
   background-color: rgba(0,0,0, 0.1);
-}
-/* Planes */
-.planes-premium {
-  background-image: url(../Imagenes/Icono/bg-tiles.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  filter: brightness(1.5);
-  padding: 10px 0 20px;
-  text-align: center;
-}
 
-.contenedor {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.titulo-seccion-pr {
-  font-size: 36px;
-  color: white;
-  margin-bottom: 20px;
-  font-family: 'Arial', sans-serif;
-}
-
-.descripcion-seccion {
-  font-size: 18px;
-  color: white;
-  margin-bottom: 40px;
-  font-family: 'Arial', sans-serif;
-}
-
-.grilla-planes {
+  flex-grow: 1;
   display: flex;
+  align-items: center;
   justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
+  overflow: hidden;
 }
 
-.tarjeta-plan {
-  background-color: #4b3276;
-  border-radius: 10px;
-  padding: 30px;
-  width: 300px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 2px solid transparent; 
-}
+/* ==========================================================================
+   ESTILOS RESPONSIVE
+   ========================================================================== */
 
-.tarjeta-plan:hover {
-  transform: translateY(-5px); 
-  box-shadow: 0 8px 20px rgba(179, 3, 255, 0.637);
-  border-color: #4CAF50;
-}
+/* --------------------------------------------------------------------------
+   Para Escritorios Ultra-Anchos (desde 1920px)
+   -------------------------------------------------------------------------- */
+@media (min-width: 1920px) {
+  .carrusel {
+    padding-block-start: 15vh;
+    padding-block-end: 5vh;
+  }
+  .carrusel-slide {
+    max-width: 950px;
+    margin: 0 25px;
+  }
+  .carrusel-slide img {
+    max-height: 600px;
+  }
+  .carrusel-boton {
+    width: 60px;
+    height: 60px;
+  }
+  .carrusel-boton.next { right: 5vw; }
+  .carrusel-boton.prev { left: 5vw; }
 
-.nombre-plan {
-  font-size: 24px;
-  color:white;
-  margin-bottom: 10px;
-  font-family: 'Arial', sans-serif;
-}
+  /* --- Sección Promocional App --- */
 
-.precio-plan {
-  font-size: 20px;
-  color: #4CAF50;
-  margin-bottom: 20px;
-  font-weight: bold;
-}
-
-.lista-caracteristicas {
-  list-style: none;
-  padding: 0;
-  margin-bottom: 30px;
-  color: white;
-}
-
-.lista-caracteristicas li {
-  margin: 10px 0;
-  display: flex;
-  align-items: center; 
-}
-
-.lista-caracteristicas li i {
-  margin-right: 8px;
-  color: #4CAF50; 
-  font-size: 16px;
-}
-
-/* Iconos Font Awesome */
-/* Para acceder a ellos:  Añade Font Awesome a tu proyecto */
-@import url("https://use.fontawesome.com/releases/v6.4.2/css/all.css");
-
-.boton-cta {
-  display: inline-block;
-  background-color: #4CAF50;
-  color: white;
-  padding: 12px 24px;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-}
-
-.boton-cta:hover {
-  background-color: #3e8e41; /* Ligeramente más oscuro al hacer hover */
-}
-
-/* Responsive momento*/
-
-
-/* @media (max-width: 414px) */
-@media (max-width: 414px) {
-  /* Carrusel */
+  .seccion-promo-glass {
+    padding: 1.5rem;
+  }
   
+  .promo-contenido-glass {
+    align-items: center;
+    gap: 1rem;
+  }
 
-  /* Seccion Promo */
-  .seccion-promocional {
-    padding: 0.8rem 0.5rem; /* Reducir el relleno */
+  .promo-imagen-glass, .promo-texto-glass {
+    height: 100%;
   }
-  .promo-contenido {
-    gap: 1rem; /* Reducir el espacio entre elementos */
-  }
-  .promo-imagen {
-    height: 180px; /* Ajustar la altura */
-  }
-  .promo-texto {
-    max-width: 100%;
-    height: auto; /* Que se ajuste al contenido */
-    padding: 1rem; /* Ajustar relleno */
-  }
-  .promo-texto h2 {
-    font-size: 1.5rem; /* Reducir tamaño de fuente */
-    margin-bottom: 1rem;
-  }
-  .promo-texto p {
-    font-size: 1rem; /* Reducir tamaño de fuente */
-    margin: 1rem 0.5rem; /* Ajustar márgenes */
-  }
-  .boton-app {
-    width: 80px; /* Reducir el ancho */
-    font-size: 0.7rem; /* Reducir tamaño de fuente */
-    padding: 0.6rem 0.8rem;
-  }
-  /* Seccion Peliculas */
-  
-  /*seccion planes*/
-  .planes-premium {
-    display: none;
-  }
-}
 
-/* @media (min-width: 415px) and (max-width: 600px) */
-@media (min-width: 414px) and (max-width: 464px) {
-  /* Carrusel */
- 
+  .promo-texto-glass {
+    padding: 0;
+  }
 
-  /* Seccion Promo */
-  .seccion-promocional {
-    padding: 0.8rem 0.5rem; /* Reducir el relleno */
+  .promo-texto-glass h2 {
+    font-size: 3rem;
+    margin-top: 10px;
   }
-  .promo-contenido {
-    gap: 1rem; /* Reducir el espacio entre elementos */
-  }
-  .promo-imagen {
-    height: 180px; /* Ajustar la altura */
-  }
-  .promo-texto {
-    max-width: 100%;
-    height: auto; /* Que se ajuste al contenido */
-    padding: 1rem; /* Ajustar relleno */
-  }
-  .promo-texto h2 {
-    font-size: 1.5rem; /* Reducir tamaño de fuente */
-    margin-bottom: 1rem;
-  }
-  .promo-texto p {
-    font-size: 1rem; /* Reducir tamaño de fuente */
-    margin: 1rem 0.5rem; /* Ajustar márgenes */
-  }
-  .boton-app {
-    width: 80px; /* Reducir el ancho */
-    font-size: 0.7rem; /* Reducir tamaño de fuente */
-    padding: 0.6rem 0.8rem;
-  }
-  /* Seccion Peliculas */
-  
-  /*seccion planes*/
-  .planes-premium {
-    display: none;
-  }
-}
 
-@media (min-width: 464px) and (max-width: 600px) {
-  /* Carrusel */
- 
+  .promo-texto-glass p {
+    font-size: 1.5rem;
+    margin: 0.8rem;
+  }
 
-  /* Seccion Promo */
-  .seccion-promocional {
-    padding: 0.8rem 0.5rem; /* Reducir el relleno */
-  }
-  .promo-contenido {
-    gap: 1rem; /* Reducir el espacio entre elementos */
-  }
-  .promo-imagen {
-    max-width: 600px;
-    height: auto; /* Ajustar la altura */
-  }
-  .promo-texto {
-    max-width: 100%;
-    height: auto; /* Que se ajuste al contenido */
-    padding: 1rem; /* Ajustar relleno */
-  }
-  .promo-texto h2 {
-    font-size: 1.5rem; /* Reducir tamaño de fuente */
-    margin-bottom: 1rem;
-  }
-  .promo-texto p {
-    font-size: 1rem; /* Reducir tamaño de fuente */
-    margin: 1rem 0.5rem; /* Ajustar márgenes */
-  }
-  .boton-app {
-    width: 80px; /* Reducir el ancho */
-    font-size: 0.7rem; /* Reducir tamaño de fuente */
-    padding: 0.7rem 1rem;
-  }
-  /* Seccion Peliculas */
-  
-  /*seccion planes*/
-  .planes-premium {
-    display: none;
-  }
-}
-
-/* @media (min-width: 601px) and (max-width: 813px) */
-@media (min-width: 600px) and (max-width: 817px) {
-  /* Carrusel */
-  
-
-  /* Seccion Promo */
-  .seccion-promocional {
-    padding: 1.5rem 1.5rem; /* Ajustar el relleno */
-  }
-  .promo-contenido {
-    gap: 2rem; /* Ajustar el espacio */
-  }
-  .promo-imagen {
-    max-width: 814px; /*Ajustar ancho imagen*/
-    height: auto; /* Ajustar la altura */
-  }
-  .promo-texto {
-    height: auto; /* Que se ajuste al contenido */
-    max-width: 755.4px;
-    padding: 1.8rem;  /*Ajustar el relleno */
-  }
-  .promo-texto h2 {
-    font-size: 1.8rem; /* Ajustar tamaño de fuente */
-    margin-bottom: 1.5rem;
-  }
-  .promo-texto p {
-    font-size: 1.1rem; /* Ajustar tamaño de fuente */
-    margin: 1.3rem 0.8rem; /* Ajustar márgenes */
-  }
   .botones-app {
-    gap: 1rem;
+    gap: 0.8rem;
   }
+
   .boton-app {
-    width: 100px; /* Ajustar el ancho */
-    font-size: 0.9rem; /* Ajustar tamaño de fuente */
-  }
-
-  /* Seccion Peliculas */
-  
-  /*seccion planes*/
-  .planes-premium {
-    display: none;
-  }
-}
-
-@media (min-width: 817px) and (max-width: 919px) {
-  /*Carrusel*/
-  
-
-  /*seccion promo*/
-  .seccion-promocional {
-    padding: 2rem 1rem;
-  }
-
-  .promo-contenido {
-    max-width: 1100px;
-    gap: 1rem;
-  }
-
-  .promo-imagen {
-    max-width: 470px;
-    height: auto;
-  }
-
-  .promo-texto {
-    max-width: 350px;
-    height: 209px;
-  }
-
-  .promo-texto h2 {
-    font-size: 1.2rem;
-    margin-inline: 10px;
-    margin-bottom: 0;
-  }
-
-  .promo-texto p {
-    margin: 0.6rem;
-    margin-top: 0.8rem;
-    margin-bottom: 0.5em;
-    font-size: 0.9rem;
-  }
-
-  .promo-texto .boton-app {
-    padding: 0.6rem 0.8rem;
-    width: 110px;
-    font-size: 15px;
-  }
-
-  /*seccion peliculas*/
-  
-  /*seccion planes*/
-  .planes-premium {
-    display: none;
-  }
-
-}
-
-@media (min-width: 919px) and (max-width: 1024px) {
-   /*Carrusel*/
-  
-
-  /*seccion promo*/
-  .seccion-promocional {
-    padding: 2rem 1rem;
-  }
-
-  .promo-contenido {
-    max-width: 1100px;
-    gap: 1rem;
-  }
-
-  .promo-imagen {
-    max-width: 570px;
-    height: auto;
-  }
-
-  .promo-texto {
-    max-width: 500px;
-    height: 252px;
-  }
-
-  .promo-texto h2 {
-    font-size: 1.4rem;
-    margin-block-start: 10px;
-    margin-inline: 10px;
-    margin-bottom: 0;
-  }
-
-  .promo-texto p {
-    margin: 1rem;
-    margin-top: 0.8rem;
-    margin-bottom: 0.5em;
-    font-size: 1rem;
-  }
-
-  .promo-texto .boton-app {
-    padding: 0.6rem 0.8rem;
-    width: 110px;
-    font-size: 15px;
-  }
-
-  /*seccion peliculas*/
-  
-  /*seccion planes*/
-  .planes-premium {
-    display: none;
-  }
-}
-
-@media (min-width: 1024px) and (max-width: 1140px) {
-  /*Carrusel*/
-  
-
-  /*seccion promo*/
-  .seccion-promocional {
-    padding: 2rem 1rem;
-  }
-
-  .promo-contenido {
-    max-width: 1100px;
-  }
-
-  .promo-imagen {
-    max-width: 600px;
-    height: 330px;
-  }
-
-  .promo-texto {
-    max-width: 500px;
-    height: 330px;
-  }
-
-  .promo-texto h2 {
-    font-size: 1.6rem;
-    margin-inline: 10px;
-    margin-bottom: 0;
-  }
-
-  .promo-texto p {
-    margin-top: 1rem;
-    font-size: 1.2rem;
-  }
-
-  .promo-texto .boton-app {
-    padding: 0.8rem 1.2rem;
+    padding: 1.2rem 2rem;
+    font-size: 20px;
     width: 120px;
+  }
+
+  /* --- Sección de Contenido --- */
+  .contenedor-principal {
+    gap: 30px;
+  }
+  .titulo-seccion-pl {
+    font-size: 26px;
+  }
+  .pelicula-wrapper {
+    width: 200px;
+    height: 280px;
+  }
+  .pelicula img {
+    height: 280px;
+  }
+  .pelicula.is-hovered {
+    width: 220px;
+    height: 290px;
+  }
+  .pelicula.is-hovered img {
+    height: 300px;
+  }
+  .contenedor-lateral {
+    max-width: 320px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Para Tablets y pantallas más pequeñas (hasta 1024px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  /* --- Carrusel Principal --- */
+  .carrusel {
+    padding-block-start: 12vh;
+    padding-block-end: 3.5vh;
+  }
+
+  .carrusel-slide {
+    width: 55vw;
+  }
+
+  .carrusel-slide img {
+    height: 40vh;
+    min-height: 300px;
+  }
+  /* --- Layout Principal --- */
+  .contenedor-principal {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+  .contenedor-carruseles {
+    width: 100%;
+    flex: 1;
+  }
+  .carrusel-control::before,
+  .carrusel-control::after {
+    display: block;
+    width: 40px;
+  }
+  
+  .carrusel-control {
+    overflow: hidden;
+  }
+  /* --- Barra lateral (Promoción Productos) --- */
+  .contenedor-lateral {
+    max-width: 100%;
+    margin-top: 40px;
+    padding: 0 15px;
+    box-sizing: border-box;
+  }
+  .prese-promo-vertical {
+    max-width: 500px;
+    margin: 0 auto 20px auto;
+  }
+  .carrusel-vertical {
+    max-height: none;
+    padding: 20px 10px;
+  }
+  .carrusel-vertical::-webkit-scrollbar {
+    height: 6px;
+  }
+  .seccion-promo-produ {
+    flex-direction: row;
+    gap: 15px;
+  }
+
+  /* --- Carruseles Horizontales de Películas --- */
+  .peliculas-carrusel::-webkit-scrollbar {
+    display: none;
+  }
+
+  .carrusel-control .flecha {
+    display: none; 
+  }
+
+  /* --- Sección Promocional App --- */
+
+  .seccion-promo-glass {
+    padding: 1rem 1rem;
+  }
+  
+  .promo-contenido-glass {
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .promo-imagen-glass, .promo-texto-glass {
+    height: 200px;
+  }
+
+  .promo-texto-glass {
+    padding: 0;
+  }
+
+  .promo-texto-glass h2 {
+    font-size: 1.5rem;
+    margin-top: 10px;
+  }
+
+  .promo-texto-glass p {
+    font-size: 1rem;
+    margin: 0.5rem;
+    line-height: 1.5;
+  }
+
+  .botones-app {
+    gap: 0.8rem;
+  }
+
+  .boton-app {
+    padding: 0.7rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Para Tablets (hasta 880px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 880px) {
+  /* --- seccion promocional --- */
+  .seccion-promo-glass {
+    padding: 1rem 1rem;
+  }
+  
+  .promo-contenido-glass {
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .promo-imagen-glass, .promo-texto-glass {
+    height: 200px; /* Altura automática para que se ajuste al contenido */
+  }
+
+  .promo-texto-glass {
+    padding: 0;
+  }
+
+  .promo-imagen-glass {
+    width: auto;
+  }
+
+  .promo-texto-glass h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0;
+  }
+
+  .promo-texto-glass p {
+    font-size: 0.9rem;
+    margin: 0.3rem;
+    line-height: 1.3;
+  }
+
+  .boton-app {
+    padding: 0.5rem;
+    border-radius: 0.8rem;
+  }
+  
+  .productos {
+    flex: 0 0 200px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Para Móviles (hasta 768px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  /* --- Carrusel Principal --- */
+  .carrusel {
+    padding-block-start: 12vh;
+    padding-block-end: 3vh;
+  }
+  
+  .carrusel-slide {
+    width: 65vw;
+  }
+  
+  .carrusel-slide img {
+    height: 35vh; /* Ajustamos la altura de la imagen */
+    min-height: 250px;
+    max-height: 350px;
+  }
+  
+  .carrusel-boton {
+    width: 40px;
+    height: 40px;
+  }
+
+  .carrusel-boton.next { right: 2vw; }
+  .carrusel-boton.prev { left: 2vw; }
+
+  /* --- Sección Promocional App --- */
+  .seccion-promo-glass {
+    padding: 0.8rem;
+  }
+  
+  .promo-contenido-glass {
+    gap: 0rem;
+    grid-template-columns: 1fr;
+  }
+
+  .promo-imagen-glass, .promo-texto-glass {
+    height: 100%;
+    width: 100%;
+  }
+
+  .promo-imagen-glass {
+    border-radius: 16px 16px 0 0;
+  }
+  .promo-texto-glass {
+    padding: 0;
+    border-radius: 0 0 16px 16px;
+  }
+
+  .promo-texto-glass h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0;
+  }
+
+  .promo-texto-glass p {
+    font-size: 1rem;
+    margin: 0.5rem;
+    line-height: 1.5;
+  }
+
+  .botones-app {
+    gap: 0.8rem;
+    margin-bottom: 6px;
+  }
+
+  .boton-app {
+    padding: 0.7rem;
+  }
+
+  /* --- Títulos de sección --- */
+  .titulo-seccion-pl {
+    font-size: 20px;
+    margin-left: 15px;
+  }
+  .pelicula-wrapper {
+    width: 140px;
+    height: 200px;
+  }
+  .pelicula img {
+    height: 200px;
+  }
+  .pelicula {
+    transition:
+      opacity 0.3s ease,
+      outline 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .peliculas-carrusel {
+    padding-left: 15px;
+    padding-right: 15px;
+    gap: 12px;
+  }
+  .pelicula.is-hovered {
+    transform: none;
+    width: 100%;
+    height: 100%;
+    outline: 2px solid #3bcc5a;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+    z-index: 1;
+  }
+  .pelicula.is-hovered img {
+    height: 100%;
+    border-radius: 8px;
+  }
+  .pelicula.is-hovered .titulo-pelicula {
+    opacity: 1;
+    visibility: visible;
+    max-height: 60px;
+    background-color: rgba(29, 25, 43, 0.8);
+  }
+  .productos {
+    flex: 0 0 200px;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   Para Móviles más pequeños (hasta 480px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 480px) {
+  /* --- Carrusel Principal --- */
+  .carrusel-slide {
+    width: 60vw; /* El slide casi ocupa toda la pantalla */
+    margin: 0 8px;
+  }
+
+  .carrusel-slide img {
+    min-height: 220px; /* Reducimos aún más la altura mínima */
+    height: 3;
+  }
+
+  /* --- Sección Promocional App --- */
+  .seccion-promo-glass {
+    padding: 0.8rem;
+  }
+  
+  .promo-contenido-glass {
+    gap: 0rem;
+    grid-template-columns: 1fr;
+  }
+
+  .promo-imagen-glass, .promo-texto-glass {
+    height: 100%;
+    width: 100%;
+  }
+
+  .promo-imagen-glass {
+    border-radius: 16px 16px 0 0;
+  }
+  .promo-texto-glass {
+    padding: 0;
+    border-radius: 0 0 16px 16px;
+  }
+
+  .promo-texto-glass h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0;
+  }
+
+  .promo-texto-glass p {
+    font-size: 0.9rem;
+    margin: 0.5rem;
+    line-height: 1.3;
+  }
+
+  .botones-app {
+    gap: 0.8rem;
+  }
+
+  .boton-app {
+    padding: 0.5rem;
+  }
+
+  /* --- Tarjetas de Película --- */
+  .titulo-seccion-pl {
     font-size: 18px;
   }
 
-  /*seccion peliculas*/
- 
-  /*seccion planes*/
-  .planes-premium {
-    display: none;
+  .peliculas-carrusel {
+    padding-top: 0;
   }
 
+  .carrusel-slide.is-active {
+  opacity: 1;
+  transform: none;
 }
-@media (min-width: 1140px) and (max-width: 1280px) {
-  /*Carrusel*/
+  .pelicula-wrapper {
+    width: 120px;
+    height: 170px;
+  }
+  .pelicula img {
+    height: 170px;
+  }
+  .titulo-pelicula {
+    font-size: 12px;
+    padding: 8px 5px;
+  }
+  .productos {
+    flex: 0 0 180px;
+  }
+  .productos h3 {
+    font-size: 13px;
+  }
   
-
-/*seccion promo*/
-.seccion-promocional {
-  padding: 2rem 1rem;
 }
 
-.promo-contenido {
-  max-width: 1100px;
-}
+/* --------------------------------------------------------------------------
+   Para Móviles más pequeños (hasta 415px)
+   -------------------------------------------------------------------------- */
 
-.promo-imagen {
-  max-width: 600px;
-  height: 330px;
-}
-
-.promo-texto {
-  max-width: 500px;
-  height: 330px;
-}
-
-.promo-texto h2 {
-  font-size: 1.8rem;
-  margin-inline: 10px;
-}
-
-.promo-texto p {
-  font-size: 1.3rem;
-}
-
-.promo-texto .boton-app {
-  padding: 1rem 1.4rem;
-  width: 120px;
-  font-size: 18px;
-}
-/*seccion planes*/
-.planes-premium {
-  display: none;
-}
-}
-/*Escritorios normales 1280px a 1920px*/
-
-@media (min-width: 1280px) and (max-width: 1440px) {
-  /*Carrusel*/
- 
-
-  /*seccion promo*/
-  .seccion-promocional {
-    padding: 2rem 1rem;
+@media (max-width: 415px) {
+  /* --- Carrusel Principal --- */
+ .carrusel-slide {
+    width: 60vw; /* El slide casi ocupa toda la pantalla */
+    margin: 0 8px;
   }
 
-  .promo-contenido {
-    max-width: 1100px;
+  .carrusel-slide img {
+    height: 10vh; /* Reducimos aún más la altura mínima */
   }
-  .promo-imagen {
-    max-width: 550px;
-    height: 330px;
+  /* --- seccion promocional app --- */
+  .seccion-promo-glass {
+    padding: 0.8rem;
   }
-  .promo-texto {
-    max-width: 550px;
-    height: 330px;
-  }
-  .promo-texto h2 {
-    font-size: 2.1rem;
-  }
-  .promo-texto p {
-    font-size: 1.1rem;
-  }
-
-  .promo-texto .boton-app {
-    padding: 1rem 1.8rem;
-    width: 150px;
-    font-size: 20px;
-  }
-
-  /*seccion peliculas*/
   
-  /*seccion planes*/
-  .planes-premium {
-    display: none;
+  .promo-contenido-glass {
+    gap: 0rem;
+    grid-template-columns: 1fr;
   }
-}
 
-@media (min-width: 1440px) and (max-width: 1920px) {
-  /*Carrusel*/
-  
-
-  /*seccion promo*/
-  
-  /*seccion peliculas*/
- 
-  /*seccion planes*/
-  .planes-premium {
-    display: none;
+  .promo-imagen-glass, .promo-texto-glass {
+    height: 100%;
+    width: 100%;
   }
-}
 
-@media (min-width: 1920px) {
-    /*Carrusel*/
-    
-  
-    /*seccion promo*/
-    .seccion-promocional {
-      padding: 2rem 1rem;
-    }
+  .promo-imagen-glass {
+    border-radius: 16px 16px 0 0;
+  }
+  .promo-texto-glass {
+    padding: 0;
+    border-radius: 0 0 16px 16px;
+  }
 
-    .promo-contenido {
-      max-width: 1600px;
-    }
-    .promo-imagen {
-      max-width: 750px;
-      height: 350px;
-    }
-    .promo-texto {
-      max-width: 750px;
-      height: 350px;
-    }
-    .promo-texto h2 {
-      font-size: 2.3rem;
-    }
-    .promo-texto p {
-      font-size: 1.4rem;
-    }
+  .promo-texto-glass h2 {
+    font-size: 1.3rem;
+    margin-bottom: 0;
+  }
 
-    .promo-texto .boton-app {
-      padding: 1rem 1.8rem;
-      width: 150px;
-      font-size: 20px;
-    }
+  .promo-texto-glass p {
+    font-size: 0.9rem;
+    margin: 0.5rem;
+    line-height: 1.3;
+  }
 
-    /*seccion peliculas*/
-   
-    /*seccion planes*/
-    .planes-premium {
-      display: none;
-    }
+  .botones-app {
+    gap: 0.8rem;
+  }
+
+  .boton-app {
+    padding: 0.5rem;
+  }
+
+   /* --- Sección de Contenido --- */
+  .pelicula-wrapper {
+    width: 110px;
+    height: 155px;
+  }
+  .pelicula img {
+    height: 155px;
+  }
+  .peliculas-carrusel {
+    padding-top: 25px;
+    padding-bottom: 20px;
+  }
+  .productos {
+    flex: 0 0 160px;
+  }
 }
