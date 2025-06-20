@@ -193,16 +193,88 @@ window.peliculas = {
     imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/longlegs.webp",
     video: "https://swiftplayers.com/e/mrufxwk1pmct"
   },
-  untildawn: {
-    titulo: "Until Dawn",
-    duracion: "1h 43min",
-    generos: ["Terror", "Misterio"],
+  comoentrenaratudragon: {
+    titulo: "Cómo Entrenar A Tu Dragon",
+    duracion: "2h 5min",
+    generos: ["Accion", "Familia", "Fantasía"],
     año: 2025,
-    sinopsis: "Un año después de la misteriosa desaparición de su hermana Melanie, Clover y sus amigas se dirigen al remoto valle donde desapareció en busca de respuestas. Mientras exploran un centro de visitantes abandonado, son acechadas por un asesino enmascarado que las mata una a una de forma horrible… para después despertar y encontrarse de nuevo al principio de la misma noche.",
-    elenco: "Ella Rubin, Michael Cimino, Odessa A'zion, Ji-young Yoo, Belmont Cameli",
-    director: "David F. Sandberg",
-    imagenFondo: "/FrontEnd/Imagenes/Fondos/pelis/untildawn.webp",
-    imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/untildawn.webp",
+    sinopsis: "En la escarpada isla de Berk, donde vikingos y dragones han sido enemigos acérrimos durante generaciones, Hipo se desmarca desafiando siglos de tradición cuando entabla amistad con Desdentao, un temido dragón de la Furia Nocturna. Su insólito vínculo revela la verdadera naturaleza de los dragones y desafía los cimientos de la sociedad vikinga.",
+    elenco: "Mason Thames, Nico Parker, Gerard Butler, Nick Frost, Gabriel Howell",
+    director: "Dean DeBlois",
+    imagenFondo: "/FrontEnd/Imagenes/Fondos/pelis/comoentrenaratudragon.webp",
+    imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/comoentrenaratudragon.webp",
+    video: "https://swiftplayers.com/e/6l5mg3gub1ko"
+  },
+  chespirito: {
+    titulo: "Chespirito: Sin Querer Queriendo",
+    duracion: "1h 43min",
+    generos: ["Drama", "Comedia"],
+    año: 2025,
+    sinopsis: "La historia de Roberto Gómez Bolaños, el hombre que transformó su anhelo de hacer reír en un legado universal. Desde su infancia hasta su consagración en las décadas de los 50 a los 80, esta biografía íntima nos revela cómo un joven soñador encontró su lugar en la naciente industria televisiva, creando personajes inolvidables cargados de ternura y humor. Pero detrás del genio que hizo reír al mundo entero, hubo también un ser humano en constante búsqueda de amor y reconocimiento, dispuesto a sacrificarlo todo por permanecer en el corazón de su audiencia.",
+    elenco: "Pablo Cruz Guerrero, Bárbara López, Juan Lecanda, Miguel Islas, Andrea Noli",
+    director: "Roberto Gómez Fernández",
+    imagenFondo: "/FrontEnd/Imagenes/Fondos/pelis/chespirito.webp",
+    imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/chespirito.webp",
+    video: "https://swiftplayers.com/e/6l5mg3gub1ko"
+  },
+  lospecadores: {
+    titulo: "Los Pecadores",
+    duracion: "2h 18min",
+    generos: ["Terror", "Suspenso", "Fantasía"],
+    año: 2025,
+    sinopsis: "Tratando de dejar atrás sus problemáticas vidas, dos hermanos gemelos regresan a su pueblo natal para empezar de nuevo, solo para descubrir que un mal aún mayor les espera para darles la bienvenida.",
+    elenco: "Michael B. Jordan, Hailee Steinfeld, Miles Caton, Jack O'Connell, Wunmi Mosaku",
+    director: "Ryan Coogler",
+    imagenFondo: "/FrontEnd/Imagenes/Fondos/pelis/lospecadores.webp",
+    imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/lospecadores.webp",
+    video: "https://swiftplayers.com/e/6l5mg3gub1ko"
+  },
+  matabot: {
+    titulo: "Matabot",
+    duracion: "1h 43min",
+    generos: ["Comedia", "Drama", "Ciencia Ficcion", "Fantasía"],
+    año: 2025,
+    sinopsis: "En un futuro tecnológico, un robot de seguridad rebelde consigue en secreto voluntad propia. Para no llamar la atención, se une a regañadientes a una nueva misión. Debe proteger a unos científicos en un planeta peligroso... aunque solo quiere ver culebrones.",
+    elenco: "Alexander Skarsgård, Noma Dumezweni, David Dastmalchian, Sabrina Wu, Akshay Khanna",
+    director: "Chris Weitz",
+    imagenFondo: "/FrontEnd/Imagenes/Fondos/pelis/matabot.webp",
+    imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/matabot.webp",
+    video: "https://swiftplayers.com/e/6l5mg3gub1ko"
+  },
+  superman: {
+    titulo: "Superman",
+    duracion: "2h 9min",
+    generos: ["Accion", "Aventura", "Ciencia Ficcion"],
+    año: 2025,
+    sinopsis: "En un mundo que ha perdido la fe en la bondad, Superman lucha por reconciliar su herencia kryptoniana con los valores humanos que moldearon su carácter. Criado en la Tierra, representa la verdad, la justicia y el estilo americano, pero debe enfrentarse a un mundo cínico que cuestiona sus ideales. Entre el deber de proteger a la humanidad y la búsqueda de su identidad, Superman demuestra que la esperanza y la bondad nunca pasan de moda, incluso en los tiempos más oscuros, inspirando a otros a creer en un futuro mejor.",
+    elenco: "David Corenswet, Rachel Brosnahan, Nicholas Hoult, Nicholas Hoult, Anthony Carrigan",
+    director: "James Gunn",
+    imagenFondo: "/FrontEnd/Imagenes/Fondos/pelis/superman.webp",
+    imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/superman.webp",
+    video: "https://swiftplayers.com/e/6l5mg3gub1ko"
+  },
+  añosdespues28: {
+    titulo: "28 Años Después",
+    duracion: "1h 55min",
+    generos: ["Terror", "Suspenso", "Ciencia Ficción"],
+    año: 2025,
+    sinopsis: "Años transcurridos tras los sucesos de 28 semanas después, el virus de la ira ha regresado y un grupo de supervivientes debe sobrevivir en un mundo asolado por hordas de infectados. Rodada con un iPhone 15 Pro Max y con la ayuda de numerosos accesorios especializados.",
+    elenco: "Alfie Williams, Aaron Taylor-Johnson, Jodie Comer, Ralph Fiennes, Jack O'Connell",
+    director: "Danny Boyle",
+    imagenFondo: "/FrontEnd/Imagenes/Fondos/pelis/28añosdespues.webp",
+    imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/28añosdespues.webp",
+    video: "https://swiftplayers.com/e/6l5mg3gub1ko"
+  },
+  formula1: {
+    titulo: "Formula 1",
+    duracion: "2h 36min",
+    generos: ["Accion", "Drama"],
+    año: 2025,
+    sinopsis: "El mítico piloto Sonny Hayes vuelve de su retiro, persuadido para liderar un equipo de Fórmula 1 en apuros y guiar a su joven promesa, en busca de una nueva oportunidad de éxito.",
+    elenco: "Brad Pitt, Damson Idris, Kerry Condon, Javier Bardem, Kim Bodnia",
+    director: "Joseph Kosinski",
+    imagenFondo: "/FrontEnd/Imagenes/Fondos/pelis/formula1.webp",
+    imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/formula1.webp",
     video: "https://swiftplayers.com/e/6l5mg3gub1ko"
   },
   
@@ -834,4 +906,454 @@ window.series = {
     ]
   },
   // Agregar más series
+
+
+  "horadeaventura": {
+    titulo: "Hora de Aventura",
+    añoInicio: 2022, 
+    añoFin: 2024,
+    estadoEmision: "Finalizada",
+    sinopsisGeneral: "Justo después de ser liberado de prisión después de 25 años, el capo de la mafia de Nueva York, Dwight 'El General' Manfredi, es exiliado sin contemplaciones por su jefe para instalarse en Tulsa, Oklahoma. Al darse cuenta de que su familia de la mafia puede no tener sus mejores intereses en mente, Dwight construye lentamente una 'tripulación' a partir de un grupo de personajes inverosímiles, para ayudarlo a establecer un nuevo imperio criminal en un lugar que para él bien podría ser otro planeta.", 
+    generos: ["Crimen", "Drama", "Acción"],
+    elencoPrincipal: ["Sylvester Stallone", "Martin Starr", "Jay Will", "Max Casella"],
+    creadores: ["Taylor Sheridan"],
+    imagenFondo: "/FrontEnd/Imagenes/Fondos/series/horadeaventura.webp", 
+    imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/series/horadeaventura.webp", 
+    // Estructura de Temporadas y Capítulos
+    temporadas: [
+      {
+        numeroTemporada: 1,
+        nombreTemporada: "Temporada Uno",
+        imagenPosterTemporada: "/FrontEnd/Imagenes/Series/Posters_Temporadas/the_office_s1_poster.webp",
+        capitulos: [
+          {
+            numeroCapituloEnTemporada: 1, 
+            tituloCapitulo: "Vete al Oeste, Viejo",
+            videoUrl: "https://swiftplayers.com/e/nb9dy6qoc8rh"
+          },
+          
+          // ... más capítulos de la Temporada 1
+        ]
+      },
+      {
+        numeroTemporada: 2,
+        nombreTemporada: "Temporada Dos",
+        imagenPosterTemporada: "/FrontEnd/Imagenes/Series/Posters_Temporadas/the_office_s1_poster.webp",
+        capitulos: [
+          {
+            numeroCapituloEnTemporada: 1, 
+            tituloCapitulo: "De Vuelta al Ruedo",
+            videoUrl: "https://servidor.video/serie/s01e01.mp4"
+          },
+          // ... más capítulos de la Temporada 2
+        ]
+      },
+      // ... más temporadas
+    ]
+  },
+
+
+  "bobburguers": {
+    titulo: "Bob's Burguers",
+    añoInicio: 2022, 
+    añoFin: 2024,
+    estadoEmision: "Finalizada",
+    sinopsisGeneral: "Justo después de ser liberado de prisión después de 25 años, el capo de la mafia de Nueva York, Dwight 'El General' Manfredi, es exiliado sin contemplaciones por su jefe para instalarse en Tulsa, Oklahoma. Al darse cuenta de que su familia de la mafia puede no tener sus mejores intereses en mente, Dwight construye lentamente una 'tripulación' a partir de un grupo de personajes inverosímiles, para ayudarlo a establecer un nuevo imperio criminal en un lugar que para él bien podría ser otro planeta.", 
+    generos: ["Crimen", "Drama", "Acción"],
+    elencoPrincipal: ["Sylvester Stallone", "Martin Starr", "Jay Will", "Max Casella"],
+    creadores: ["Taylor Sheridan"],
+    imagenFondo: "/FrontEnd/Imagenes/Fondos/series/bobburguers.webp", 
+    imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/series/bobburguers.webp", 
+    // Estructura de Temporadas y Capítulos
+    temporadas: [
+      {
+        numeroTemporada: 1,
+        nombreTemporada: "Temporada Uno",
+        imagenPosterTemporada: "/FrontEnd/Imagenes/Series/Posters_Temporadas/the_office_s1_poster.webp",
+        capitulos: [
+          {
+            numeroCapituloEnTemporada: 1, 
+            tituloCapitulo: "Vete al Oeste, Viejo",
+            videoUrl: "https://swiftplayers.com/e/nb9dy6qoc8rh"
+          },
+          
+          // ... más capítulos de la Temporada 1
+        ]
+      },
+      {
+        numeroTemporada: 2,
+        nombreTemporada: "Temporada Dos",
+        imagenPosterTemporada: "/FrontEnd/Imagenes/Series/Posters_Temporadas/the_office_s1_poster.webp",
+        capitulos: [
+          {
+            numeroCapituloEnTemporada: 1, 
+            tituloCapitulo: "De Vuelta al Ruedo",
+            videoUrl: "https://servidor.video/serie/s01e01.mp4"
+          },
+          // ... más capítulos de la Temporada 2
+        ]
+      },
+      // ... más temporadas
+    ]
+  },
+
+
+  "lossoprano": {
+    titulo: "Los Soprano",
+    añoInicio: 2022, 
+    añoFin: 2024,
+    estadoEmision: "Finalizada",
+    sinopsisGeneral: "Justo después de ser liberado de prisión después de 25 años, el capo de la mafia de Nueva York, Dwight 'El General' Manfredi, es exiliado sin contemplaciones por su jefe para instalarse en Tulsa, Oklahoma. Al darse cuenta de que su familia de la mafia puede no tener sus mejores intereses en mente, Dwight construye lentamente una 'tripulación' a partir de un grupo de personajes inverosímiles, para ayudarlo a establecer un nuevo imperio criminal en un lugar que para él bien podría ser otro planeta.", 
+    generos: ["Crimen", "Drama", "Acción"],
+    elencoPrincipal: ["Sylvester Stallone", "Martin Starr", "Jay Will", "Max Casella"],
+    creadores: ["Taylor Sheridan"],
+    imagenFondo: "/FrontEnd/Imagenes/Fondos/series/lossoprano.webp", 
+    imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/series/lossoprano.webp", 
+    // Estructura de Temporadas y Capítulos
+    temporadas: [
+      {
+        numeroTemporada: 1,
+        nombreTemporada: "Temporada Uno",
+        imagenPosterTemporada: "/FrontEnd/Imagenes/Series/Posters_Temporadas/the_office_s1_poster.webp",
+        capitulos: [
+          {
+            numeroCapituloEnTemporada: 1, 
+            tituloCapitulo: "Vete al Oeste, Viejo",
+            videoUrl: "https://swiftplayers.com/e/nb9dy6qoc8rh"
+          },
+          
+          // ... más capítulos de la Temporada 1
+        ]
+      },
+      {
+        numeroTemporada: 2,
+        nombreTemporada: "Temporada Dos",
+        imagenPosterTemporada: "/FrontEnd/Imagenes/Series/Posters_Temporadas/the_office_s1_poster.webp",
+        capitulos: [
+          {
+            numeroCapituloEnTemporada: 1, 
+            tituloCapitulo: "De Vuelta al Ruedo",
+            videoUrl: "https://servidor.video/serie/s01e01.mp4"
+          },
+          // ... más capítulos de la Temporada 2
+        ]
+      },
+      // ... más temporadas
+    ]
+  },
+
+
+  "therookie": {
+    titulo: "TThe Rookie",
+    añoInicio: 2022, 
+    añoFin: 2024,
+    estadoEmision: "Finalizada",
+    sinopsisGeneral: "Justo después de ser liberado de prisión después de 25 años, el capo de la mafia de Nueva York, Dwight 'El General' Manfredi, es exiliado sin contemplaciones por su jefe para instalarse en Tulsa, Oklahoma. Al darse cuenta de que su familia de la mafia puede no tener sus mejores intereses en mente, Dwight construye lentamente una 'tripulación' a partir de un grupo de personajes inverosímiles, para ayudarlo a establecer un nuevo imperio criminal en un lugar que para él bien podría ser otro planeta.", 
+    generos: ["Crimen", "Drama", "Acción"],
+    elencoPrincipal: ["Sylvester Stallone", "Martin Starr", "Jay Will", "Max Casella"],
+    creadores: ["Taylor Sheridan"],
+    imagenFondo: "/FrontEnd/Imagenes/Fondos/series/therookie.webp", 
+    imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/series/therookie.webp", 
+    // Estructura de Temporadas y Capítulos
+    temporadas: [
+      {
+        numeroTemporada: 1,
+        nombreTemporada: "Temporada Uno",
+        imagenPosterTemporada: "/FrontEnd/Imagenes/Series/Posters_Temporadas/the_office_s1_poster.webp",
+        capitulos: [
+          {
+            numeroCapituloEnTemporada: 1, 
+            tituloCapitulo: "Vete al Oeste, Viejo",
+            videoUrl: "https://swiftplayers.com/e/nb9dy6qoc8rh"
+          },
+          
+          // ... más capítulos de la Temporada 1
+        ]
+      },
+      {
+        numeroTemporada: 2,
+        nombreTemporada: "Temporada Dos",
+        imagenPosterTemporada: "/FrontEnd/Imagenes/Series/Posters_Temporadas/the_office_s1_poster.webp",
+        capitulos: [
+          {
+            numeroCapituloEnTemporada: 1, 
+            tituloCapitulo: "De Vuelta al Ruedo",
+            videoUrl: "https://servidor.video/serie/s01e01.mp4"
+          },
+          // ... más capítulos de la Temporada 2
+        ]
+      },
+      // ... más temporadas
+    ]
+  },
+
+
+  "thewalkingdead": {
+    titulo: "The Walking Dead",
+    añoInicio: 2022, 
+    añoFin: 2024,
+    estadoEmision: "Finalizada",
+    sinopsisGeneral: "Justo después de ser liberado de prisión después de 25 años, el capo de la mafia de Nueva York, Dwight 'El General' Manfredi, es exiliado sin contemplaciones por su jefe para instalarse en Tulsa, Oklahoma. Al darse cuenta de que su familia de la mafia puede no tener sus mejores intereses en mente, Dwight construye lentamente una 'tripulación' a partir de un grupo de personajes inverosímiles, para ayudarlo a establecer un nuevo imperio criminal en un lugar que para él bien podría ser otro planeta.", 
+    generos: ["Crimen", "Drama", "Acción"],
+    elencoPrincipal: ["Sylvester Stallone", "Martin Starr", "Jay Will", "Max Casella"],
+    creadores: ["Taylor Sheridan"],
+    imagenFondo: "/FrontEnd/Imagenes/Fondos/series/thewalkingdead.webp", 
+    imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/series/thewalkingdead.webp", 
+    // Estructura de Temporadas y Capítulos
+    temporadas: [
+      {
+        numeroTemporada: 1,
+        nombreTemporada: "Temporada Uno",
+        imagenPosterTemporada: "/FrontEnd/Imagenes/Series/Posters_Temporadas/the_office_s1_poster.webp",
+        capitulos: [
+          {
+            numeroCapituloEnTemporada: 1, 
+            tituloCapitulo: "Vete al Oeste, Viejo",
+            videoUrl: "https://swiftplayers.com/e/nb9dy6qoc8rh"
+          },
+          
+          // ... más capítulos de la Temporada 1
+        ]
+      },
+      {
+        numeroTemporada: 2,
+        nombreTemporada: "Temporada Dos",
+        imagenPosterTemporada: "/FrontEnd/Imagenes/Series/Posters_Temporadas/the_office_s1_poster.webp",
+        capitulos: [
+          {
+            numeroCapituloEnTemporada: 1, 
+            tituloCapitulo: "De Vuelta al Ruedo",
+            videoUrl: "https://servidor.video/serie/s01e01.mp4"
+          },
+          // ... más capítulos de la Temporada 2
+        ]
+      },
+      // ... más temporadas
+    ]
+  },
+
+
+  "dexter": {
+    titulo: "Dexter",
+    añoInicio: 2022, 
+    añoFin: 2024,
+    estadoEmision: "Finalizada",
+    sinopsisGeneral: "Justo después de ser liberado de prisión después de 25 años, el capo de la mafia de Nueva York, Dwight 'El General' Manfredi, es exiliado sin contemplaciones por su jefe para instalarse en Tulsa, Oklahoma. Al darse cuenta de que su familia de la mafia puede no tener sus mejores intereses en mente, Dwight construye lentamente una 'tripulación' a partir de un grupo de personajes inverosímiles, para ayudarlo a establecer un nuevo imperio criminal en un lugar que para él bien podría ser otro planeta.", 
+    generos: ["Crimen", "Drama", "Acción"],
+    elencoPrincipal: ["Sylvester Stallone", "Martin Starr", "Jay Will", "Max Casella"],
+    creadores: ["Taylor Sheridan"],
+    imagenFondo: "/FrontEnd/Imagenes/Fondos/series/dexter.webp", 
+    imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/series/dexter.webp", 
+    // Estructura de Temporadas y Capítulos
+    temporadas: [
+      {
+        numeroTemporada: 1,
+        nombreTemporada: "Temporada Uno",
+        imagenPosterTemporada: "/FrontEnd/Imagenes/Series/Posters_Temporadas/the_office_s1_poster.webp",
+        capitulos: [
+          {
+            numeroCapituloEnTemporada: 1, 
+            tituloCapitulo: "Vete al Oeste, Viejo",
+            videoUrl: "https://swiftplayers.com/e/nb9dy6qoc8rh"
+          },
+          
+          // ... más capítulos de la Temporada 1
+        ]
+      },
+      {
+        numeroTemporada: 2,
+        nombreTemporada: "Temporada Dos",
+        imagenPosterTemporada: "/FrontEnd/Imagenes/Series/Posters_Temporadas/the_office_s1_poster.webp",
+        capitulos: [
+          {
+            numeroCapituloEnTemporada: 1, 
+            tituloCapitulo: "De Vuelta al Ruedo",
+            videoUrl: "https://servidor.video/serie/s01e01.mp4"
+          },
+          // ... más capítulos de la Temporada 2
+        ]
+      },
+      // ... más temporadas
+    ]
+  },
+
+
+  "shameless": {
+    titulo: "Shameless",
+    añoInicio: 2022, 
+    añoFin: 2024,
+    estadoEmision: "Finalizada",
+    sinopsisGeneral: "Justo después de ser liberado de prisión después de 25 años, el capo de la mafia de Nueva York, Dwight 'El General' Manfredi, es exiliado sin contemplaciones por su jefe para instalarse en Tulsa, Oklahoma. Al darse cuenta de que su familia de la mafia puede no tener sus mejores intereses en mente, Dwight construye lentamente una 'tripulación' a partir de un grupo de personajes inverosímiles, para ayudarlo a establecer un nuevo imperio criminal en un lugar que para él bien podría ser otro planeta.", 
+    generos: ["Crimen", "Drama", "Acción"],
+    elencoPrincipal: ["Sylvester Stallone", "Martin Starr", "Jay Will", "Max Casella"],
+    creadores: ["Taylor Sheridan"],
+    imagenFondo: "/FrontEnd/Imagenes/Fondos/series/shameless.webp", 
+    imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/series/shameless.webp", 
+    // Estructura de Temporadas y Capítulos
+    temporadas: [
+      {
+        numeroTemporada: 1,
+        nombreTemporada: "Temporada Uno",
+        imagenPosterTemporada: "/FrontEnd/Imagenes/Series/Posters_Temporadas/the_office_s1_poster.webp",
+        capitulos: [
+          {
+            numeroCapituloEnTemporada: 1, 
+            tituloCapitulo: "Vete al Oeste, Viejo",
+            videoUrl: "https://swiftplayers.com/e/nb9dy6qoc8rh"
+          },
+          
+          // ... más capítulos de la Temporada 1
+        ]
+      },
+      {
+        numeroTemporada: 2,
+        nombreTemporada: "Temporada Dos",
+        imagenPosterTemporada: "/FrontEnd/Imagenes/Series/Posters_Temporadas/the_office_s1_poster.webp",
+        capitulos: [
+          {
+            numeroCapituloEnTemporada: 1, 
+            tituloCapitulo: "De Vuelta al Ruedo",
+            videoUrl: "https://servidor.video/serie/s01e01.mp4"
+          },
+          // ... más capítulos de la Temporada 2
+        ]
+      },
+      // ... más temporadas
+    ]
+  },
+
+
+  "realtime": {
+    titulo: "Real Time with Bill Maher",
+    añoInicio: 2022, 
+    añoFin: 2024,
+    estadoEmision: "Finalizada",
+    sinopsisGeneral: "Justo después de ser liberado de prisión después de 25 años, el capo de la mafia de Nueva York, Dwight 'El General' Manfredi, es exiliado sin contemplaciones por su jefe para instalarse en Tulsa, Oklahoma. Al darse cuenta de que su familia de la mafia puede no tener sus mejores intereses en mente, Dwight construye lentamente una 'tripulación' a partir de un grupo de personajes inverosímiles, para ayudarlo a establecer un nuevo imperio criminal en un lugar que para él bien podría ser otro planeta.", 
+    generos: ["Crimen", "Drama", "Acción"],
+    elencoPrincipal: ["Sylvester Stallone", "Martin Starr", "Jay Will", "Max Casella"],
+    creadores: ["Taylor Sheridan"],
+    imagenFondo: "/FrontEnd/Imagenes/Fondos/series/realtime.webp", 
+    imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/series/realtime.webp", 
+    // Estructura de Temporadas y Capítulos
+    temporadas: [
+      {
+        numeroTemporada: 1,
+        nombreTemporada: "Temporada Uno",
+        imagenPosterTemporada: "/FrontEnd/Imagenes/Series/Posters_Temporadas/the_office_s1_poster.webp",
+        capitulos: [
+          {
+            numeroCapituloEnTemporada: 1, 
+            tituloCapitulo: "Vete al Oeste, Viejo",
+            videoUrl: "https://swiftplayers.com/e/nb9dy6qoc8rh"
+          },
+          
+          // ... más capítulos de la Temporada 1
+        ]
+      },
+      {
+        numeroTemporada: 2,
+        nombreTemporada: "Temporada Dos",
+        imagenPosterTemporada: "/FrontEnd/Imagenes/Series/Posters_Temporadas/the_office_s1_poster.webp",
+        capitulos: [
+          {
+            numeroCapituloEnTemporada: 1, 
+            tituloCapitulo: "De Vuelta al Ruedo",
+            videoUrl: "https://servidor.video/serie/s01e01.mp4"
+          },
+          // ... más capítulos de la Temporada 2
+        ]
+      },
+      // ... más temporadas
+    ]
+  },
+
+
+  "stevenuniverse": {
+    titulo: "Steven Universe",
+    añoInicio: 2022, 
+    añoFin: 2024,
+    estadoEmision: "Finalizada",
+    sinopsisGeneral: "Justo después de ser liberado de prisión después de 25 años, el capo de la mafia de Nueva York, Dwight 'El General' Manfredi, es exiliado sin contemplaciones por su jefe para instalarse en Tulsa, Oklahoma. Al darse cuenta de que su familia de la mafia puede no tener sus mejores intereses en mente, Dwight construye lentamente una 'tripulación' a partir de un grupo de personajes inverosímiles, para ayudarlo a establecer un nuevo imperio criminal en un lugar que para él bien podría ser otro planeta.", 
+    generos: ["Crimen", "Drama", "Acción"],
+    elencoPrincipal: ["Sylvester Stallone", "Martin Starr", "Jay Will", "Max Casella"],
+    creadores: ["Taylor Sheridan"],
+    imagenFondo: "/FrontEnd/Imagenes/Fondos/series/stevenuniverse.webp", 
+    imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/series/stevenuniverse.webp", 
+    // Estructura de Temporadas y Capítulos
+    temporadas: [
+      {
+        numeroTemporada: 1,
+        nombreTemporada: "Temporada Uno",
+        imagenPosterTemporada: "/FrontEnd/Imagenes/Series/Posters_Temporadas/the_office_s1_poster.webp",
+        capitulos: [
+          {
+            numeroCapituloEnTemporada: 1, 
+            tituloCapitulo: "Vete al Oeste, Viejo",
+            videoUrl: "https://swiftplayers.com/e/nb9dy6qoc8rh"
+          },
+          
+          // ... más capítulos de la Temporada 1
+        ]
+      },
+      {
+        numeroTemporada: 2,
+        nombreTemporada: "Temporada Dos",
+        imagenPosterTemporada: "/FrontEnd/Imagenes/Series/Posters_Temporadas/the_office_s1_poster.webp",
+        capitulos: [
+          {
+            numeroCapituloEnTemporada: 1, 
+            tituloCapitulo: "De Vuelta al Ruedo",
+            videoUrl: "https://servidor.video/serie/s01e01.mp4"
+          },
+          // ... más capítulos de la Temporada 2
+        ]
+      },
+      // ... más temporadas
+    ]
+  },
+
+
+  "chicagofire": {
+    titulo: "Chicago Fire",
+    añoInicio: 2022, 
+    añoFin: 2024,
+    estadoEmision: "Finalizada",
+    sinopsisGeneral: "Justo después de ser liberado de prisión después de 25 años, el capo de la mafia de Nueva York, Dwight 'El General' Manfredi, es exiliado sin contemplaciones por su jefe para instalarse en Tulsa, Oklahoma. Al darse cuenta de que su familia de la mafia puede no tener sus mejores intereses en mente, Dwight construye lentamente una 'tripulación' a partir de un grupo de personajes inverosímiles, para ayudarlo a establecer un nuevo imperio criminal en un lugar que para él bien podría ser otro planeta.", 
+    generos: ["Crimen", "Drama", "Acción"],
+    elencoPrincipal: ["Sylvester Stallone", "Martin Starr", "Jay Will", "Max Casella"],
+    creadores: ["Taylor Sheridan"],
+    imagenFondo: "/FrontEnd/Imagenes/Fondos/series/stevenuniverse.webp", 
+    imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/series/tstevenuniverse.webp", 
+    // Estructura de Temporadas y Capítulos
+    temporadas: [
+      {
+        numeroTemporada: 1,
+        nombreTemporada: "Temporada Uno",
+        imagenPosterTemporada: "/FrontEnd/Imagenes/Series/Posters_Temporadas/the_office_s1_poster.webp",
+        capitulos: [
+          {
+            numeroCapituloEnTemporada: 1, 
+            tituloCapitulo: "Vete al Oeste, Viejo",
+            videoUrl: "https://swiftplayers.com/e/nb9dy6qoc8rh"
+          },
+          
+          // ... más capítulos de la Temporada 1
+        ]
+      },
+      {
+        numeroTemporada: 2,
+        nombreTemporada: "Temporada Dos",
+        imagenPosterTemporada: "/FrontEnd/Imagenes/Series/Posters_Temporadas/the_office_s1_poster.webp",
+        capitulos: [
+          {
+            numeroCapituloEnTemporada: 1, 
+            tituloCapitulo: "De Vuelta al Ruedo",
+            videoUrl: "https://servidor.video/serie/s01e01.mp4"
+          },
+          // ... más capítulos de la Temporada 2
+        ]
+      },
+      // ... más temporadas
+    ]
+  },
 }

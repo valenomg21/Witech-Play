@@ -240,7 +240,7 @@ body {
 
 .seccion-contenido {
   padding: 10px 0; 
-  background-color: #4b3276;
+  background-color: #0f0f0f;
   color: white;
   position: relative; 
   z-index: 1;
@@ -276,7 +276,7 @@ body {
   bottom: 0; 
   height: 3px;
   width: 0%; 
-  background-color: #4CAF50;
+  background-color: #4b3276;
 
   transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); 
 }
@@ -327,14 +327,14 @@ body {
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 10px; 
+  width: 20px; 
   z-index: 2;  
   pointer-events: none; 
 }
 
 .carrusel-control::after {
   right: 0;
-  background: linear-gradient(to left, #4b3276, transparent);
+  background: linear-gradient(to left, #0f0f0f, transparent);
 }
 
 /* Viewport donde se mueven las tarjetas de películas */
@@ -400,16 +400,16 @@ body {
 }
 
 .carrusel-control .flecha:hover {
-  background-color: rgba(98, 179, 12, 0.9);
+  background-color: #4b3276;
   color: #ffffff;
-  border-color: rgba(98, 179, 12, 0.9);
+  border-color: #5955ff;
   border: 1px solid rgba(0, 0, 0, 0.3);
   transform: translateY(-55%) scale(1.1);
   cursor: pointer;
 }
 
 .carrusel-control .flecha:active {
-  background-color: rgba(78, 143, 9, 0.9);
+  background-color: #504097;
   transform: translateY(-55%) scale(1.05);
   transition-duration: 0.1s;
 }
@@ -471,8 +471,8 @@ body {
   transform: translateX(-10px) translateY(-10px) scale(1.10); 
       
   
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6); 
-  outline: 3px solid #3bcc5a;
+  box-shadow: 0 0 15px #7359a1; 
+  outline: 2px solid #7359a1;
   z-index: 20; 
   opacity: 1; 
   background-color: rgb(29, 25, 43); 
@@ -548,7 +548,7 @@ body {
   background-color: #2a2440; 
   padding: 20px 15px; 
   border-radius: 10px; 
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); 
+  box-shadow: 0 0 15px #7359a1; 
   text-align: center; 
   margin-bottom: 20px; 
 }
@@ -630,7 +630,7 @@ body {
 
 .productos:hover {
   transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 8px 16px rgba(50, 50, 93, 0.25), 0 4px 12px rgba(0, 0, 0, 0.2); /* Sombra más elaborada */
+  box-shadow: 0 0 15px #3bcc5a; /* Sombra más elaborada */
   outline: 2px solid #3bcc5a;
 }
 
