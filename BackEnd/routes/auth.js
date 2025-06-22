@@ -2,18 +2,9 @@ const express = require("express");
 const router = express.Router();
 const supabase = require("../config/supabase");
 const jwt = require("jsonwebtoken");
-const nodemailer = require("nodemailer");
 const bcrypt = require('bcrypt');
-const pass_Email = process.env.EMAIL_CODE;
-
-// Configuración de Nodemailer (reemplaza con tus credenciales)
-const transporter = nodemailer.createTransport({
-  service: "Gmail", // o 'Mailgun', 'SendGrid', etc.
-  auth: {
-    user: "tomas86597@gmail.com",
-    pass: pass_Email, // 🚨 Utiliza una contraseña de aplicación si usas Gmail
-  },
-});
+const sgMail = require('@sendgrid/mail');
+sgMail.setApiKey(process.env.EMAIL_CODE);
 
 const hashPassword = async (password) => {
     const saltRounds = 10; // Puedes ajustar el número de rondas de sal
@@ -56,38 +47,43 @@ router.post("/register", async (req, res) => {
     }
 
     const verificationCode = Math.floor(1000 + Math.random() * 9000).toString();
-    // Enviar correo electrónico con Nodemailer
-    const mailOptions = {
-      from: "tomas86597@gmail.com",
+   // Enviar correo electrónico con SendGrid
+    const msg = {
       to: email,
+      from: "tomas86597@gmail.com", // Usar la variable de entorno
       subject: "Código de verificación",
       text: `Tu código de verificación es: ${verificationCode}`,
     };
 
-    transporter.sendMail(mailOptions, (error, info) => {
-      if (error) {
-        console.error("Error al enviar correo:", error);
+    sgMail
+      .send(msg)
+      .then(async () => {
+        console.log("Correo electrónico enviado");
+        // Actualizar código de verificación en 'temporal_users'
+        const { error: errorInsert } = await supabase
+          .from("temporal_users")
+          .insert({
+            email: email,
+            username: username,
+            verification_code: verificationCode,
+          });
+
+        if (errorInsert) {
+          console.error("Error al insertar usuario temporal:", errorInsert);
+          return res.status(400).json({ msg: errorInsert.message });
+        }
+
+        return res.json({
+          msg: "Código de verificación enviado a su correo electrónico.",
+          showCodeForm: false,
+        });
+      })
+      .catch((error) => {
+        console.error("Error al enviar correo con SendGrid:", error);
         return res
           .status(500)
-          .json({ msg: "Error al enviar correo electrónico" });
-      } else {
-        console.log("Correo electrónico enviado:", info.response);
-      }
-    });
-    const { error: errorInsert } = await supabase
-      .from("temporal_users")
-      .insert({
-        email: email,
-        username: username,
-        verification_code: verificationCode,
+          .json({ msg: "Error al enviar correo electrónico con SendGrid" });
       });
-    if (errorInsert) {
-      console.error("Error al insertar usuario temporal:", errorInsert); // <<-- Imprime el error de Supabase
-      return res.status(400).json({ msg: errorInsert.message });
-    }
-    res.json({
-      msg: "Código de verificación enviado a su correo electrónico.",
-    });
   } catch (err) {
     console.error("Error del servidor:", err);
     res.status(500).json({ msg: "Error del servidor" });
