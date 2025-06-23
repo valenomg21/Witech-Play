@@ -15,7 +15,6 @@ const hashPassword = async (password) => {
 // Ruta de registro
 router.post("/register", async (req, res) => {
   const { email, username } = req.body; // <<-- No recibimos la contraseña aquí
-  console.log("Recibido solicitud de registro:", { email, username });
   try {
     //Validamos que el usuario no exista
     console.log("Validando que el usuario no exista en 'users'...");
@@ -28,7 +27,10 @@ router.post("/register", async (req, res) => {
       return res.status(500).json({ msg: "Error al buscar usuario" });
     }
     if (data.length > 0) {
-      return res.status(400).json({ msg: "El correo ya está en uso" });
+      return res.status(200).json({
+      needsVerificationCode: false,
+      msg: "Ya tienes una cuenta creada con este correo.",
+    });
     }
     //Validamos que el usuario temporal no exista
     let { data: dataTemporal, error: errorTemporal } = await supabase
@@ -40,10 +42,12 @@ router.post("/register", async (req, res) => {
         console.error("Error al validar correo en 'temporal_users':", errorTemporal);
         return res.status(500).json({ msg: `Error al validar correo en 'temporal_users': ${errorTemporal.message}` });
     }
-
-    if (dataTemporal && dataTemporal.length > 0) {
+    if (dataTemporal || dataTemporal.length > 0) {
         console.log("El correo ya está en uso en 'temporal_users'");
-        return res.status(400).json({ msg: "Ya hay un registro en proceso con este correo" });
+         return res.status(200).json({
+      needsVerificationCode: true,
+      msg: "Ya hay un registro en proceso con este correo.  Por favor, introduce el código de verificación que te enviamos.",
+    });
     }
 
     const verificationCode = Math.floor(1000 + Math.random() * 9000).toString();
@@ -59,7 +63,6 @@ router.post("/register", async (req, res) => {
       .send(msg)
       .then(async () => {
         console.log("Correo electrónico enviado");
-        // Actualizar código de verificación en 'temporal_users'
         const { error: errorInsert } = await supabase
           .from("temporal_users")
           .insert({
@@ -74,8 +77,8 @@ router.post("/register", async (req, res) => {
         }
 
         return res.json({
+          needsVerificationCode: true,
           msg: "Código de verificación enviado a su correo electrónico.",
-          showCodeForm: false,
         });
       })
       .catch((error) => {
@@ -89,6 +92,76 @@ router.post("/register", async (req, res) => {
     res.status(500).json({ msg: "Error del servidor" });
   }
 });
+
+
+router.post("/resend-verification-code", async (req, res) => {
+  const { email } = req.body;
+  if (!email) {
+    return res.status(400).json({ msg: "El correo electrónico es requerido." });
+  }
+
+  try {
+    // 1. Verificar si el correo electrónico existe en temporal_users
+    let { data: dataTemporal, error: errorTemporal } = await supabase
+      .from("temporal_users")
+      .select("*")
+      .eq("email", email);
+
+    if (errorTemporal) {
+      console.error(
+        "Error al buscar usuario temporal:",
+        errorTemporal
+      );
+      return res.status(500).json({ msg: "Error al buscar usuario temporal" });
+    }
+    if (!dataTemporal || dataTemporal.length === 0) {
+      return res
+        .status(404)
+        .json({ msg: "No se encontró registro para este correo electrónico." });
+    }
+
+    // 2. Generar un nuevo código de verificación
+    const verificationCode = Math.floor(1000 + Math.random() * 9000).toString();
+
+    // 3. Actualizar el código de verificación en temporal_users
+    const { error: updateError } = await supabase
+      .from("temporal_users")
+      .update({ verification_code: verificationCode })
+      .eq("email", email);
+
+    if (updateError) {
+      console.error("Error al actualizar el código de verificación:", updateError);
+      return res
+        .status(500)
+        .json({ msg: "Error al actualizar el código de verificación." });
+    }
+
+    // 4. Enviar el correo electrónico con el nuevo código
+    const msg = {
+      to: email,
+      from: "tomas86597@gmail.com", // Utiliza tu variable de entorno
+      subject: "Código de verificación",
+      text: `Tu nuevo código de verificación es: ${verificationCode}`,
+    };
+
+    sgMail
+      .send(msg)
+      .then(() => {
+        console.log("Correo electrónico reenviado");
+        res.json({ msg: "El código de verificación ha sido reenviado." });
+      })
+      .catch((error) => {
+        console.error("Error al enviar correo con SendGrid:", error);
+        return res
+          .status(500)
+          .json({ msg: "Error al enviar correo electrónico con SendGrid" });
+      });
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Error del servidor");
+  }
+});
+
 
 // Ruta para verificar el código de registro y FINALIZAR el registro
 router.post("/verify", async (req, res) => {
@@ -105,7 +178,7 @@ router.post("/verify", async (req, res) => {
       console.error("Error al buscar usuario temporal:", temporalError);
       return res.status(500).json({ msg: "Error al buscar usuario temporal" });
     }
-    if (dataTemporal.length>0) {
+    if (!dataTemporal || dataTemporal.length==0) {
          return res.status(400).json({ msg: "El código es incorrecto" });
     }
     // Registramos el usuario en Supabase auth
