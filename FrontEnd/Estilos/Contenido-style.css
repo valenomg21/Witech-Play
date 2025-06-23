@@ -4,6 +4,10 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap');
 
+#detach-button-host {
+    display: none;
+}
+
 :root {
     --color-primario-fondo: #14111c; 
     --color-secundario-fondo: #1f1b2e; 

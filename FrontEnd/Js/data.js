@@ -205,18 +205,6 @@ window.peliculas = {
     imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/comoentrenaratudragon.webp",
     video: "https://swiftplayers.com/e/6l5mg3gub1ko"
   },
-  chespirito: {
-    titulo: "Chespirito: Sin Querer Queriendo",
-    duracion: "1h 43min",
-    generos: ["Drama", "Comedia"],
-    año: 2025,
-    sinopsis: "La historia de Roberto Gómez Bolaños, el hombre que transformó su anhelo de hacer reír en un legado universal. Desde su infancia hasta su consagración en las décadas de los 50 a los 80, esta biografía íntima nos revela cómo un joven soñador encontró su lugar en la naciente industria televisiva, creando personajes inolvidables cargados de ternura y humor. Pero detrás del genio que hizo reír al mundo entero, hubo también un ser humano en constante búsqueda de amor y reconocimiento, dispuesto a sacrificarlo todo por permanecer en el corazón de su audiencia.",
-    elenco: "Pablo Cruz Guerrero, Bárbara López, Juan Lecanda, Miguel Islas, Andrea Noli",
-    director: "Roberto Gómez Fernández",
-    imagenFondo: "/FrontEnd/Imagenes/Fondos/pelis/chespirito.webp",
-    imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/chespirito.webp",
-    video: "https://swiftplayers.com/e/6l5mg3gub1ko"
-  },
   lospecadores: {
     titulo: "Los Pecadores",
     duracion: "2h 18min",
@@ -1322,8 +1310,51 @@ window.series = {
     generos: ["Crimen", "Drama", "Acción"],
     elencoPrincipal: ["Sylvester Stallone", "Martin Starr", "Jay Will", "Max Casella"],
     creadores: ["Taylor Sheridan"],
-    imagenFondo: "/FrontEnd/Imagenes/Fondos/series/stevenuniverse.webp", 
-    imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/series/tstevenuniverse.webp", 
+    imagenFondo: "/FrontEnd/Imagenes/Fondos/series/chicagofire.webp", 
+    imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/series/chicagofire.webp", 
+    // Estructura de Temporadas y Capítulos
+    temporadas: [
+      {
+        numeroTemporada: 1,
+        nombreTemporada: "Temporada Uno",
+        imagenPosterTemporada: "/FrontEnd/Imagenes/Series/Posters_Temporadas/the_office_s1_poster.webp",
+        capitulos: [
+          {
+            numeroCapituloEnTemporada: 1, 
+            tituloCapitulo: "Vete al Oeste, Viejo",
+            videoUrl: "https://swiftplayers.com/e/nb9dy6qoc8rh"
+          },
+          
+          // ... más capítulos de la Temporada 1
+        ]
+      },
+      {
+        numeroTemporada: 2,
+        nombreTemporada: "Temporada Dos",
+        imagenPosterTemporada: "/FrontEnd/Imagenes/Series/Posters_Temporadas/the_office_s1_poster.webp",
+        capitulos: [
+          {
+            numeroCapituloEnTemporada: 1, 
+            tituloCapitulo: "De Vuelta al Ruedo",
+            videoUrl: "https://servidor.video/serie/s01e01.mp4"
+          },
+          // ... más capítulos de la Temporada 2
+        ]
+      },
+      // ... más temporadas
+    ]
+  },
+  "chespirito": {
+    titulo: "Chespirito",
+    añoInicio: 2025, 
+    añoFin: 2025,
+    estadoEmision: "En Emision",
+    sinopsisGeneral: "La historia de Roberto Gómez Bolaños, el hombre que transformó su anhelo de hacer reír en un legado universal. Desde su infancia hasta su consagración en las décadas de los 50 a los 80, esta biografía íntima nos revela cómo un joven soñador encontró su lugar en la naciente industria televisiva, creando personajes inolvidables cargados de ternura y humor. Pero detrás del genio que hizo reír al mundo entero, hubo también un ser humano en constante búsqueda de amor y reconocimiento, dispuesto a sacrificarlo todo por permanecer en el corazón de su audiencia.", 
+    generos: ["Crimen", "Drama", "Comedia"],
+    elencoPrincipal: ["Pablo Cruz Guerrero, Bárbara López, Juan Lecanda, Miguel Islas, Andrea Noli"],
+    creadores: ["Roberto Gómez Fernández"],
+    imagenFondo: "/FrontEnd/Imagenes/Fondos/series/chespirito.webp", 
+    imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/series/chespirito.webp", 
     // Estructura de Temporadas y Capítulos
     temporadas: [
       {

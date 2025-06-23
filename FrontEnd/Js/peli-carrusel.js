@@ -23,6 +23,7 @@ function initCarousel(contenedor) {
   if (!carrusel || !btnIzquierda || !btnDerecha) return;
 
   const tarjetas = carrusel.querySelectorAll('.pelicula-wrapper');
+  const esCarruselHorizontal = contenedor.parentElement.classList.contains('tarjetas-horizontales');
   if (tarjetas.length === 0) return;
 
   // --- VARIABLES ---
@@ -133,6 +134,18 @@ function initCarousel(contenedor) {
 // --- INICIAR TODOS LOS CARRUSELES Y EFECTOS DE HOVER ---
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.carrusel-control').forEach(initCarousel);
+
+  document.querySelectorAll('.tarjetas-horizontales .pelicula').forEach(tarjetaHorizontal => {
+    const titulo = tarjetaHorizontal.querySelector('.titulo-pelicula');
+    if (titulo) {
+      // 1. Cambiamos la clase
+      titulo.classList.remove('titulo-pelicula');
+      titulo.classList.add('titulo-pelicula-horizontal');
+      
+      // 2. Añadimos el data-title para la animación de rebote
+      titulo.setAttribute('data-title', titulo.textContent);
+    }
+  });
 
   document.querySelectorAll('.pelicula').forEach(tarjeta => {
     const wrapper = tarjeta.parentElement;
