@@ -133,8 +133,6 @@
     const showRegister = document.getElementById("show-register");
     const showLogin = document.getElementById("show-login");
 
-    let isVerifyingCode = false; // Estado para verificar si estamos en proceso de verificar el código
-
     //  Funciones Auxiliares para el Popup
 
     // Función para mostrar el popup
@@ -199,7 +197,17 @@
       toggleForms(true); // Mostrar login
     });
 
-    
+  // Función para mostrar un mensaje de error
+  function mostrarMensaje(config) {
+      config.element.textContent = config.message;
+      config.element.style.display = 'block';
+  }
+   // Función para ocultar un mensaje
+  function ocultarMensaje(config) {
+      config.element.style.display = 'none';
+  }
+
+  
 
     //  Funcionalidad de Ocultar/Mostrar Contraseña
 
@@ -211,6 +219,8 @@
       passwordInput.type = isVisible ? "password" : "text";
       togglePasswordBtn.textContent = isVisible ? "👁️" : "🙈"; // Cambia el ícono
     });
+
+
 
     //  Funcionalidad de REGISTRO (Supabase)
 
@@ -232,9 +242,9 @@
       if (newPassword !== confirmPassword) {
         // Mostrar mensaje de error
         const errorMessage = document.getElementById("password-error");
+        mostrarMensaje({element: errorMessage, message: "Las contraseñas no coinciden."});
         const newPasswordInput = document.getElementById("new-password");
         const confirmPasswordInput = document.getElementById("confirm-password");
-        errorMessage.textContent = "Las contraseñas no coinciden.";
         errorMessage.style.display = "block";
         newPasswordInput.classList.add("error");
         confirmPasswordInput.classList.add("error");
@@ -260,13 +270,22 @@
         const data = await response.json();
 
         if (response.ok) {
-          console.log("Registro exitoso:", data);
-
-          // Mostrar input de código
+          if (data.needsVerificationCode) {
+          document.getElementById("register-fields").style.display = "none";
+          codeSection.style.display = "block";
+          document.getElementById("submit-register-btn").style.display = "none";
+          const CodeError = document.getElementById("code-error");
+          // Insertar el mensaje de error debajo del formulario
+          mostrarMensaje({
+         element: CodeError,
+        message: data.msg
+      })}
+         else{
           document.getElementById("register-fields").style.display = "none";
           document.getElementById("codeSection").style.display = "block";
           document.getElementById("submit-register-btn").style.display = "none";
-          isVerifyingCode = true;
+         } 
+          
         } else {
           // 🚨 Manejo de errores: mostrar mensaje al usuario
           console.error(
@@ -276,7 +295,7 @@
           alert(
             data.msg ||
               "Error al registrar usuario. Por favor, intenta de nuevo."
-          ); // Un ejemplo simple
+          );
         }
       } catch (error) {
         // 🚨 Manejo de errores de red
@@ -284,6 +303,84 @@
         alert("Error de red. Por favor, verifica tu conexión a Internet.");
       }
     });
+
+
+
+    //   Funcionalidad para reenviar códigos de verificación
+    const resendCodeBtn = document.getElementById("resend-code-btn");
+  const resendMessage = document.getElementById("resend-message");
+  let resendCooldown = false;
+  let resendTimeRemaining = 0;
+
+   function updateResendButton() {
+      if (resendCooldown) {
+          resendCodeBtn.disabled = true;
+          resendCodeBtn.textContent = `Reenviar en ${resendTimeRemaining}s`;
+      } else {
+          resendCodeBtn.disabled = false;
+          resendCodeBtn.textContent = "Reenviar Código";
+      }
+  }
+
+  function startCooldown() {
+      resendCooldown = true;
+      resendTimeRemaining = 60; // Cooldown de 60 segundos
+
+      updateResendButton();
+
+      const cooldownInterval = setInterval(() => {
+          resendTimeRemaining--;
+          updateResendButton();
+
+          if (resendTimeRemaining <= 0) {
+              resendCooldown = false;
+              clearInterval(cooldownInterval);
+              updateResendButton();
+          }
+      }, 1000);
+  }
+
+  resendCodeBtn.addEventListener("click", async () => {
+    if (resendCooldown) {
+        return; // No hacer nada si el cooldown está activo
+    }
+
+    try {
+      const response = await fetch("http://localhost:5000/api/auth/resend-verification-code", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: emailRegistro,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        mostrarMensaje({
+          element: resendMessage,
+          message: "Se ha reenviado el código a tu correo electrónico.",
+        });
+        startCooldown();
+      } else {
+        mostrarMensaje({
+          element: resendMessage,
+          message: data.msg || "Error al reenviar el código.",
+        });
+      }
+    } catch (error) {
+      console.error("Error al reenviar el código:", error);
+      mostrarMensaje({
+        element: resendMessage,
+        message: "Error al comunicarse con el servidor.",
+      });
+    }
+  });
+
+
+
     // SEGUNDO PASO: Validar el código ingresado
     document
       .getElementById("submit-code-btn")
@@ -317,10 +414,12 @@
             console.log("Verificacion exitosa:", data);
             //Guardar el token
           } else {
-            console.error(
-              "Error en la verificacion:",
-              data.msg || response.statusText
-            );
+            const CodeError = document.getElementById("code-error");
+          // Insertar el mensaje de error debajo del formulario
+          mostrarMensaje({
+         element: CodeError,
+        message: data.msg
+      })
           }
         } catch (error) {
           console.error("Error de red:", error);
