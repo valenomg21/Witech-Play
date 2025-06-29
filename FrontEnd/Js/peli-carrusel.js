@@ -1,16 +1,10 @@
 // Función para "retrasar" la ejecución de un evento, mejora el rendimiento en 'resize'
-function debounce(func, wait = 20, immediate = true) {
+function debounce(func, wait = 250) {
   let timeout;
   return function() {
     const context = this, args = arguments;
-    const later = function() {
-      timeout = null;
-      if (!immediate) func.apply(context, args);
-    };
-    const callNow = immediate && !timeout;
     clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-    if (callNow) func.apply(context, args);
+    timeout = setTimeout(() => func.apply(context, args), wait);
   };
 }
 
@@ -22,44 +16,44 @@ function initCarousel(contenedor) {
 
   if (!carrusel || !btnIzquierda || !btnDerecha) return;
 
-  const tarjetas = carrusel.querySelectorAll('.pelicula-wrapper');
-  const esCarruselHorizontal = contenedor.parentElement.classList.contains('tarjetas-horizontales');
+  const tarjetas = Array.from(carrusel.querySelectorAll('.pelicula-wrapper'));
   if (tarjetas.length === 0) return;
 
-  // --- VARIABLES ---
-  let tarjetaAnchoTotal;
-  const cantidadTarjetasAMover = 3;
+  let cantidadTarjetasAMover;
   const duracionTransicion = 500;
   let posicion = 0;
   let isAnimating = false;
   
-  // --- FUNCIÓN PARA OBTENER EL ANCHO TOTAL DE LA TARJETA (INCLUYENDO GAP) ---
-  function getTarjetaAnchoTotal() {
-    if (tarjetas.length === 0) return 0;
+  // FUNCIÓN CLAVE: Calcula cuántas tarjetas mover según el espacio disponible
+  function actualizarValores() {
+    const anchoContenedor = contenedor.offsetWidth;
+    const primeraTarjeta = tarjetas[0];
+    if (!primeraTarjeta) return;
     
-    // Obtenemos el estilo computado del CONTENEDOR del carrusel para leer el gap
     const carruselStyle = window.getComputedStyle(carrusel);
-    // Leemos el valor de 'column-gap' (o 'gap') y lo convertimos a número
     const gap = parseFloat(carruselStyle.columnGap) || 0;
-    
-    // El ancho total es el ancho del elemento + el gap que acabamos de medir
-    return tarjetas[0].offsetWidth + gap;
-  }
+    const anchoTarjeta = primeraTarjeta.offsetWidth;
 
-  // --- LÓGICA DE ACTUALIZACIÓN AL REDIMENSIONAR ---
-  function resetearCarrusel() {
+    // Calculamos cuántas tarjetas completas caben en el contenedor
+    const tarjetasVisibles = Math.floor(anchoContenedor / (anchoTarjeta + gap));
+    
+    // Decidimos cuántas mover: una menos de las visibles, con un mínimo de 1 y un máximo de 4.
+    cantidadTarjetasAMover = Math.max(1, Math.min(tarjetasVisibles - 1, 4));
+    
+    // Reseteamos la posición para evitar saltos al redimensionar
     posicion = 0;
     carrusel.style.transition = 'none';
-    carrusel.style.transform = `translateX(${posicion}px)`;
+    carrusel.style.transform = `translateX(0px)`;
   }
 
-  // --- LÓGICA DE MOVIMIENTO ---
+  // Lógica de movimiento (tu código, pero usando la variable dinámica)
   function mover(direccion) {
-    if (isAnimating) return;
+    if (isAnimating || !cantidadTarjetasAMover) return;
     isAnimating = true;
 
-    // ¡CAMBIO CLAVE! Calculamos el ancho justo antes de cada movimiento.
-    tarjetaAnchoTotal = getTarjetaAnchoTotal();
+    const carruselStyle = window.getComputedStyle(carrusel);
+    const gap = parseFloat(carruselStyle.columnGap) || 0;
+    const tarjetaAnchoTotal = tarjetas[0].offsetWidth + gap;
     
     const desplazamiento = tarjetaAnchoTotal * cantidadTarjetasAMover;
 
@@ -70,20 +64,17 @@ function initCarousel(contenedor) {
 
       setTimeout(() => {
         for (let i = 0; i < cantidadTarjetasAMover; i++) {
-          if (carrusel.firstElementChild) {
-            carrusel.appendChild(carrusel.firstElementChild);
-          }
+          carrusel.appendChild(carrusel.firstElementChild);
         }
         posicion += desplazamiento;
         carrusel.style.transition = 'none';
         carrusel.style.transform = `translateX(${posicion}px)`;
         isAnimating = false;
       }, duracionTransicion);
+
     } else if (direccion === 'izquierda') {
       for (let i = 0; i < cantidadTarjetasAMover; i++) {
-        if (carrusel.lastElementChild) {
-            carrusel.prepend(carrusel.lastElementChild);
-        }
+        carrusel.prepend(carrusel.lastElementChild);
       }
       
       posicion -= desplazamiento;
@@ -102,66 +93,40 @@ function initCarousel(contenedor) {
     }
   }
   
-  // --- EVENT LISTENERS ---
+  // Event Listeners (botones y swipe)
   btnDerecha.addEventListener('click', () => mover('derecha'));
   btnIzquierda.addEventListener('click', () => mover('izquierda'));
 
   let touchStartX = 0;
   let touchEndX = 0;
 
-  carrusel.addEventListener('touchstart', (e) => {
-    touchStartX = e.changedTouches[0].screenX;
-  }, { passive: true });
-
-  carrusel.addEventListener('touchend', (e) => {
+  carrusel.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+  carrusel.addEventListener('touchend', e => {
     touchEndX = e.changedTouches[0].screenX;
-    handleSwipe();
-  }, { passive: true });
-
-  function handleSwipe() {
-    if (isAnimating) return;
     const swipeThreshold = 50;
-    if (touchEndX < touchStartX - swipeThreshold) {
-      mover('derecha');
-    } else if (touchEndX > touchStartX + swipeThreshold) {
-      mover('izquierda');
-    }
-  }
+    if (touchEndX < touchStartX - swipeThreshold) mover('derecha');
+    else if (touchEndX > touchStartX + swipeThreshold) mover('izquierda');
+  }, { passive: true });
   
-  window.addEventListener('resize', debounce(resetearCarrusel, 250));
+  // Inicialización y re-cálculo en resize
+  actualizarValores();
+  window.addEventListener('resize', debounce(actualizarValores));
 }
 
-// --- INICIAR TODOS LOS CARRUSELES Y EFECTOS DE HOVER ---
+// Iniciar todos los carruseles y los efectos de hover
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.carrusel-control').forEach(initCarousel);
-
-  document.querySelectorAll('.tarjetas-horizontales .pelicula').forEach(tarjetaHorizontal => {
-    const titulo = tarjetaHorizontal.querySelector('.titulo-pelicula');
-    if (titulo) {
-      // 1. Cambiamos la clase
-      titulo.classList.remove('titulo-pelicula');
-      titulo.classList.add('titulo-pelicula-horizontal');
-      
-      // 2. Añadimos el data-title para la animación de rebote
-      titulo.setAttribute('data-title', titulo.textContent);
-    }
-  });
 
   document.querySelectorAll('.pelicula').forEach(tarjeta => {
     const wrapper = tarjeta.parentElement;
     const carruselContenedor = wrapper.closest('.peliculas-carrusel');
 
     tarjeta.addEventListener('mouseenter', function() {
-      if (carruselContenedor) {
-        carruselContenedor.classList.add('carrusel-item-active');
-      }
+      if (carruselContenedor) carruselContenedor.classList.add('carrusel-item-active');
       this.classList.add('is-hovered');
     });
-
     tarjeta.addEventListener('mouseleave', function() {
-      if (carruselContenedor) {
-        carruselContenedor.classList.remove('carrusel-item-active');
-      }
+      if (carruselContenedor) carruselContenedor.classList.remove('carrusel-item-active');
       this.classList.remove('is-hovered');
     });
   });

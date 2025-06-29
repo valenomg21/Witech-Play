@@ -1,9 +1,49 @@
-<footer id="footer-container">
-    <div class="contacto-info">
-        <p>Contacto: <a href="mailto:witech.store.arg@gmail.com">witech.store.arg@gmail.com</a></p>
-        <p>Síguenos en redes sociales: <a href="https://www.facebook.com/witech.com.ar" target="_blank">Facebook</a> |  <a href="https://www.instagram.com/witech.play/?hl=es" target="_blank">Instagram</a></p>
+<!-- Footer Modernizado -->
+<footer class="site-footer">
+    <div class="footer-main">
+        <!-- Columna 1: Marca y Logo -->
+        <div class="footer-col-brand">
+            <a href="/FrontEnd/Index/index.html" class="footer-logo-link">
+                <img src="/FrontEnd/Imagenes/Icono/logo-1173935095-1728869406-0d49a887e4481f6878662eb805f4555b1728869406.png" alt="Witech Play Logo">
+                <span>Witech Play</span>
+            </a>
+            <p class="footer-tagline">Tu universo de películas y series. Siempre algo nuevo por descubrir.</p>
+        </div>
+
+        <!-- Columna 2: Navegación -->
+        <div class="footer-col-links">
+            <h4>Navegación</h4>
+            <ul>
+                <li><a href="/FrontEnd/Index/contenido.html">Contenido</a></li>
+                <li><a href="/FrontEnd/Index/planes.html">Planes</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#conocenos">Conócenos</a></li>
+            </ul>
+        </div>
+
+        <!-- Columna 3: Redes Sociales -->
+        <div class="footer-col-social">
+            <h4>Síguenos</h4>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/witech.play/?hl=es" target="_blank" aria-label="Instagram de Witech Play">
+                    <!-- Icono SVG de Instagram -->
+                    <img src="/FrontEnd/Imagenes/Assets/instagram-logo.svg" alt="">
+                </a>
+                <a href="https://www.facebook.com/witech.com.ar" target="_blank" aria-label="Facebook de Witech">
+                    <!-- Icono SVG de Facebook -->
+                    <img src="/FrontEnd/Imagenes/Assets/facebook-logo.svg" alt="">
+                </a>
+            </div>
+        </div>
     </div>
-    <div class="legal">
-        <a href="#">Términos y condiciones</a> | <a href="#">Política de privacidad</a>
+
+    <!-- Sección inferior del Footer -->
+    <div class="footer-bottom">
+        <div class="legal-links">
+            <a href="#">Términos y condiciones</a>
+            <a href="#">Política de privacidad</a>
+            <a href="mailto:witech.store.arg@gmail.com">Contacto</a>
+        </div>
+        <p class="copyright">© 2025 Witech Play. Todos los derechos reservados.</p>
     </div>
 </footer>
