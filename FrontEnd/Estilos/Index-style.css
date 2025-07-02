@@ -1,5 +1,7 @@
+:root {
+  scrollbar-width: none;
+}
 /* Estilos generales */
-
 body {
   position: relative;
   margin: 0;
@@ -485,7 +487,7 @@ body {
   pointer-events: none;
 }
 
-/* ---- 3. EFECTOS GLOBALES Y DE HOVER (ACTIVADOS POR JS) ---- */
+/* ---- 3. EFECTOS GLOBALES Y DE HOVER ---- */
 
 /* Cuando una tarjeta tiene hover, las demás se atenúan */
 .carrusel-item-active .pelicula-wrapper:not(:has(.is-hovered)) {
@@ -509,7 +511,7 @@ body {
 }
 
 /* ==========================================================================
-   COMPONENTES DEL CARRUSEL VERTICAL (Promoción Productos)
+   COMPONENTES DEL CARRUSEL VERTICAL
    ========================================================================== */
 
 /* Contenedor lateral para la promoción */

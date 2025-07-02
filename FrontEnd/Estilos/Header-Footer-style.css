@@ -3,47 +3,194 @@ header {
   position: fixed;
   top: 0;
   left: 0;
-  height: 75px;overflow: hidden;
+  height: 75px;
   width: 100%;
-  padding: 5px 38px;
+  padding: 5px 20px;
   display: flex;
-  flex-wrap: nowrap;
   justify-content: space-between;
+  align-items: center;
   background: #1f1b2e;
+  border-bottom: 1px solid rgba(183, 148, 148, 0.2);
   transition: top 0.4s ease;
   z-index: 6;
-  align-items: center;
+  box-sizing: border-box;
 }
+
 header.hidden {
   transform: translateY(-100%);
 }
 
+/* --- Contenedores Principales --- */
 .header-left, .header-center, .header-right {
-  flex: 1;
   display: flex;
   align-items: center;
-}
-/* Contenedor del menu y barra de busqueda*/
-.header-left {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-/* Menu */
-.menu {
-  position:relative;
-  display: flex;
-  z-index: 10;
 }
 
-.menu img {
-  width: 40%;
-  cursor: pointer;
-  transition: transform 0.3s ease;
+.header-left {
+  flex: 1 1 0;
+  justify-content: flex-start;
+  min-width: 0;
+  gap: 15px;
 }
-.menu img:hover {
+
+.header-center {
+  flex: 0 0 auto;
+  padding: 0 20px;
+  justify-content: center;
+}
+
+.header-right {
+  flex: 1 1 0;
+  justify-content: flex-end;
+  gap: 15px;
+}
+
+/* --- Elementos Izquierda: Menú y Búsqueda --- */
+
+/* Icono del Menú */
+.menu {
+  cursor: pointer;
+}
+.menu svg {
+  width: 45px;
+  height: 45px;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+.menu svg:hover {
   transform: scale(1.1);
 }
+
+/* Barra de Búsqueda */
+.group {
+  position: relative;
+  width: 100%;
+}
+
+.group .search-icon {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+  /* El color se define en el SVG, pero podemos asegurarlo aquí */
+  stroke: #B79494; 
+}
+
+.group .input {
+  width: 100%;
+  max-width: 380px;
+  height: 45px;
+  background-color: transparent;
+  border: 1px solid rgba(183, 148, 148, 0.5);
+  border-radius: 25px;
+  padding-left: 50px;
+  padding-right: 15px;
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.group .input::placeholder {
+  color: #b0aec9;
+}
+
+.group .input:focus {
+  border-color: #B79494;
+  box-shadow: 0 0 0 3px rgba(183, 148, 148, 0.2);
+}
+
+/* --- Elemento Central: Logo --- */
+.header-center a {
+  display: flex;
+  align-items: center;
+}
+.header-center img {
+  height: 75px;
+  max-height: 100%;
+}
+
+/* --- Elementos Derecha: Navegación y Login --- */
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 28px;
+}
+
+nav ul li a {
+  color: #e8e8f3;
+  font-size: 17px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 5px;
+  transition: color 0.3s ease;
+  white-space: nowrap;
+}
+
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #3bcc5a; /* Color de acento verde */
+  transition: width 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #ffffff;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+/* Botón de Inicio de Sesión */
+.btn-login {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 20px;
+  background-color: transparent;
+  border: 1px solid rgba(183, 148, 148, 0.5);
+  border-radius: 25px;
+  color: #e8e8f3;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 
+   background-color 0.3s ease, 
+   border-color 0.3s ease, color 0.3s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.btn-login:hover {
+  background-color: rgba(183, 148, 148, 0.1);
+  border-color: #B79494;
+  color: #ffffff;
+}
+
+.btn-login svg {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+/* =====================
+   ESTILOS PANEL LATERAL 
+   ===================== */
 
 .panel-lateral {
   position: fixed;
@@ -57,7 +204,7 @@ header.hidden {
   transform: translateX(-100%);
   transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
   padding: 20px;
-  z-index: 100;
+  z-index: 1001; /* Debe estar por encima del header */
   border-top-right-radius: 18px;
   border-bottom-right-radius: 18px;
   overflow-y: auto;
@@ -69,7 +216,6 @@ header.hidden {
   transform: translateX(0);
 }
 
-/* Botón de cerrar (X) */
 .panel-close-btn {
   position: absolute;
   top: 25px;
@@ -95,66 +241,64 @@ header.hidden {
   color: #ffffff;
 }
 
-/* Área del logo */
 .panel-logo-area {
   display: flex;
   align-items: center;
-  padding: 10px 0; /* Padding vertical */
-  padding-right: 40px; /* Espacio para el botón de cerrar si se superpone */
+  padding: 10px 0;
+  padding-right: 40px;
   margin-bottom: 20px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Línea separadora sutil */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .panel-logo-area img {
-  width: 36px; /* Ajusta al tamaño en tu imagen */
+  width: 36px;
   height: 36px;
   margin-right: 10px;
-  border-radius: 50%; /* Icono circular como en la imagen */
+  border-radius: 50%;
 }
 
 .panel-logo-area span {
-  font-size: 17px; /* Ajustar tamaño de fuente */
+  font-size: 17px;
   font-weight: 600;
   color: #ffffff;
 }
 
-/* Barra de búsqueda (hereda de group-sm, input-sm, search-icon) */
 .panel-lateral .group-sm {
   margin-bottom: 25px;
-  position: relative; /* Para el icono de búsqueda */
+  position: relative;
 }
 
 .panel-lateral .input-sm {
-  background-color: #2a2340; /* Fondo oscuro para el input como en tu Index-style */
+  background-color: #2a2340;
   color: #bdbecb;
-  border: 1px solid #4f545c; /* Borde sutil como en la imagen */
-  box-shadow: none; /* Quitar la sombra por defecto si no la quieres aquí */
-  padding-left: 40px; /* Espacio para el icono de búsqueda */
-  height: 40px; /* Altura consistente */
-  border-radius: 8px; /* Bordes redondeados */
+  border: 1px solid #4f545c;
+  box-shadow: none;
+  padding-left: 40px;
+  height: 40px;
+  border-radius: 8px;
+  width: 100%; /* Asegura que ocupe todo el ancho */
+  box-sizing: border-box; /* Importante */
 }
 .panel-lateral .input-sm::placeholder {
-  color: #8a86a0; /* Placeholder un poco más tenue */
+  color: #8a86a0;
 }
 
 .panel-lateral .input-sm:focus {
-   border-color: #3bcc5a; /* Verde de acento en focus */
-   box-shadow: 0 0 0 2px rgba(59, 204, 90, 0.3); /* Sombra de foco verde */
+   border-color: #3bcc5a;
+   box-shadow: 0 0 0 2px rgba(59, 204, 90, 0.3);
 }
 
 .panel-lateral .group-sm .search-icon {
     position: absolute;
-    left: 12px; /* Posicionar icono dentro del input */
+    left: 12px;
     top: 50%;
     transform: translateY(-50%);
     width: 18px;
     height: 18px;
-    fill: #8a86a0; /* Color del icono de búsqueda */
+    fill: #8a86a0;
     pointer-events: none;
 }
 
-
-/* Lista de menú principal */
 .panel-menu-list {
   list-style: none;
   padding: 0;
@@ -185,53 +329,38 @@ header.hidden {
 }
 
 .panel-menu-list li a img {
-  width: 30px; /* Tamaño de iconos */
+  width: 30px;
   height: 30px;
-  margin-right: 12px; /* Espacio entre icono y texto */
+  margin-right: 12px;
   transition: fill 0.2s ease;
 }
 
 .panel-menu-list li a:hover {
-  background-color: rgba(255, 255, 255, 0.1); /* Hover sutil */
+  background-color: rgba(255, 255, 255, 0.1);
   color: #ffffff;
   border-left-color: rgba(59, 204, 90, 0.5);
 }
 
-.panel-menu-list li a:hover img,
-.panel-menu-list li a:hover span {
-  fill: #3bcc5a; /* Verde de acento al hacer hover en icono */
-}
-
-
-/* Estilo para el item activo (opcional, si quieres marcar la sección actual) */
 .panel-menu-list li a.active,
-.panel-menu-list li a.active:hover { /* Asegurar que el activo se mantenga */
-  background-color: #3bcc5a; /* Fondo verde */
-  color: #2a2340; /* Texto oscuro sobre fondo verde */
+.panel-menu-list li a.active:hover {
+  background-color: #3bcc5a;
+  color: #2a2340;
   font-weight: 600;
   border-left-color: #2a2340;
 }
-
 .panel-menu-list li a.active img,
 .panel-menu-list li a.active:hover img {
-  fill: #2a2340; /* Icono oscuro sobre fondo verde */
-}
-.panel-menu-list li a.active span, /* Para que el span también sea oscuro */
-.panel-menu-list li a.active:hover span {
-    color: #2a2340;
+  fill: #2a2340;
 }
 
-
-/* Menú inferior (Conócenos, Contacto) */
 .panel-menu-bottom {
   flex-grow: 0;
   margin-top: auto;
   padding-top: 15px;
   padding-bottom: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Línea separadora sutil */
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Scrollbar (sigue siendo útil) */
 .panel-lateral::-webkit-scrollbar {
   width: 5px;
 }
@@ -243,320 +372,145 @@ header.hidden {
   background-color: rgba(255, 255, 255, 0.25);
 }
 
-/* Barra de busqueda*/
-.group {
-  display: flex;
-  justify-content: space-between;
-  line-height: 28px;
-  align-items: center;
-  position: relative;
-  max-width: 420px;
-}
+/* ==========================================================================
+   ESTILOS POPUP LOGIN/REGISTRO (Sin cambios)
+   ========================================================================== */
 
-.input {
-  font-family: "Montserrat", sans-serif;
-  width: 100%;
-  height: 45px;
-  padding-left: 2.5rem;
-  box-shadow: 0 0 0 1.5px #8c6dc2, 0 0 25px -17px #000;
-  border: 0;
-  border-radius: 12px;
-  background-color: #1f1b2e;
-  outline: none;
-  color: #bdbecb;
-  transition: all 0.25s cubic-bezier(0.19, 1, 0.22, 1);
-  cursor: text;
-  z-index: 0;
-}
-
-.input::placeholder {
-  color: #bdbecb;
-}
-
-.input:hover {
-  box-shadow: 0 0 0 2.5px #2f303d, 0px 0px 25px -15px #000;
-}
-
-.input:active {
-  transform: scale(0.95);
-}
-
-.input:focus {
-  box-shadow: 0 0 0 2.5px #2f303d;
-}
-
-.search-icon {
-  position: absolute;
-  left: 1rem;
-  fill: #bdbecb;
-  width: 1rem;
-  height: 1rem;
-  pointer-events: none;
-  z-index: 1;
-}
-
-/* Centro: el logo*/
-
-.header-center {
-  flex-grow: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.header-center img {
-  max-height: 100%;
-  height: 75px;
-  margin-top: 10px;
-  z-index: 6;
-}
-
-/* Contenedor de la derecha navegacion + boton*/
-.header-right {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  padding-right: 45px;
-}
-
-/* Navegacion */
-.header-right .nav-and-button {
-  display: flex;
-  align-items: center;
-  
-}
-
-.nav-and-button {
-  display: flex;
-  align-items: center ;
-}
-nav {
-  gap: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  flex-grow: 1;
-  margin-right: 40px;
-}
-
-nav ul {
-  list-style: none;
-  gap: 20px;
-  margin: 0;
-  padding: 0;
-  display: flex;
-}
-
-nav ul li {
-  margin-left: 0;
-}
-
-nav ul li a {
-  color: rgb(255, 255, 255);
-  font-size: 18px;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  position: relative;
-  transition: transform 0.2s;
-}
-nav ul li a::before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 3px;
-  border-radius: 3px;
-  background-color: #3bcc5a;
-  bottom: -2px;
-  left: 0;
-  transform-origin: right;
-  transform: scaleX(0);
-  transition: transform 0.3s ease-in-out;
-}
-nav ul li a:hover {
-  color: white;
-}
-
-nav ul li a:hover::before {
-  transform-origin: left;
-  transform: scaleX(1);
-}
-
-/* Estilo del botón de inicio de sesión */
-.btn-login {
-  width: 150px;
-  height: 45px;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: 0.3s ease;
-  box-shadow: 0 0 0 1.5px #8c6dc2, 0 0 25px -17px #000;
-  border: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  margin-left: 20px;
-  margin-right: 40px;
-}
-
-.btn-login:hover {
-  box-shadow: 0 0 0 2.5px #2f303d, 0px 0px 25px -15px #000;
-}
-
-.btn-login:focus {
-  box-shadow: 0 0 0 2.5px #2f303d;
-}
-
-/* === ESTILOS PARA EL POPUP DE LOGIN/REGISTRO === */
-
-/* Overlay para el popup */
 .popup-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.75); /* Fondo más oscuro y translúcido */
-  display: none; /* Se mostrará con JS */
+  background: rgba(0, 0, 0, 0.75);
+  display: none;
   justify-content: center;
   align-items: center;
-  z-index: 1000; /* Asegurar que esté por encima de otros elementos */
-  -webkit-backdrop-filter: blur(5px); /* Para Safari */
-  backdrop-filter: blur(5px); /* Efecto de desenfoque para el fondo */
+  z-index: 1000;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
 }
 
-/* Contenedor del formulario */
 .popup-form {
-  background: #2c2f33; /* Fondo oscuro para el formulario */
-  color: #e0e0e0; /* Texto claro */
-  padding: 35px 40px; /* Más padding */
-  border-radius: 12px; /* Bordes más redondeados */
-  width: 360px; /* Un poco más ancho */
+  background: #2c2f33;
+  color: #e0e0e0;
+  padding: 35px 40px;
+  border-radius: 12px;
+  width: 360px;
   max-width: 90%;
   position: relative;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Sombra más pronunciada */
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente moderna */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   transition: transform 0.3s ease-out, opacity 0.3s ease-out;
   transform: scale(0.95);
   opacity: 1;
 }
 
-/* Estilo para cuando el popup está visible (añadir clase 'visible' con JS) */
 .popup-overlay.visible .popup-form {
   transform: scale(1);
   opacity: 1;
 }
 
-/* Botón para cerrar el popup */
 .close-popup {
   position: absolute;
   top: 15px;
   right: 20px;
-  font-size: 28px; /* Más grande */
+  font-size: 28px;
   font-weight: bold;
-  color: #a0a0a0; /* Color sutil */
+  color: #a0a0a0;
   cursor: pointer;
   transition: color 0.2s ease;
 }
 
 .close-popup:hover {
-  color: #ffffff; /* Blanco al pasar el mouse */
+  color: #ffffff;
 }
 
-/* Título del formulario */
 .popup-form h2 {
   margin-top: 0;
-  margin-bottom: 25px; /* Más espacio debajo del título */
-  color: #ffffff; /* Título en blanco */
+  margin-bottom: 25px;
+  color: #ffffff;
   text-align: center;
-  font-weight: 600; /* Un poco más de peso */
+  font-weight: 600;
   font-size: 24px;
 }
 
-/* Labels */
 .popup-form label {
-  display: block; /* Para que ocupe todo el ancho */
-  margin-bottom: 8px; /* Espacio antes del input */
+  display: block;
+  margin-bottom: 8px;
   font-size: 14px;
-  color: #b0b0b0; /* Color de label ligeramente más suave */
+  color: #b0b0b0;
   font-weight: 500;
 }
 
-/* Inputs del formulario */
 .popup-form input[type="text"],
 .popup-form input[type="password"],
 .popup-form input[type="email"] {
   width: 100%;
-  padding: 12px 15px; /* Padding más generoso */
-  margin-bottom: 10px; /* Más espacio entre inputs */
-  border: 1px solid #4f545c; /* Borde sutil */
-  border-radius: 8px; /* Bordes redondeados para inputs */
-  background-color: #36393f; /* Fondo de input ligeramente diferente */
-  color: #e0e0e0; /* Texto del input */
+  padding: 12px 15px;
+  margin-bottom: 10px;
+  border: 1px solid #4f545c;
+  border-radius: 8px;
+  background-color: #36393f;
+  color: #e0e0e0;
   font-size: 16px;
-  box-sizing: border-box; /* Importante para que el padding no afecte el ancho */
+  box-sizing: border-box;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .popup-form input[type="text"]:focus,
 .popup-form input[type="password"]:focus,
 .popup-form input[type="email"]:focus {
-  border-color: #5865f2; /* Color de acento al enfocar */
-  box-shadow: 0 0 0 3px rgba(88, 101, 242, 0.3); /* Sombra de foco sutil */
-  outline: none; /* Quitar el outline por defecto */
+  border-color: #5865f2;
+  box-shadow: 0 0 0 3px rgba(88, 101, 242, 0.3);
+  outline: none;
 }
 
-/* Placeholder text */
 .popup-form input::placeholder {
   color: #72767d;
 }
 
-/* Botón de submit */
 .popup-form button[type="submit"] {
   width: 100%;
   padding: 12px 15px;
-  background: #5865f2; /* Color de acento principal (ej. un azul moderno) */
+  background: #5865f2;
   color: white;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   font-size: 16px;
   font-weight: 600;
-  text-transform: uppercase; /* Mayúsculas para un look más definido */
+  text-transform: uppercase;
   letter-spacing: 0.5px;
   transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
 .popup-form button[type="submit"]:hover {
-  background: #4752c4; /* Un poco más oscuro al pasar el mouse */
+  background: #4752c4;
 }
 
 .popup-form button[type="submit"]:active {
-  transform: scale(0.98); /* Pequeño efecto al presionar */
+  transform: scale(0.98);
 }
 
-/* Contenedor de la contraseña */
 .password-wrapper {
   position: relative;
   width: 100%;
-  margin-bottom: 20px; /* Asegurar que el wrapper tenga el margin-bottom, no el input dentro */
+  margin-bottom: 20px;
 }
 
 .password-wrapper input[type="password"],
 .password-wrapper input[type="text"] {
   width: 100%;
-  padding: 12px 15px;
-  padding-right: 45px; /* Espacio para el ícono de mostrar/ocultar */
-  margin-bottom: 0 !important; /* Quitar margen del input, ya está en el wrapper */
+  padding: 12px 45px 12px 15px;
+  margin-bottom: 0 !important;
   box-sizing: border-box;
 }
 
 .toggle-password {
   position: absolute;
-  top: 50%; /* En tu CSS más reciente. Originalmente era 38% */
-  right: 15px; /* En tu CSS más reciente. Originalmente era 1% */
+  top: 50%;
+  right: 15px;
   transform: translateY(-50%);
   background: transparent;
   border: none;
@@ -572,25 +526,24 @@ nav ul li a:hover::before {
 }
 
 .toggle-password:hover {
-  color: #ffffff; /* El SVG también cambiará a blanco en hover */
+  color: #ffffff;
 }
 
 .toggle-password:focus {
   outline: none;
 }
 
-/* Enlaces para registrarse o iniciar sesión */
 .register-link,
 .login-link {
   text-align: center;
-  margin-top: 20px; /* Más espacio arriba */
+  margin-top: 20px;
   font-size: 14px;
   color: #b0b0b0;
 }
 
 .register-link a,
 .login-link a {
-  color: #5865f2; /* Color de acento para los enlaces */
+  color: #5865f2;
   text-decoration: none;
   font-weight: 600;
   transition: color 0.2s ease, text-decoration 0.2s ease;
@@ -598,96 +551,41 @@ nav ul li a:hover::before {
 
 .register-link a:hover,
 .login-link a:hover {
-  color: #7682f5; /* Un poco más claro al pasar el mouse */
+  color: #7682f5;
   text-decoration: underline;
 }
 
-/* Mensajes de error */
 .error-message {
-  color: #f04747; /* Rojo para errores */
+  color: #f04747;
   font-size: 13px;
-  margin-top: -10px; /* Pegar más al input de arriba */
-  margin-bottom: 15px; /* Espacio antes del siguiente elemento */
-  display: none; /* Se mostrará con JS */
-  text-align: left; /* Alinear a la izquierda */
+  margin-top: -10px;
+  margin-bottom: 15px;
+  display: none;
+  text-align: left;
 }
 
 input.error {
-  border-color: #f04747 !important; /* Borde rojo para input con error */
-  box-shadow: 0 0 0 3px rgba(240, 71, 71, 0.3) !important; /* Sombra roja */
+  border-color: #f04747 !important;
+  box-shadow: 0 0 0 3px rgba(240, 71, 71, 0.3) !important;
 }
 
-/* Estilos para la sección de código de verificación (si aplica) */
 #codeSection {
   margin-top: 20px;
   padding-top: 15px;
-  border-top: 1px solid #4f545c; /* Separador sutil */
+  border-top: 1px solid #4f545c;
 }
 
-/* Ajuste para el botón de registrarse dentro de codeSection */
 #codeSection button[type="submit"] {
-  margin-top: 10px; /* Espacio si hay un input de código arriba */
+  margin-top: 10px;
 }
 
-/* Pequeña animación de entrada para los campos de registro si se muestran dinámicamente */
 #register-fields, #codeSection {
   animation: fadeIn 0.5s ease-out forwards;
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Contenedor interno del botón */
-.btn-login-inner {
-  width: 150px;
-  height: 45px;
-  border-radius: 12px;
-  background-color: #1f1b2e;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  color: #fff;
-  font-weight: 700;
-  font-size: 15px;
-  text-transform: uppercase;
-  transition: color 0.3s ease;
-}
-
-/* Estilo del icono dentro del botón */
-.btn-login-inner svg {
-  width: 20px;
-  height: 24px;
-  fill: #bdbecb;
-}
-.btn-login:hover .btn-login-inner svg path {
-  fill: #3bcc5a;
-  transition: 0.3s ease;
-}
-
-.btn-login:hover .btn-login-inner svg path{
-  fill: #3bcc5a;
-}
-/* Estilo del texto dentro del botón */
-.btn-login-inner span {
-  color: #bdbecb;
-  font-weight: 700;
-  font-size: 12px;
-  font-family: 'Poppins', sans-serif;
-  margin-left: 5px;
-  display: inline-block;
-}
-
-.btn-login:hover .btn-login-inner span {
-  color: #3bcc5a;
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 
@@ -830,827 +728,133 @@ input.error {
 
 
 /* ==========================================================================
-   ESTILOS RESPONSIVE - HEADER & FOOTER
+   ESTILOS RESPONSIVE - HEADER (NUEVO DISEÑO)
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   Para Tablets (hasta 1300px)
+   Pantallas Medianas (Laptops pequeñas, tablets landscape: 769px a 1100px)
+   Ajustes sutiles para que el diseño de escritorio quepa mejor.
    -------------------------------------------------------------------------- */
-@media (max-width: 415px) {
-
-  header {
-    height: 50px;
-    padding: 0 5px;
-  }
-  
-  /*Header Lado Izquierdo*/
-  .header-left {
-    gap: 8px;
-  }
-  
-  .menu img {
-    width: 33%;
-  }
-
-  .group {
-    flex: 1;
-    margin-left: 33px;
-  }
-
-  .group input {
-    font-size: 11px;
-    padding: 6px;
-    width: 80%;
-    height: 33px;
-  }
-  .search-icon {
-    left: 0.3rem;
-  }
-
-  .group .input {
-    padding-left: 1.8rem;
-  }
-/* Header Central */
-  .header-center img {
-    height: 50px;
-  }
-
-  .panel-lateral {
-    width: 100%;
-    border-radius: 0;
-  }
-
-  .item-inferior {
-    width: 90px;
-    padding: 8px;
-    font-size: 12px;
-    justify-content: center;
-    text-align: center;
-  }
-
-  .item-inferior svg {
-    width: 16px;
-    height: 16px;
-  }
-
-  .panel-lateral ul li {
-    font-size: 14px;
-  }
-
-  .panel-lateral .subopciones li {
-    font-size: 12px;
-  }
-
-  .nav-and-button nav {
-    display: none;
-  }
-
-  /* Header lado Derecho*/
+@media (max-width: 1100px) {
   .header-right {
-    gap: 6px;
-    padding-right: 10px;
-    flex: none;
+    gap: 20px; /* Reducimos espacio entre nav y login */
   }
+  nav ul {
+    gap: 20px; /* Reducimos espacio entre links */
+  }
+  nav ul li a {
+    font-size: 16px;
+  }
+  .btn-login {
+    font-size: 15px;
+    padding: 8px 18px;
+    gap: 10px;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   VISTA DE TABLET Y MÓVIL (Punto de quiebre principal: hasta 768px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
 
   .btn-login {
-    font-size: 10px;
-    margin: 0;
-    width: 45px;
-    height: 33px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  padding: 0;
+  gap: 0;
+}
+  
+  /* Ocultamos los elementos de escritorio */
+  header nav,
+  .group .input {
+    display: none;
+  }
+  .btn-login span {
+    display: none;
   }
 
-  .btn-login-inner {
-    gap: 0;
-    width: 45px;
-    height: 33px;
-    font-size: 0;
+  .header-left, .header-right {
+  flex: 1; 
+}
+.header-left {
+  justify-content: flex-start;
+}
+.header-right {
+  justify-content: flex-end;
+}
+.header-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0;
+}
+
+  /* Transformamos el grupo de búsqueda en un botón de icono */
+  .group {
+    border: none;
+    background: none;
     padding: 0;
+    width: auto;
+  }
+  .group .search-icon {
+    position: static;
+    transform: none;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    border: 1px solid rgba(183, 148, 148, 0.5);
+    border-radius: 50%;
+    padding: 10px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+  }
+  .group .search-icon:hover {
+    background-color: rgba(183, 148, 148, 0.1);
+    border-color: #B79494;
   }
 
-  .btn-login-inner svg {
-    width: 18px;
-    height: 16px;
-  }
-
-  .btn-login-inner span {
-    display: none;
-  }
-
-  .nav-and-button nav {
-    display: none;
-  }
-
-  .panel-lateral {
-    width: 80%;
-    max-width: 240px;
-    border-top-right-radius: 18px;
-    border-bottom-right-radius: 18px;
-  }
-
-  .panel-lateral ul li {
-    font-size: 15px;
-    padding: 8px 12px;
-  }
-
-  .panel-lateral .subopciones li {
-    font-size: 13px;
-    padding: 6px 10px;
-  }
-  /*Footer*/
-  #footer-container {
-    font-size: 13px; /* Reducir el tamaño de la fuente */
-    padding: 10px; /* Reducir el padding interno */
-  }
-
-  #footer-container .contacto-info p,
-  #footer-container .legal a {
-    margin: 3px 0; /* Reducir el margen vertical */
+  /* Convertimos el botón de login en un botón de icono */
+  .btn-login {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    padding: 0;
+    gap: 0;
   }
 }
 
-
-
-@media (min-width: 415px) and (max-width: 464px) {
-
+/* --------------------------------------------------------------------------
+   VISTA PARA MÓVILES PEQUEÑOS (hasta 480px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 480px) {
   header {
-      height: 50px;
-      padding: 0 5px;
-    }
-    
-    /*Header Lado Izquierdo*/
-    .header-left {
-      gap: 8px;
-    }
-    
-    .menu img {
-      width: 35%;
-    }
-
-    .group {
-      flex: 1;
-      margin-left: 33px;
-    }
-
-    .group input {
-      font-size: 12px;
-      padding: 6px;
-      width: 85%;
-      height: 35px;
-    }
-    .search-icon {
-      left: 0.5rem;
-    }
-
-    .group .input {
-      padding-left: 2rem;
-    }
-/* Header Central */
-    .header-center img {
-      height: 50px;
-    }
-  
-    .panel-lateral {
-      width: 100%;
-      border-radius: 0;
-    }
-  
-    .item-inferior {
-      width: 90px;
-      padding: 8px;
-      font-size: 12px;
-      justify-content: center;
-      text-align: center;
-    }
-  
-    .item-inferior svg {
-      width: 16px;
-      height: 16px;
-    }
-  
-    .panel-lateral ul li {
-      font-size: 14px;
-    }
-  
-    .panel-lateral .subopciones li {
-      font-size: 12px;
-    }
-
-    .nav-and-button nav {
-      display: none;
-    }
-
-    /* Header lado Derecho*/
-    .header-right {
-      gap: 6px;
-      padding-right: 10px;
-      flex: none;
-    }
-  
-    .btn-login {
-      font-size: 10px;
-      margin: 0;
-      width: 100px;
-      height: 35px;
-    }
-
-    .btn-login-inner {
-      gap: 0;
-      width: 100px;
-      height: 35px;
-      font-size: 0;
-      padding: 0;
-    }
-
-    .btn-login-inner svg {
-      width: 15px;
-      height: 16px;
-    }
-
-    .btn-login-inner span {
-      font-weight: 550;
-      font-size: 9.5px;
-    }
-  
-    .nav-and-button nav {
-      display: none;
-    }
-  
-    .panel-lateral {
-      width: 80%;
-      max-width: 240px;
-      border-top-right-radius: 18px;
-      border-bottom-right-radius: 18px;
-    }
-  
-    .panel-lateral ul li {
-      font-size: 15px;
-      padding: 8px 12px;
-    }
-  
-    .panel-lateral .subopciones li {
-      font-size: 13px;
-      padding: 6px 10px;
-    }
-    /*Footer*/
-    #footer-container {
-      font-size: 14px; /* Reducir el tamaño de la fuente */
-      padding: 10px; /* Reducir el padding interno */
-    }
-  
-    #footer-container .contacto-info p,
-    #footer-container .legal a {
-      margin: 3px 0; /* Reducir el margen vertical */
-    }
-}
-/* Responsive: pantallas menores a 580px */
-
-@media (min-width: 465px) and (max-width: 600px) {
-  
-  header {
-      height: 55px;
-      padding: 0 12px;
-    }
-    
-    /*Header Lado Izquierdo*/
-    .header-left {
-      gap: 8px;
-    }
-  
-    .group {
-      flex: 1;
-      margin-left: 40px;
-    }
-
-    .group input {
-      font-size: 12px;
-      padding: 6px;
-      width: 85%;
-      height: 35px;
-    }
-    .search-icon {
-      left: 0.5rem;
-    }
-
-    .group .input {
-      padding-left: 2rem;
-    }
-  /*Menu Lateral*/
-
-  .menu-inferior {
-    gap: 20px;
+    height: 65px;
+    padding: 5px 10px;
+  }
+  .header-left {
+    gap: 10px; /* Espacio entre menú y búsqueda */
+  }
+  .header-center {
+    padding: 0 5px;
+  }
+  .header-center img {
+    height: 55px;
   }
 
-  .item-inferior{
-    width: 90px;
+  /* Hacemos los iconos un poco más pequeños */
+  .menu svg,
+  .group .search-icon,
+  .btn-login {
+    width: 40px;
+    height: 40px;
   }
-
-  /*Header Centro*/
-    .header-center img {
-      height: 60px;
-      margin-top: 3px;
-    }
-
-  /* Header lado Derecho*/
-    .header-right {
-      gap: 6px;
-      padding-right: 20px;
-      flex: none;
-    }
   
-    .btn-login {
-      font-size: 10px;
-      margin: 0;
-      width: 100px;
-      height: 35px;
-    }
-
-    .btn-login-inner {
-      gap: 0;
-      width: 100px;
-      height: 35px;
-      font-size: 0;
-      padding: 0;
-    }
-
-    .btn-login-inner svg {
-      width: 15px;
-      height: 16px;
-    }
-
-    .btn-login-inner span {
-      font-weight: 550;
-      font-size: 9.5px;
-    }
-  
-    .nav-and-button nav {
-      display: none;
-    }
-  
-    .panel-lateral {
-      width: 80%;
-      max-width: 240px;
-      border-top-right-radius: 18px;
-      border-bottom-right-radius: 18px;
-    }
-  
-    .panel-lateral ul li {
-      font-size: 15px;
-      padding: 8px 12px;
-    }
-  
-    .panel-lateral .subopciones li {
-      font-size: 13px;
-      padding: 6px 10px;
-    }
-    /*Footer*/
-    #footer-container {
-      font-size: 14px; /* Reducir el tamaño de la fuente */
-      padding: 10px; /* Reducir el padding interno */
-    }
-  
-    #footer-container .contacto-info p,
-    #footer-container .legal a {
-      margin: 3px 0; /* Reducir el margen vertical */
-    }
-}
-/* Responsive: pantallas menores a 480px */
-
-@media (min-width: 601px) and (max-width: 817px) {
-  
-  header {
-      height: 55px;
-      padding: 0 12px;
-    }
-    
-    /*Header Lado Izquierdo*/
-    .header-left {
-      gap: 8px;
-    }
-  
-    .group {
-      flex: 1;
-      margin-left: 50px;
-    }
-
-    .group input {
-      font-size: 12px;
-      padding: 6px;
-      width: 90%;
-      height: 40px;
-    }
-    .search-icon {
-      left: 0.5rem;
-    }
-
-    .group .input {
-      padding-left: 2rem;
-    }
-  /*Menu Lateral*/
-
-  .menu-inferior {
-    gap: 20px;
+  .group .search-icon {
+    padding: 8px;
   }
-
-  .item-inferior{
-    width: 90px;
-  }
-
-  /*Header Centro*/
-    .header-center img {
-      height: 60px;
-      margin-top: 3px;
-    }
-
-  /* Header lado Derecho*/
-    .header-right {
-      gap: 6px;
-      padding-right: 20px;
-      flex: none;
-      margin-left: 70px;
-    }
-  
-    .btn-login {
-      font-size: 12px;
-      margin: 0;
-      width: 110px;
-      height: 40px;
-    }
-
-    .btn-login-inner {
-      gap: 0;
-      width: 100px;
-      height: 40px;
-      font-size: 0;
-      padding: 0 5px;
-    }
-
-    .btn-login-inner svg {
-      width: 15px;
-      height: 16px;
-    }
-
-    .btn-login-inner span {
-      font-weight: 700;
-      font-size: 10px;
-    }
-  
-    .nav-and-button nav {
-      display: none;
-    }
-  
-    .panel-lateral {
-      width: 80%;
-      max-width: 240px;
-      border-top-right-radius: 18px;
-      border-bottom-right-radius: 18px;
-    }
-  
-    .panel-lateral ul li {
-      font-size: 15px;
-      padding: 8px 12px;
-    }
-  
-    .panel-lateral .subopciones li {
-      font-size: 13px;
-      padding: 6px 10px;
-    }
-    /*Footer*/
-    #footer-container {
-      font-size: 14px; /* Reducir el tamaño de la fuente */
-      padding: 10px; /* Reducir el padding interno */
-    }
-  
-    #footer-container .contacto-info p,
-    #footer-container .legal a {
-      margin: 3px 0; /* Reducir el margen vertical */
-    }
-}
-
-@media (min-width: 818px) and (max-width: 919px) {
-  
-  header {
-      height: 55px;
-      padding: 0 12px;
-    }
-    
-    /*Header Lado Izquierdo*/
-    .header-left {
-      gap: 8px;
-    }
-  
-    .group {
-      flex: 1;
-      margin-left: 50px;
-    }
-
-    .group input {
-      font-size: 12px;
-      padding: 6px;
-      width: 90%;
-      height: 40px;
-    }
-    .search-icon {
-      left: 0.5rem;
-    }
-
-    .group .input {
-      padding-left: 2rem;
-    }
-  /*Menu Lateral*/
-
-  .menu-inferior {
-    gap: 20px;
-  }
-
-  .item-inferior{
-    width: 90px;
-  }
-
-  /*Header Centro*/
-    .header-center img {
-      height: 60px;
-      margin-top: 3px;
-    }
-
-  /* Header lado Derecho*/
-    .header-right {
-      gap: 6px;
-      padding-right: 20px;
-      flex: none;
-      margin-left: 150px;
-    }
-  
-    .btn-login {
-      font-size: 12px;
-      margin: 0;
-      width: 110px;
-      height: 40px;
-    }
-
-    .btn-login-inner {
-      gap: 0;
-      width: 100px;
-      height: 40px;
-      font-size: 0;
-      padding: 0 5px;
-    }
-
-    .btn-login-inner svg {
-      width: 15px;
-      height: 16px;
-    }
-
-    .btn-login-inner span {
-      font-weight: 700;
-      font-size: 10px;
-    }
-  
-    .nav-and-button nav {
-      display: none;
-    }
-  
-    .panel-lateral {
-      width: 80%;
-      max-width: 240px;
-      border-top-right-radius: 18px;
-      border-bottom-right-radius: 18px;
-    }
-  
-    .panel-lateral ul li {
-      font-size: 15px;
-      padding: 8px 12px;
-    }
-  
-    .panel-lateral .subopciones li {
-      font-size: 13px;
-      padding: 6px 10px;
-    }
-    /*Footer*/
-    #footer-container {
-      font-size: 14px; /* Reducir el tamaño de la fuente */
-      padding: 10px; /* Reducir el padding interno */
-    }
-  
-    #footer-container .contacto-info p,
-    #footer-container .legal a {
-      margin: 3px 0; /* Reducir el margen vertical */
-    }
-}
-
-@media (min-width: 920px) and (max-width: 1024px) {
-  
-  header {
-      height: 55px;
-      padding: 0 12px;
-    }
-    
-    /*Header Lado Izquierdo*/
-    .header-left {
-      gap: 8px;
-    }
-  
-    .group {
-      flex: 1;
-      margin-left: 50px;
-    }
-
-    .group input {
-      font-size: 12px;
-      padding: 6px;
-      width: 90%;
-      height: 40px;
-    }
-    .search-icon {
-      left: 0.5rem;
-    }
-
-    .group .input {
-      padding-left: 2rem;
-    }
-  /*Menu Lateral*/
-
-  .menu-inferior {
-    gap: 20px;
-  }
-
-  .item-inferior{
-    width: 90px;
-  }
-
-  /*Header Centro*/
-    .header-center img {
-      height: 60px;
-      margin-top: 3px;
-    }
-
-  /* Header lado Derecho*/
-    .header-right {
-      gap: 6px;
-      padding-right: 20px;
-      flex: none;
-      margin-left: 150px;
-    }
-  
-    .btn-login {
-      font-size: 12px;
-      margin: 0;
-      width: 110px;
-      height: 40px;
-    }
-
-    .btn-login-inner {
-      gap: 0;
-      width: 100px;
-      height: 40px;
-      font-size: 0;
-      padding: 0 5px;
-    }
-
-    .btn-login-inner svg {
-      width: 15px;
-      height: 16px;
-    }
-
-    .btn-login-inner span {
-      font-weight: 700;
-      font-size: 10px;
-    }
-  
-    .nav-and-button nav {
-      display: none;
-    }
-  
-    .panel-lateral {
-      width: 80%;
-      max-width: 240px;
-      border-top-right-radius: 18px;
-      border-bottom-right-radius: 18px;
-    }
-  
-    .panel-lateral ul li {
-      font-size: 15px;
-      padding: 8px 12px;
-    }
-  
-    .panel-lateral .subopciones li {
-      font-size: 13px;
-      padding: 6px 10px;
-    }
-    /*Footer*/
-    #footer-container {
-      font-size: 14px; /* Reducir el tamaño de la fuente */
-      padding: 10px; /* Reducir el padding interno */
-    }
-  
-    #footer-container .contacto-info p,
-    #footer-container .legal a {
-      margin: 3px 0; /* Reducir el margen vertical */
-    }
-}
-
-@media (min-width: 1025px) and (max-width: 1140px) {
-  
-  header {
-      height: 55px;
-      padding: 0 12px;
-    }
-    
-    /*Header Lado Izquierdo*/
-    .header-left {
-      gap: 8px;
-    }
-  
-    .group {
-      flex: 1;
-      margin-left: 50px;
-    }
-
-    .group input {
-      font-size: 12px;
-      padding: 6px;
-      width: 90%;
-      height: 40px;
-    }
-    .search-icon {
-      left: 0.5rem;
-    }
-
-    .group .input {
-      padding-left: 2rem;
-    }
-  /*Menu Lateral*/
-
-  .menu-inferior {
-    gap: 20px;
-  }
-
-  .item-inferior{
-    width: 90px;
-  }
-
-  /*Header Centro*/
-    .header-center img {
-      height: 60px;
-      margin-top: 3px;
-    }
-
-  /* Header lado Derecho*/
-    .header-right {
-      gap: 6px;
-      padding-right: 20px;
-      flex: none;
-    }
-  
-    .btn-login {
-      font-size: 12px;
-      margin: 0;
-      width: 110px;
-      height: 40px;
-    }
-
-    .btn-login-inner {
-      gap: 0;
-      width: 100px;
-      height: 40px;
-      font-size: 0;
-      padding: 0 5px;
-    }
-
-    .btn-login-inner svg {
-      width: 15px;
-      height: 16px;
-    }
-
-    .btn-login-inner span {
-      font-weight: 700;
-      font-size: 10px;
-    }
-  
-  
-    .panel-lateral {
-      width: 80%;
-      max-width: 240px;
-      border-top-right-radius: 18px;
-      border-bottom-right-radius: 18px;
-    }
-  
-    .panel-lateral ul li {
-      font-size: 15px;
-      padding: 8px 12px;
-    }
-  
-    .panel-lateral .subopciones li {
-      font-size: 13px;
-      padding: 6px 10px;
-    }
-    /*Footer*/
-    #footer-container {
-      font-size: 14px; /* Reducir el tamaño de la fuente */
-      padding: 10px; /* Reducir el padding interno */
-    }
-  
-    #footer-container .contacto-info p,
-    #footer-container .legal a {
-      margin: 3px 0; /* Reducir el margen vertical */
-    }
 }
