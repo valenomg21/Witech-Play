@@ -42,7 +42,7 @@ router.post("/register", async (req, res) => {
         console.error("Error al validar correo en 'temporal_users':", errorTemporal);
         return res.status(500).json({ msg: `Error al validar correo en 'temporal_users': ${errorTemporal.message}` });
     }
-    if (dataTemporal || dataTemporal.length > 0) {
+    if (!dataTemporal || dataTemporal.length > 0) {
         console.log("El correo ya está en uso en 'temporal_users'");
          return res.status(200).json({
       needsVerificationCode: true,
@@ -165,9 +165,7 @@ router.post("/resend-verification-code", async (req, res) => {
 
 // Ruta para verificar el código de registro y FINALIZAR el registro
 router.post("/verify", async (req, res) => {
-  const { code, email, password, username } = req.body; // <<-- Recibimos code, email, password y username
-  console.log("Recibido del frontend:", { code, email, password, username });
-  try {
+  const { code, email, password, username } = req.body;
     
     let { data: dataTemporal, error: temporalError } = await supabase
       .from("temporal_users")
@@ -181,6 +179,7 @@ router.post("/verify", async (req, res) => {
     if (!dataTemporal || dataTemporal.length==0) {
          return res.status(400).json({ msg: "El código es incorrecto" });
     }
+    
     // Registramos el usuario en Supabase auth
     const { data: authData, error: authError } = await supabase.auth.signUp({
       email: email,
@@ -209,12 +208,24 @@ router.post("/verify", async (req, res) => {
       return res.status(500).json({ msg: "Error al insertar usuario" });
     }
     await supabase.from("temporal_users").delete().eq("email", email);
+    // Generar token JWT con expiración de 30 días
+    const payload = {
+      user: {
+        id: authData.id, // << Usar el ID de tu tabla "Usuarios"
+      },
+    };
 
-    res.json({ msg: "Usuario registrado y verificado con éxito", data: user });
-  } catch (err) {
-    console.error(err.message);
-    res.status(500).send("Error del servidor");
-  }
+    jwt.sign(
+      payload,
+      process.env.SUPABASE_JWT_SECRET,
+      {
+        expiresIn: "30d", // Expira en 30 días
+      },
+      (err, token) => {
+        if (err) throw err;
+        res.json({ msg: "Usuario registrado y verificado con éxito", token, data: user });
+      }
+    );
 });
 
 // Ruta de inicio de sesión
@@ -251,7 +262,7 @@ router.post("/login", async (req, res) => {
             };
 
             jwt.sign(payload, process.env.SUPABASE_JWT_SECRET, {
-                expiresIn: "1h",
+                expiresIn: "30d",
             }, (err, token) => {
                 if (err) throw err;
                 res.json({ token });
