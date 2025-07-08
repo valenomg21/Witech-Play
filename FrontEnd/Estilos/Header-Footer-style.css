@@ -52,10 +52,11 @@ header.hidden {
   cursor: pointer;
 }
 .menu svg {
-  width: 45px;
-  height: 45px;
+  width: 50px;
+  height: 50px;
   transition: transform 0.3s ease;
   flex-shrink: 0;
+  display: block;
 }
 .menu svg:hover {
   transform: scale(1.1);
@@ -198,7 +199,7 @@ nav ul li a:hover::after {
   left: 0;
   width: 280px;
   height: 100vh;
-  background-color: #3b2a57; 
+  background-color: #1f1b2e; 
   box-shadow: 3px 0 25px rgba(0, 0, 0, 0.4); 
   color: #e8e8f3; 
   transform: translateX(-100%);
