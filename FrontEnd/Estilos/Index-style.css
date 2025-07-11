@@ -1,6 +1,4 @@
-:root {
-  scrollbar-width: none;
-}
+
 /* Estilos generales */
 body {
   position: relative;
@@ -515,149 +513,159 @@ body {
    ========================================================================== */
 
 /* Contenedor lateral para la promoción */
-.contenedor-lateral {
-  flex: 1; 
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  max-width: 280px;
-  margin-top: 50px; 
-  padding: 12px;
+.widget-tienda {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    max-width: 270px;
+    
+    position: sticky;
+    margin-top: 45px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    top: 50px;
+    align-self: flex-start;
+
+    background-color: #2a2440;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    
+    max-height: calc(100vh - 110px);
+    overflow: hidden; 
 }
 
-/* Bloque de presentación del logo de la tienda */
-.prese-promo-vertical {
-  flex-grow: 0; 
-  flex-shrink: 0; 
-  background-color: #2a2440; 
-  padding: 20px 15px; 
-  border-radius: 10px; 
-  box-shadow: 0 0 15px #7359a1; 
-  text-align: center; 
-  margin-bottom: 20px; 
+.widget-tienda-header {
+    flex-shrink: 0;
+    padding: 20px;
+    background-color: rgba(32, 27, 46, 0.8);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
 }
 
-.titulo-promo-vertical {
-  padding: 5px;
+.widget-tienda-logo {
+    width: 100px;
+    height: auto;
+    margin: 0 auto 10px auto;
+    display: block;
 }
 
-.titulo-promo-vertical h2 {
-  font-size: 18px; 
-  font-weight: 600; 
-  color: #e0e0e0;  
-  margin: 0 0 15px 0;
-  line-height: 1.4;
+.widget-tienda-titulo h2 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0 0 4px 0;
 }
 
-.titulo-promo-vertical h2::after {
-  content: '';
-  display: block;
-  width: 70px; 
-  height: 2px;
-  background-color: #3bcc5a; 
-  margin: 8px auto 0;
+.widget-tienda-titulo p {
+    font-size: 0.85rem;
+    color: #a9a9c4;
+    margin: 0 0 15px 0;
 }
 
-.logo-zona-promo a{
-  display: inline-block;
+.widget-tienda-boton-visitar {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    background-color: #3bcc5a;
+    color: #1f1b2e;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-.logo-zona-promo img {
-  width: 180px; 
-  max-width: 100%; 
-  height: auto;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+.widget-tienda-boton-visitar:hover {
+    background-color: #35a54e;
+    transform: scale(1.05);
 }
 
-.logo-zona-promo img:hover {
-  transform: scale(1.08);
-  opacity: 0.85;
+/* Contenedor y pista del carrusel */
+.widget-tienda-carrusel-wrapper {
+    flex-grow: 1;
+    position: relative;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+    mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
 }
 
-/* Carrusel vertical de productos */
-.carrusel-vertical {  
-  flex-grow: 1;
-  max-height: 905px;
-  background-color: #2a2440;
-  padding: 20px 10px;
-  border-radius: 10px;
-  overflow-y: auto;
-  scrollbar-width: none; 
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+.widget-tienda-carrusel-pista {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px;
 }
 
-.carrusel-vertical::-webkit-scrollbar { 
-  display: none;
+.widget-tienda-carrusel-pista:hover {
+    animation-play-state: paused;
 }
 
-/* Contenedor interno de los productos en el carrusel vertical */
-.seccion-promo-produ {
-  display: flex;
-  flex-direction: column;
-  gap: 20px; 
-  align-items: center;
+.producto-tienda-item {
+    background-color: #3a3153;
+    border-radius: 10px;
+    overflow: hidden;
+    flex-shrink: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
 }
 
-/* Tarjeta de producto individual */
-.productos {
-  background-color: #3a3153;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, outline-color 0.3s ease;
-  cursor: pointer;
-  outline: 2px solid transparent;
-  width: 220px;
-
-  display: flex;
+.producto-tienda-item a {
+    text-decoration: none;
+    color: #e0e0e0;
+    display: block;
 }
 
-.productos:hover {
-  transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 0 15px #3bcc5a; /* Sombra más elaborada */
-  outline: 2px solid #3bcc5a;
+.producto-tienda-item img {
+    width: 100%;
+    height: 180px; 
+    object-fit: cover;
+    display: block;
+    background-color: white; 
 }
 
-.productos a {
-  text-decoration: none;
-  color: #e0e0e0;
-  
-  display: flex;
-  flex-direction: column;
-  width: 100%;
+.producto-tienda-info {
+    padding: 12px;
+    text-align: center;
 }
 
-.producto-imagen-wrapper {
-  height: 200px; 
-  width: 100%;
-  overflow: hidden;
-  background-color: white;
+.producto-tienda-info h3 {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin: 0;
+    line-height: 1.3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.productos img {
-  width: 100%;
-  height: 100%;
-   
-  object-fit: contain;
-  display: block;
+.producto-tienda-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 180px; 
+    background-color: rgba(31, 27, 46, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-.productos h3 {
-  height: 30px;
+.producto-tienda-item a:hover .producto-tienda-overlay {
+    opacity: 1;
+}
 
-  text-align: center;
-  font-size: 14px;
-  font-weight: 500;
-  padding: 10px;
-  margin: 0;
-  line-height: 1.3;
-  background-color: rgba(0,0,0, 0.1);
-
-  flex-grow: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+.producto-tienda-overlay span {
+    padding: 8px 16px;
+    background-color: #3bcc5a;
+    color: #1f1b2e;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.85rem;
 }
 
 /* ==========================================================================

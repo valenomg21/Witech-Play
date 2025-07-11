@@ -453,58 +453,104 @@
       
     </div>
     <!-- Carrusel Vertical (Promocion-Producto) -->
-     <div class="contenedor-lateral">
-        <div class="prese-promo-vertical">
-           <div class="titulo-promo-vertical">
-             <h2>Mejora tu experiencia con nuestros productos en:</h2>
-           </div>
-           <div class="logo-zona-promo">
-             <a href="https://www.witech.com.ar"><img src="/FrontEnd/Imagenes/Icono/logo-WT.webp" alt=""></a>
-           </div>
+     <aside class="widget-tienda">
+    
+    <!-- Encabezado Fijo del Widget -->
+        <div class="widget-tienda-header">
+            <img src="/FrontEnd/Imagenes/Icono/logo-WT.webp" alt="Witech Store Logo" class="widget-tienda-logo">
+            <div class="widget-tienda-titulo">
+                <h2>Tienda Witech</h2>
+                <p>Productos Destacados</p>
+            </div>
+            <a href="https://www.witech.com.ar" target="_blank" class="widget-tienda-boton-visitar">
+                Visitar Tienda
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M7 17l9.2-9.2M17 17V8M17 17H8"/>
+                </svg>
+            </a>
         </div>
 
-        <aside class="carrusel-vertical">
-          <div class="seccion-promo-produ">
-            <!-- contenido productos... -->
-             <div class="productos" data-id="flash">
-                <a href="https://www.witech.com.ar/productos/proyector-ultra-hd-highlight-coating-lens/">
-                  <div class="producto-imagen-wrapper">
-                    <img src="/FrontEnd/Imagenes/Promo-Productos/8eb74ac0-4592-4a7d-aed0-79d5f16dc3fe-3f3653e4652f0b88ef17457260428397-1024-1024.webp" alt="">
-                  </div>
-                  <h3>Proyector Ultra HD Highlight Coating Lens</h3>
-                </a>     
-              </div>
-
-              <div class="productos" data-id="flash">
-                <a href="https://www.witech.com.ar/productos/tv-box-amazon-prime/">
-                  <div class="producto-imagen-wrapper">
-                    <img src="/FrontEnd/Imagenes/Promo-Productos/preventa-fotos-48-510x510-cf4bfae8cc65096f6417264175613056-1024-1024.webp" alt=""/>
-                  </div>
-                  <h3>TV Box Amazon Prime</h3>
-                </a>         
-              </div>
-
-              <div class="productos" data-id="flash">
-                <a href="https://www.witech.com.ar/productos/proyector-android-turbo-ultra-hd/">
-                  <div class="producto-imagen-wrapper">
-                    <img src="/FrontEnd/Imagenes/Promo-Productos/x60-unidades-30-510x510-e9fd4f4ee3229a295317435686092742-1024-1024.webp" alt=""/>
-                  </div>
-                  <h3>Proyector Android Turbo Ultra HD</h3>
-                </a>         
-              </div>
-
-              <div class="productos" data-id="flash">
-                <a href="https://www.witech.com.ar/productos/televisor-smartv-kodak-led-50/">
-                  <div class="producto-imagen-wrapper">
-                    <img src="/FrontEnd/Imagenes/Promo-Productos/x60-unidades-37-1-9dc671a0828ee1d3d217401443698122-1024-1024.webp" alt=""/>
-                  </div>
-                  <h3>Televisor Smartv KODAK LED 50″</h3>
-                </a>       
-              </div>
-              
-          </div>
-        </aside>
-     </div>
+    <!-- Contenedor del Carrusel Vertical -->
+        <div class="widget-tienda-carrusel-wrapper">
+            <div class="widget-tienda-carrusel-pista">
+                <!-- Los productos se insertarán aquí. Duplicamos el contenido para el efecto de scroll infinito. -->
+                <!-- Grupo 1 (Original) -->
+                <div class="producto-tienda-item">
+                    <a href="https://www.witech.com.ar/productos/proyector-ultra-hd-highlight-coating-lens/" target="_blank">
+                        <img src="/FrontEnd/Imagenes/Promo-Productos/8eb74ac0-4592-4a7d-aed0-79d5f16dc3fe-3f3653e4652f0b88ef17457260428397-1024-1024.webp" alt="Proyector Ultra HD">
+                        <div class="producto-tienda-info">
+                            <h3>Proyector Ultra HD</h3>
+                        </div>
+                        <div class="producto-tienda-overlay"><span>Ver Producto</span></div>
+                    </a>
+                </div>
+                <div class="producto-tienda-item">
+                    <a href="https://www.witech.com.ar/productos/tv-box-amazon-prime/" target="_blank">
+                        <img src="/FrontEnd/Imagenes/Promo-Productos/preventa-fotos-48-510x510-cf4bfae8cc65096f6417264175613056-1024-1024.webp" alt="TV Box Amazon Prime">
+                        <div class="producto-tienda-info">
+                            <h3>TV Box Amazon Prime</h3>
+                        </div>
+                        <div class="producto-tienda-overlay"><span>Ver Producto</span></div>
+                    </a>
+                </div>
+                <div class="producto-tienda-item">
+                    <a href="https://www.witech.com.ar/productos/proyector-android-turbo-ultra-hd/" target="_blank">
+                        <img src="/FrontEnd/Imagenes/Promo-Productos/x60-unidades-30-510x510-e9fd4f4ee3229a295317435686092742-1024-1024.webp" alt="Proyector Android Turbo">
+                        <div class="producto-tienda-info">
+                            <h3>Proyector Android Turbo</h3>
+                        </div>
+                        <div class="producto-tienda-overlay"><span>Ver Producto</span></div>
+                    </a>
+                </div>
+                <div class="producto-tienda-item">
+                    <a href="https://www.witech.com.ar/productos/televisor-smartv-kodak-led-50/" target="_blank">
+                        <img src="/FrontEnd/Imagenes/Promo-Productos/x60-unidades-37-1-9dc671a0828ee1d3d217401443698122-1024-1024.webp" alt="Televisor Smartv KODAK">
+                        <div class="producto-tienda-info">
+                            <h3>Televisor KODAK 50"</h3>
+                        </div>
+                        <div class="producto-tienda-overlay"><span>Ver Producto</span></div>
+                    </a>
+                </div>
+                <!-- Grupo 2 (Clon para scroll infinito) -->
+                 <div class="producto-tienda-item">
+                    <a href="https://www.witech.com.ar/productos/proyector-ultra-hd-highlight-coating-lens/" target="_blank">
+                        <img src="/FrontEnd/Imagenes/Promo-Productos/8eb74ac0-4592-4a7d-aed0-79d5f16dc3fe-3f3653e4652f0b88ef17457260428397-1024-1024.webp" alt="Proyector Ultra HD">
+                        <div class="producto-tienda-info">
+                            <h3>Proyector Ultra HD</h3>
+                        </div>
+                        <div class="producto-tienda-overlay"><span>Ver Producto</span></div>
+                    </a>
+                </div>
+                <div class="producto-tienda-item">
+                    <a href="https://www.witech.com.ar/productos/tv-box-amazon-prime/" target="_blank">
+                        <img src="/FrontEnd/Imagenes/Promo-Productos/preventa-fotos-48-510x510-cf4bfae8cc65096f6417264175613056-1024-1024.webp" alt="TV Box Amazon Prime">
+                        <div class="producto-tienda-info">
+                            <h3>TV Box Amazon Prime</h3>
+                        </div>
+                        <div class="producto-tienda-overlay"><span>Ver Producto</span></div>
+                    </a>
+                </div>
+                <div class="producto-tienda-item">
+                    <a href="https://www.witech.com.ar/productos/proyector-android-turbo-ultra-hd/" target="_blank">
+                        <img src="/FrontEnd/Imagenes/Promo-Productos/x60-unidades-30-510x510-e9fd4f4ee3229a295317435686092742-1024-1024.webp" alt="Proyector Android Turbo">
+                        <div class="producto-tienda-info">
+                            <h3>Proyector Android Turbo</h3>
+                        </div>
+                        <div class="producto-tienda-overlay"><span>Ver Producto</span></div>
+                    </a>
+                </div>
+                <div class="producto-tienda-item">
+                    <a href="https://www.witech.com.ar/productos/televisor-smartv-kodak-led-50/" target="_blank">
+                        <img src="/FrontEnd/Imagenes/Promo-Productos/x60-unidades-37-1-9dc671a0828ee1d3d217401443698122-1024-1024.webp" alt="Televisor Smartv KODAK">
+                        <div class="producto-tienda-info">
+                            <h3>Televisor KODAK 50"</h3>
+                       </div>
+                        <div class="producto-tienda-overlay"><span>Ver Producto</span></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+      </aside>
   </div>
 
 </section>
@@ -517,6 +563,7 @@
 <script src="/FrontEnd/Js/main.js"></script>
 <script src="/FrontEnd/Js/main.carrusel.js"></script>
 <script src="/FrontEnd/Js/peli-carrusel.js"></script>
+<script src="/FrontEnd/Js/widget-tienda.js"></script>
 <script src="/FrontEnd/Js/data.js"></script>
 
 </body>
