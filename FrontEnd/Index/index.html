@@ -64,21 +64,27 @@
         </button>
       </div>
     </div>
-    <!-- Banner App -->
 
-    <section class="seccion-promo-glass">
-  <div class="promo-contenido-glass">
-    <img src="/FrontEnd/Imagenes/Icono/promoappwitech.webp" alt="Promoción Witech Play" class="promo-imagen-glass">
-    <div class="promo-texto-glass">
-      <h2>Descarga nuestra app ahora</h2>
-      <p>Con Witech Play, disfrutá de tus películas y series favoritas donde quieras. Nuestra app está pensada para darte la mejor experiencia de streaming, sin complicaciones.</p>
-      <div class="botones-app">
-        <a href="#" class="boton-app playstore">Google Play</a>
-        <a href="#" class="boton-app appstore">App Store</a>
-      </div>
-    </div>
-  </div>
-</section>
+    <!-- SECCIÓN HERO SHOWCASE -->
+    <section class="hero-showcase">
+        <div class="showcase-container" id="showcase-container">
+            <!-- Los slides se insertarán aquí dinámicamente con JavaScript -->
+        </div>
+    
+        <div class="showcase-nav" id="showcase-nav">
+            <!-- Los indicadores de barra de progreso se insertarán aquí -->
+        </div>
+    
+        <!-- Modal para el tráiler -->
+        <div class="trailer-modal-overlay" id="trailer-modal-overlay">
+            <div class="trailer-modal-content">
+                <button class="trailer-modal-close" id="trailer-modal-close">×</button>
+                <div class="trailer-video-wrapper">
+                    <iframe id="trailer-iframe" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
     
     <!-- seccion de contenido-->
 
@@ -564,6 +570,7 @@
 <script src="/FrontEnd/Js/main.carrusel.js"></script>
 <script src="/FrontEnd/Js/peli-carrusel.js"></script>
 <script src="/FrontEnd/Js/widget-tienda.js"></script>
+<script src="/FrontEnd/Js/hero-showcase.js"></script>
 <script src="/FrontEnd/Js/data.js"></script>
 
 </body>

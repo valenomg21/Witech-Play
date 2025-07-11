@@ -146,93 +146,232 @@ body {
   fill: white;
 }
 
-/* seccion app */
-.seccion-promo-glass {
-  /* ¡Mantenemos el fondo oscuro que querías como divisor! */
-  background-color: #1f1b2e;
-  padding: 3rem 2rem;
-  /* Añadimos el patrón de diamantes que usas en el carrusel para consistencia */
-  position: relative;
+/* ==========================================================================
+   NUEVO HERO SHOWCASE (PRÓXIMOS ESTRENOS) - VERSIÓN 2 CORREGIDA
+   ========================================================================== */
+
+.hero-showcase {
+    width: 100%;
+    padding: 40px 0;
+    background-color: #1f1b2e;
+    position: relative;
+    overflow: hidden;
 }
 
-.promo-contenido-glass {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: stretch; /* Clave: alinea verticalmente la imagen y la tarjeta */
-  gap: 2rem;
-  max-width: 100%;
-  margin: 0 auto;
+.showcase-container {
+    /* CAMBIO: Añadimos márgenes laterales y ajustamos el ancho máximo */
+    width: auto;
+    max-width: 1800px; /* Puedes ajustar este valor si quieres un límite */
+    margin: 0 40px; /* Margen de 40px a izquierda y derecha */
+    border-radius: 12px; /* Redondear las esquinas del carrusel */
+    
+    /* CAMBIO: Hacemos el carrusel menos alto. 16/6 es más panorámico que 16/7. */
+    aspect-ratio: 16 / 6;
+    
+    position: relative;
+    overflow: hidden; 
 }
 
-.promo-imagen-glass {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  align-self: center;
+.showcase-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+    display: flex;
+    align-items: flex-end;
+    padding: 30px;
+    box-sizing: border-box;
 }
 
-.promo-texto-glass {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-
-  padding: 2rem;
-
-  background: rgba(42, 35, 64, 0.5);
-  -webkit-backdrop-filter: blur(12px);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+.showcase-slide.active {
+    opacity: 1;
+    z-index: 2;
 }
 
-.promo-texto-glass h2 {
-  font-size: 2.3rem;
-  color: #fff;
-  margin: 0 0 1rem 0;
+.slide-background-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
 }
 
-.promo-texto-glass p {
-  font-size: 1.1rem;
-  color: #e0e0e0;
-  line-height: 1.7;
-  margin: 0 0 2rem 0;
+.slide-background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.showcase-slide.active .slide-background-image {
+    animation-play-state: running;
 }
 
-.botones-app {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  text-align: center;
+.showcase-slide::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    background: linear-gradient(to top, rgba(15, 15, 15, 0.85) 0%, transparent 100%);
+    z-index: 0;
 }
 
-.boton-app {
-  padding: 0.8rem 1.5rem;
-  border: none;
-  border-radius: 1rem;
-  width: 100px;
-  font-weight: bold;
-  text-decoration: none;
-  color: white;
-  transition: background 0.3s ease;
+.slide-info-content {
+    display: flex;
+    align-items: flex-end;
+    gap: 25px;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    justify-content: space-between;
 }
 
-.boton-app.playstore {
-  background-color: #3bcc5a;
+.slide-poster {
+    width: 130px;
+    height: auto;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    flex-shrink: 0;
 }
 
-.boton-app.appstore {
-  background-color: #5955ff;
+.slide-details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
-.boton-app:hover {
-  opacity: 0.85;
+.slide-details h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+    line-height: 1.1;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.7);
 }
 
+.slide-details .estreno, .slide-details .generos {
+    font-size: 0.9rem;
+    color: #c0c0c0;
+    font-weight: 500;
+}
+.slide-details .estreno strong {
+    color: #fff;
+}
+
+.slide-actions {
+    flex-shrink: 0;
+}
+
+.boton-ver-trailer {
+    padding: 12px 25px;
+    background-color: rgba(255, 255, 255, 0.15);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.boton-ver-trailer:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    transform: scale(1.05);
+}
+
+.showcase-nav {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    padding: 20px 40px 0 40px; /* Añadimos padding para que coincida con los márgenes del carrusel */
+    max-width: 600px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.nav-indicator {
+    flex-grow: 1;
+    height: 4px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.nav-indicator-progress {
+    width: 0;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 2px;
+    transition: width 0.2s ease;
+}
+
+.nav-indicator.active .nav-indicator-progress {
+    transition: width 8s linear;
+    width: 100%;
+}
+
+.trailer-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1010;
+}
+.trailer-modal-overlay.visible {
+    display: flex;
+}
+
+.trailer-modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 1100px;
+}
+
+.trailer-modal-close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 3rem;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.trailer-video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+}
+
+.trailer-video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
 
 /* ==========================================================================
    ESTRUCTURA GENERAL Y LAYOUT PRINCIPAL DE PELICULAS

@@ -1,3 +1,29 @@
+window.proximosEstrenos = {
+  dracula: {
+    titulo: "Dracula",
+    genero: ["Terror","Fantasía","Drama"],
+    fechaEstreno: "30 de Julio 2025",
+    imagenFondo: "/FrontEnd/Imagenes/Prox/dracula.webp",
+    imagenTarjeta: "/FrontEnd/Imagenes/Prox/dracula-mini.webp",
+    videoTrailerUrl: "https://www.youtube.com/watch?v=r_OLH6pU-EM"
+  },
+  fantastic4: {
+    titulo: "Los Cuatro Fantásticos: Primeros pasos",
+    genero: ["Ciencia ficción","Aventura"],
+    fechaEstreno: "25 de Julio 2025",
+    imagenFondo: "/FrontEnd/Imagenes/Prox/fantastic4.webp",
+    imagenTarjeta: "/FrontEnd/Imagenes/Prox/fantastic4-mini.webp",
+    videoTrailerUrl: "https://www.youtube.com/watch?v=waf9snfaUFw"
+  },
+  slqhevp: {
+    titulo: "Sé lo que hicieron el verano pasado",
+    genero: ["Terror","Misterio","Suspenso"],
+    fechaEstreno: "18 de Julio 2025",
+    imagenFondo: "/FrontEnd/Imagenes/Prox/slqhevp.webp",
+    imagenTarjeta: "/FrontEnd/Imagenes/Prox/slqhevp-mini.webp",
+    videoTrailerUrl: "https://youtu.be/UMmsBLH1cxw"
+  }
+}
 
 window.peliculas = {
   
