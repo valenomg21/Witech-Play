@@ -219,7 +219,7 @@ router.post("/verify", async (req, res) => {
       payload,
       process.env.SUPABASE_JWT_SECRET,
       {
-        expiresIn: "30d", // Expira en 30 días
+        expiresIn: "1h", // Expira en 30 días
       },
       (err, token) => {
         if (err) throw err;
@@ -262,7 +262,7 @@ router.post("/login", async (req, res) => {
             };
 
             jwt.sign(payload, process.env.SUPABASE_JWT_SECRET, {
-                expiresIn: "30d",
+                expiresIn: "1h",
             }, (err, token) => {
                 if (err) throw err;
                 res.json({ token });
