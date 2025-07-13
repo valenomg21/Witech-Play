@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Cambiar al siguiente slide
             const nextIndex = (currentSlideIndex + 1) % slidesData.length;
             goToSlide(nextIndex);
-            startTime = timestamp; // Reiniciar el tiempo para el nuevo slide
+            startTime = timestamp;
             timeElapsed = 0;
         }
         
@@ -160,21 +160,16 @@ document.addEventListener('DOMContentLoaded', () => {
     function pause() {
         if (!isPaused) {
             isPaused = true;
-            // No detenemos el bucle, solo la actualización del tiempo
         }
     }
 
     function resume() {
         if (isPaused) {
             isPaused = false;
-            // El bucle `animationLoop` se encargará de reanudar el cálculo del tiempo
         }
     }
 
-    showcaseContainer.addEventListener('mouseenter', pause);
-    showcaseContainer.addEventListener('mouseleave', resume);
-
-    // 5. Lógica del Modal (adaptada para la nueva pausa/reanudación)
+    // 5. Lógica del Modal
     function openTrailerModal(url) {
         if (!url) {
             alert('Tráiler no disponible en este momento.');

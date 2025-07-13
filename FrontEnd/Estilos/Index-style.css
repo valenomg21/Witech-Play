@@ -499,77 +499,75 @@ body {
   flex: 0 0 auto;
 }
 
-/* Atenúa las tarjetas no activas cuando una está en hover */
-.carrusel-item-active .pelicula-wrapper:not(:has(.is-hovered)) .pelicula {
-  opacity: 0.8;    
-  pointer-events: none; 
-}
-
 /* Flechas de navegación del carrusel */
 .carrusel-control .flecha {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 5;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); /* Centrado vertical perfecto */
+    z-index: 10;
 
-  background-color: rgba(20, 20, 30, 0.5);
-  color: rgba(255, 255, 255, 0.1);
-  width: 40px;
-  height: 40px;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  cursor: pointer;
-  border: 1px solid rgba(0, 0, 0, 0.3);
+    width: 44px;  /* Tamaño del círculo */
+    height: 44px;
+    padding: 0;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-  opacity: 0;
-  visibility: hidden;
+    /* Estilo "Glassmorphism" */
+    background-color: rgba(31, 27, 46, 0.5); 
+    color: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%; /* Círculo perfecto */
+    cursor: pointer;
 
-  transform: translateY(-55%) scale(0.8);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
 
-  transition:
-  background-color 0.25s ease-out,
-  color 0.25s ease-out,
-  border-color 0.25s ease-out,
-  opacity 0.3s ease-out,
-  transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
-  visibility 0.3s ease-out;
+    /* Transición suave para todos los efectos */
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Ocultas por defecto, aparecen con hover en el contenedor */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-50%) scale(0.8);
 }
 
-.carrusel-control .flecha:hover {
-  background-color: #4b3276;
-  color: #ffffff;
-  border-color: #5955ff;
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  transform: translateY(-55%) scale(1.1);
-  cursor: pointer;
-}
-
-.carrusel-control .flecha:active {
-  background-color: #504097;
-  transform: translateY(-55%) scale(1.05);
-  transition-duration: 0.1s;
-}
+/* Mostrar las flechas al pasar el cursor sobre el control del carrusel */
 .carrusel-control:hover .flecha {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(-55%) scale(1);
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-50%) scale(1);
 }
 
 .flecha.izquierda {
-  left: 20px; 
+    left: 20px; 
 }
 
 .flecha.derecha {
-  right: 0; 
+    right: 20px; /* Separado del borde para un look más limpio */
 }
 
-.carrusel-control .flecha{
-  font-size: 18px;
-  font-weight: bold;
+.carrusel-control .flecha svg {
+    width: 24px;
+    height: 24px;
+    stroke: currentColor;
+    stroke-width: 2.5;
 }
+
+/* Efectos al interactuar con la flecha */
+.carrusel-control .flecha:hover {
+    background-color: rgba(31, 27, 46, 0.8);
+    color: #ffffff;
+    transform: translateY(-50%) scale(1.1); /* Ligero zoom */
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+
+.carrusel-control .flecha:active {
+    transform: translateY(-50%) scale(1); /* Efecto de presión */
+    transition-duration: 0.1s;
+}
+
 .pelicula-wrapper {
   width: 240px;
   height: 135px;
@@ -627,9 +625,6 @@ body {
 /* ---- 3. EFECTOS GLOBALES Y DE HOVER ---- */
 
 /* Cuando una tarjeta tiene hover, las demás se atenúan */
-.carrusel-item-active .pelicula-wrapper:not(:has(.is-hovered)) {
-  opacity: 0.8;
-}
 
 /* Cuando el JS añade .is-hovered al elemento .pelicula */
 .pelicula.is-hovered {
