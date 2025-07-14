@@ -24,46 +24,21 @@
      <div class="fondo-oscuro"></div>
     <!-- Carrusel-->
 
-    <div class="carrusel">
-      <div class="carrusel-contenedor">
-        <button class="carrusel-boton prev">
-          <svg viewBox="0 0 24 24">
-            <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6z"/>
-          </svg>
-        </button>
-        <div class="carrusel-pista">
-          <div class="carrusel-slide">
-            <img src="/FrontEnd/Imagenes/Carrusel/chjkfyo57JexWo1YeIZRMk8wA4m.webp" alt="Imagen 1">
-          </div>
-          <div class="carrusel-slide">
-            <img src="/FrontEnd/Imagenes/Carrusel/iVped1djsF0tvGkvnHbzsE3ZPTF.webp" alt="Imagen 2">
-          </div>
-          <div class="carrusel-slide">
-            <img src="/FrontEnd/Imagenes/Carrusel/jsoz1HlxczSuTx0mDl2h0lxy36l.webp" alt="Imagen 3">
-          </div>
-          <div class="carrusel-slide">
-            <img src="/FrontEnd/Imagenes/Carrusel/VuukZLgaCrho2Ar8Scl9HtV3yD.webp" alt="Imagen 4">
-          </div>
-          <div class="carrusel-slide">
-            <img src="/FrontEnd/Imagenes/Carrusel/j0NUh5irX7q2jIRtbLo8TZyRn6y.webp" alt="Imagen 5">
-          </div>
-          <div class="carrusel-slide">
-            <img src="/FrontEnd/Imagenes/Carrusel/nn9vM29SKN227zupaOOmaJz5SA0.webp" alt="Imagen 6">
-          </div>
-          <div class="carrusel-slide">
-            <img src="/FrontEnd/Imagenes/Carrusel/qdKGpTHVaaKaFTnRynQDg4qHdEv.webp" alt="Imagen 7">
-          </div>
-          <div class="carrusel-slide">
-            <img src="/FrontEnd/Imagenes/Carrusel/uJ16DD1dj4CQLPNCWIoiOF3l8np.webp" alt="Imagen 8">
-          </div>
-        </div>
-        <button class="carrusel-boton next">
-          <svg viewBox="0 0 24 24">
-            <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/>
-          </svg>
-        </button>
-      </div>
+<!-- ========================================== -->
+<!--            VIDEO HERO SHOWCASE             -->
+<!-- ========================================== -->
+<section class="video-hero-container">
+
+    <!-- Contenedor para los slides de video -->
+    <div class="video-hero-slides" id="video-hero-slides">
+
     </div>
+
+    <!-- Contenedor para la navegación por títulos -->
+    <div class="video-hero-navigation" id="video-hero-navigation">
+    </div>
+
+</section>
 
     <!-- SECCIÓN HERO SHOWCASE -->
     <section class="hero-showcase">
@@ -86,6 +61,27 @@
         </div>
     </section>
     
+    <!-- ============================================ -->
+    <!--           SECCIÓN "SEGUIR VIENDO"            -->
+    <!-- ============================================ -->
+<section class="seccion-contenido" id="seccion-seguir-viendo" style="display: none;">
+    <div class="contenedor-carruseles">
+        <div class="carrusel-horizontal">
+            <h2 class="titulo-seccion-pl">Seguir Viendo</h2>
+            <div class="carrusel-control">
+                <button class="flecha izquierda" aria-label="Anterior">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+                </button>
+                <div class="peliculas-carrusel" id="carrusel-seguir-viendo">
+                    <!-- Las tarjetas se insertarán aquí dinámicamente -->
+                </div>
+                <button class="flecha derecha" aria-label="Siguiente">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
     <!-- seccion de contenido-->
 
     <section class="seccion-contenido">
@@ -165,6 +161,13 @@
                <h3 class="titulo-pelicula">Gladiador 2</h3>
              </div>
              </div>
+
+             <div class="pelicula-wrapper">
+              <div class="pelicula" data-id="dora">
+               <img src="/FrontEnd/Imagenes/Tarjetas/pelis/dora.webp" alt="Dora y la Busqueda del Sol Dorado" />
+               <h3 class="titulo-pelicula">Dora y la Busqueda del Sol Dorado</h3>
+             </div>
+             </div>
              
              <div class="pelicula-wrapper">
               <div class="pelicula" data-id="todosvanamorir">
@@ -207,10 +210,10 @@
               <h3 class="titulo-pelicula">Contorted</h3>
               </div>
             </div>
-          
+
           <div class="pelicula-wrapper">
-            <div class="pelicula" data-id="intensamente2">
-            <img src="/FrontEnd/Imagenes/Tarjetas/pelis/intensamente2.webp" alt="Intensamente 2" />
+            <div class="pelicula" data-id="alienromulus">
+            <img src="/FrontEnd/Imagenes/Tarjetas/pelis/alienromulus.webp" alt="Intensamente 2" />
             <h3 class="titulo-pelicula">Intensamente 2</h3>
             </div>
           </div>
@@ -571,6 +574,8 @@
 <script src="/FrontEnd/Js/peli-carrusel.js"></script>
 <script src="/FrontEnd/Js/widget-tienda.js"></script>
 <script src="/FrontEnd/Js/hero-showcase.js"></script>
+<script src="/FrontEnd/Js/video-hero.js"></script>
+<script src="/FrontEnd/Js/seguir-viendo.js"></script>
 <script src="/FrontEnd/Js/data.js"></script>
 
 </body>

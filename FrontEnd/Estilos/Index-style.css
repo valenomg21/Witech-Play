@@ -29,126 +29,294 @@ body {
   z-index: 6;
 }
 
-/* Carrusel principal */
-.carrusel {
-  padding-block-start: 16vh;
-  padding-block-end: 4vh;
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  z-index: 1;
+/* ==========================================================================
+   VIDEO HERO SHOWCASE
+   ========================================================================== */
+
+.video-hero-container {
+    padding-top: 75px;
+    padding-bottom: 50px;
+    background-color: #0f0f0f;
+    width: 100%;
+    overflow: hidden;
 }
 
-.carrusel::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: url('/FrontEnd/Imagenes/Assets/patron-diamantes.svg') center/cover no-repeat;
-  z-index: -1;
+/* --- Contenedor de Slides --- */
+.video-hero-slides {
+    width: 100%;
+    aspect-ratio: 16 / 7;
+    position: relative;
+    background-color: #000;
 }
 
-.carrusel-contenedor {
-  position: relative;
-  width: 100%;
-}
-.carrusel-pista.no-transition{
-  transition: none !important;
-}
-.carrusel-pista {
-  display: flex; 
-  position: relative;
-}
-.carrusel-pista.is-jumping, .carrusel-pista.is-jumping .carrusel-slide {
-  transition: none !important;
+/* --- Estilo de cada Slide Individual --- */
+.hero-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1.2s ease, visibility 0s 1.2s;
+    z-index: 1;
 }
 
-.carrusel-slide {
-  flex-shrink: 0; 
-  width: 60vw;
-  max-width: 700px;
-  margin: 0 10px;
-  box-sizing: border-box;
-
-  position: relative;
-  opacity: 0.4;
-  transform: scale(0.80) perspective(500px) translateZ(0);
-
-  transition: 
-  transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
-  opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-
-  z-index: 1;
-  cursor: pointer;
+.hero-slide.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+    transition: opacity 1.2s ease, visibility 0s 0s;
 }
 
-.carrusel-slide.is-active {
-  opacity: 1;
-  transform: scale(1.1) perspective(0px) translateZ(0);
-  z-index: 3;
+/* Video de Fondo */
+.hero-slide-video-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120%;
+    height: 120%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: -1;
 }
 
-.carrusel-slide.is-prev,.carrusel-slide.is-next {
-  opacity: 1;
-  transform: scale(0.90) perspective(500px) translateZ(0);
-  z-index: 2;
+/* Contenedor del video para recortar el iframe */
+.hero-slide-video-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
 }
 
-.carrusel-slide img {
-  width: 100%;
-  height: 45vh;
-  min-height: 350px; 
-  max-height: 500px; 
-  object-fit: cover; 
-  border-radius: 7px; 
-  display: block;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+/* Degradado para Legibilidad */
+.hero-slide::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(15,15,15,0.7) 0%, rgba(15,15,15,0.4) 50%, transparent 70%);
+    z-index: 0;
 }
 
-/*Botones Carrusel*/
-.carrusel-boton {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: rgba(0, 0, 0, 0.603);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  -webkit-backdrop-filter: blur(5px);
-  backdrop-filter: blur(5px);
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.297);
-  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-  transform-origin: center;
-  will-change: transform;
-  overflow: visible;
-  z-index: 5;
+/* --- Tarjeta de Información Superpuesta --- */
+.hero-info-card {
+    position: absolute;
+    left: 5%;
+    bottom: 10%;
+    z-index: 3;
+    max-width: 45%;
+    color: #fff;
+    
+    /* Animación de entrada */
+    transform: translateY(20px);
+    opacity: 0;
+    transition: transform 0.8s ease-out 0.5s, opacity 0.8s ease-out 0.5s;
 }
 
-.carrusel-boton:hover {
-  background: rgba(0, 0, 0, 0.603);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+.hero-slide.active .hero-info-card {
+    transform: translateY(0);
+    opacity: 1;
 }
 
-.carrusel-boton.next {
-  right: 5vw;
+.hero-info-card h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.1;
+    text-shadow: 0 3px 15px rgba(0,0,0,0.5);
+    margin: 0 0 15px 0;
 }
-.carrusel-boton.prev {
-  left: 5vw;
+
+.hero-info-meta {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 0.9rem;
+    color: #e0e0e0;
+    margin-bottom: 15px;
 }
-.carrusel-boton svg {
-  width: 25px;
-  height: 25px;
-  fill: white;
+
+.hero-info-meta .rating {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 600;
+}
+/* Estilo para la estrella (puedes usar un SVG o un carácter) */
+.hero-info-meta .rating::before {
+    content: '★';
+    color: #ffc107; /* Amarillo para la estrella */
+}
+
+.hero-info-card .sinopsis {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #d0d0d0;
+    margin-bottom: 25px;
+    /* Limitar la sinopsis a 3 líneas */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.hero-info-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.hero-info-actions .btn {
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.hero-info-actions .btn-primary {
+    background-color: #fff;
+    color: #000;
+}
+.hero-info-actions .btn-primary:hover {
+    transform: scale(1.05);
+    background-color: #f0f0f0;
+    box-shadow: 0 4px 15px rgba(255,255,255,0.1);
+}
+
+.hero-info-actions .btn-secondary {
+    background-color: rgba(115, 89, 161, 0.7); /* Morado semi-transparente */
+    color: #fff;
+}
+.hero-info-actions .btn-secondary:hover {
+    transform: scale(1.05);
+    background-color: #7359a1;
+    box-shadow: 0 4px 15px rgba(115,89,161,0.2);
+}
+
+/* --- Navegación Inferior por Títulos --- */
+.video-hero-navigation {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+    padding: 0 5%;
+    flex-wrap: wrap; /* Para que se ajuste en pantallas pequeñas */
+}
+
+.nav-item {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #a9a9c4; /* Color de texto secundario */
+    cursor: pointer;
+    position: relative;
+    padding-bottom: 8px;
+    transition: color 0.3s ease;
+}
+
+.nav-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #3bcc5a; /* Acento verde */
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.nav-item.active {
+    color: #fff;
+}
+
+.nav-item.active::after {
+    transform: scaleX(1);
 }
 
 /* ==========================================================================
-   NUEVO HERO SHOWCASE (PRÓXIMOS ESTRENOS) - VERSIÓN 2 CORREGIDA
+   ESTILOS PARA TARJETA DE "SEGUIR VIENDO"
    ========================================================================== */
+
+.pelicula.con-progreso {
+    position: relative;
+    overflow: hidden;
+}
+
+.barra-progreso-visualizacion {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.barra-progreso-visualizacion .progreso {
+    height: 100%;
+    background-color: #3bcc5a;
+    width: 0%;
+    border-radius: 0 2px 2px 0;
+}
+
+.overlay-reanudar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 15, 15, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.pelicula.con-progreso:hover .overlay-reanudar {
+    opacity: 1;
+}
+
+.boton-reanudar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    background-color: rgba(255, 255, 255, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    pointer-events: all;
+}
+
+.boton-reanudar:hover {
+    transform: scale(1.1);
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.boton-reanudar svg {
+    width: 32px;
+    height: 32px;
+    fill: #fff;
+    margin-left: 4px;
+}
+
+/* ======================
+    NUEVO HERO SHOWCASE 
+   ====================== */
 
 .hero-showcase {
     width: 100%;
@@ -159,13 +327,11 @@ body {
 }
 
 .showcase-container {
-    /* CAMBIO: Añadimos márgenes laterales y ajustamos el ancho máximo */
     width: auto;
-    max-width: 1800px; /* Puedes ajustar este valor si quieres un límite */
-    margin: 0 40px; /* Margen de 40px a izquierda y derecha */
-    border-radius: 12px; /* Redondear las esquinas del carrusel */
+    max-width: 1800px;
+    margin: 0 40px;
+    border-radius: 12px;
     
-    /* CAMBIO: Hacemos el carrusel menos alto. 16/6 es más panorámico que 16/7. */
     aspect-ratio: 16 / 6;
     
     position: relative;
@@ -811,12 +977,6 @@ body {
    -------------------------------------------------------------------------- */
 @media (min-width: 1920px) {
   /* --- Carrusel Principal --- */
-  .carrusel { padding-block-start: 15vh; padding-block-end: 5vh; }
-  .carrusel-slide { max-width: 950px; margin: 0 25px; }
-  .carrusel-slide img { max-height: 600px; }
-  .carrusel-boton { width: 60px; height: 60px; }
-  .carrusel-boton.next { right: 5vw; }
-  .carrusel-boton.prev { left: 5vw; }
 
   /* --- Sección Promocional App --- */
   .seccion-promo-glass { padding: 1.5rem; }
@@ -839,9 +999,6 @@ body {
    -------------------------------------------------------------------------- */
 @media (max-width: 1024px) {
   /* --- Carrusel Principal --- */
-  .carrusel { padding-block-start: 12vh; padding-block-end: 3.5vh; }
-  .carrusel-slide { width: 55vw; }
-  .carrusel-slide img { height: 40vh; min-height: 300px; }
 
   /* --- Layout Principal --- */
   .contenedor-principal { flex-direction: column; align-items: center; gap: 0; }
@@ -887,12 +1044,34 @@ body {
    -------------------------------------------------------------------------- */
 @media (max-width: 768px) {
   /* --- Carrusel Principal --- */
-  .carrusel { padding-block-start: 12vh; padding-block-end: 3vh; }
-  .carrusel-slide { width: 65vw; }
-  .carrusel-slide img { height: 35vh; min-height: 250px; max-height: 350px; }
-  .carrusel-boton { width: 40px; height: 40px; }
-  .carrusel-boton.next { right: 2vw; }
-  .carrusel-boton.prev { left: 2vw; }
+  .video-hero-container {
+        padding-top: 80px;
+    }
+    .video-hero-slides {
+        aspect-ratio: 4 / 3; /* Más vertical en móviles */
+    }
+    .hero-slide::after { /* Degradado más fuerte en móvil */
+        background: linear-gradient(to top, rgba(15,15,15,0.9) 10%, transparent 100%);
+    }
+    .hero-info-card {
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        max-width: 100%;
+        padding: 20px;
+        position: relative; /* Cambiamos a relativo para que se posicione dentro del flex */
+    }
+    .hero-slide {
+        align-items: flex-end;
+    }
+    .hero-info-card h2 {
+        font-size: 1.8rem;
+    }
+    .hero-info-meta {
+        font-size: 0.8rem;}
+    .hero-info-card .sinopsis {-webkit-line-clamp: 2; font-size: 0.9rem; margin-bottom: 20px;}
+    .video-hero-navigation {gap: 15px;}
+    .nav-item {font-size: 0.9rem;}
 
   /* --- Sección Promocional App --- */
   .seccion-promo-glass { padding: 0.8rem; }
@@ -912,8 +1091,6 @@ body {
    -------------------------------------------------------------------------- */
 @media (max-width: 480px) {
   /* --- Carrusel Principal --- */
-  .carrusel-slide { width: 75vw; margin: 0 8px; }
-  .carrusel-slide img { min-height: 200px; height: auto; }
   
   /* --- Títulos y Tarjetas de Contenido --- */
   .titulo-seccion-pl { font-size: 18px; }
@@ -926,8 +1103,6 @@ body {
    -------------------------------------------------------------------------- */
 @media (max-width: 380px) {
   /* --- Carrusel Principal --- */
-  .carrusel-slide { width: 80vw; }
-  .carrusel-slide img { min-height: 180px; }
   
   /* --- Títulos y Tarjetas de Contenido --- */
   .peliculas-carrusel { padding-left: 10px; padding-right: 10px; }

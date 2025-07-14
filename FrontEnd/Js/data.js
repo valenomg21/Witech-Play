@@ -1,3 +1,46 @@
+window.videoHeroData = {
+  badboyshastalamuerte: { 
+    titulo: "Bad Boys: Hasta la Muerte",
+    sinopsis: "Los policías más famosos del mundo regresan con su icónica mezcla de acción al límite y comedia escandalosa, pero esta vez con un giro inesperado: ¡Los mejores de Miami se dan a la fuga! Cuarta entrega de la saga 'Dos policías rebeldes'.",
+    videoUrl: "https://youtu.be/Ta7b95JZcP4",
+    duracion: "1h 55min",
+    generos: ["Acción","Comedia","Crimen","Aventura"],
+    rating: 3.8 
+  },
+  longlegs: {
+    titulo: "Longlegs: Coleccionista de Almas",
+    sinopsis: "Lee Harker, una nueva y talentosa agente del FBI, ha sido asignada a un caso sin resolver de un asesino en serie. A medida que la investigación se complica y se descubren pruebas ocultistas, Harker se da cuenta de que existe un vínculo personal con el despiadado asesino y debe actuar con rapidez para evitar otro asesinato familiar.",
+    videoUrl: "https://www.youtube.com/watch?v=qrME51iGUPk&pp=ygUPbG9uZ2xlZ3MgdGVhc2Vy",
+    duracion: "1h 41min",
+    generos: ["Terror", "Crimen"],
+    rating: 4.1
+  },
+  alienromulus: {
+    titulo: "Alien Romulus",
+    sinopsis: "Mientras rebuscan en las profundidades de una estación espacial abandonada, un grupo de jóvenes colonizadores del espacio se encuentra cara a cara con la forma de vida más aterradora del universo. Nueva película de la saga Alien.",
+    videoUrl: "https://www.youtube.com/watch?v=GTNMt84KT0k&pp=ygUUYWxpZW4gcm9tdWx1cyB0ZWFzZXI%3D",
+    duracion: "1h 59min",
+    generos: ["Terror", "Ciencia Ficcion"],
+    rating: 4.3
+  },
+  dora: {
+    titulo: "Dora y la Busqueda del Sol Dorado",
+    sinopsis: "Dora, Diego y sus nuevos amigos se adentran en la traicionera selva amazónica para descubrir el legendario tesoro de Sol Dorado antes de que fuerzas malvadas se apoderen de su inmenso poder.",
+    videoUrl: "https://youtu.be/gUTtJjV852c?t=8",
+    duracion: "1h 36min",
+    generos: ["Aventura","Comedia", "Familia"],
+    rating: 3.5
+  },
+  therookie: {
+    titulo: "The Rookie",
+    sinopsis: "Justo después de ser liberado de prisión después de 25 años, el capo de la mafia de Nueva York, Dwight 'El General' Manfredi, es exiliado sin contemplaciones por su jefe para instalarse en Tulsa, Oklahoma. Al darse cuenta de que su familia de la mafia puede no tener sus mejores intereses en mente, Dwight construye lentamente una 'tripulación' a partir de un grupo de personajes inverosímiles, para ayudarlo a establecer un nuevo imperio criminal en un lugar que para él bien podría ser otro planeta.",
+    videoUrl: "https://youtu.be/8BPlx6eK1vc?t=5",
+    duracion: "7 temporadas",
+    generos: ["Comedia", "Crimen","Drama"],
+    rating: 4.7
+  },
+};
+
 window.proximosEstrenos = {
   dracula: {
     titulo: "Dracula",
@@ -27,6 +70,30 @@ window.proximosEstrenos = {
 
 window.peliculas = {
   
+  minecraft: {
+    titulo: "Una Película de Minecraft",
+    duracion: "1h 41min",
+    generos: ["Aventura", "Fantasía"],
+    año: 2025,
+    sinopsis: "Cuatro inadaptados se encuentran luchando con problemas ordinarios cuando de repente se ven arrastrados a través de un misterioso portal al Overworld: un extraño país de las maravillas cúbico que se nutre de la imaginación. Para volver a casa, tendrán que dominar este mundo mientras se embarcan en una búsqueda mágica con un inesperado experto artesano, Steve.",
+    elenco: "Jason Momoa, Jack Black, Sebastian Eugene Hansen, Emma Myers, Danielle Brooks",
+    director: "Jared Hess",
+    imagenFondo: "/FrontEnd/Imagenes/Fondos/pelis/minecraft.webp",
+    imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/minecraft.webp",
+    video: "https://swiftplayers.com/e/16qoioz6njmo"
+  },
+  dora: {
+    titulo: "Dora y la Busqueda del Sol Dorado",
+    duracion: "1h 36min",
+    generos: ["Aventura", "Comedia", "Familia"],
+    año: 2025,
+    sinopsis: "Dora, Diego y sus nuevos amigos se adentran en la traicionera selva amazónica para descubrir el legendario tesoro de Sol Dorado antes de que fuerzas malvadas se apoderen de su inmenso poder.",
+    elenco: "Daniella Pineda, Samantha Lorraine, Jacqueline Obradors, Jacqueline Obradors, Jacob Rodriguez",
+    director: "Alberto Belli",
+    imagenFondo: "/FrontEnd/Imagenes/Fondos/pelis/dora.webp",
+    imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/dora.webp",
+    video: "https://hgplaycdn.com/e/8pxnzxsztw4a"
+  },
   minecraft: {
     titulo: "Una Película de Minecraft",
     duracion: "1h 41min",
@@ -1058,7 +1125,7 @@ window.series = {
 
 
   "therookie": {
-    titulo: "TThe Rookie",
+    titulo: "The Rookie",
     añoInicio: 2022, 
     añoFin: 2024,
     estadoEmision: "Finalizada",
