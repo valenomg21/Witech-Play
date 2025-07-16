@@ -196,6 +196,9 @@
                     <button type="button" id="resend-code-btn">Reenviar Código</button>
                     <label for="code">Código de verificación</label>
                     <input type="text" id="code" placeholder="Ingrese el código de verificación" />
+                    <small id="code-error" class="error-message"></small>
+                    <small id="resend-message" class="error-message"></small>
+                    <button type="button" id="resend-code-btn">Reenviar Código</button>
                     <button type="submit" id="submit-code-btn">Registrarse</button>
                   </div>
                   <button type="submit" id="submit-register-btn">Registrarse</button>
