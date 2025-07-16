@@ -40,7 +40,50 @@
 
 </section>
 
-    <!-- SECCIÓN HERO SHOWCASE -->
+<!-- ============================================ -->
+    <!--           SECCIÓN "SEGUIR VIENDO"            -->
+    <!-- ============================================ -->
+<section class="seccion-contenido historial-fondo" id="seccion-seguir-viendo" style="display: none;">
+    <div class="contenedor-carruseles">
+        <div class="carrusel-horizontal">
+            <h2 class="titulo-seccion-pl">Seguir Viendo</h2>
+            <div class="carrusel-control">
+                <button class="flecha izquierda" aria-label="Anterior">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+                </button>
+                <div class="peliculas-carrusel" id="carrusel-seguir-viendo">
+                    <!-- Las tarjetas se insertarán aquí dinámicamente -->
+                </div>
+                <button class="flecha derecha" aria-label="Siguiente">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================================== -->
+<!--           BANNER CTA PREMIUM             -->
+<!-- ======================================== -->
+<section class="premium-cta-banner">
+    <div class="premium-cta-content">
+        <div class="cta-logo">
+            <img src="/FrontEnd/Imagenes/Icono/logo-1173935095-1728869406-0d49a887e4481f6878662eb805f4555b1728869406.png" alt="Witech Play Logo">
+        </div>
+        <div class="cta-texto">
+            <h2>Desbloquea la Experiencia Completa</h2>
+            <p>Accede a estrenos exclusivos, contenido en 4K y descargas ilimitadas. Por inauguración, disfruta de una prueba de nuestro servicio Premium.</p>
+        </div>
+        <div class="cta-accion">
+            <a href="/FrontEnd/Index/planes.html" class="cta-boton">Hazte Premium Ahora</a>
+            <span class="cta-proximamente">Próximamente...</span>
+        </div>
+    </div>
+</section>
+
+    <!-- =================================== -->
+    <!--           HERO SHOWCASe             -->
+    <!-- =================================== -->
     <section class="hero-showcase">
         <div class="showcase-container" id="showcase-container">
             <!-- Los slides se insertarán aquí dinámicamente con JavaScript -->
@@ -61,27 +104,7 @@
         </div>
     </section>
     
-    <!-- ============================================ -->
-    <!--           SECCIÓN "SEGUIR VIENDO"            -->
-    <!-- ============================================ -->
-<section class="seccion-contenido" id="seccion-seguir-viendo" style="display: none;">
-    <div class="contenedor-carruseles">
-        <div class="carrusel-horizontal">
-            <h2 class="titulo-seccion-pl">Seguir Viendo</h2>
-            <div class="carrusel-control">
-                <button class="flecha izquierda" aria-label="Anterior">
-                    <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
-                </button>
-                <div class="peliculas-carrusel" id="carrusel-seguir-viendo">
-                    <!-- Las tarjetas se insertarán aquí dinámicamente -->
-                </div>
-                <button class="flecha derecha" aria-label="Siguiente">
-                    <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
-                </button>
-            </div>
-        </div>
-    </div>
-</section>
+    
     <!-- seccion de contenido-->
 
     <section class="seccion-contenido">
@@ -568,15 +591,16 @@
     <!-- Footer -->
     <div id="footer-container"></div>
 
+<script src="/FrontEnd/Js/data.js"></script>
 <script src="/FrontEnd/Js/header-footer.js"></script>
 <script src="/FrontEnd/Js/main.js"></script>
-<script src="/FrontEnd/Js/main.carrusel.js"></script>
+<script src="/FrontEnd/Js/video-hero.js"></script>
+
 <script src="/FrontEnd/Js/peli-carrusel.js"></script>
+
+<script src="/FrontEnd/Js/seguir-viendo.js"></script>
 <script src="/FrontEnd/Js/widget-tienda.js"></script>
 <script src="/FrontEnd/Js/hero-showcase.js"></script>
-<script src="/FrontEnd/Js/video-hero.js"></script>
-<script src="/FrontEnd/Js/seguir-viendo.js"></script>
-<script src="/FrontEnd/Js/data.js"></script>
 
 </body>
 

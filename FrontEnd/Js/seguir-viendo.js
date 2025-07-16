@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const carruselContenedor = document.getElementById('carrusel-seguir-viendo');
 
     if (!seccionSeguirViendo || !carruselContenedor) {
-        return; // Salir si los elementos no existen
+        return;
     }
 
     // 1. Obtener el historial del localStorage
@@ -19,31 +19,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 2. Crear la tarjeta HTML con la barra de progreso
     function crearTarjetaHistorialHTML(item, progreso) {
-        const todoElContenido = { ...window.peliculas, ...window.series };
-        const data = todoElContenido[item];
+    const todoElContenido = { ...window.peliculas, ...window.series };
+    const data = todoElContenido[item];
 
-        if (!data) return ''; // Si el item ya no existe en data.js
+    if (!data) return '';
 
-        const imagenSrc = data.imagenTarjeta || '/FrontEnd/Imagenes/placeholder-poster.webp';
-        const altText = data.titulo || 'Título no disponible';
+    const imagenSrc = data.imagenTarjeta || '/FrontEnd/Imagenes/placeholder-poster.webp';
+    const altText = data.titulo || 'Título no disponible';
 
-        return `
-            <div class="pelicula-wrapper">
-              <div class="pelicula con-progreso" data-id="${item}">
-                <img src="${imagenSrc}" alt="${altText}" loading="lazy" />
-                
-                <div class="overlay-reanudar">
-                    <button class="boton-reanudar" aria-label="Reanudar ${altText}">
-                        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
-                    </button>
-                </div>
-                
-                <div class="barra-progreso-visualizacion">
-                    <div class="progreso" style="width: ${progreso}%;"></div>
-                </div>
-              </div>
+    // Se mantiene la estructura con el botón dentro del overlay
+    return `
+        <div class="pelicula-wrapper">
+          <div class="pelicula con-progreso" data-id="${item}">
+            <img src="${imagenSrc}" alt="${altText}" loading="lazy" />
+            
+            <div class="overlay-reanudar">
+                <button class="boton-reanudar" aria-label="Reanudar ${altText}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M6.555 5.169a1 1 0 0 1 1.482-.858l10.609 6.154a1 1 0 0 1 0 1.716L8.037 18.337a1 1 0 0 1-1.482-.858V5.169z"/>
+                    </svg>
+                </button>
             </div>
-        `;
+            
+            <div class="barra-progreso-visualizacion">
+                <div class="progreso" style="width: ${progreso}%;"></div>
+            </div>
+          </div>
+        </div>
+    `;
     }
 
     // 3. Renderizar el carrusel
@@ -68,6 +71,21 @@ document.addEventListener('DOMContentLoaded', () => {
         carruselContenedor.innerHTML = carruselHTML;
         seccionSeguirViendo.style.display = 'block'; // Mostrar la sección
 
+        carruselContenedor.querySelectorAll('.boton-reanudar').forEach(boton => {
+        boton.addEventListener('click', (e) => {
+            e.stopPropagation(); // Evita que el clic se propague a otros elementos
+            const tarjeta = boton.closest('.pelicula.con-progreso');
+            const idContenido = tarjeta.dataset.id;
+            if (idContenido) {
+                // Actualizamos el historial y redirigimos
+                if (typeof guardarEnHistorial === 'function') {
+                    guardarEnHistorial(idContenido);
+                }
+                window.location.href = `/FrontEnd/Index/plantilla.html?id=${idContenido}`;
+            }
+        });
+    });
+
         // IMPORTANTE: Reiniciar la lógica del carrusel para esta nueva sección
         const carruselControl = seccionSeguirViendo.querySelector('.carrusel-control');
         if (carruselControl && typeof initCarousel === 'function') {
@@ -86,35 +104,3 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 });
-
-// --- FUNCIÓN PARA GUARDAR EN EL HISTORIAL (para ser llamada desde otras partes) ---
-// La hacemos global para poder llamarla desde plantilla.js
-function guardarEnHistorial(idContenido) {
-    if (!idContenido) return;
-
-    try {
-        const historialGuardado = localStorage.getItem('historialWitechPlay');
-        let historial = historialGuardado ? JSON.parse(historialGuardado) : {};
-
-        // Simulamos un progreso aleatorio entre 20% y 80%
-        const progresoSimulado = Math.floor(Math.random() * 61) + 20;
-
-        historial[idContenido] = {
-            progreso: progresoSimulado,
-            timestamp: Date.now() // Guardamos la fecha para ordenar por más reciente
-        };
-
-        // Limitar el historial a, por ejemplo, los últimos 20 items
-        const historialKeys = Object.keys(historial);
-        if (historialKeys.length > 20) {
-            historialKeys.sort((a, b) => historial[a].timestamp - historial[b].timestamp);
-            delete historial[historialKeys[0]]; // Eliminar el más antiguo
-        }
-
-        localStorage.setItem('historialWitechPlay', JSON.stringify(historial));
-        console.log(`Guardado en historial: ${idContenido} con ${progresoSimulado}% de progreso.`);
-
-    } catch (e) {
-        console.error("Error al guardar en el historial:", e);
-    }
-}

@@ -124,7 +124,7 @@
             <nav>
                 <ul>
                     <li><a href="/FrontEnd/Index/contenido.html">Contenido</a></li>
-                    <li><a href="/FrontEnd/Index/planes.html">Planes</a></li>
+                    <li><a href="/FrontEnd/Index/planes.html">Subscripcion</a></li>
                     <li><a href="#contacto">Contacto</a></li>
                 </ul>
             </nav>

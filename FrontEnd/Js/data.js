@@ -164,7 +164,7 @@ window.peliculas = {
     director: "Marc Webb",
     imagenFondo: "/FrontEnd/Imagenes/Fondos/pelis/blancanieves.webp",
     imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/blancanieves.webp",
-    video: "."
+    video: "https://swiftplayers.com/e/037nez9knr4p"
   },
    aworkingman: {
     titulo: "A Working Man",
@@ -176,7 +176,7 @@ window.peliculas = {
     director: "David Ayer",
     imagenFondo: "/FrontEnd/Imagenes/Fondos/pelis/aworkingman.webp",
     imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/aworkingman.webp",
-    video: "."
+    video: ""
   },
    capitanamerica: {
     titulo: "Capitan America: Un Mundo Nuevo",
@@ -188,7 +188,7 @@ window.peliculas = {
     director: "Julius Onah",
     imagenFondo: "/FrontEnd/Imagenes/Fondos/pelis/capitanamericabravenewworld.webp",
     imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/capitanamericabravenewworld.webp",
-    video: "."
+    video: ""
   },
    alienromulus: {
     titulo: "Alien: Romulus",
@@ -315,7 +315,7 @@ window.peliculas = {
     duracion: "1h 43min",
     generos: ["Comedia", "Drama", "Ciencia Ficcion", "Fantasía"],
     año: 2025,
-    sinopsis: "En un futuro tecnológico, un robot de seguridad rebelde consigue en secreto voluntad propia. Para no llamar la atención, se une a regañadientes a una nueva misión. Debe proteger a unos científicos en un planeta peligroso... aunque solo quiere ver culebrones.",
+    sinopsis: "En un futuro tecnológico, un robot de seguridad rebelde consigue en secreto volsad propia. Para no llamar la atención, se une a regañadientes a una nueva misión. Debe proteger a unos científicos en un planeta peligroso... aunque solo quiere ver culebrones.",
     elenco: "Alexander Skarsgård, Noma Dumezweni, David Dastmalchian, Sabrina Wu, Akshay Khanna",
     director: "Chris Weitz",
     imagenFondo: "/FrontEnd/Imagenes/Fondos/pelis/matabot.webp",
@@ -332,6 +332,18 @@ window.peliculas = {
     director: "James Gunn",
     imagenFondo: "/FrontEnd/Imagenes/Fondos/pelis/superman.webp",
     imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/superman.webp",
+    video: "https://swiftplayers.com/e/6l5mg3gub1ko"
+  },
+  untildawn: {
+    titulo: "Until Dawn",
+    duracion: "1h 43min",
+    generos: ["Terror", "Drama", "Misterio"],
+    año: 2025,
+    sinopsis: "Un año después de la misteriosa desaparición de su hermana Melanie, Clover y sus amigas se dirigen al remoto valle donde desapareció en busca de respuestas. Mientras exploran un centro de visitantes abandonado, son acechadas por un asesino enmascarado que las mata una a una de forma horrible… para después despertar y encontrarse de nuevo al principio de la misma noche.",
+    elenco: "Ella Rubin, Maia Mitchell, Peter Stormare, Michael Cimino, Odessa A'zion",
+    director: "David F. Sandberg",
+    imagenFondo: "/FrontEnd/Imagenes/Fondos/pelis/untildawn.webp",
+    imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/untildawn.webp",
     video: "https://swiftplayers.com/e/6l5mg3gub1ko"
   },
   añosdespues28: {
