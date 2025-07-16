@@ -28,7 +28,7 @@
   function inicializarHeader() {
     const header = document.getElementById("header");
     const panel = document.querySelector(".panel-lateral");
-    const menuButton = document.querySelector(".menu img"); // Selector más específico para el botón de menú
+    const menuButton = document.querySelector(".menu"); // Selector más específico para el botón de menú
     const fondoOscuro = document.querySelector(".fondo-oscuro");
     const closePanelButton = document.querySelector(".panel-close-btn"); // Botón de cierre X del panel
 

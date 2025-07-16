@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Witech Play</title>
+    
     <link rel="Icon" href="/FrontEnd/Imagenes/Icono/logo-1173935095-1728869406-0d49a887e4481f6878662eb805f4555b1728869406.png">
     <link rel="stylesheet" href="/FrontEnd/Estilos/Index-style.css">
     <link rel="stylesheet" href="/FrontEnd/Estilos/Header-Footer-style.css">
@@ -23,61 +24,86 @@
      <div class="fondo-oscuro"></div>
     <!-- Carrusel-->
 
-    <div class="carrusel">
-      <div class="carrusel-contenedor">
-        <button class="carrusel-boton prev">
-          <svg viewBox="0 0 24 24">
-            <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6z"/>
-          </svg>
-        </button>
-        <div class="carrusel-pista">
-          <div class="carrusel-slide">
-            <img src="/FrontEnd/Imagenes/Carrusel/chjkfyo57JexWo1YeIZRMk8wA4m.webp" alt="Imagen 1">
-          </div>
-          <div class="carrusel-slide">
-            <img src="/FrontEnd/Imagenes/Carrusel/iVped1djsF0tvGkvnHbzsE3ZPTF.webp" alt="Imagen 2">
-          </div>
-          <div class="carrusel-slide">
-            <img src="/FrontEnd/Imagenes/Carrusel/jsoz1HlxczSuTx0mDl2h0lxy36l.webp" alt="Imagen 3">
-          </div>
-          <div class="carrusel-slide">
-            <img src="/FrontEnd/Imagenes/Carrusel/VuukZLgaCrho2Ar8Scl9HtV3yD.webp" alt="Imagen 4">
-          </div>
-          <div class="carrusel-slide">
-            <img src="/FrontEnd/Imagenes/Carrusel/j0NUh5irX7q2jIRtbLo8TZyRn6y.webp" alt="Imagen 5">
-          </div>
-          <div class="carrusel-slide">
-            <img src="/FrontEnd/Imagenes/Carrusel/nn9vM29SKN227zupaOOmaJz5SA0.webp" alt="Imagen 6">
-          </div>
-          <div class="carrusel-slide">
-            <img src="/FrontEnd/Imagenes/Carrusel/qdKGpTHVaaKaFTnRynQDg4qHdEv.webp" alt="Imagen 7">
-          </div>
-          <div class="carrusel-slide">
-            <img src="/FrontEnd/Imagenes/Carrusel/uJ16DD1dj4CQLPNCWIoiOF3l8np.webp" alt="Imagen 8">
-          </div>
-        </div>
-        <button class="carrusel-boton next">
-          <svg viewBox="0 0 24 24">
-            <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/>
-          </svg>
-        </button>
-      </div>
-    </div>
-    <!-- Banner App -->
+<!-- ========================================== -->
+<!--            VIDEO HERO SHOWCASE             -->
+<!-- ========================================== -->
+<section class="video-hero-container">
 
-    <section class="seccion-promo-glass">
-  <div class="promo-contenido-glass">
-    <img src="/FrontEnd/Imagenes/Icono/promoappwitech.webp" alt="Promoción Witech Play" class="promo-imagen-glass">
-    <div class="promo-texto-glass">
-      <h2>Descarga nuestra app ahora</h2>
-      <p>Con Witech Play, disfrutá de tus películas y series favoritas donde quieras. Nuestra app está pensada para darte la mejor experiencia de streaming, sin complicaciones.</p>
-      <div class="botones-app">
-        <a href="#" class="boton-app playstore">Google Play</a>
-        <a href="#" class="boton-app appstore">App Store</a>
-      </div>
+    <!-- Contenedor para los slides de video -->
+    <div class="video-hero-slides" id="video-hero-slides">
+
     </div>
-  </div>
+
+    <!-- Contenedor para la navegación por títulos -->
+    <div class="video-hero-navigation" id="video-hero-navigation">
+    </div>
+
 </section>
+
+<!-- ============================================ -->
+    <!--           SECCIÓN "SEGUIR VIENDO"            -->
+    <!-- ============================================ -->
+<section class="seccion-contenido historial-fondo" id="seccion-seguir-viendo" style="display: none;">
+    <div class="contenedor-carruseles">
+        <div class="carrusel-horizontal">
+            <h2 class="titulo-seccion-pl">Seguir Viendo</h2>
+            <div class="carrusel-control">
+                <button class="flecha izquierda" aria-label="Anterior">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+                </button>
+                <div class="peliculas-carrusel" id="carrusel-seguir-viendo">
+                    <!-- Las tarjetas se insertarán aquí dinámicamente -->
+                </div>
+                <button class="flecha derecha" aria-label="Siguiente">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================================== -->
+<!--           BANNER CTA PREMIUM             -->
+<!-- ======================================== -->
+<section class="premium-cta-banner">
+    <div class="premium-cta-content">
+        <div class="cta-logo">
+            <img src="/FrontEnd/Imagenes/Icono/logo-1173935095-1728869406-0d49a887e4481f6878662eb805f4555b1728869406.png" alt="Witech Play Logo">
+        </div>
+        <div class="cta-texto">
+            <h2>Desbloquea la Experiencia Completa</h2>
+            <p>Accede a estrenos exclusivos, contenido en 4K y descargas ilimitadas. Por inauguración, disfruta de una prueba de nuestro servicio Premium.</p>
+        </div>
+        <div class="cta-accion">
+            <a href="/FrontEnd/Index/planes.html" class="cta-boton">Hazte Premium Ahora</a>
+            <span class="cta-proximamente">Próximamente...</span>
+        </div>
+    </div>
+</section>
+
+    <!-- =================================== -->
+    <!--           HERO SHOWCASe             -->
+    <!-- =================================== -->
+    <section class="hero-showcase">
+        <div class="showcase-container" id="showcase-container">
+            <!-- Los slides se insertarán aquí dinámicamente con JavaScript -->
+        </div>
+    
+        <div class="showcase-nav" id="showcase-nav">
+            <!-- Los indicadores de barra de progreso se insertarán aquí -->
+        </div>
+    
+        <!-- Modal para el tráiler -->
+        <div class="trailer-modal-overlay" id="trailer-modal-overlay">
+            <div class="trailer-modal-content">
+                <button class="trailer-modal-close" id="trailer-modal-close">×</button>
+                <div class="trailer-video-wrapper">
+                    <iframe id="trailer-iframe" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     
     <!-- seccion de contenido-->
 
@@ -158,6 +184,13 @@
                <h3 class="titulo-pelicula">Gladiador 2</h3>
              </div>
              </div>
+
+             <div class="pelicula-wrapper">
+              <div class="pelicula" data-id="dora">
+               <img src="/FrontEnd/Imagenes/Tarjetas/pelis/dora.webp" alt="Dora y la Busqueda del Sol Dorado" />
+               <h3 class="titulo-pelicula">Dora y la Busqueda del Sol Dorado</h3>
+             </div>
+             </div>
              
              <div class="pelicula-wrapper">
               <div class="pelicula" data-id="todosvanamorir">
@@ -200,10 +233,10 @@
               <h3 class="titulo-pelicula">Contorted</h3>
               </div>
             </div>
-          
+
           <div class="pelicula-wrapper">
-            <div class="pelicula" data-id="intensamente2">
-            <img src="/FrontEnd/Imagenes/Tarjetas/pelis/intensamente2.webp" alt="Intensamente 2" />
+            <div class="pelicula" data-id="alienromulus">
+            <img src="/FrontEnd/Imagenes/Tarjetas/pelis/alienromulus.webp" alt="Intensamente 2" />
             <h3 class="titulo-pelicula">Intensamente 2</h3>
             </div>
           </div>
@@ -452,58 +485,104 @@
       
     </div>
     <!-- Carrusel Vertical (Promocion-Producto) -->
-     <div class="contenedor-lateral">
-        <div class="prese-promo-vertical">
-           <div class="titulo-promo-vertical">
-             <h2>Mejora tu experiencia con nuestros productos en:</h2>
-           </div>
-           <div class="logo-zona-promo">
-             <a href="https://www.witech.com.ar"><img src="/FrontEnd/Imagenes/Icono/logo-WT.webp" alt=""></a>
-           </div>
+     <aside class="widget-tienda">
+    
+    <!-- Encabezado Fijo del Widget -->
+        <div class="widget-tienda-header">
+            <img src="/FrontEnd/Imagenes/Icono/logo-WT.webp" alt="Witech Store Logo" class="widget-tienda-logo">
+            <div class="widget-tienda-titulo">
+                <h2>Tienda Witech</h2>
+                <p>Productos Destacados</p>
+            </div>
+            <a href="https://www.witech.com.ar" target="_blank" class="widget-tienda-boton-visitar">
+                Visitar Tienda
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M7 17l9.2-9.2M17 17V8M17 17H8"/>
+                </svg>
+            </a>
         </div>
 
-        <aside class="carrusel-vertical">
-          <div class="seccion-promo-produ">
-            <!-- contenido productos... -->
-             <div class="productos" data-id="flash">
-                <a href="https://www.witech.com.ar/productos/proyector-ultra-hd-highlight-coating-lens/">
-                  <div class="producto-imagen-wrapper">
-                    <img src="/FrontEnd/Imagenes/Promo-Productos/8eb74ac0-4592-4a7d-aed0-79d5f16dc3fe-3f3653e4652f0b88ef17457260428397-1024-1024.webp" alt="">
-                  </div>
-                  <h3>Proyector Ultra HD Highlight Coating Lens</h3>
-                </a>     
-              </div>
-
-              <div class="productos" data-id="flash">
-                <a href="https://www.witech.com.ar/productos/tv-box-amazon-prime/">
-                  <div class="producto-imagen-wrapper">
-                    <img src="/FrontEnd/Imagenes/Promo-Productos/preventa-fotos-48-510x510-cf4bfae8cc65096f6417264175613056-1024-1024.webp" alt=""/>
-                  </div>
-                  <h3>TV Box Amazon Prime</h3>
-                </a>         
-              </div>
-
-              <div class="productos" data-id="flash">
-                <a href="https://www.witech.com.ar/productos/proyector-android-turbo-ultra-hd/">
-                  <div class="producto-imagen-wrapper">
-                    <img src="/FrontEnd/Imagenes/Promo-Productos/x60-unidades-30-510x510-e9fd4f4ee3229a295317435686092742-1024-1024.webp" alt=""/>
-                  </div>
-                  <h3>Proyector Android Turbo Ultra HD</h3>
-                </a>         
-              </div>
-
-              <div class="productos" data-id="flash">
-                <a href="https://www.witech.com.ar/productos/televisor-smartv-kodak-led-50/">
-                  <div class="producto-imagen-wrapper">
-                    <img src="/FrontEnd/Imagenes/Promo-Productos/x60-unidades-37-1-9dc671a0828ee1d3d217401443698122-1024-1024.webp" alt=""/>
-                  </div>
-                  <h3>Televisor Smartv KODAK LED 50″</h3>
-                </a>       
-              </div>
-              
-          </div>
-        </aside>
-     </div>
+    <!-- Contenedor del Carrusel Vertical -->
+        <div class="widget-tienda-carrusel-wrapper">
+            <div class="widget-tienda-carrusel-pista">
+                <!-- Los productos se insertarán aquí. Duplicamos el contenido para el efecto de scroll infinito. -->
+                <!-- Grupo 1 (Original) -->
+                <div class="producto-tienda-item">
+                    <a href="https://www.witech.com.ar/productos/proyector-ultra-hd-highlight-coating-lens/" target="_blank">
+                        <img src="/FrontEnd/Imagenes/Promo-Productos/8eb74ac0-4592-4a7d-aed0-79d5f16dc3fe-3f3653e4652f0b88ef17457260428397-1024-1024.webp" alt="Proyector Ultra HD">
+                        <div class="producto-tienda-info">
+                            <h3>Proyector Ultra HD</h3>
+                        </div>
+                        <div class="producto-tienda-overlay"><span>Ver Producto</span></div>
+                    </a>
+                </div>
+                <div class="producto-tienda-item">
+                    <a href="https://www.witech.com.ar/productos/tv-box-amazon-prime/" target="_blank">
+                        <img src="/FrontEnd/Imagenes/Promo-Productos/preventa-fotos-48-510x510-cf4bfae8cc65096f6417264175613056-1024-1024.webp" alt="TV Box Amazon Prime">
+                        <div class="producto-tienda-info">
+                            <h3>TV Box Amazon Prime</h3>
+                        </div>
+                        <div class="producto-tienda-overlay"><span>Ver Producto</span></div>
+                    </a>
+                </div>
+                <div class="producto-tienda-item">
+                    <a href="https://www.witech.com.ar/productos/proyector-android-turbo-ultra-hd/" target="_blank">
+                        <img src="/FrontEnd/Imagenes/Promo-Productos/x60-unidades-30-510x510-e9fd4f4ee3229a295317435686092742-1024-1024.webp" alt="Proyector Android Turbo">
+                        <div class="producto-tienda-info">
+                            <h3>Proyector Android Turbo</h3>
+                        </div>
+                        <div class="producto-tienda-overlay"><span>Ver Producto</span></div>
+                    </a>
+                </div>
+                <div class="producto-tienda-item">
+                    <a href="https://www.witech.com.ar/productos/televisor-smartv-kodak-led-50/" target="_blank">
+                        <img src="/FrontEnd/Imagenes/Promo-Productos/x60-unidades-37-1-9dc671a0828ee1d3d217401443698122-1024-1024.webp" alt="Televisor Smartv KODAK">
+                        <div class="producto-tienda-info">
+                            <h3>Televisor KODAK 50"</h3>
+                        </div>
+                        <div class="producto-tienda-overlay"><span>Ver Producto</span></div>
+                    </a>
+                </div>
+                <!-- Grupo 2 (Clon para scroll infinito) -->
+                 <div class="producto-tienda-item">
+                    <a href="https://www.witech.com.ar/productos/proyector-ultra-hd-highlight-coating-lens/" target="_blank">
+                        <img src="/FrontEnd/Imagenes/Promo-Productos/8eb74ac0-4592-4a7d-aed0-79d5f16dc3fe-3f3653e4652f0b88ef17457260428397-1024-1024.webp" alt="Proyector Ultra HD">
+                        <div class="producto-tienda-info">
+                            <h3>Proyector Ultra HD</h3>
+                        </div>
+                        <div class="producto-tienda-overlay"><span>Ver Producto</span></div>
+                    </a>
+                </div>
+                <div class="producto-tienda-item">
+                    <a href="https://www.witech.com.ar/productos/tv-box-amazon-prime/" target="_blank">
+                        <img src="/FrontEnd/Imagenes/Promo-Productos/preventa-fotos-48-510x510-cf4bfae8cc65096f6417264175613056-1024-1024.webp" alt="TV Box Amazon Prime">
+                        <div class="producto-tienda-info">
+                            <h3>TV Box Amazon Prime</h3>
+                        </div>
+                        <div class="producto-tienda-overlay"><span>Ver Producto</span></div>
+                    </a>
+                </div>
+                <div class="producto-tienda-item">
+                    <a href="https://www.witech.com.ar/productos/proyector-android-turbo-ultra-hd/" target="_blank">
+                        <img src="/FrontEnd/Imagenes/Promo-Productos/x60-unidades-30-510x510-e9fd4f4ee3229a295317435686092742-1024-1024.webp" alt="Proyector Android Turbo">
+                        <div class="producto-tienda-info">
+                            <h3>Proyector Android Turbo</h3>
+                        </div>
+                        <div class="producto-tienda-overlay"><span>Ver Producto</span></div>
+                    </a>
+                </div>
+                <div class="producto-tienda-item">
+                    <a href="https://www.witech.com.ar/productos/televisor-smartv-kodak-led-50/" target="_blank">
+                        <img src="/FrontEnd/Imagenes/Promo-Productos/x60-unidades-37-1-9dc671a0828ee1d3d217401443698122-1024-1024.webp" alt="Televisor Smartv KODAK">
+                        <div class="producto-tienda-info">
+                            <h3>Televisor KODAK 50"</h3>
+                       </div>
+                        <div class="producto-tienda-overlay"><span>Ver Producto</span></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+      </aside>
   </div>
 
 </section>
@@ -512,11 +591,16 @@
     <!-- Footer -->
     <div id="footer-container"></div>
 
+<script src="/FrontEnd/Js/data.js"></script>
 <script src="/FrontEnd/Js/header-footer.js"></script>
 <script src="/FrontEnd/Js/main.js"></script>
-<script src="/FrontEnd/Js/main.carrusel.js"></script>
+<script src="/FrontEnd/Js/video-hero.js"></script>
+
 <script src="/FrontEnd/Js/peli-carrusel.js"></script>
-<script src="/FrontEnd/Js/data.js"></script>
+
+<script src="/FrontEnd/Js/seguir-viendo.js"></script>
+<script src="/FrontEnd/Js/widget-tienda.js"></script>
+<script src="/FrontEnd/Js/hero-showcase.js"></script>
 
 </body>
 

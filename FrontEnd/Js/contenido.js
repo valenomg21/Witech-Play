@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const paginacionCatalogo = document.getElementById('paginacion-catalogo');
     const mensajeCargaCatalogo = document.querySelector('.mensaje-carga-catalogo');
 
-    const ELEMENTOS_POR_PAGINA = 18;
+    const ELEMENTOS_POR_PAGINA = 20;
     let paginaActual = 1;
     let todosLosItems = []; 
     let itemsFiltradosYOrdenados = [];
@@ -127,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         return `
             <div class="pelicula-wrapper">
-                <a href="${item.tipo === 'pelicula' ? 'plantilla.html' : 'plantilla.html'}?id=${item.id}" class="pelicula-enlace-tarjeta">
+                <a href="${item.tipo === 'pelicula' ? 'plantilla.html' : 'plantilla.html'}?id=${item.id}" class="pelicula-enlace-tarjeta" style="text-decoration: none">
                     <div class="pelicula" data-id="${item.id}" data-type="${item.tipo}">
                         <img src="${imagenSrc}" alt="${altText}" loading="lazy" />
                         <h3 class="titulo-pelicula">${altText}</h3>

@@ -83,19 +83,24 @@
     <!-- Contenedor izquierda: menu y barra de busqueda-->
     <div class="header-left">
         <div class="menu">
-            <img src="/FrontEnd/Imagenes/Icono/menu.png" alt="Menu">
+            <svg width="54px" height="53px" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#B79494" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <title>Icono de Menú</title>
+                
+                <line x1="13" y1="17" x2="37" y2="17"/>
+                <line x1="13" y1="25" x2="37" y2="25"/>
+                <line x1="13" y1="33" x2="37" y2="33"/>
+            </svg>
         </div>
 
         
 
         <div class="group">
-            <svg viewBox="0 0 24 24" aria-hidden="true" class="search-icon">
-              <g>
-                <path
-                  d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"
-                ></path>
-              </g>
-          </svg>
+            <svg class="search-icon" width="54px" height="53px" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#B79494" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <title>Icono de Búsqueda</title>
+              <circle cx="25" cy="25" r="24"/>
+              <circle cx="22" cy="22" r="8"/>
+              <line x1="28" y1="28" x2="35" y2="35"/>
+            </svg>
           
             <input
               id="query"
@@ -115,34 +120,31 @@
     </div>
     <!-- Contenedor derecha: Navegación y botón de inicio de sesión -->
     <div class="header-right">
-        <div class="nav-and-button">
 
             <nav>
                 <ul>
                     <li><a href="/FrontEnd/Index/contenido.html">Contenido</a></li>
-                    <li><a href="/FrontEnd/Index/planes.html">Planes</a></li>
+                    <li><a href="/FrontEnd/Index/planes.html">Subscripcion</a></li>
                     <li><a href="#contacto">Contacto</a></li>
                 </ul>
             </nav>
 
             <!-- Boton Iniciar sesion --> 
-            <div aria-label="User Login Button" tabindex="0" role="button" class="btn-login">
-              <div class="btn-login-inner">
-
-                <div class="btn-icon">
-                  <svg viewBox="0 0 24 24">
-                      <path 
-                        d="m15.626 11.769a6 6 0 1 0 -7.252 0 9.008 9.008 0 0 0 -5.374 8.231 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 9.008 9.008 0 0 0 -5.374-8.231zm-7.626-4.769a4 4 0 1 1 4 4 4 4 0 0 1 -4-4zm10 14h-12a1 1 0 0 1 -1-1 7 7 0 0 1 14 0 1 1 0 0 1 -1 1z">
-                      </path>
-                  </svg>
-                </div>
-                
-                <div class="btn-txt">
-                  <span>Iniciar Sesion</span>
-                </div>
-              </div>
-            </div>
+            <button class="btn-login">
+            <!-- Icono de Usuario (user-button) -->
+            <svg width="54px" height="53px" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#B79494" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <title>Icono de Usuario</title>
+                <circle cx="25" cy="25" r="24"/>
+                <circle cx="25" cy="16.5" r="5"/>
+                <path d="M15 38.41a10 10 0 0 1 20 0"/>
+            </svg>
+            <span>Iniciar Sesión</span>
+        </button>
             
+        <!-- ============================================================= -->
+        <!-- ======================= POPUP LOGIN  ======================== -->
+        <!-- ============================================================= -->
+         
             <div class="popup-overlay" id="popup-overlay">
               <div class="popup-form" id="popup-form">
                 
@@ -201,7 +203,6 @@
               </div>
             </div>
 
-        </div>
     </div>
     
 </header>

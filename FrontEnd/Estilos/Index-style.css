@@ -1,5 +1,5 @@
-/* Estilos generales */
 
+/* Estilos generales */
 body {
   position: relative;
   margin: 0;
@@ -29,210 +29,623 @@ body {
   z-index: 6;
 }
 
-/* Carrusel principal */
-.carrusel {
-  padding-block-start: 16vh;
-  padding-block-end: 4vh;
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  z-index: 1;
+/* ==========================================================================
+   VIDEO HERO SHOWCASE
+   ========================================================================== */
+
+.video-hero-container {
+    padding-top: 75px;
+    padding-bottom: 50px;
+    background-color: #0f0f0f;
+    width: 100%;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);;
 }
 
-.carrusel::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: url('/FrontEnd/Imagenes/Assets/patron-diamantes.svg') center/cover no-repeat;
-  z-index: -1;
+/* --- Contenedor de Slides --- */
+.video-hero-slides {
+    width: 100%;
+    aspect-ratio: 16 / 7;
+    position: relative;
+    background-color: #000;
 }
 
-.carrusel-contenedor {
-  position: relative;
-  width: 100%;
-}
-.carrusel-pista.no-transition{
-  transition: none !important;
-}
-.carrusel-pista {
-  display: flex; 
-  position: relative;
-}
-.carrusel-pista.is-jumping, .carrusel-pista.is-jumping .carrusel-slide {
-  transition: none !important;
+/* --- Estilo de cada Slide Individual --- */
+.hero-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1.2s ease, visibility 0s 1.2s;
+    z-index: 1;
 }
 
-.carrusel-slide {
-  flex-shrink: 0; 
-  width: 60vw;
-  max-width: 700px;
-  margin: 0 10px;
-  box-sizing: border-box;
-
-  position: relative;
-  opacity: 0.4;
-  transform: scale(0.80) perspective(500px) translateZ(0);
-
-  transition: 
-  transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
-  opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-
-  z-index: 1;
-  cursor: pointer;
+.hero-slide.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+    transition: opacity 1.2s ease, visibility 0s 0s;
 }
 
-.carrusel-slide.is-active {
-  opacity: 1;
-  transform: scale(1.1) perspective(0px) translateZ(0);
-  z-index: 3;
+/* Video de Fondo */
+.hero-slide-video-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120%;
+    height: 120%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: -1;
 }
 
-.carrusel-slide.is-prev,.carrusel-slide.is-next {
-  opacity: 1;
-  transform: scale(0.90) perspective(500px) translateZ(0);
-  z-index: 2;
+/* Contenedor del video para recortar el iframe */
+.hero-slide-video-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
 }
 
-.carrusel-slide img {
-  width: 100%;
-  height: 45vh;
-  min-height: 350px; 
-  max-height: 500px; 
-  object-fit: cover; 
-  border-radius: 7px; 
-  display: block;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+/* Degradado para Legibilidad */
+.hero-slide::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(15,15,15,0.7) 0%, rgba(15,15,15,0.4) 50%, transparent 70%);
+    z-index: 0;
 }
 
-/*Botones Carrusel*/
-.carrusel-boton {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: rgba(0, 0, 0, 0.603);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  -webkit-backdrop-filter: blur(5px);
-  backdrop-filter: blur(5px);
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.297);
-  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-  transform-origin: center;
-  will-change: transform;
-  overflow: visible;
-  z-index: 5;
+/* --- Tarjeta de Información Superpuesta --- */
+.hero-info-card {
+    position: absolute;
+    left: 5%;
+    bottom: 10%;
+    z-index: 3;
+    max-width: 45%;
+    color: #fff;
+    
+    /* Animación de entrada */
+    transform: translateY(20px);
+    opacity: 0;
+    transition: transform 0.8s ease-out 0.5s, opacity 0.8s ease-out 0.5s;
 }
 
-.carrusel-boton:hover {
-  background: rgba(0, 0, 0, 0.603);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+.hero-slide.active .hero-info-card {
+    transform: translateY(0);
+    opacity: 1;
 }
 
-.carrusel-boton.next {
-  right: 5vw;
-}
-.carrusel-boton.prev {
-  left: 5vw;
-}
-.carrusel-boton svg {
-  width: 25px;
-  height: 25px;
-  fill: white;
+.hero-info-card h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.1;
+    text-shadow: 0 3px 15px rgba(0,0,0,0.5);
+    margin: 0 0 15px 0;
 }
 
-/* seccion app */
-.seccion-promo-glass {
-  /* ¡Mantenemos el fondo oscuro que querías como divisor! */
-  background-color: #1f1b2e;
-  padding: 3rem 2rem;
-  /* Añadimos el patrón de diamantes que usas en el carrusel para consistencia */
-  position: relative;
+.hero-info-meta {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 0.9rem;
+    color: #e0e0e0;
+    margin-bottom: 15px;
 }
 
-.promo-contenido-glass {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: stretch; /* Clave: alinea verticalmente la imagen y la tarjeta */
-  gap: 2rem;
-  max-width: 100%;
-  margin: 0 auto;
+.hero-info-meta .rating {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 600;
+}
+/* Estilo para la estrella (puedes usar un SVG o un carácter) */
+.hero-info-meta .rating::before {
+    content: '★';
+    color: #ffc107; /* Amarillo para la estrella */
 }
 
-.promo-imagen-glass {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  align-self: center;
+.hero-info-card .sinopsis {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #d0d0d0;
+    margin-bottom: 25px;
+    /* Limitar la sinopsis a 3 líneas */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.promo-texto-glass {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-
-  padding: 2rem;
-
-  background: rgba(42, 35, 64, 0.5);
-  -webkit-backdrop-filter: blur(12px);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+.hero-info-actions {
+    display: flex;
+    gap: 15px;
 }
 
-.promo-texto-glass h2 {
-  font-size: 2.3rem;
-  color: #fff;
-  margin: 0 0 1rem 0;
+.hero-info-actions .btn {
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    border: none;
+    cursor: pointer;
 }
 
-.promo-texto-glass p {
-  font-size: 1.1rem;
-  color: #e0e0e0;
-  line-height: 1.7;
-  margin: 0 0 2rem 0;
+.hero-info-actions .btn-primary {
+    background-color: #fff;
+    color: #000;
+}
+.hero-info-actions .btn-primary:hover {
+    transform: scale(1.05);
+    background-color: #f0f0f0;
+    box-shadow: 0 4px 15px rgba(255,255,255,0.1);
 }
 
-.botones-app {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  text-align: center;
+.hero-info-actions .btn-secondary {
+    background-color: rgba(115, 89, 161, 0.7); /* Morado semi-transparente */
+    color: #fff;
+}
+.hero-info-actions .btn-secondary:hover {
+    transform: scale(1.05);
+    background-color: #7359a1;
+    box-shadow: 0 4px 15px rgba(115,89,161,0.2);
 }
 
-.boton-app {
-  padding: 0.8rem 1.5rem;
-  border: none;
-  border-radius: 1rem;
-  width: 100px;
-  font-weight: bold;
-  text-decoration: none;
-  color: white;
-  transition: background 0.3s ease;
+/* --- Navegación Inferior por Títulos --- */
+.video-hero-navigation {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+    padding: 0 5%;
+    flex-wrap: wrap; /* Para que se ajuste en pantallas pequeñas */
 }
 
-.boton-app.playstore {
-  background-color: #3bcc5a;
+.nav-item {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #a9a9c4; /* Color de texto secundario */
+    cursor: pointer;
+    position: relative;
+    padding-bottom: 8px;
+    transition: color 0.3s ease;
 }
 
-.boton-app.appstore {
-  background-color: #5955ff;
+.nav-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #3bcc5a; /* Acento verde */
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-.boton-app:hover {
-  opacity: 0.85;
+.nav-item.active {
+    color: #fff;
 }
 
+.nav-item.active::after {
+    transform: scaleX(1);
+}
+
+/* ============================
+            SEGUIR VIENDO
+   ============================ */
+.historial-fondo {
+    background-color: #1f1b2e !important;
+}
+.pelicula.con-progreso {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.barra-progreso-visualizacion {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: rgba(255, 255, 255, 0.3);
+    pointer-events: none;
+}
+
+.barra-progreso-visualizacion .progreso {
+    height: 100%;
+    background-color: #3bcc5a;
+    width: 0%;
+    border-radius: 0 2px 2px 0;
+}
+
+/* --- Overlay --- */
+.overlay-reanudar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(15, 15, 15, 0.4) 0%, rgba(15, 15, 15, 0.7) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.pelicula.con-progreso:hover .overlay-reanudar {
+    opacity: 1;
+}
+
+.boton-reanudar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 50%;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    
+    pointer-events: all;
+    
+    transform: scale(0.8);
+    opacity: 0;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+}
+
+.pelicula.con-progreso:hover .boton-reanudar {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.boton-reanudar:hover {
+    transform: scale(1.1);
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.boton-reanudar svg {
+    width: 28px;
+    height: 28px;
+    fill: #fff;
+    margin-left: 3px;
+}
+
+/* ========================
+      BANNER CTA PREMIUM
+   ======================== */
+
+.premium-cta-banner {
+    padding: 35px;
+    position: relative;
+    overflow: hidden;
+    background: url('/FrontEnd/Imagenes/Assets/patron-diamantes.svg') center/cover no-repeat;
+}
+
+.premium-cta-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 35px 40px;
+    
+    /* El efecto "Glassmorphism" */
+    background: rgba(42, 35, 64, 0.6); /* Color morado oscuro semi-transparente */
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+
+    /* Layout interno con Flexbox */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.cta-logo {
+    flex-shrink: 0;
+}
+
+.cta-logo img {
+    width: 80px; /* Tamaño del logo */
+    height: auto;
+    filter: drop-shadow(0 0 10px rgba(255,255,255,0.1));
+}
+
+.cta-texto {
+    flex-grow: 1;
+    color: #fff;
+}
+
+.cta-texto h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 0 0 10px 0;
+}
+
+.cta-texto p {
+    font-size: 1rem;
+    color: #e0e0e0;
+    line-height: 1.6;
+    max-width: 600px; /* Limitar el ancho del párrafo para mejor legibilidad */
+    margin: 0;
+}
+
+.cta-accion {
+    flex-shrink: 0;
+    text-align: right;
+}
+
+.cta-boton {
+    display: inline-block;
+    padding: 12px 28px;
+    background-color: #3bcc5a; /* Acento verde para la acción principal */
+    color: #1f1b2e;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cta-boton:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(59, 204, 90, 0.3);
+}
+
+.cta-proximamente {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.8rem;
+    color: #fff;
+    opacity: 0.4; /* Tono opaco como pediste */
+}
+
+/* ======================
+    NUEVO HERO SHOWCASE 
+   ====================== */
+
+.hero-showcase {
+    width: 100%;
+    padding: 40px 0;
+    background-color: #1f1b2e;
+    position: relative;
+    overflow: hidden;
+}
+
+.showcase-container {
+    width: auto;
+    max-width: 1800px;
+    margin: 0 40px;
+    border-radius: 12px;
+    
+    aspect-ratio: 16 / 6;
+    
+    position: relative;
+    overflow: hidden; 
+    box-shadow: 0px 5px 20px #000c;
+}
+
+.showcase-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+    display: flex;
+    align-items: flex-end;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+.showcase-slide.active {
+    opacity: 1;
+    z-index: 2;
+}
+
+.slide-background-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.slide-background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.showcase-slide.active .slide-background-image {
+    animation-play-state: running;
+}
+
+.showcase-slide::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    background: linear-gradient(to top, rgba(15, 15, 15, 0.85) 0%, transparent 100%);
+    z-index: 0;
+}
+
+.slide-info-content {
+    display: flex;
+    align-items: flex-end;
+    gap: 25px;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.slide-poster {
+    width: 130px;
+    height: auto;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    flex-shrink: 0;
+}
+
+.slide-details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.slide-details h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+    line-height: 1.1;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.7);
+}
+
+.slide-details .estreno, .slide-details .generos {
+    font-size: 0.9rem;
+    color: #c0c0c0;
+    font-weight: 500;
+}
+.slide-details .estreno strong {
+    color: #fff;
+}
+
+.slide-actions {
+    flex-shrink: 0;
+}
+
+.boton-ver-trailer {
+    padding: 12px 25px;
+    background-color: rgba(255, 255, 255, 0.15);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.boton-ver-trailer:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    transform: scale(1.05);
+}
+
+.showcase-nav {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    padding: 20px 40px 0 40px; /* Añadimos padding para que coincida con los márgenes del carrusel */
+    max-width: 600px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.nav-indicator {
+    flex-grow: 1;
+    height: 4px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.nav-indicator-progress {
+    width: 0;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 2px;
+    transition: width 0.2s ease;
+}
+
+.nav-indicator.active .nav-indicator-progress {
+    transition: width 8s linear;
+    width: 100%;
+}
+
+.trailer-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1010;
+}
+.trailer-modal-overlay.visible {
+    display: flex;
+}
+
+.trailer-modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 1100px;
+}
+
+.trailer-modal-close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 3rem;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.trailer-video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+}
+
+.trailer-video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
 
 /* ==========================================================================
    ESTRUCTURA GENERAL Y LAYOUT PRINCIPAL DE PELICULAS
@@ -352,85 +765,75 @@ body {
   align-items: center;  
 }
 
-/* Wrapper de cada tarjeta. Mantiene el espacio en el flujo flex. */
-.pelicula-wrapper {
-  width: 160px; 
-  height: 220px; 
-  position: relative; 
-  flex: 0 0 auto;
-}
-
-/* Atenúa las tarjetas no activas cuando una está en hover */
-.carrusel-item-active .pelicula-wrapper:not(:has(.is-hovered)) .pelicula {
-  opacity: 0.8;    
-  pointer-events: none; 
-}
-
 /* Flechas de navegación del carrusel */
 .carrusel-control .flecha {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 5;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); /* Centrado vertical perfecto */
+    z-index: 10;
 
-  background-color: rgba(20, 20, 30, 0.5);
-  color: rgba(255, 255, 255, 0.1);
-  width: 40px;
-  height: 40px;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  cursor: pointer;
-  border: 1px solid rgba(0, 0, 0, 0.3);
+    width: 44px;  /* Tamaño del círculo */
+    height: 44px;
+    padding: 0;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-  opacity: 0;
-  visibility: hidden;
+    /* Estilo "Glassmorphism" */
+    background-color: rgba(31, 27, 46, 0.5); 
+    color: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%; /* Círculo perfecto */
+    cursor: pointer;
 
-  transform: translateY(-55%) scale(0.8);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
 
-  transition:
-  background-color 0.25s ease-out,
-  color 0.25s ease-out,
-  border-color 0.25s ease-out,
-  opacity 0.3s ease-out,
-  transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
-  visibility 0.3s ease-out;
+    /* Transición suave para todos los efectos */
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Ocultas por defecto, aparecen con hover en el contenedor */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-50%) scale(0.8);
 }
 
-.carrusel-control .flecha:hover {
-  background-color: #4b3276;
-  color: #ffffff;
-  border-color: #5955ff;
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  transform: translateY(-55%) scale(1.1);
-  cursor: pointer;
-}
-
-.carrusel-control .flecha:active {
-  background-color: #504097;
-  transform: translateY(-55%) scale(1.05);
-  transition-duration: 0.1s;
-}
+/* Mostrar las flechas al pasar el cursor sobre el control del carrusel */
 .carrusel-control:hover .flecha {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(-55%) scale(1);
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-50%) scale(1);
 }
 
 .flecha.izquierda {
-  left: 20px; 
+    left: 20px; 
 }
 
 .flecha.derecha {
-  right: 0; 
+    right: 20px; /* Separado del borde para un look más limpio */
 }
 
-.carrusel-control .flecha{
-  font-size: 18px;
-  font-weight: bold;
+.carrusel-control .flecha svg {
+    width: 24px;
+    height: 24px;
+    stroke: currentColor;
+    stroke-width: 2.5;
 }
+
+/* Efectos al interactuar con la flecha */
+.carrusel-control .flecha:hover {
+    background-color: rgba(31, 27, 46, 0.8);
+    color: #ffffff;
+    transform: translateY(-50%) scale(1.1); /* Ligero zoom */
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+
+.carrusel-control .flecha:active {
+    transform: translateY(-50%) scale(1); /* Efecto de presión */
+    transition-duration: 0.1s;
+}
+
 .pelicula-wrapper {
   width: 240px;
   height: 135px;
@@ -438,6 +841,7 @@ body {
   position: relative;
 
   transition: opacity 0.6s ease;
+  box-shadow: 0px 5px 20px #000c;
 }
 
 .pelicula {
@@ -485,12 +889,9 @@ body {
   pointer-events: none;
 }
 
-/* ---- 3. EFECTOS GLOBALES Y DE HOVER (ACTIVADOS POR JS) ---- */
+/* ---- 3. EFECTOS GLOBALES Y DE HOVER ---- */
 
 /* Cuando una tarjeta tiene hover, las demás se atenúan */
-.carrusel-item-active .pelicula-wrapper:not(:has(.is-hovered)) {
-  opacity: 0.8;
-}
 
 /* Cuando el JS añade .is-hovered al elemento .pelicula */
 .pelicula.is-hovered {
@@ -509,153 +910,163 @@ body {
 }
 
 /* ==========================================================================
-   COMPONENTES DEL CARRUSEL VERTICAL (Promoción Productos)
+   COMPONENTES DEL CARRUSEL VERTICAL
    ========================================================================== */
 
 /* Contenedor lateral para la promoción */
-.contenedor-lateral {
-  flex: 1; 
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  max-width: 280px;
-  margin-top: 50px; 
-  padding: 12px;
+.widget-tienda {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    max-width: 270px;
+    
+    position: sticky;
+    margin-top: 45px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    top: 50px;
+    align-self: flex-start;
+
+    background-color: #2a2440;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    
+    max-height: calc(100vh - 110px);
+    overflow: hidden; 
 }
 
-/* Bloque de presentación del logo de la tienda */
-.prese-promo-vertical {
-  flex-grow: 0; 
-  flex-shrink: 0; 
-  background-color: #2a2440; 
-  padding: 20px 15px; 
-  border-radius: 10px; 
-  box-shadow: 0 0 15px #7359a1; 
-  text-align: center; 
-  margin-bottom: 20px; 
+.widget-tienda-header {
+    flex-shrink: 0;
+    padding: 20px;
+    background-color: rgba(32, 27, 46, 0.8);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
 }
 
-.titulo-promo-vertical {
-  padding: 5px;
+.widget-tienda-logo {
+    width: 100px;
+    height: auto;
+    margin: 0 auto 10px auto;
+    display: block;
 }
 
-.titulo-promo-vertical h2 {
-  font-size: 18px; 
-  font-weight: 600; 
-  color: #e0e0e0;  
-  margin: 0 0 15px 0;
-  line-height: 1.4;
+.widget-tienda-titulo h2 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0 0 4px 0;
 }
 
-.titulo-promo-vertical h2::after {
-  content: '';
-  display: block;
-  width: 70px; 
-  height: 2px;
-  background-color: #3bcc5a; 
-  margin: 8px auto 0;
+.widget-tienda-titulo p {
+    font-size: 0.85rem;
+    color: #a9a9c4;
+    margin: 0 0 15px 0;
 }
 
-.logo-zona-promo a{
-  display: inline-block;
+.widget-tienda-boton-visitar {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    background-color: #3bcc5a;
+    color: #1f1b2e;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-.logo-zona-promo img {
-  width: 180px; 
-  max-width: 100%; 
-  height: auto;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+.widget-tienda-boton-visitar:hover {
+    background-color: #35a54e;
+    transform: scale(1.05);
 }
 
-.logo-zona-promo img:hover {
-  transform: scale(1.08);
-  opacity: 0.85;
+/* Contenedor y pista del carrusel */
+.widget-tienda-carrusel-wrapper {
+    flex-grow: 1;
+    position: relative;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+    mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
 }
 
-/* Carrusel vertical de productos */
-.carrusel-vertical {  
-  flex-grow: 1;
-  max-height: 905px;
-  background-color: #2a2440;
-  padding: 20px 10px;
-  border-radius: 10px;
-  overflow-y: auto;
-  scrollbar-width: none; 
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+.widget-tienda-carrusel-pista {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px;
 }
 
-.carrusel-vertical::-webkit-scrollbar { 
-  display: none;
+.widget-tienda-carrusel-pista:hover {
+    animation-play-state: paused;
 }
 
-/* Contenedor interno de los productos en el carrusel vertical */
-.seccion-promo-produ {
-  display: flex;
-  flex-direction: column;
-  gap: 20px; 
-  align-items: center;
+.producto-tienda-item {
+    background-color: #3a3153;
+    border-radius: 10px;
+    overflow: hidden;
+    flex-shrink: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
 }
 
-/* Tarjeta de producto individual */
-.productos {
-  background-color: #3a3153;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, outline-color 0.3s ease;
-  cursor: pointer;
-  outline: 2px solid transparent;
-  width: 220px;
-
-  display: flex;
+.producto-tienda-item a {
+    text-decoration: none;
+    color: #e0e0e0;
+    display: block;
 }
 
-.productos:hover {
-  transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 0 15px #3bcc5a; /* Sombra más elaborada */
-  outline: 2px solid #3bcc5a;
+.producto-tienda-item img {
+    width: 100%;
+    height: 180px; 
+    object-fit: cover;
+    display: block;
+    background-color: white; 
 }
 
-.productos a {
-  text-decoration: none;
-  color: #e0e0e0;
-  
-  display: flex;
-  flex-direction: column;
-  width: 100%;
+.producto-tienda-info {
+    padding: 12px;
+    text-align: center;
 }
 
-.producto-imagen-wrapper {
-  height: 200px; 
-  width: 100%;
-  overflow: hidden;
-  background-color: white;
+.producto-tienda-info h3 {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin: 0;
+    line-height: 1.3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.productos img {
-  width: 100%;
-  height: 100%;
-   
-  object-fit: contain;
-  display: block;
+.producto-tienda-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 180px; 
+    background-color: rgba(31, 27, 46, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-.productos h3 {
-  height: 30px;
+.producto-tienda-item a:hover .producto-tienda-overlay {
+    opacity: 1;
+}
 
-  text-align: center;
-  font-size: 14px;
-  font-weight: 500;
-  padding: 10px;
-  margin: 0;
-  line-height: 1.3;
-  background-color: rgba(0,0,0, 0.1);
-
-  flex-grow: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+.producto-tienda-overlay span {
+    padding: 8px 16px;
+    background-color: #3bcc5a;
+    color: #1f1b2e;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.85rem;
 }
 
 /* ==========================================================================
@@ -667,12 +1078,6 @@ body {
    -------------------------------------------------------------------------- */
 @media (min-width: 1920px) {
   /* --- Carrusel Principal --- */
-  .carrusel { padding-block-start: 15vh; padding-block-end: 5vh; }
-  .carrusel-slide { max-width: 950px; margin: 0 25px; }
-  .carrusel-slide img { max-height: 600px; }
-  .carrusel-boton { width: 60px; height: 60px; }
-  .carrusel-boton.next { right: 5vw; }
-  .carrusel-boton.prev { left: 5vw; }
 
   /* --- Sección Promocional App --- */
   .seccion-promo-glass { padding: 1.5rem; }
@@ -695,9 +1100,6 @@ body {
    -------------------------------------------------------------------------- */
 @media (max-width: 1024px) {
   /* --- Carrusel Principal --- */
-  .carrusel { padding-block-start: 12vh; padding-block-end: 3.5vh; }
-  .carrusel-slide { width: 55vw; }
-  .carrusel-slide img { height: 40vh; min-height: 300px; }
 
   /* --- Layout Principal --- */
   .contenedor-principal { flex-direction: column; align-items: center; gap: 0; }
@@ -743,12 +1145,34 @@ body {
    -------------------------------------------------------------------------- */
 @media (max-width: 768px) {
   /* --- Carrusel Principal --- */
-  .carrusel { padding-block-start: 12vh; padding-block-end: 3vh; }
-  .carrusel-slide { width: 65vw; }
-  .carrusel-slide img { height: 35vh; min-height: 250px; max-height: 350px; }
-  .carrusel-boton { width: 40px; height: 40px; }
-  .carrusel-boton.next { right: 2vw; }
-  .carrusel-boton.prev { left: 2vw; }
+  .video-hero-container {
+        padding-top: 80px;
+    }
+    .video-hero-slides {
+        aspect-ratio: 4 / 3; /* Más vertical en móviles */
+    }
+    .hero-slide::after { /* Degradado más fuerte en móvil */
+        background: linear-gradient(to top, rgba(15,15,15,0.9) 10%, transparent 100%);
+    }
+    .hero-info-card {
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        max-width: 100%;
+        padding: 20px;
+        position: relative; /* Cambiamos a relativo para que se posicione dentro del flex */
+    }
+    .hero-slide {
+        align-items: flex-end;
+    }
+    .hero-info-card h2 {
+        font-size: 1.8rem;
+    }
+    .hero-info-meta {
+        font-size: 0.8rem;}
+    .hero-info-card .sinopsis {-webkit-line-clamp: 2; font-size: 0.9rem; margin-bottom: 20px;}
+    .video-hero-navigation {gap: 15px;}
+    .nav-item {font-size: 0.9rem;}
 
   /* --- Sección Promocional App --- */
   .seccion-promo-glass { padding: 0.8rem; }
@@ -768,8 +1192,6 @@ body {
    -------------------------------------------------------------------------- */
 @media (max-width: 480px) {
   /* --- Carrusel Principal --- */
-  .carrusel-slide { width: 75vw; margin: 0 8px; }
-  .carrusel-slide img { min-height: 200px; height: auto; }
   
   /* --- Títulos y Tarjetas de Contenido --- */
   .titulo-seccion-pl { font-size: 18px; }
@@ -782,8 +1204,6 @@ body {
    -------------------------------------------------------------------------- */
 @media (max-width: 380px) {
   /* --- Carrusel Principal --- */
-  .carrusel-slide { width: 80vw; }
-  .carrusel-slide img { min-height: 180px; }
   
   /* --- Títulos y Tarjetas de Contenido --- */
   .peliculas-carrusel { padding-left: 10px; padding-right: 10px; }
