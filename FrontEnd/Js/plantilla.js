@@ -108,6 +108,9 @@ document.addEventListener("DOMContentLoaded", () => {
             botonVerAhoraEl.addEventListener("click", () => {
                 videoIframePlayer.src = data.video;
                 overlay.style.display = "flex";
+                if (typeof guardarEnHistorial === 'function') {
+                       guardarEnHistorial(id); 
+                }
             });
         }
 
@@ -225,6 +228,10 @@ document.addEventListener("DOMContentLoaded", () => {
             if (capitulo.videoUrl && capitulo.videoUrl !== "." && videoIframePlayer && overlay) { // Verificar que la URL no sea placeholder
               videoIframePlayer.src = capitulo.videoUrl;
               overlay.style.display = 'flex';
+
+              if (typeof guardarEnHistorial === 'function') {
+                  guardarEnHistorial(id); // <--- AÑADIR ESTA LÍNEA (aquí 'id' es el de la serie)
+              }
             } else {
                 alert("Video no disponible para este capítulo.");
                 console.warn("URL de video no válida o faltante para el capítulo:", capitulo);

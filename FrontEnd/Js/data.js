@@ -1,6 +1,99 @@
+window.videoHeroData = {
+  badboyshastalamuerte: { 
+    titulo: "Bad Boys: Hasta la Muerte",
+    sinopsis: "Los policías más famosos del mundo regresan con su icónica mezcla de acción al límite y comedia escandalosa, pero esta vez con un giro inesperado: ¡Los mejores de Miami se dan a la fuga! Cuarta entrega de la saga 'Dos policías rebeldes'.",
+    videoUrl: "https://youtu.be/Ta7b95JZcP4",
+    duracion: "1h 55min",
+    generos: ["Acción","Comedia","Crimen","Aventura"],
+    rating: 3.8 
+  },
+  longlegs: {
+    titulo: "Longlegs: Coleccionista de Almas",
+    sinopsis: "Lee Harker, una nueva y talentosa agente del FBI, ha sido asignada a un caso sin resolver de un asesino en serie. A medida que la investigación se complica y se descubren pruebas ocultistas, Harker se da cuenta de que existe un vínculo personal con el despiadado asesino y debe actuar con rapidez para evitar otro asesinato familiar.",
+    videoUrl: "https://www.youtube.com/watch?v=qrME51iGUPk&pp=ygUPbG9uZ2xlZ3MgdGVhc2Vy",
+    duracion: "1h 41min",
+    generos: ["Terror", "Crimen"],
+    rating: 4.1
+  },
+  alienromulus: {
+    titulo: "Alien Romulus",
+    sinopsis: "Mientras rebuscan en las profundidades de una estación espacial abandonada, un grupo de jóvenes colonizadores del espacio se encuentra cara a cara con la forma de vida más aterradora del universo. Nueva película de la saga Alien.",
+    videoUrl: "https://www.youtube.com/watch?v=GTNMt84KT0k&pp=ygUUYWxpZW4gcm9tdWx1cyB0ZWFzZXI%3D",
+    duracion: "1h 59min",
+    generos: ["Terror", "Ciencia Ficcion"],
+    rating: 4.3
+  },
+  dora: {
+    titulo: "Dora y la Busqueda del Sol Dorado",
+    sinopsis: "Dora, Diego y sus nuevos amigos se adentran en la traicionera selva amazónica para descubrir el legendario tesoro de Sol Dorado antes de que fuerzas malvadas se apoderen de su inmenso poder.",
+    videoUrl: "https://youtu.be/gUTtJjV852c?t=8",
+    duracion: "1h 36min",
+    generos: ["Aventura","Comedia", "Familia"],
+    rating: 3.5
+  },
+  therookie: {
+    titulo: "The Rookie",
+    sinopsis: "Justo después de ser liberado de prisión después de 25 años, el capo de la mafia de Nueva York, Dwight 'El General' Manfredi, es exiliado sin contemplaciones por su jefe para instalarse en Tulsa, Oklahoma. Al darse cuenta de que su familia de la mafia puede no tener sus mejores intereses en mente, Dwight construye lentamente una 'tripulación' a partir de un grupo de personajes inverosímiles, para ayudarlo a establecer un nuevo imperio criminal en un lugar que para él bien podría ser otro planeta.",
+    videoUrl: "https://youtu.be/8BPlx6eK1vc?t=5",
+    duracion: "7 temporadas",
+    generos: ["Comedia", "Crimen","Drama"],
+    rating: 4.7
+  },
+};
+
+window.proximosEstrenos = {
+  dracula: {
+    titulo: "Dracula",
+    genero: ["Terror","Fantasía","Drama"],
+    fechaEstreno: "30 de Julio 2025",
+    imagenFondo: "/FrontEnd/Imagenes/Prox/dracula.webp",
+    imagenTarjeta: "/FrontEnd/Imagenes/Prox/dracula-mini.webp",
+    videoTrailerUrl: "https://www.youtube.com/watch?v=r_OLH6pU-EM"
+  },
+  fantastic4: {
+    titulo: "Los Cuatro Fantásticos: Primeros pasos",
+    genero: ["Ciencia ficción","Aventura"],
+    fechaEstreno: "25 de Julio 2025",
+    imagenFondo: "/FrontEnd/Imagenes/Prox/fantastic4.webp",
+    imagenTarjeta: "/FrontEnd/Imagenes/Prox/fantastic4-mini.webp",
+    videoTrailerUrl: "https://www.youtube.com/watch?v=waf9snfaUFw"
+  },
+  slqhevp: {
+    titulo: "Sé lo que hicieron el verano pasado",
+    genero: ["Terror","Misterio","Suspenso"],
+    fechaEstreno: "18 de Julio 2025",
+    imagenFondo: "/FrontEnd/Imagenes/Prox/slqhevp.webp",
+    imagenTarjeta: "/FrontEnd/Imagenes/Prox/slqhevp-mini.webp",
+    videoTrailerUrl: "https://youtu.be/UMmsBLH1cxw"
+  }
+}
 
 window.peliculas = {
   
+  minecraft: {
+    titulo: "Una Película de Minecraft",
+    duracion: "1h 41min",
+    generos: ["Aventura", "Fantasía"],
+    año: 2025,
+    sinopsis: "Cuatro inadaptados se encuentran luchando con problemas ordinarios cuando de repente se ven arrastrados a través de un misterioso portal al Overworld: un extraño país de las maravillas cúbico que se nutre de la imaginación. Para volver a casa, tendrán que dominar este mundo mientras se embarcan en una búsqueda mágica con un inesperado experto artesano, Steve.",
+    elenco: "Jason Momoa, Jack Black, Sebastian Eugene Hansen, Emma Myers, Danielle Brooks",
+    director: "Jared Hess",
+    imagenFondo: "/FrontEnd/Imagenes/Fondos/pelis/minecraft.webp",
+    imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/minecraft.webp",
+    video: "https://swiftplayers.com/e/16qoioz6njmo"
+  },
+  dora: {
+    titulo: "Dora y la Busqueda del Sol Dorado",
+    duracion: "1h 36min",
+    generos: ["Aventura", "Comedia", "Familia"],
+    año: 2025,
+    sinopsis: "Dora, Diego y sus nuevos amigos se adentran en la traicionera selva amazónica para descubrir el legendario tesoro de Sol Dorado antes de que fuerzas malvadas se apoderen de su inmenso poder.",
+    elenco: "Daniella Pineda, Samantha Lorraine, Jacqueline Obradors, Jacqueline Obradors, Jacob Rodriguez",
+    director: "Alberto Belli",
+    imagenFondo: "/FrontEnd/Imagenes/Fondos/pelis/dora.webp",
+    imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/dora.webp",
+    video: "https://hgplaycdn.com/e/8pxnzxsztw4a"
+  },
   minecraft: {
     titulo: "Una Película de Minecraft",
     duracion: "1h 41min",
@@ -71,7 +164,7 @@ window.peliculas = {
     director: "Marc Webb",
     imagenFondo: "/FrontEnd/Imagenes/Fondos/pelis/blancanieves.webp",
     imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/blancanieves.webp",
-    video: "."
+    video: "https://swiftplayers.com/e/037nez9knr4p"
   },
    aworkingman: {
     titulo: "A Working Man",
@@ -83,7 +176,7 @@ window.peliculas = {
     director: "David Ayer",
     imagenFondo: "/FrontEnd/Imagenes/Fondos/pelis/aworkingman.webp",
     imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/aworkingman.webp",
-    video: "."
+    video: ""
   },
    capitanamerica: {
     titulo: "Capitan America: Un Mundo Nuevo",
@@ -95,7 +188,7 @@ window.peliculas = {
     director: "Julius Onah",
     imagenFondo: "/FrontEnd/Imagenes/Fondos/pelis/capitanamericabravenewworld.webp",
     imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/capitanamericabravenewworld.webp",
-    video: "."
+    video: ""
   },
    alienromulus: {
     titulo: "Alien: Romulus",
@@ -205,18 +298,6 @@ window.peliculas = {
     imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/comoentrenaratudragon.webp",
     video: "https://swiftplayers.com/e/6l5mg3gub1ko"
   },
-  chespirito: {
-    titulo: "Chespirito: Sin Querer Queriendo",
-    duracion: "1h 43min",
-    generos: ["Drama", "Comedia"],
-    año: 2025,
-    sinopsis: "La historia de Roberto Gómez Bolaños, el hombre que transformó su anhelo de hacer reír en un legado universal. Desde su infancia hasta su consagración en las décadas de los 50 a los 80, esta biografía íntima nos revela cómo un joven soñador encontró su lugar en la naciente industria televisiva, creando personajes inolvidables cargados de ternura y humor. Pero detrás del genio que hizo reír al mundo entero, hubo también un ser humano en constante búsqueda de amor y reconocimiento, dispuesto a sacrificarlo todo por permanecer en el corazón de su audiencia.",
-    elenco: "Pablo Cruz Guerrero, Bárbara López, Juan Lecanda, Miguel Islas, Andrea Noli",
-    director: "Roberto Gómez Fernández",
-    imagenFondo: "/FrontEnd/Imagenes/Fondos/pelis/chespirito.webp",
-    imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/chespirito.webp",
-    video: "https://swiftplayers.com/e/6l5mg3gub1ko"
-  },
   lospecadores: {
     titulo: "Los Pecadores",
     duracion: "2h 18min",
@@ -234,7 +315,7 @@ window.peliculas = {
     duracion: "1h 43min",
     generos: ["Comedia", "Drama", "Ciencia Ficcion", "Fantasía"],
     año: 2025,
-    sinopsis: "En un futuro tecnológico, un robot de seguridad rebelde consigue en secreto voluntad propia. Para no llamar la atención, se une a regañadientes a una nueva misión. Debe proteger a unos científicos en un planeta peligroso... aunque solo quiere ver culebrones.",
+    sinopsis: "En un futuro tecnológico, un robot de seguridad rebelde consigue en secreto volsad propia. Para no llamar la atención, se une a regañadientes a una nueva misión. Debe proteger a unos científicos en un planeta peligroso... aunque solo quiere ver culebrones.",
     elenco: "Alexander Skarsgård, Noma Dumezweni, David Dastmalchian, Sabrina Wu, Akshay Khanna",
     director: "Chris Weitz",
     imagenFondo: "/FrontEnd/Imagenes/Fondos/pelis/matabot.webp",
@@ -251,6 +332,18 @@ window.peliculas = {
     director: "James Gunn",
     imagenFondo: "/FrontEnd/Imagenes/Fondos/pelis/superman.webp",
     imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/superman.webp",
+    video: "https://swiftplayers.com/e/6l5mg3gub1ko"
+  },
+  untildawn: {
+    titulo: "Until Dawn",
+    duracion: "1h 43min",
+    generos: ["Terror", "Drama", "Misterio"],
+    año: 2025,
+    sinopsis: "Un año después de la misteriosa desaparición de su hermana Melanie, Clover y sus amigas se dirigen al remoto valle donde desapareció en busca de respuestas. Mientras exploran un centro de visitantes abandonado, son acechadas por un asesino enmascarado que las mata una a una de forma horrible… para después despertar y encontrarse de nuevo al principio de la misma noche.",
+    elenco: "Ella Rubin, Maia Mitchell, Peter Stormare, Michael Cimino, Odessa A'zion",
+    director: "David F. Sandberg",
+    imagenFondo: "/FrontEnd/Imagenes/Fondos/pelis/untildawn.webp",
+    imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/untildawn.webp",
     video: "https://swiftplayers.com/e/6l5mg3gub1ko"
   },
   añosdespues28: {
@@ -1044,7 +1137,7 @@ window.series = {
 
 
   "therookie": {
-    titulo: "TThe Rookie",
+    titulo: "The Rookie",
     añoInicio: 2022, 
     añoFin: 2024,
     estadoEmision: "Finalizada",
@@ -1322,8 +1415,51 @@ window.series = {
     generos: ["Crimen", "Drama", "Acción"],
     elencoPrincipal: ["Sylvester Stallone", "Martin Starr", "Jay Will", "Max Casella"],
     creadores: ["Taylor Sheridan"],
-    imagenFondo: "/FrontEnd/Imagenes/Fondos/series/stevenuniverse.webp", 
-    imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/series/tstevenuniverse.webp", 
+    imagenFondo: "/FrontEnd/Imagenes/Fondos/series/chicagofire.webp", 
+    imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/series/chicagofire.webp", 
+    // Estructura de Temporadas y Capítulos
+    temporadas: [
+      {
+        numeroTemporada: 1,
+        nombreTemporada: "Temporada Uno",
+        imagenPosterTemporada: "/FrontEnd/Imagenes/Series/Posters_Temporadas/the_office_s1_poster.webp",
+        capitulos: [
+          {
+            numeroCapituloEnTemporada: 1, 
+            tituloCapitulo: "Vete al Oeste, Viejo",
+            videoUrl: "https://swiftplayers.com/e/nb9dy6qoc8rh"
+          },
+          
+          // ... más capítulos de la Temporada 1
+        ]
+      },
+      {
+        numeroTemporada: 2,
+        nombreTemporada: "Temporada Dos",
+        imagenPosterTemporada: "/FrontEnd/Imagenes/Series/Posters_Temporadas/the_office_s1_poster.webp",
+        capitulos: [
+          {
+            numeroCapituloEnTemporada: 1, 
+            tituloCapitulo: "De Vuelta al Ruedo",
+            videoUrl: "https://servidor.video/serie/s01e01.mp4"
+          },
+          // ... más capítulos de la Temporada 2
+        ]
+      },
+      // ... más temporadas
+    ]
+  },
+  "chespirito": {
+    titulo: "Chespirito",
+    añoInicio: 2025, 
+    añoFin: 2025,
+    estadoEmision: "En Emision",
+    sinopsisGeneral: "La historia de Roberto Gómez Bolaños, el hombre que transformó su anhelo de hacer reír en un legado universal. Desde su infancia hasta su consagración en las décadas de los 50 a los 80, esta biografía íntima nos revela cómo un joven soñador encontró su lugar en la naciente industria televisiva, creando personajes inolvidables cargados de ternura y humor. Pero detrás del genio que hizo reír al mundo entero, hubo también un ser humano en constante búsqueda de amor y reconocimiento, dispuesto a sacrificarlo todo por permanecer en el corazón de su audiencia.", 
+    generos: ["Crimen", "Drama", "Comedia"],
+    elencoPrincipal: ["Pablo Cruz Guerrero, Bárbara López, Juan Lecanda, Miguel Islas, Andrea Noli"],
+    creadores: ["Roberto Gómez Fernández"],
+    imagenFondo: "/FrontEnd/Imagenes/Fondos/series/chespirito.webp", 
+    imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/series/chespirito.webp", 
     // Estructura de Temporadas y Capítulos
     temporadas: [
       {

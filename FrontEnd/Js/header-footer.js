@@ -32,52 +32,56 @@ cargar("footer-container", "/FrontEnd/Index/footer.htmlp");
 function checkTokenAndLoadProfile() {
   const token = localStorage.getItem("token");
 
-  const btnLogin = document.querySelector(".btn-login"); // Asegurarse de tener la referencia al botón
-  if (token) {
-    // Ocultar el botón de login
-    btnLogin.style.display = "none";
-
-    // Crear el elemento de imagen (icono)
-    const userIcon = document.createElementNS(
-      "http://www.w3.org/2000/svg",
-      "svg"
-    );
-    userIcon.setAttribute("viewBox", "0 0 24 24");
-    userIcon.setAttribute("width", "45");
-    userIcon.setAttribute("height", "45");
-    userIcon.style.borderRadius = "50%";
-    userIcon.style.cursor = "pointer";
-    userIcon.style.border = "2px solid #7359a1";
-    userIcon.style.boxShadow = "0 0 8px rgba(115, 89, 161, 0.5)";
-    userIcon.style.objectFit = "cover";
-
-    const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-    path.setAttribute(
-      "d",
-      "m15.626 11.769a6 6 0 1 0 -7.252 0 9.008 9.008 0 0 0 -5.374 8.231 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 9.008 9.008 0 0 0 -5.374-8.231zm-7.626-4.769a4 4 0 1 1 4 4 4 4 0 0 1 -4-4zm10 14h-12a1 1 0 0 1 -1-1 7 7 0 0 1 14 0 1 1 0 0 1 -1 1z"
-    );
-
-    // Agrega el path al SVG
-    userIcon.appendChild(path);
-
-    // Crear el enlace al perfil
-    const profileLink = document.createElement("a");
-    profileLink.href = "/FrontEnd/Index/perfil.html";
-    profileLink.appendChild(userIcon);
-
-    // Insertar el enlace antes del botón de login (si existe)
-    const navAndButton = document.querySelector(".nav-and-button");
-    navAndButton.appendChild(profileLink);
+  // Si no hay token, no hacemos nada.
+  if (!token) {
+    return;
   }
+
+  // --- Si SÍ hay un token, procedemos ---
+
+  const btnLogin = document.querySelector(".btn-login");
+  const headerRightContainer = document.querySelector(".header-right"); // <--- ¡CAMBIO CLAVE AQUÍ!
+
+  // --- Comprobación de seguridad ---
+  if (!headerRightContainer) {
+    console.error("Error crítico: El contenedor '.header-right' no se encontró en el DOM.");
+    return;
+  }
+  
+  // Ocultamos el botón de login SOLO si existe
+  if (btnLogin) {
+    btnLogin.style.display = "none";
+  }
+
+  // --- Crear y añadir el nuevo icono de perfil ---
+  const userIcon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  userIcon.setAttribute("viewBox", "0 0 24 24");
+  userIcon.setAttribute("width", "45");
+  userIcon.setAttribute("height", "45");
+  userIcon.style.borderRadius = "50%";
+  userIcon.style.cursor = "pointer";
+  userIcon.style.border = "2px solid #7359a1";
+  userIcon.style.boxShadow = "0 0 8px rgba(115, 89, 161, 0.5)";
+  userIcon.style.objectFit = "cover";
+
+  const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+  path.setAttribute("d", "m15.626 11.769a6 6 0 1 0 -7.252 0 9.008 9.008 0 0 0 -5.374 8.231 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 9.008 9.008 0 0 0 -5.374-8.231zm-7.626-4.769a4 4 0 1 1 4 4 4 4 0 0 1 -4-4zm10 14h-12a1 1 0 0 1 -1-1 7 7 0 0 1 14 0 1 1 0 0 1 -1 1z");
+  userIcon.appendChild(path);
+
+  const profileLink = document.createElement("a");
+  profileLink.href = "/FrontEnd/Index/perfil.html";
+  profileLink.appendChild(userIcon);
+
+  // Añadimos el nuevo enlace/icono al contenedor correcto
+  headerRightContainer.appendChild(profileLink);
 }
 
 function inicializarHeader() {
   const header = document.getElementById("header");
   const panel = document.querySelector(".panel-lateral");
-  const menuButton = document.querySelector(".menu img"); // Selector más específico para el botón de menú
+  const menuButton = document.querySelector(".menu"); // Selector más específico para el botón de menú
   const fondoOscuro = document.querySelector(".fondo-oscuro");
   const closePanelButton = document.querySelector(".panel-close-btn"); // Botón de cierre X del panel
-  checkTokenAndLoadProfile();
 
   let prevScrollPos = window.scrollY;
 
@@ -510,7 +514,7 @@ function inicializarHeader() {
         profileLink.appendChild(userIcon);
 
         // Insertar el enlace antes del botón de login (si existe)
-        const navAndButton = document.querySelector(".nav-and-button");
+        const navAndButton = document.querySelector(".header-right");
         navAndButton.appendChild(profileLink);
         hidePopup();
         // Recargar la página
@@ -525,4 +529,6 @@ function inicializarHeader() {
       console.error("Error de red:", error);
     }
   });
-} // Fin de inicializarHeader
+  
+  checkTokenAndLoadProfile();
+} // Fin de inicializarHeaders
