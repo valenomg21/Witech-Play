@@ -40,6 +40,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const serieCreadoresSpan = document.querySelector('.serie-creadores');
   const valorDirectorSpan = document.getElementById('valor-director');
 
+  // --- Nueva seleccion para Contenido Relacionado ---
+  const seccionRelacionados = document.getElementById('seccion-relacionados');
+  const carruselRelacionados = document.getElementById('carrusel-relacionados');
+
   let datosCompletosSerie = null;
   let data = null;
   let tipoContenido = null;
@@ -128,6 +132,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
+    renderizarContenidoRelacionado(data, id);
+
   } else {
     // Manejo de error si no se encuentra el contenido
     if (mainContainer) {
@@ -197,4 +203,65 @@ document.addEventListener("DOMContentLoaded", () => {
     listaCapitulosContainerEl.style.display = 'block';
   }
 
+  // --- ¡NUEVA FUNCIÓN PARA RENDERIZAR CONTENIDO RELACIONADO! ---
+  function renderizarContenidoRelacionado(itemActual, idActual) {
+    if (!itemActual.generos || itemActual.generos.length === 0) {
+      if (seccionRelacionados) seccionRelacionados.style.display = 'none';
+      return; // No podemos encontrar relacionados si no hay géneros
+    }
+
+    const generosPrincipales = itemActual.generos;
+
+    // 1. Combinar todas las películas y series en una sola lista
+    const todoElContenido = [
+      ...Object.keys(window.peliculas || {}).map(key => ({ id: key, tipo: 'pelicula', ...window.peliculas[key] })),
+      ...Object.keys(window.series || {}).map(key => ({ id: key, tipo: 'serie', ...window.series[key] }))
+    ];
+
+    // 2. Filtrar para encontrar contenido relacionado
+    let relacionados = todoElContenido.filter(item => {
+      // Excluir el item que estamos viendo actualmente
+      if (item.id === idActual) return false;
+
+      // Incluir si tiene al menos un género en común
+      return item.generos && item.generos.some(genero => generosPrincipales.includes(genero));
+    });
+
+    // 3. Mezclar y limitar los resultados para variedad
+    relacionados.sort(() => 0.5 - Math.random()); // Mezclar aleatoriamente
+    relacionados = relacionados.slice(0, 15); // Limitar a 15 resultados
+
+    if (relacionados.length === 0) {
+      if (seccionRelacionados) seccionRelacionados.style.display = 'none';
+      return; // Ocultar la sección si no se encontró nada
+    }
+    
+    // 4. Generar el HTML para el carrusel
+    let carruselHTML = '';
+    relacionados.forEach(item => {
+      const imagenSrc = item.imagenTarjeta || '/FrontEnd/Imagenes/placeholder-poster.webp';
+      const altText = item.titulo || 'Título no disponible';
+      // La estructura debe ser idéntica a la de index.html para que peli-carrusel.js funcione
+      carruselHTML += `
+        <div class="pelicula-wrapper">
+          <a href="/FrontEnd/Index/plantilla.html?id=${item.id}" style="text-decoration: none;">
+            <div class="pelicula" data-id="${item.id}" data-type="${item.tipo}">
+              <img src="${imagenSrc}" alt="${altText}" loading="lazy" />
+            </div>
+          </a>
+        </div>
+      `;
+    });
+
+    // 5. Inyectar el HTML y mostrar la sección
+    if (carruselRelacionados) carruselRelacionados.innerHTML = carruselHTML;
+    if (seccionRelacionados) seccionRelacionados.style.display = 'block';
+
+    // 6. ¡CRÍTICO! Inicializar el carrusel recién creado
+    const carruselControl = seccionRelacionados.querySelector('.carrusel-control');
+    if (carruselControl && typeof initCarousel === 'function') {
+      initCarousel(carruselControl);
+    }
+  }
+  
 });

@@ -109,7 +109,7 @@ window.peliculas = {
   contorted: {
     titulo: "Contorted ",
     duracion: "1h 31min",
-    generos: ["Aventura", "Fantasía"],
+    generos: ["Terror", "Misterio"],
     año: 2022,
     sinopsis: "Después de una tragedia, una familia se muda a una nueva casa en las afueras de la ciudad, sólo para descubrir que la casa era barata debido a razones poco ortodoxas.",
     elenco: "Seo Young-hee, Kim Min-jae, Kim Bo-min, Cho Soo-hyang, Park Hyuk-kwon",

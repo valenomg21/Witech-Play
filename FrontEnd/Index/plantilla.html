@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/FrontEnd/Estilos/Peliculas-style.css">
     <link rel="stylesheet" href="/FrontEnd/Estilos/Header-Footer-style.css">
     <link rel="stylesheet" href="/FrontEnd/Estilos/Pantalla-carga.css">
+    <link rel="stylesheet" href="/FrontEnd/Estilos/Index-style.css">
     <title>Witech Play</title>
 </head>
 
@@ -62,6 +63,12 @@
                                 <img src="/FrontEnd/Imagenes/Assets/play-icon.svg" alt="Play">
                                 <span>Ver ahora</span>
                             </button>
+                            <button class="boton-accion-secundario" id="boton-guardar" aria-label="Guardar en mi lista">
+                                <img src="/FrontEnd/Imagenes/Assets/bookmark-icon.svg" alt="Guardar">
+                            </button>
+                            <button class="boton-accion-secundario" id="boton-compartir" aria-label="Compartir">
+                                <img src="/FrontEnd/Imagenes/Assets/share-icon.svg" alt="Compartir">
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -112,6 +119,20 @@
                         <span class="detalle-value" id="valor-director"></span>
                     </div>
                     
+                </div>
+            </div>
+
+            <!-- ================= NUEVO CARRUSEL RELACIONADO ================= -->
+            <div class="seccion-contenido-relacionado" id="seccion-relacionados" style="display: none;">
+                <div class="carrusel-horizontal">
+                    <h2 class="detalle-seccion-titulo">Te podría gustar</h2>
+                    <div class="carrusel-control">
+                        <button class="flecha izquierda" aria-label="Anterior">&#10094;</button>
+                        <div class="peliculas-carrusel" id="carrusel-relacionados">
+                            <!-- El contenido relacionado se insertará aquí con JS -->
+                        </div>
+                        <button class="flecha derecha" aria-label="Siguiente">&#10095;</button>
+                    </div>
                 </div>
             </div>
         </section>
