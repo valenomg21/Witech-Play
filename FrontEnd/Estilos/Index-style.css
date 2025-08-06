@@ -75,8 +75,8 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 120%;
-    height: 120%;
+    width: 140%;
+    height: 140%;
     transform: translate(-50%, -50%);
     pointer-events: none;
     z-index: -1;
@@ -90,6 +90,7 @@ body {
     width: 100%;
     height: 100%;
     overflow: hidden;
+    z-index: 1;
 }
 
 /* Degradado para Legibilidad */
@@ -1069,67 +1070,66 @@ body {
     font-size: 0.85rem;
 }
 
-/* ==========================================================================
-   ESTILOS RESPONSIVE
-   ========================================================================== */
+/* ====================================
+            ESTILOS RESPONSIVE
+   ==================================== */
 
-/* --------------------------------------------------------------------------
-   Para Escritorios Ultra-Anchos (desde 1920px)
-   -------------------------------------------------------------------------- */
+/* -------------------------
+        (desde 1920px)
+   -------------------------*/
 @media (min-width: 1920px) {
-  /* --- Carrusel Principal --- */
+  /* --- Video Hero --- */
+  .video-hero-info-card {left: calc((100vw - 1800px) / 2); max-width: 40%;}
 
-  /* --- Sección Promocional App --- */
-  .seccion-promo-glass { padding: 1.5rem; }
-  .promo-contenido-glass { gap: 1rem; }
-  .promo-texto-glass { padding: 2rem; }
-  .promo-texto-glass h2 { font-size: 3rem; }
-  .promo-texto-glass p { font-size: 1.5rem; }
-  .boton-app { padding: 1.2rem 2rem; font-size: 20px; width: 120px; }
+  /* --- Hero Showcase --- */
+  .showcase-container {max-width: 1800px; margin-left: auto; margin-right: auto;}
 
   /* --- Sección de Contenido --- */
   .contenedor-principal { gap: 30px; }
   .titulo-seccion-pl { font-size: 26px; }
   .contenedor-lateral { max-width: 320px; }
-  /* Ajuste para tarjetas en pantallas muy grandes */
   .pelicula-wrapper { width: 260px; height: 146px; }
 }
 
-/* --------------------------------------------------------------------------
-   Para Tablets y pantallas más pequeñas (hasta 1024px)
-   -------------------------------------------------------------------------- */
+/* --------------------------
+        (hasta 1024px)
+   -------------------------- */
 @media (max-width: 1024px) {
-  /* --- Carrusel Principal --- */
+    /* --- Video Hero --- */
+  .hero-info-card h2 {font-size: 2.5rem;}
+  .hero-info-card .sinopsis {font-size: 0.95rem; -webkit-line-clamp: 2; line-clamp: 2;}
+
+  /* --- Hero Showcase --- */
+  .showcase-container {aspect-ratio: 16 / 7; margin: 0 20px;}
+  .slide-details h2 {font-size: 2.2rem;}
+  .slide-poster {width: 110px;}
+
+  /* --- Widget Tienda */
+  .widget-tienda {position: static; top: auto; max-width: 700px; width: 100%; margin: 40px auto 20px auto; max-height: none;}
+  .widget-tienda-carrusel-wrapper {-webkit-mask-image: none; mask-image: none; overflow-x: auto; padding-bottom: 15px;}
+  .widget-tienda-carrusel-pista {flex-direction: row; width: max-content; animation: none !important;}
+  .widget-tienda-header {background: url(/FrontEnd/Imagenes/Icono/bg-tiles.webp) center/cover no-repeat;}
+  .producto-tienda-item {flex: 0 0 220px; width: 220px;}
 
   /* --- Layout Principal --- */
   .contenedor-principal { flex-direction: column; align-items: center; gap: 0; }
   .contenedor-carruseles { width: 100%; flex: 1; }
-  
-  /* --- Barra lateral (Promoción Productos) --- */
-  .contenedor-lateral { max-width: 100%; margin-top: 40px; padding: 0 15px; box-sizing: border-box; }
-  .prese-promo-vertical { max-width: 500px; margin: 0 auto 20px auto; }
-  .carrusel-vertical { max-height: none; padding: 20px 10px; }
-  .carrusel-vertical::-webkit-scrollbar { height: 6px; }
-  .seccion-promo-produ { flex-direction: row; gap: 15px; }
 
   /* --- Carruseles Horizontales de Películas --- */
   .carrusel-control .flecha { display: none; }
   .carrusel-control::after { display: none; }
-
-  /* --- Sección Promocional App --- */
-  .seccion-promo-glass { padding: 1rem 1rem; }
-  .promo-contenido-glass { gap: 1rem; }
-  .promo-imagen-glass, .promo-texto-glass { height: 200px; }
-  .promo-texto-glass { padding: 1rem; }
-  .promo-texto-glass h2 { font-size: 1.5rem; margin-top: 10px; }
-  .promo-texto-glass p { font-size: 1rem; margin: 0.5rem; line-height: 1.5; }
-  .boton-app { padding: 0.7rem; }
 }
 
-/* --------------------------------------------------------------------------
-   Para Tablets en vertical (hasta 880px)
-   -------------------------------------------------------------------------- */
+/* -----------------------
+        (hasta 880px)
+   ----------------------- */
 @media (max-width: 880px) {
+  .showcase-container {aspect-ratio: 16 / 9;}
+  .slide-info-content {flex-direction: column; align-items: flex-start; gap: 15px;}
+  .slide-details h2 {font-size: 2rem;}
+  .slide-poster {width: 100px;}
+  .boton-ver-trailer {padding: 10px 22px; font-size: 0.9rem;}
+ 
   /* --- Tarjetas de contenido --- */
   .pelicula-wrapper { width: 220px; height: 124px; }
   .productos { flex: 0 0 200px; }
@@ -1140,45 +1140,42 @@ body {
   .promo-texto-glass { height: auto; }
 }
 
-/* --------------------------------------------------------------------------
-   Para Móviles (hasta 768px)
-   -------------------------------------------------------------------------- */
+/* ------------------------
+        (hasta 768px)
+   ------------------------ */
 @media (max-width: 768px) {
-  /* --- Carrusel Principal --- */
-  .video-hero-container {
-        padding-top: 80px;
-    }
-    .video-hero-slides {
-        aspect-ratio: 4 / 3; /* Más vertical en móviles */
-    }
-    .hero-slide::after { /* Degradado más fuerte en móvil */
-        background: linear-gradient(to top, rgba(15,15,15,0.9) 10%, transparent 100%);
-    }
-    .hero-info-card {
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        max-width: 100%;
-        padding: 20px;
-        position: relative; /* Cambiamos a relativo para que se posicione dentro del flex */
-    }
-    .hero-slide {
-        align-items: flex-end;
-    }
-    .hero-info-card h2 {
-        font-size: 1.8rem;
-    }
-    .hero-info-meta {
-        font-size: 0.8rem;}
-    .hero-info-card .sinopsis {-webkit-line-clamp: 2; font-size: 0.9rem; margin-bottom: 20px;}
-    .video-hero-navigation {gap: 15px;}
-    .nav-item {font-size: 0.9rem;}
+  /* --- Video Hero --- */
+  .video-hero-container {padding-bottom: 90px; padding-top: 0;}
+  .video-hero-slides {aspect-ratio: 16 / 9; position: relative;}
+  .hero-slide {display: flex; flex-direction: column; position: absolute; top: 0; left: 0; width: 100%; height: 100%;}
+  .hero-slide::after {display: none;}
+  .hero-slide.active {opacity: 1;}
+  .hero-slide .hero-slide-video-wrapper {position: relative; width: 100%; z-index: 1; flex-shrink: 0; aspect-ratio: 16 / 9;}
+  .hero-info-card {position: relative; left: auto; bottom: auto; transform: none; width: 100%; max-width: 100%; box-sizing: border-box; padding: 20px 15px; background-color: #0f0f0f; z-index: 2; transition: none; opacity: 1;}
+  .hero-info-card h2 {font-size: 1.5rem; margin-bottom: 12px;}
+  .hero-info-card .sinopsis {font-size: 0.9rem; -webkit-line-clamp: 3; line-clamp: 3; margin-bottom: 20px;}
+  .hero-info-actions {display: flex; flex-direction: row; gap: 50px; align-items: stretch; justify-content: center;}
+  .hero-info-actions .btn {text-align: center; padding: 12px 20px; font-size: 1rem;}
+  .hero-info-meta {font-size: 0.8rem; gap: 12px; margin-bottom: 12px;}
+  .video-hero-navigation {padding: 20px 15px; background-color: #0f0f0f; flex-wrap: wrap; justify-content: center;}
+  .nav-item {font-size: 0.9rem; padding-bottom: 6px;}
 
-  /* --- Sección Promocional App --- */
-  .seccion-promo-glass { padding: 0.8rem; }
-  .promo-contenido-glass { grid-template-columns: 1fr; gap: 0; }
-  .promo-imagen-glass { display: block; height: 200px; border-radius: 16px 16px 0 0;}
-  .promo-texto-glass { border-radius: 0 0 16px 16px; padding: 1.5rem; }
+  /* --- Banner CTA Premium --- */
+  .premium-cta-content { flex-direction: column; text-align: center; gap: 25px; padding: 30px 25px;}
+  .cta-texto h2 {font-size: 1.5rem;}
+  .cta-texto p {font-size: 0.95rem; max-width: 100%; }
+  .cta-accion {text-align: center; }
+
+  /* --- Hero Showcase --- */
+  .showcase-container {margin: 0 15px; aspect-ratio: 1 / 1; }
+  .slide-poster {display: none; }
+  .slide-info-content {justify-content: flex-end; padding: 20px;}
+  .slide-details h2 {font-size: 1.8rem;}
+
+  /* --- Widget Tienda --- */
+  .widget-tienda {border-radius: 0; border-left: none; border-right: none; }
+  .widget-tienda-carrusel-wrapper {padding-left: 15px; }
+  .producto-tienda-item {flex: 0 0 180px; width: 180px; }
 
   /* --- Títulos y Tarjetas de Contenido --- */
   .titulo-seccion-pl { font-size: 20px; margin-left: 15px; }
@@ -1187,24 +1184,50 @@ body {
   .titulo-pelicula { font-size: 0.85rem; padding: 10px; }
 }
 
-/* --------------------------------------------------------------------------
-   Para Móviles más pequeños (hasta 480px)
-   -------------------------------------------------------------------------- */
+/* ------------------------
+        (hasta 480px)
+   ------------------------ */
 @media (max-width: 480px) {
-  /* --- Carrusel Principal --- */
-  
+ /* --- Video Showcase --- */
+  .hero-info-card h2 {font-size: 1.3rem;}
+  .hero-info-card .sinopsis {display: none;}
+  .hero-info-meta {font-size: 0.8rem;}
+  .hero-info-actions {flex-direction: column; align-items: stretch;}
+  .hero-info-actions .btn {display: none;}
+  .video-hero-navigation {display: none;}
+
+  /* --- Banner CTA Premium--- */
+  .cta-logo img {width: 60px;}
+  .cta-texto h2 {font-size: 1.3rem;}
+
+  /* --- Hero Showcase --- */
+  .showcase-container {aspect-ratio: 4 / 5;}
+  .slide-details h2 {font-size: 1.6rem;}
+  .slide-details .estreno, .slide-details .generos {font-size: 0.8rem;}
+
   /* --- Títulos y Tarjetas de Contenido --- */
   .titulo-seccion-pl { font-size: 18px; }
   .peliculas-carrusel { gap: 10px; }
   .pelicula-wrapper { width: 170px; height: 96px; }
 }
 
-/* --------------------------------------------------------------------------
-   Para Móviles muy pequeños (hasta 380px)
-   -------------------------------------------------------------------------- */
+/* ------------------------
+        (hasta 380px)
+   ------------------------ */
 @media (max-width: 380px) {
-  /* --- Carrusel Principal --- */
-  
+   /* --- Video Hero --- */
+  .hero-info-card h2 {font-size: 1.6rem;}
+  .video-hero-navigation {gap: 15px;}
+  .nav-item {font-size: 0.8rem;}
+
+  /* --- Hero Showcase --- */
+  .slide-details h2 {font-size: 1.4rem;}
+  .boton-ver-trailer {width: 100%; text-align: center;}
+  .showcase-nav {padding: 20px 15px 0 15px;}
+
+  /* --- Widget Tienda --- */
+  .producto-tienda-item {flex: 0 0 150px; width: 150px;}
+
   /* --- Títulos y Tarjetas de Contenido --- */
   .peliculas-carrusel { padding-left: 10px; padding-right: 10px; }
   .pelicula-wrapper { width: 150px; height: 84px; }

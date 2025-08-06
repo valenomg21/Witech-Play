@@ -80,7 +80,7 @@ window.peliculas = {
     director: "Jared Hess",
     imagenFondo: "/FrontEnd/Imagenes/Fondos/pelis/minecraft.webp",
     imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/minecraft.webp",
-    video: "https://swiftplayers.com/e/16qoioz6njmo"
+    video: "https://player.videasy.net/movie/950387?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
   },
   dora: {
     titulo: "Dora y la Busqueda del Sol Dorado",
@@ -92,19 +92,19 @@ window.peliculas = {
     director: "Alberto Belli",
     imagenFondo: "/FrontEnd/Imagenes/Fondos/pelis/dora.webp",
     imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/dora.webp",
-    video: "https://hgplaycdn.com/e/8pxnzxsztw4a"
+    video: "https://player.videasy.net/movie/1287536?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
   },
-  minecraft: {
-    titulo: "Una Película de Minecraft",
-    duracion: "1h 41min",
-    generos: ["Aventura", "Fantasía"],
+  weapons: {
+    titulo: "Weapons",
+    duracion: "2h 9min",
+    generos: ["Terror", "Misterio"],
     año: 2025,
-    sinopsis: "Cuatro inadaptados se encuentran luchando con problemas ordinarios cuando de repente se ven arrastrados a través de un misterioso portal al Overworld: un extraño país de las maravillas cúbico que se nutre de la imaginación. Para volver a casa, tendrán que dominar este mundo mientras se embarcan en una búsqueda mágica con un inesperado experto artesano, Steve.",
-    elenco: "Jason Momoa, Jack Black, Sebastian Eugene Hansen, Emma Myers, Danielle Brooks",
-    director: "Jared Hess",
-    imagenFondo: "/FrontEnd/Imagenes/Fondos/pelis/minecraft.webp",
-    imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/minecraft.webp",
-    video: "https://swiftplayers.com/e/16qoioz6njmo"
+    sinopsis: "Cuando todos menos uno de los niños de la misma clase desaparecen misteriosamente en la misma noche exactamente al mismo tiempo, una comunidad se queda cuestionando quién o qué está detrás de su desaparición.",
+    elenco: "Julia Garner, Josh Brolin, Alden Ehrenreich, Benedict Wong, Amy Madigan",
+    director: "Zach Cregger",
+    imagenFondo: "/FrontEnd/Imagenes/Fondos/pelis/weapons.webp",
+    imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/weapons.webp",
+    video: "https://player.videasy.net/movie/1078605?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
   },
   contorted: {
     titulo: "Contorted ",
@@ -116,7 +116,7 @@ window.peliculas = {
     director: "Kang Dong-hun",
     imagenFondo: "/FrontEnd/Imagenes/Fondos/pelis/contorted.webp",
     imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/contorted.webp",
-    video: "https://swiftplayers.com/e/h54yq08aiqyn"
+    video: "https://player.videasy.net/movie/877260?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
   },
   intensamente2: {
     titulo: "Intensamente 2",
@@ -128,7 +128,7 @@ window.peliculas = {
     director: "Kelsey Mann",
     imagenFondo: "/FrontEnd/Imagenes/Fondos/pelis/intensamente2.webp",
     imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/intensamente2.webp",
-    video: "https://swiftplayers.com/e/z0xmal10v19h"
+    video: "https://player.videasy.net/movie/1022789?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
   },
   badboyshastalamuerte: {
     titulo: "Bad Boys: Hasta la Muerte",
@@ -140,7 +140,7 @@ window.peliculas = {
     director: "Adil El Arbi",
     imagenFondo: "/FrontEnd/Imagenes/Fondos/pelis/badboyshastalamuerte.webp",
     imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/badboyshastalamuerte.webp",
-    video: "https://swiftplayers.com/e/2dajudcgse2l"
+    video: "https://player.videasy.net/movie/573435?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
   },
   venomultimobaile: {
     titulo: "Venom: Ultimo Baile",
@@ -152,7 +152,7 @@ window.peliculas = {
     director: "Kelly Marcel",
     imagenFondo: "/FrontEnd/Imagenes/Fondos/pelis/venomultimobaile.webp",
     imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/venomultimobaile.webp",
-    video: "https://swiftplayers.com/e/037nez9knr4p"
+    video: "https://player.videasy.net/movie/912649?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
   },
    blancanieves: {
     titulo: "Blancanieves",
@@ -164,7 +164,7 @@ window.peliculas = {
     director: "Marc Webb",
     imagenFondo: "/FrontEnd/Imagenes/Fondos/pelis/blancanieves.webp",
     imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/blancanieves.webp",
-    video: "https://swiftplayers.com/e/037nez9knr4p"
+    video: "https://player.videasy.net/movie/447273?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
   },
    aworkingman: {
     titulo: "A Working Man",
@@ -176,7 +176,7 @@ window.peliculas = {
     director: "David Ayer",
     imagenFondo: "/FrontEnd/Imagenes/Fondos/pelis/aworkingman.webp",
     imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/aworkingman.webp",
-    video: ""
+    video: "https://player.videasy.net/movie/1197306?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
   },
    capitanamerica: {
     titulo: "Capitan America: Un Mundo Nuevo",
@@ -188,7 +188,7 @@ window.peliculas = {
     director: "Julius Onah",
     imagenFondo: "/FrontEnd/Imagenes/Fondos/pelis/capitanamericabravenewworld.webp",
     imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/capitanamericabravenewworld.webp",
-    video: ""
+    video: "https://player.videasy.net/movie/822119?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
   },
    alienromulus: {
     titulo: "Alien: Romulus",
@@ -200,7 +200,7 @@ window.peliculas = {
     director: "Fede Álvarez",
     imagenFondo: "/FrontEnd/Imagenes/Fondos/pelis/alienromulus.webp",
     imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/alienromulus.webp",
-    video: "https://swiftplayers.com/e/h4d7eg3t2gha"
+    video: "https://player.videasy.net/movie/945961?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
   },
    sustancia: {
     titulo: "La Sustancia",
@@ -212,7 +212,7 @@ window.peliculas = {
     director: "Coralie Fargeat",
     imagenFondo: "/FrontEnd/Imagenes/Fondos/pelis/sustancia.webp",
     imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/sustancia.webp",
-    video: "https://swiftplayers.com/e/npc68vz5y7ns"
+    video: "https://player.videasy.net/movie/933260?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
   },
    deadpoollobezno: {
     titulo: "Deadpool y Lobezno",
@@ -224,7 +224,7 @@ window.peliculas = {
     director: "Shawn levy",
     imagenFondo: "/FrontEnd/Imagenes/Fondos/pelis/deadpoollobezno.webp",
     imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/deadpoollobezno.webp",
-    video: "https://swiftplayers.com/e/dvd8ovgzrmxu"
+    video: "https://player.videasy.net/movie/533535?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
   },
    gladiator2: {
     titulo: "Gladiador 2",
@@ -236,7 +236,7 @@ window.peliculas = {
     director: "Ridley Scott",
     imagenFondo: "/FrontEnd/Imagenes/Fondos/pelis/gladiator2.webp",
     imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/gladiator2.webp",
-    video: "https://swiftplayers.com/e/m9zbmxwuqlzk"
+    video: "https://player.videasy.net/movie/558449?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
   },
    todosvanamorir: {
     titulo: "Todos Van a Morir",
@@ -248,7 +248,7 @@ window.peliculas = {
     director: "Craig Tuohy, Brad Moore, Chiara D'Anna, Gledisa Arthur, Lila Lasso",
     imagenFondo: "/FrontEnd/Imagenes/Fondos/pelis/todosvanamorir.webp",
     imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/todosvanamorir.webp",
-    video: "https://swiftplayers.com/e/50pur0bi5hww"
+    video: "https://player.videasy.net/movie/1236471?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
   },
    misionimposiblesentenciafinal: {
     titulo: "Mision Imposible: Sentencia Final",
@@ -260,7 +260,7 @@ window.peliculas = {
     director: "Christopher McQuarrie",
     imagenFondo: "/FrontEnd/Imagenes/Fondos/pelis/misionimposiblesentenciafinal.webp",
     imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/misionimposiblesentenciafinal.webp",
-    video: "https://swiftplayers.com/e/7qpyza7hoygx"
+    video: "https://player.videasy.net/movie/575265?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
   },
    destinofinallazosdesangre: {
     titulo: "Destino FInal: Lazos de Sangre",
@@ -272,7 +272,7 @@ window.peliculas = {
     director: "Zach Lipovsky",
     imagenFondo: "/FrontEnd/Imagenes/Fondos/pelis/destinofinallazosdesangre.webp",
     imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/destinofinallazosdesangre.webp",
-    video: "https://swiftplayers.com/e/blj7dj6orz8t"
+    video: "https://player.videasy.net/movie/574475?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
   },
   longlegs: {
     titulo: "Longlegs: Coleccionista de Almas",
@@ -284,7 +284,7 @@ window.peliculas = {
     director: "Osgood Perkins",
     imagenFondo: "/FrontEnd/Imagenes/Fondos/pelis/longlegs.webp",
     imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/longlegs.webp",
-    video: "https://swiftplayers.com/e/mrufxwk1pmct"
+    video: "https://player.videasy.net/movie/1226578?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
   },
   comoentrenaratudragon: {
     titulo: "Cómo Entrenar A Tu Dragon",
@@ -296,7 +296,7 @@ window.peliculas = {
     director: "Dean DeBlois",
     imagenFondo: "/FrontEnd/Imagenes/Fondos/pelis/comoentrenaratudragon.webp",
     imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/comoentrenaratudragon.webp",
-    video: "https://swiftplayers.com/e/6l5mg3gub1ko"
+    video: "https://player.videasy.net/movie/1087192?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
   },
   lospecadores: {
     titulo: "Los Pecadores",
@@ -308,19 +308,19 @@ window.peliculas = {
     director: "Ryan Coogler",
     imagenFondo: "/FrontEnd/Imagenes/Fondos/pelis/lospecadores.webp",
     imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/lospecadores.webp",
-    video: "https://swiftplayers.com/e/6l5mg3gub1ko"
+    video: "https://player.videasy.net/movie/1233413?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
   },
-  matabot: {
-    titulo: "Matabot",
-    duracion: "1h 43min",
-    generos: ["Comedia", "Drama", "Ciencia Ficcion", "Fantasía"],
+  jurasicworldrebirth: {
+    titulo: "Jurassic World: Rebirth",
+    duracion: "2h 13min",
+    generos: ["Accion", "Ciencia Ficcion", "Aventura"],
     año: 2025,
-    sinopsis: "En un futuro tecnológico, un robot de seguridad rebelde consigue en secreto volsad propia. Para no llamar la atención, se une a regañadientes a una nueva misión. Debe proteger a unos científicos en un planeta peligroso... aunque solo quiere ver culebrones.",
-    elenco: "Alexander Skarsgård, Noma Dumezweni, David Dastmalchian, Sabrina Wu, Akshay Khanna",
-    director: "Chris Weitz",
-    imagenFondo: "/FrontEnd/Imagenes/Fondos/pelis/matabot.webp",
-    imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/matabot.webp",
-    video: "https://swiftplayers.com/e/6l5mg3gub1ko"
+    sinopsis: "Cinco años después de los eventos de 'Dominion', la ecología del planeta ha demostrado ser insoportable para los dinosaurios, donde los pocos que quedan viven aislados en las regiones ecuatoriales. Zora Bennett es contratada para dirigir a un equipo de especialistas cuyo objetivo es conseguir el material genético de las tres criaturas más grandes, las cuales tienen en su ADN la clave para fabricar un medicamento que aportará grandes beneficios a la humanidad. Pero la operación se cruzará con una familia cuyo barco volcó y todos acabarán en una isla prohibida ocupada por dinosaurios de numerosas especies, donde tendrán que hacer lo imposible para sobrevivir.",
+    elenco: "Scarlett Johansson, Jonathan Bailey, Mahershala Ali, Rupert Friend, Manuel Garcia-Rulfo",
+    director: "Michael Crichton",
+    imagenFondo: "/FrontEnd/Imagenes/Fondos/pelis/jurasicworldrebirth.webp",
+    imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/jurasicworldrebirth.webp",
+    video: "https://player.videasy.net/movie/1234821?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
   },
   superman: {
     titulo: "Superman",
@@ -332,7 +332,7 @@ window.peliculas = {
     director: "James Gunn",
     imagenFondo: "/FrontEnd/Imagenes/Fondos/pelis/superman.webp",
     imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/superman.webp",
-    video: "https://swiftplayers.com/e/6l5mg3gub1ko"
+    video: "https://player.videasy.net/movie/1061474?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
   },
   untildawn: {
     titulo: "Until Dawn",
@@ -344,7 +344,7 @@ window.peliculas = {
     director: "David F. Sandberg",
     imagenFondo: "/FrontEnd/Imagenes/Fondos/pelis/untildawn.webp",
     imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/untildawn.webp",
-    video: "https://swiftplayers.com/e/6l5mg3gub1ko"
+    video: "https://player.videasy.net/movie/1232546?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
   },
   añosdespues28: {
     titulo: "28 Años Después",
@@ -356,10 +356,10 @@ window.peliculas = {
     director: "Danny Boyle",
     imagenFondo: "/FrontEnd/Imagenes/Fondos/pelis/28añosdespues.webp",
     imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/28añosdespues.webp",
-    video: "https://swiftplayers.com/e/6l5mg3gub1ko"
+    video: "https://player.videasy.net/movie/1100988?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
   },
-  formula1: {
-    titulo: "Formula 1",
+  f1: {
+    titulo: "F1",
     duracion: "2h 36min",
     generos: ["Accion", "Drama"],
     año: 2025,
@@ -368,7 +368,55 @@ window.peliculas = {
     director: "Joseph Kosinski",
     imagenFondo: "/FrontEnd/Imagenes/Fondos/pelis/formula1.webp",
     imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/formula1.webp",
-    video: "https://swiftplayers.com/e/6l5mg3gub1ko"
+    video: "https://player.videasy.net/movie/911430?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+  },
+  lilo: {
+    titulo: "Lilo & Stitch",
+    duracion: "2h 36min",
+    generos: ["Accion", "Drama"],
+    año: 2025,
+    sinopsis: "La conmovedora y divertidísima historia de una solitaria niña hawaiana y el extraterrestre fugitivo que la ayuda a reparar su desestructurada familia.",
+    elenco: "Maia Kealoha, Sydney Agudong, Chris Sanders, Zach Galifianakis, Billy Magnussen",
+    director: "Dean Fleischer Camp",
+    imagenFondo: "/FrontEnd/Imagenes/Fondos/pelis/lilo.webp",
+    imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/lilo.webp",
+    video: "https://player.videasy.net/movie/552524?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+  },
+  happygilmore2: {
+    titulo: "Happy Gilmore 2",
+    duracion: "1h 58min",
+    generos: ["Comedia"],
+    año: 2025,
+    sinopsis: "Happy, ya retirado del golf profesional, regresa al circuito no por gloria sino para financiar la escuela de danza de su hija, Viena.",
+    elenco: "Adam Sandler, Julie Bowen, Christopher McDonald, Benny Safdie, Ben Stiller",
+    director: "Kyle Newacheck",
+    imagenFondo: "/FrontEnd/Imagenes/Fondos/pelis/gilmore2.webp",
+    imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/gilmore2.webp",
+    video: "https://player.videasy.net/movie/1263256?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+  },
+  fantastic4: {
+    titulo: "The Fantastic 4: First Steps",
+    duracion: "1h 55min",
+    generos: ["Ciencia Ficcion", "Aventura"],
+    año: 2025,
+    sinopsis: "Con un mundo retrofuturista inspirado en los años 60 como telón de fondo, la Primera Familia de Marvel deberá hacer frente a su mayor desafío hasta la fecha. Obligados a buscar el equilibrio entre su papel de héroes y sus fuertes vínculos familiares, tendrán que defender la Tierra de un hambriento dios espacial llamado Galactus y su intrigante heraldo, Estela Plateada.",
+    elenco: "Pedro Pascal, Vanessa Kirby, Ebon Moss-Bachrach, Joseph Quinn, Ralph Ineson",
+    director: "Matt Shakman",
+    imagenFondo: "/FrontEnd/Imagenes/Fondos/pelis/fantastic4.webp",
+    imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/fantastic4.webp",
+    video: "https://player.videasy.net/movie/617126?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+  },
+  thunderbolts: {
+    titulo: "Thunderbolts",
+    duracion: "2h 7min",
+    generos: ["Ciencia Ficcion", "Aventura", "Accion"],
+    año: 2025,
+    sinopsis: "Un grupo de supervillanos poco convencional es reclutado para hacer misiones para el gobierno: Yelena Belova, Bucky Barnes, Red Guardian, Ghost, Taskmaster y John Walker. Después de verse atrapados en una trampa mortal urdida por Valentina Allegra de Fontaine, estos marginados deben embarcarse en una peligrosa misión que les obligará a enfrentarse a los recovecos más oscuros de su pasado.",
+    elenco: "Florence Pugh, Sebastian Stan, Julia Louis-Dreyfus, Lewis Pullman, David Harbour",
+    director: "Jake Schreier",
+    imagenFondo: "/FrontEnd/Imagenes/Fondos/pelis/thunderbolts.webp",
+    imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/thunderbolts.webp",
+    video: "https://player.videasy.net/movie/986056?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
   },
   
   
@@ -396,47 +444,47 @@ window.series = {
           {
             numeroCapituloEnTemporada: 1, 
             tituloCapitulo: "Vete al Oeste, Viejo",
-            videoUrl: "https://swiftplayers.com/e/nb9dy6qoc8rh"
+            videoUrl: "https://player.videasy.net/tv/153312/1/1?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
           },
           {
             numeroCapituloEnTemporada: 2, 
             tituloCapitulo: "el Centro del Universo",
-            videoUrl: "https://swiftplayers.com/e/ip1mxwnjbhlw"
+            videoUrl: "https://player.videasy.net/tv/153312/1/2?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
           },
           {
             numeroCapituloEnTemporada: 3, 
             tituloCapitulo: "Caprice",
-            videoUrl: "https://swiftplayers.com/e/fh7pztzjog68"
+            videoUrl: "https://player.videasy.net/tv/153312/1/3?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
           },
           {
             numeroCapituloEnTemporada: 4, 
             tituloCapitulo: "Lugar de Castigo",
-            videoUrl: "https://swiftplayers.com/e/0047b226aril"
+            videoUrl: "https://player.videasy.net/tv/153312/1/4?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
           },
           {
             numeroCapituloEnTemporada: 5, 
-            tituloCapitulo: "Joe Ficha",
-            videoUrl: "https://swiftplayers.com/e/xv07wq807c8r"
+            tituloCapitulo: "Token Joe",
+            videoUrl: "https://player.videasy.net/tv/153312/1/5?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
           },
           {
             numeroCapituloEnTemporada: 6, 
             tituloCapitulo: "Establo",
-            videoUrl: "https://swiftplayers.com/e/ggxhrqs367b9"
+            videoUrl: "https://player.videasy.net/tv/153312/1/6?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
           },
           {
             numeroCapituloEnTemporada: 7, 
             tituloCapitulo: "Warr Acres",
-            videoUrl: "https://servidor.video/serie/s01e01.mp4"
+            videoUrl: "https://player.videasy.net/tv/153312/1/7?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
           },
           {
             numeroCapituloEnTemporada: 8, 
             tituloCapitulo: "Adobe Walls",
-            videoUrl: "https://servidor.video/serie/s01e01.mp4"
+            videoUrl: "https://player.videasy.net/tv/153312/1/8?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
           },
           {
             numeroCapituloEnTemporada: 9, 
             tituloCapitulo: "Buen Viaje",
-            videoUrl: "https://servidor.video/serie/s01e01.mp4"
+            videoUrl: "https://player.videasy.net/tv/153312/1/9?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
           },
           
           // ... más capítulos de la Temporada 1
@@ -449,52 +497,109 @@ window.series = {
           {
             numeroCapituloEnTemporada: 1, 
             tituloCapitulo: "De Vuelta al Ruedo",
-            videoUrl: "https://servidor.video/serie/s01e01.mp4"
+            videoUrl: "https://player.videasy.net/tv/153312/2/1?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
           },
           {
             numeroCapituloEnTemporada: 2, 
             tituloCapitulo: "Kansas City Blues",
-            videoUrl: "https://servidor.video/serie/s01e01.mp4"
+            videoUrl: "https://player.videasy.net/tv/153312/2/2?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
           },
           {
             numeroCapituloEnTemporada: 3, 
             tituloCapitulo: "Oklahoma contra Manfredi",
-            videoUrl: "https://servidor.video/serie/s01e01.mp4"
+            videoUrl: "https://player.videasy.net/tv/153312/2/3?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
           },
           {
             numeroCapituloEnTemporada: 4, 
             tituloCapitulo: "Heroes y Villanos",
-            videoUrl: "https://servidor.video/serie/s01e01.mp4"
+            videoUrl: "https://player.videasy.net/tv/153312/2/4?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
           },
           {
             numeroCapituloEnTemporada: 5, 
             tituloCapitulo: "Lucha Contra los Molinos de Viento",
-            videoUrl: "https://servidor.video/serie/s01e01.mp4"
+            videoUrl: "https://player.videasy.net/tv/153312/2/5?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
           },
           {
             numeroCapituloEnTemporada: 6, 
             tituloCapitulo: "Navegador",
-            videoUrl: "https://servidor.video/serie/s01e01.mp4"
+            videoUrl: "https://player.videasy.net/tv/153312/2/5?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
           },
           {
             numeroCapituloEnTemporada: 7, 
             tituloCapitulo: "Soporte Vital",
-            videoUrl: "https://servidor.video/serie/s01e01.mp4"
+            videoUrl: "https://player.videasy.net/tv/153312/2/7?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
           },
           {
             numeroCapituloEnTemporada: 8, 
             tituloCapitulo: "Una Nueva Direccion",
-            videoUrl: "https://servidor.video/serie/s01e01.mp4"
+            videoUrl: "https://player.videasy.net/tv/153312/2/8?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
           },
           {
             numeroCapituloEnTemporada: 9, 
             tituloCapitulo: "Triada",
-            videoUrl: "https://servidor.video/serie/s01e01.mp4"
+            videoUrl: "https://player.videasy.net/tv/153312/2/9?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
           },
           {
             numeroCapituloEnTemporada: 10, 
             tituloCapitulo: "Reconstruccion",
-            videoUrl: "https://servidor.video/serie/s01e01.mp4"
+            videoUrl: "https://player.videasy.net/tv/153312/2/10?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          // ... más capítulos de la Temporada 2
+        ]
+      },
+      {
+        numeroTemporada: 2,
+        nombreTemporada: "Temporada Dos",
+        capitulos: [
+          {
+            numeroCapituloEnTemporada: 1, 
+            tituloCapitulo: "De Vuelta al Ruedo",
+            videoUrl: "https://player.videasy.net/tv/153312/2/1?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 2, 
+            tituloCapitulo: "Kansas City Blues",
+            videoUrl: "https://player.videasy.net/tv/153312/2/2?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 3, 
+            tituloCapitulo: "Oklahoma contra Manfredi",
+            videoUrl: "https://player.videasy.net/tv/153312/2/3?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 4, 
+            tituloCapitulo: "Heroes y Villanos",
+            videoUrl: "https://player.videasy.net/tv/153312/2/4?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 5, 
+            tituloCapitulo: "Lucha Contra los Molinos de Viento",
+            videoUrl: "https://player.videasy.net/tv/153312/2/5?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 6, 
+            tituloCapitulo: "Navegador",
+            videoUrl: "https://player.videasy.net/tv/153312/2/5?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 7, 
+            tituloCapitulo: "Soporte Vital",
+            videoUrl: "https://player.videasy.net/tv/153312/2/7?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 8, 
+            tituloCapitulo: "Una Nueva Direccion",
+            videoUrl: "https://player.videasy.net/tv/153312/2/8?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 9, 
+            tituloCapitulo: "Triada",
+            videoUrl: "https://player.videasy.net/tv/153312/2/9?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 10, 
+            tituloCapitulo: "Reconstruccion",
+            videoUrl: "https://player.videasy.net/tv/153312/2/10?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
           },
           // ... más capítulos de la Temporada 2
         ]
@@ -505,17 +610,17 @@ window.series = {
 
 
 
-  "anatomiadegrey": {
-    titulo: "Grey's Anatomy",
-    añoInicio: 2022, 
-    añoFin: 2024,
+  "thewitcher": {
+    titulo: "The Witcher",
+    añoInicio: 2019, 
+    añoFin: 2023,
     estadoEmision: "Finalizada",
-    sinopsisGeneral: "Justo después de ser liberado de prisión después de 25 años, el capo de la mafia de Nueva York, Dwight 'El General' Manfredi, es exiliado sin contemplaciones por su jefe para instalarse en Tulsa, Oklahoma. Al darse cuenta de que su familia de la mafia puede no tener sus mejores intereses en mente, Dwight construye lentamente una 'tripulación' a partir de un grupo de personajes inverosímiles, para ayudarlo a establecer un nuevo imperio criminal en un lugar que para él bien podría ser otro planeta.", 
+    sinopsisGeneral: "Geralt, un brujo que se dedica a cazar monstruos genéticamente modificados, busca su lugar en un mundo donde a menudo los humanos demuestran ser peores que las bestias.", 
     generos: ["Crimen", "Drama", "Acción"],
-    elencoPrincipal: ["Sylvester Stallone", "Martin Starr", "Jay Will", "Max Casella"],
-    creadores: ["Taylor Sheridan"],
-    imagenFondo: "/FrontEnd/Imagenes/Fondos/series/anatomiadegrey.webp",
-    imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/series/anatomiadegrey.webp", 
+    elencoPrincipal: ["Henry Cavill", "Anya Chalotra", "Freya Allan", "Eamon Farren"],
+    creadores: ["Lauren Schmidt Hissrich"],
+    imagenFondo: "/FrontEnd/Imagenes/Fondos/series/thewitcher.webp",
+    imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/series/thewitcher.webp", 
     // Estructura de Temporadas y Capítulos
     temporadas: [
       {
@@ -525,10 +630,44 @@ window.series = {
         capitulos: [
           {
             numeroCapituloEnTemporada: 1, 
-            tituloCapitulo: "Vete al Oeste, Viejo",
-            videoUrl: "https://swiftplayers.com/e/nb9dy6qoc8rh"
+            tituloCapitulo: "El Principio del Fin",
+            videoUrl: "https://player.videasy.net/tv/71912/1/1?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
           },
-          
+          {
+            numeroCapituloEnTemporada: 2, 
+            tituloCapitulo: "Cuatro Marcas",
+            videoUrl: "https://player.videasy.net/tv/71912/1/2?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 3, 
+            tituloCapitulo: "Luna Traidora",
+            videoUrl: "https://player.videasy.net/tv/71912/1/3?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 4, 
+            tituloCapitulo: "De Banquetes, Bastardos y Entierros",
+            videoUrl: "https://player.videasy.net/tv/71912/1/4?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 5, 
+            tituloCapitulo: "Apetitos Embotellados",
+            videoUrl: "https://player.videasy.net/tv/71912/1/5?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 6, 
+            tituloCapitulo: "Especimenes Raros",
+            videoUrl: "https://player.videasy.net/tv/71912/1/6?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 7, 
+            tituloCapitulo: "Antes de una Caida",
+            videoUrl: "https://player.videasy.net/tv/71912/1/7?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 8, 
+            tituloCapitulo: "Mucho Más",
+            videoUrl: "https://player.videasy.net/tv/71912/1/8?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
           // ... más capítulos de la Temporada 1
         ]
       },

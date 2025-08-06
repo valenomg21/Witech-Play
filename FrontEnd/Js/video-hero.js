@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function initializeHero() {
         heroData.forEach((data, index) => {
             const videoId = getYoutubeVideoId(data.videoUrl);
-            const embedUrl = videoId ? `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&controls=0&showinfo=0&rel=0&loop=1&playlist=${videoId}&origin=${window.location.origin}` : '';
+            const embedUrl = videoId ? `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&controls=0&showinfo=0&rel=0&loop=1&playlist=${videoId}&playsinline=1&origin=${window.location.origin}` : '';
 
             const slide = document.createElement('div');
             slide.className = 'hero-slide';
