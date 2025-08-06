@@ -1,92 +1,127 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="Icon" href="/FrontEnd/Imagenes/Icono/logo-1173935095-1728869406-0d49a887e4481f6878662eb805f4555b1728869406.png">
+    <!-- El CSS de la plantilla debe ser reemplazado por el nuevo que te proporcioné -->
     <link rel="stylesheet" href="/FrontEnd/Estilos/Peliculas-style.css">
     <link rel="stylesheet" href="/FrontEnd/Estilos/Header-Footer-style.css">
+    <link rel="stylesheet" href="/FrontEnd/Estilos/Pantalla-carga.css">
     <title>Witech Play</title>
 </head>
 
 <body>
-    <div class="imagen-fondo"></div>
+    <div id="pantalla-carga">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Fondo atmosférico para toda la página -->
+    <div class="pagina-fondo"></div>
+    
     <div id="header-container"></div>
     <div class="fondo-oscuro"></div>
 
+    <!-- Overlay de video (sin cambios en su estructura) -->
     <div id="video-overlay">
-      <iframe id="video-player-iframe" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen>
-    </iframe>
-    <button id="close-video-overlay-button">X</button>
+        <iframe id="video-player-iframe" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <button id="close-video-overlay-button">×</button>
     </div>
 
-     <main class="contenedor-pelicula">
-        <section class="contenedor-principal-detalle"> <!-- Cambié clase para evitar confusión -->
-            <div class="contenido-detalle"> <!-- Cambié clase para evitar confusión -->
-              <h1 class="titulo-contenido">Nombre del Contenido</h1> <!-- Título genérico -->
+    <main class="detalle-main-container">
 
-              <div class="info-contenido">
-                <!-- Para Películas -->
-                <span class="info-pelicula-duracion" style="display: none;"></span>
-                
-                <!-- Para Series -->
-                <span class="info-serie-temporadas-estado" style="display: none;"></span>
-                
-                <span class="separador-info" style="display: none;">·</span>
-                <span class="generos-contenido">
-                  <!-- Géneros se llenan aquí -->
-                </span>
-                <span class="separador-info" style="display: none;">·</span>
-                <span class="año-contenido"></span> <!-- Año o rango de años -->
-              </div>
+        <!-- ======================= SECCIÓN HERO ======================= -->
+        <section class="detalle-hero-seccion">
+            <div class="hero-contenido">
+                <div class="hero-poster">
+                    <!-- El JS llenará la imagen del póster aquí -->
+                    <img id="poster-principal" src="" alt="Póster del contenido">
+                </div>
+                <div class="hero-info">
+                    <h1 class="titulo-contenido">Cargando...</h1>
 
-              <p class="sinopsis-contenido">
-                <!-- Sinopsis se llena aquí -->
-              </p>
+                    <div class="info-meta">
+                        <!-- Para Películas -->
+                        <span class="info-pelicula-duracion" style="display: none;"></span>
+                        <!-- Para Series -->
+                        <span class="info-serie-temporadas-estado" style="display: none;"></span>
+                        
+                        <span class="separador-info">•</span>
+                        <span class="año-contenido"></span>
+                        <span class="separador-info">•</span>
+                        <span class="generos-contenido"></span>
+                    </div>
 
-              <div class="controles-contenido"> <!-- Contenedor para botones/selectores -->
-                
-                <!-- Botones para Películas -->
-                <div class="botones-pelicula" style="display: none;">
-                    <button class="boton-ver-ahora">Ver ahora</button>
-                    <button class="boton-ver-mas">Ver más</button>
-                    <div id="detalles-adicionales-pelicula" class="detalles-ocultos">
-                        <!-- Detalles específicos de película -->
+                    <p class="sinopsis-contenido"></p>
+
+                    <div class="controles-contenido">
+                        <!-- Botones para Películas (JS lo mostrará si es película) -->
+                        <div class="botones-pelicula" style="display: none;">
+                            <button class="boton-accion-principal boton-ver-ahora">
+                                <!-- Sugerencia: Añadir un icono al botón es un buen detalle visual -->
+                                <img src="/FrontEnd/Imagenes/Assets/play-icon.svg" alt="Play">
+                                <span>Ver ahora</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <!-- Selectores para Series (Por ahora solo el contenedor general) -->
-                <div class="controles-serie" style="display: none;">
-                    <p><strong>Elenco:</strong> <span class="serie-elenco"></span></p>
-                    <p><strong>Creadores:</strong> <span class="serie-creadores"></span></p>
+        <!-- ======================= SECCIÓN DE CONTENIDO DETALLADO ======================= -->
+        <section class="detalle-contenido-seccion">
+            
+            <!-- Controles específicos de Series (JS lo mostrará si es serie) -->
+            <div class="controles-serie" style="display: none;">
+                <h2 class="detalle-seccion-titulo">Episodios</h2>
+                <div class="selector-temporadas-container">
+                    <div class="lista-botones-temporadas">
+                        <!-- Botones de temporada se insertan aquí por JS -->
+                    </div>
+                </div>
+                <div class="lista-capitulos-container" style="display:none;">
+                    <ul class="lista-capitulos">
+                        <!-- Capítulos se insertan aquí por JS -->
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Información Adicional para Películas y Series -->
+            <div class="info-adicional">
+                <h2 class="detalle-seccion-titulo">Detalles</h2>
+                <div class="detalles-grid">
                     
-                    <div class="selector-temporadas-container">
-                        <!-- Aquí irán los botones de temporada más adelante -->
-                        <h3>Temporadas</h3>
-                        <div class="lista-botones-temporadas"></div>
+                    <!-- ELENCO: Se usa para series Y películas -->
+                    <div class="detalle-item" id="item-elenco" style="display: none;">
+                        <span class="detalle-label">Elenco</span>
+                        <!-- Reutilizamos tu span .serie-elenco para AMBOS (películas y series) -->
+                        <span class="detalle-value serie-elenco"></span>
                     </div>
-                    <div class="lista-capitulos-container" style="display:none;">
-                        <h4>Capítulos:</h4>
-                        <ul class="lista-capitulos"></ul>
+
+                    <!-- CREADORES: Solo para series -->
+                    <div class="detalle-item" id="item-creadores" style="display: none;">
+                        <span class="detalle-label">Creadores</span>
+                        <!-- Reutilizamos tu span .serie-creadores -->
+                        <span class="detalle-value serie-creadores"></span>
                     </div>
+
+                    <!-- DIRECTOR: Solo para películas -->
+                    <div class="detalle-item" id="item-director" style="display: none;">
+                        <span class="detalle-label">Director</span>
+                        <!-- Un nuevo span para el director de la película -->
+                        <span class="detalle-value" id="valor-director"></span>
+                    </div>
+                    
                 </div>
-
-              </div>
-
-       
             </div>
         </section>
     </main>
 
-    <div id="footer-container" class="footer"></div>
+    <div id="footer-container"></div>
     
     <script src="/FrontEnd/Js/data.js"></script>
     <script src="/FrontEnd/Js/main.js"></script>
     <script src="/FrontEnd/Js/plantilla.js"></script>
     <script src="/FrontEnd/Js/header-footer.js"></script> 
-    
-
 </body>
 </html>
