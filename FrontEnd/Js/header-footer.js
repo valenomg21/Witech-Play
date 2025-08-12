@@ -531,4 +531,4 @@ function inicializarHeader() {
   });
   
   checkTokenAndLoadProfile();
-} // Fin de inicializarHeader
+} // Fin de inicializarHeaders
