@@ -1188,6 +1188,9 @@ body {
         (hasta 480px)
    ------------------------ */
 @media (max-width: 480px) {
+    .group {
+        display: none;
+    }
  /* --- Video Showcase --- */
   .hero-info-card h2 {font-size: 1.3rem;}
   .hero-info-card .sinopsis {display: none;}
@@ -1232,4 +1235,69 @@ body {
   .peliculas-carrusel { padding-left: 10px; padding-right: 10px; }
   .pelicula-wrapper { width: 150px; height: 84px; }
   .titulo-pelicula { font-size: 0.8rem; }
+}
+
+
+/* ======================
+     BANNER DE ESTUDIOS
+   ====================== */
+
+.estudios-banner-seccion {
+    padding: 20px 0;
+    background-color: rgba(31, 27, 46, 0.3); 
+    border-top: 1px solid var(--color-borde-sutil);
+    border-bottom: 1px solid var(--color-borde-sutil);
+    overflow: hidden;
+    position: relative;
+    
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+.logos-pista-scroll {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    width: max-content;
+    
+   
+    animation: scroll-horizontal 40s linear infinite;
+}
+
+.estudios-banner-seccion:hover .logos-pista-scroll {
+    animation-play-state: paused;
+}
+
+
+@keyframes scroll-horizontal {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+
+.estudio-logo-item {
+    height: 40px; 
+    filter: grayscale(100%) brightness(1.5);
+    opacity: 0.7;
+    transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+}
+
+.estudio-logo-item:hover {
+    filter: grayscale(0%) brightness(1); 
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .logos-pista-scroll {
+        gap: 60px;
+        animation-duration: 30s;
+    }
+    .estudio-logo-item {
+        height: 30px;
+    }
 }

@@ -3,15 +3,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const id = params.get("id");
 
   // --- Selección de Elementos del DOM ---
-  const loader = document.getElementById('pantalla-carga');
   const mainContainer = document.querySelector(".detalle-main-container");
-  
-  // Elementos del Overlay de Video
   const overlay = document.getElementById("video-overlay");
   const videoIframePlayer = document.getElementById("video-player-iframe");
   const closeVideoOverlayButton = document.getElementById("close-video-overlay-button");
-
-  // Elementos de la sección Hero
   const tituloEl = document.querySelector(".titulo-contenido");
   const paginaFondoEl = document.querySelector(".pagina-fondo");
   const posterPrincipalImg = document.getElementById('poster-principal');
@@ -20,248 +15,311 @@ document.addEventListener("DOMContentLoaded", () => {
   const añoEl = document.querySelector(".año-contenido");
   const infoPeliculaDuracionEl = document.querySelector(".info-pelicula-duracion");
   const infoSerieTemporadasEstadoEl = document.querySelector(".info-serie-temporadas-estado");
-  const separadoresInfo = document.querySelectorAll(".separador-info");
-
-  // Controles de Película
   const botonesPeliculaEl = document.querySelector(".botones-pelicula");
   const botonVerAhoraEl = document.querySelector(".boton-ver-ahora");
-
-  // Controles de Serie
   const controlesSerieEl = document.querySelector(".controles-serie");
   const listaBotonesTemporadasEl = document.querySelector(".lista-botones-temporadas");
   const listaCapitulosContainerEl = document.querySelector(".lista-capitulos-container");
   const listaCapitulosUlEl = document.querySelector(".lista-capitulos");
-
-  // Elementos de la sección "Detalles Adicionales"
   const itemElencoDiv = document.getElementById('item-elenco');
   const itemCreadoresDiv = document.getElementById('item-creadores');
   const itemDirectorDiv = document.getElementById('item-director');
   const serieElencoSpan = document.querySelector('.serie-elenco');
   const serieCreadoresSpan = document.querySelector('.serie-creadores');
   const valorDirectorSpan = document.getElementById('valor-director');
-
-  // --- Nueva seleccion para Contenido Relacionado ---
+  
+  // --- Elementos del NUEVO carrusel ---
   const seccionRelacionados = document.getElementById('seccion-relacionados');
-  const carruselRelacionados = document.getElementById('carrusel-relacionados');
+  const pistaCarruselRelacionados = document.getElementById('carrusel-relacionados');
 
-  let datosCompletosSerie = null;
   let data = null;
   let tipoContenido = null;
 
-  // --- Funciones Auxiliares ---
   function closeOverlay() {
     if (overlay) overlay.style.display = "none";
     if (videoIframePlayer) videoIframePlayer.src = "";
   }
 
-  // --- Lógica Principal ---
+  // --- LÓGICA PRINCIPAL DE LA PÁGINA ---
   if (id) {
-    if (window.peliculas && window.peliculas[id]) {
-      data = window.peliculas[id];
+    const peliculas = window.peliculas || {};
+    const series = window.series || {};
+    if (peliculas[id]) {
+      data = peliculas[id];
       tipoContenido = "pelicula";
-    } else if (window.series && window.series[id]) {
-      data = window.series[id];
+    } else if (series[id]) {
+      data = series[id];
       tipoContenido = "serie";
-      datosCompletosSerie = data;
     }
   }
 
   if (data) {
-    // Rellenar la información común
     document.title = `${data.titulo} - Witech Play`;
     if (tituloEl) tituloEl.textContent = data.titulo;
     if (paginaFondoEl && data.imagenFondo) paginaFondoEl.style.backgroundImage = `url(${data.imagenFondo})`;
     if (posterPrincipalImg && data.imagenTarjeta) posterPrincipalImg.src = data.imagenTarjeta;
     if (sinopsisEl) sinopsisEl.textContent = data.sinopsis || data.sinopsisGeneral || "Sinopsis no disponible.";
-    
-    if (generosContainer && data.generos && data.generos.length > 0) {
+    if (generosContainer && data.generos) {
       generosContainer.innerHTML = data.generos.map(g => `<span class="link-genero">${g}</span>`).join(', ');
-    } else {
-      generosContainer.innerHTML = "";
     }
 
-    // Lógica específica por tipo de contenido
     if (tipoContenido === "pelicula") {
-      if (infoPeliculaDuracionEl) {
-        infoPeliculaDuracionEl.textContent = data.duracion;
-        infoPeliculaDuracionEl.style.display = "inline";
-      }
+      if (infoPeliculaDuracionEl) { infoPeliculaDuracionEl.textContent = data.duracion; infoPeliculaDuracionEl.style.display = "inline"; }
       if (añoEl) añoEl.textContent = data.año;
       if (botonesPeliculaEl) botonesPeliculaEl.style.display = "flex";
-
-      // Rellenar detalles adicionales de la película
-      if (data.elenco && serieElencoSpan) {
-        serieElencoSpan.textContent = data.elenco;
-        if(itemElencoDiv) itemElencoDiv.style.display = 'block';
-      }
-      if (data.director && valorDirectorSpan) {
-        valorDirectorSpan.textContent = data.director;
-        if(itemDirectorDiv) itemDirectorDiv.style.display = 'block';
-      }
-
+      if (data.elenco && serieElencoSpan) { serieElencoSpan.textContent = data.elenco; if(itemElencoDiv) itemElencoDiv.style.display = 'block'; }
+      if (data.director && valorDirectorSpan) { valorDirectorSpan.textContent = data.director; if(itemDirectorDiv) itemDirectorDiv.style.display = 'block'; }
     } else if (tipoContenido === "serie") {
-      if (infoSerieTemporadasEstadoEl) {
-        let textoTemporadas = datosCompletosSerie.temporadas ? `${datosCompletosSerie.temporadas.length} Temporada(s)` : "";
-        infoSerieTemporadasEstadoEl.textContent = textoTemporadas;
-        infoSerieTemporadasEstadoEl.style.display = "inline";
-      }
-      if (añoEl) {
-        añoEl.textContent = `${datosCompletosSerie.añoInicio} - ${datosCompletosSerie.añoFin || "Presente"}`;
-      }
+      const serieData = data;
+      if (infoSerieTemporadasEstadoEl) { infoSerieTemporadasEstadoEl.textContent = `${serieData.temporadas?.length || 0} Temporada(s)`; infoSerieTemporadasEstadoEl.style.display = "inline"; }
+      if (añoEl) añoEl.textContent = `${serieData.añoInicio} - ${serieData.añoFin || "Presente"}`;
       if (controlesSerieEl) controlesSerieEl.style.display = "block";
-
-      // Rellenar detalles adicionales de la serie
-      if (datosCompletosSerie.elencoPrincipal && serieElencoSpan) {
-        serieElencoSpan.textContent = datosCompletosSerie.elencoPrincipal.join(', ');
-        if(itemElencoDiv) itemElencoDiv.style.display = 'block';
-      }
-      if (datosCompletosSerie.creadores && serieCreadoresSpan) {
-        serieCreadoresSpan.textContent = datosCompletosSerie.creadores.join(', ');
-        if(itemCreadoresDiv) itemCreadoresDiv.style.display = 'block';
-      }
-
-      // Renderizar temporadas y capítulos
-      renderizarBotonesTemporada();
-      if (datosCompletosSerie.temporadas && datosCompletosSerie.temporadas.length > 0) {
-        setTimeout(() => {
-          const primerBotonTemporada = listaBotonesTemporadasEl.querySelector('.boton-temporada');
-          if (primerBotonTemporada) {
-            primerBotonTemporada.click();
-          }
-        }, 0);
+      if (serieData.elencoPrincipal && serieElencoSpan) { serieElencoSpan.textContent = serieData.elencoPrincipal.join(', '); if(itemElencoDiv) itemElencoDiv.style.display = 'block'; }
+      if (serieData.creadores && serieCreadoresSpan) { serieCreadoresSpan.textContent = serieData.creadores.join(', '); if(itemCreadoresDiv) itemCreadoresDiv.style.display = 'block'; }
+      renderizarBotonesTemporada(serieData);
+      if (serieData.temporadas && serieData.temporadas.length > 0) {
+        setTimeout(() => listaBotonesTemporadasEl.querySelector('.boton-temporada')?.click(), 0);
       }
     }
 
     renderizarContenidoRelacionado(data, id);
-
+    
   } else {
-    // Manejo de error si no se encuentra el contenido
-    if (mainContainer) {
-      mainContainer.innerHTML = `<h1 style="text-align: center; margin-top: 50px;">Contenido no encontrado.</h1>`;
-    }
+    if (mainContainer) mainContainer.innerHTML = `<h1 style="text-align: center; margin-top: 50px;">Contenido no encontrado.</h1>`;
   }
 
-  // --- Event Listeners ---
+  // --- EVENT LISTENERS ---
   if (closeVideoOverlayButton) closeVideoOverlayButton.addEventListener("click", closeOverlay);
   if (overlay) overlay.addEventListener("click", (e) => { if (e.target === overlay) closeOverlay(); });
-
   if (botonVerAhoraEl) {
     botonVerAhoraEl.addEventListener("click", () => {
-      if (data.video && videoIframePlayer && overlay) {
+      if (data.video) {
         videoIframePlayer.src = data.video;
         overlay.style.display = "flex";
-        if (typeof guardarEnHistorial === 'function') {
-          guardarEnHistorial(id);
-        }
+        if (typeof guardarEnHistorial === 'function') guardarEnHistorial(id);
       }
     });
   }
 
-  // --- Funciones de Renderizado para Series ---
-  function renderizarBotonesTemporada() {
-    if (!listaBotonesTemporadasEl || !datosCompletosSerie || !datosCompletosSerie.temporadas) return;
+  // --- FUNCIONES DE RENDERIZADO DE SERIES ---
+  function renderizarBotonesTemporada(serieData) {
+    if (!listaBotonesTemporadasEl || !serieData?.temporadas) return;
     listaBotonesTemporadasEl.innerHTML = '';
-    datosCompletosSerie.temporadas.forEach(temporada => {
+    serieData.temporadas.forEach(temp => {
       const boton = document.createElement('button');
-      boton.classList.add('boton-temporada');
-      boton.textContent = temporada.nombreTemporada || `Temporada ${temporada.numeroTemporada}`;
+      boton.className = 'boton-temporada';
+      boton.textContent = temp.nombreTemporada || `Temporada ${temp.numeroTemporada}`;
       boton.addEventListener('click', () => {
-        document.querySelectorAll('.boton-temporada.activo').forEach(btn => btn.classList.remove('activo'));
+        listaBotonesTemporadasEl.querySelector('.activo')?.classList.remove('activo');
         boton.classList.add('activo');
-        renderizarCapitulos(temporada.numeroTemporada);
+        renderizarCapitulos(serieData, temp.numeroTemporada);
       });
       listaBotonesTemporadasEl.appendChild(boton);
     });
   }
 
-  function renderizarCapitulos(numTemporada) {
-    if (!listaCapitulosUlEl || !listaCapitulosContainerEl || !datosCompletosSerie || !datosCompletosSerie.temporadas) return;
-    const temporadaData = datosCompletosSerie.temporadas.find(t => t.numeroTemporada === numTemporada);
-    if (!temporadaData || !temporadaData.capitulos) {
-      listaCapitulosUlEl.innerHTML = '<li>No hay capítulos disponibles para esta temporada.</li>';
+  function renderizarCapitulos(serieData, numTemp) {
+    if (!listaCapitulosUlEl || !listaCapitulosContainerEl || !serieData?.temporadas) return;
+    const temp = serieData.temporadas.find(t => t.numeroTemporada === numTemp);
+    if (!temp || !temp.capitulos) {
+      listaCapitulosUlEl.innerHTML = '<li>No hay capítulos disponibles.</li>';
       listaCapitulosContainerEl.style.display = 'block';
       return;
     }
+    
     listaCapitulosUlEl.innerHTML = '';
-    temporadaData.capitulos.forEach(capitulo => {
+    
+    temp.capitulos.forEach(cap => {
       const li = document.createElement('li');
-      li.classList.add('item-capitulo');
-      li.innerHTML = `<strong>${capitulo.numeroCapituloEnTemporada}.</strong> ${capitulo.tituloCapitulo || `Capítulo ${capitulo.numeroCapituloEnTemporada}`}`;
+      li.className = 'item-capitulo';
+      li.innerHTML = `
+        <span class="capitulo-numero"><strong>${cap.numeroCapituloEnTemporada}.</strong></span>
+        <div class="capitulo-titulo-wrapper">
+          <span class="capitulo-titulo-texto">${cap.tituloCapitulo || `Capítulo ${cap.numeroCapituloEnTemporada}`}</span>
+        </div>
+        <img src="/FrontEnd/Imagenes/Assets/play-icon.svg" class="capitulo-play-icon" alt="Reproducir">
+      `;
+      
       li.addEventListener('click', () => {
-        if (capitulo.videoUrl && videoIframePlayer && overlay) {
-          videoIframePlayer.src = capitulo.videoUrl;
+        if (cap.videoUrl) {
+          videoIframePlayer.src = cap.videoUrl;
           overlay.style.display = 'flex';
-          if (typeof guardarEnHistorial === 'function') {
-            guardarEnHistorial(id);
-          }
+          if (typeof guardarEnHistorial === 'function') guardarEnHistorial(id);
         } else {
-          alert("Video no disponible para este capítulo.");
+          alert("Video no disponible.");
         }
       });
       listaCapitulosUlEl.appendChild(li);
     });
-    listaCapitulosContainerEl.style.display = 'block';
-  }
-
-  // --- ¡NUEVA FUNCIÓN PARA RENDERIZAR CONTENIDO RELACIONADO! ---
-  function renderizarContenidoRelacionado(itemActual, idActual) {
-    if (!itemActual.generos || itemActual.generos.length === 0) {
-      if (seccionRelacionados) seccionRelacionados.style.display = 'none';
-      return; // No podemos encontrar relacionados si no hay géneros
-    }
-
-    const generosPrincipales = itemActual.generos;
-
-    // 1. Combinar todas las películas y series en una sola lista
-    const todoElContenido = [
-      ...Object.keys(window.peliculas || {}).map(key => ({ id: key, tipo: 'pelicula', ...window.peliculas[key] })),
-      ...Object.keys(window.series || {}).map(key => ({ id: key, tipo: 'serie', ...window.series[key] }))
-    ];
-
-    // 2. Filtrar para encontrar contenido relacionado
-    let relacionados = todoElContenido.filter(item => {
-      // Excluir el item que estamos viendo actualmente
-      if (item.id === idActual) return false;
-
-      // Incluir si tiene al menos un género en común
-      return item.generos && item.generos.some(genero => generosPrincipales.includes(genero));
-    });
-
-    // 3. Mezclar y limitar los resultados para variedad
-    relacionados.sort(() => 0.5 - Math.random()); // Mezclar aleatoriamente
-    relacionados = relacionados.slice(0, 15); // Limitar a 15 resultados
-
-    if (relacionados.length === 0) {
-      if (seccionRelacionados) seccionRelacionados.style.display = 'none';
-      return; // Ocultar la sección si no se encontró nada
-    }
     
-    // 4. Generar el HTML para el carrusel
-    let carruselHTML = '';
-    relacionados.forEach(item => {
-      const imagenSrc = item.imagenTarjeta || '/FrontEnd/Imagenes/placeholder-poster.webp';
-      const altText = item.titulo || 'Título no disponible';
-      // La estructura debe ser idéntica a la de index.html para que peli-carrusel.js funcione
-      carruselHTML += `
-        <div class="pelicula-wrapper">
-          <a href="/FrontEnd/Index/plantilla.html?id=${item.id}" style="text-decoration: none;">
-            <div class="pelicula" data-id="${item.id}" data-type="${item.tipo}">
-              <img src="${imagenSrc}" alt="${altText}" loading="lazy" />
-            </div>
-          </a>
-        </div>
-      `;
-    });
-
-    // 5. Inyectar el HTML y mostrar la sección
-    if (carruselRelacionados) carruselRelacionados.innerHTML = carruselHTML;
-    if (seccionRelacionados) seccionRelacionados.style.display = 'block';
-
-    // 6. ¡CRÍTICO! Inicializar el carrusel recién creado
-    const carruselControl = seccionRelacionados.querySelector('.carrusel-control');
-    if (carruselControl && typeof initCarousel === 'function') {
-      initCarousel(carruselControl);
-    }
+    listaCapitulosContainerEl.style.display = 'block';
+    
+    activarScrollTitulosLargos();
   }
   
-});
+  function activarScrollTitulosLargos() {
+    // Usamos setTimeout para asegurar que el navegador ha renderizado todo.
+    // Esto es crucial para obtener las medidas correctas.
+    setTimeout(() => {
+        const todosLosCapitulos = document.querySelectorAll('.item-capitulo');
+        
+        todosLosCapitulos.forEach(item => {
+            const wrapper = item.querySelector('.capitulo-titulo-wrapper');
+            const texto = item.querySelector('.capitulo-titulo-texto');
+
+            if (wrapper && texto) {
+                // Comprobamos si el ancho del texto es mayor que el de su contenedor
+                const isOverflowing = texto.scrollWidth > wrapper.clientWidth;
+                
+                if (isOverflowing) {
+                    item.classList.add('is-overflowing');
+
+                    // Calculamos la distancia exacta que debe moverse el texto
+                    const scrollDistance = wrapper.clientWidth - texto.scrollWidth;
+                    
+                    // Calculamos una duración dinámica basada en la cantidad de texto sobrante
+                    // para que la velocidad de scroll sea siempre consistente.
+                    // (Aprox. 60 píxeles por segundo)
+                    const duration = Math.abs(scrollDistance) / 60;
+                    
+                    // Pasamos las variables a nuestro CSS
+                    texto.style.setProperty('--scroll-distance', `${scrollDistance}px`);
+                    texto.style.setProperty('--scroll-duration', `${duration}s`);
+                } else {
+                    // Si no hay overflow, nos aseguramos de que la clase no esté
+                    item.classList.remove('is-overflowing');
+                }
+            }
+        });
+    }, 100);
+}
+
+  // --- LÓGICA DEL CARRUSEL DE CONTENIDO RELACIONADO ---
+  function renderizarContenidoRelacionado(itemActual, idActual) {
+    if (!itemActual.generos?.length) {
+      if (seccionRelacionados) seccionRelacionados.style.display = 'none';
+      return;
+    }
+    
+    const todoElContenido = [
+      ...Object.entries(window.peliculas || {}).map(([key, val]) => ({ id: key, tipo: 'pelicula', ...val })),
+      ...Object.entries(window.series || {}).map(([key, val]) => ({ id: key, tipo: 'serie', ...val }))
+    ];
+
+    let relacionados = todoElContenido
+      .filter(item => item.id !== idActual && item.generos?.some(g => itemActual.generos.includes(g)))
+      .sort(() => 0.5 - Math.random())
+      .slice(0, 15);
+
+    if (relacionados.length < 1) {
+      if (seccionRelacionados) seccionRelacionados.style.display = 'none';
+      return;
+    }
+
+    pistaCarruselRelacionados.innerHTML = relacionados.map(item => `
+      <div class="detalle-tarjeta-wrapper">
+        <a href="/FrontEnd/Index/plantilla.html?id=${item.id}" class="detalle-tarjeta-contenido">
+          <img src="${item.imagenTarjeta || ''}" alt="${item.titulo || ''}" loading="lazy">
+          <div class="detalle-tarjeta-titulo">${item.titulo || ''}</div>
+        </a>
+      </div>
+    `).join('');
+
+    if (seccionRelacionados) seccionRelacionados.style.display = 'block';
+    
+    // Inmediatamente después de renderizar, inicializamos el carrusel
+    inicializarCarruselRelacionados();
+  }
+  
+  // --- NUEVA FUNCIÓN PARA INICIALIZAR EL CARRUSEL DE DETALLES ---
+  function inicializarCarruselRelacionados() {
+    const contenedor = document.querySelector('.detalle-carrusel-contenedor');
+    const pista = contenedor?.querySelector('.detalle-carrusel-pista');
+    const flechaIzquierda = contenedor?.querySelector('.detalle-flecha.izquierda');
+    const flechaDerecha = contenedor?.querySelector('.detalle-flecha.derecha');
+
+    if (!contenedor || !pista || !flechaIzquierda || !flechaDerecha) return;
+
+    const tarjetasOriginales = Array.from(pista.children);
+    if (tarjetasOriginales.length === 0) return;
+
+    // --- Lógica de Scroll Infinito ---
+    // 1. Clonar tarjetas para crear el efecto de bucle
+    const clonesInicio = tarjetasOriginales.map(card => card.cloneNode(true));
+    const clonesFinal = tarjetasOriginales.map(card => card.cloneNode(true));
+    
+    pista.append(...clonesFinal);
+    pista.prepend(...clonesInicio);
+
+    const duracionTransicion = 500; // en ms
+    let isMoving = false;
+    let posicionActual = 0;
+    
+    // 2. Función para calcular el desplazamiento y la posición inicial
+    function actualizarPosicion() {
+        const tarjetaAncho = tarjetasOriginales[0].offsetWidth + 15; // 15 es el gap
+        posicionActual = -tarjetaAncho * tarjetasOriginales.length;
+        pista.style.transition = 'none'; // Sin animación para el ajuste inicial
+        pista.style.transform = `translateX(${posicionActual}px)`;
+    }
+
+    // 3. Función de movimiento
+    function mover(direccion) {
+        if (isMoving) return;
+        isMoving = true;
+        
+        const viewportAncho = contenedor.querySelector('.detalle-carrusel-viewport').offsetWidth;
+        const tarjetaAncho = tarjetasOriginales[0].offsetWidth + 15;
+        // Mover una cantidad de tarjetas que casi llene la pantalla
+        const tarjetasAMover = Math.max(1, Math.floor(viewportAncho / tarjetaAncho));
+        const desplazamiento = tarjetaAncho * tarjetasAMover;
+
+        pista.style.transition = `transform ${duracionTransicion}ms ease`;
+
+        if (direccion === 'derecha') {
+            posicionActual -= desplazamiento;
+        } else {
+            posicionActual += desplazamiento;
+        }
+        
+        pista.style.transform = `translateX(${posicionActual}px)`;
+    }
+
+    // 4. Listener para el final de la transición (la magia del bucle)
+    pista.addEventListener('transitionend', () => {
+        isMoving = false;
+        
+        const tarjetaAncho = tarjetasOriginales[0].offsetWidth + 15;
+        const limiteDerecho = -tarjetaAncho * (tarjetasOriginales.length * 2);
+        const limiteIzquierdo = -tarjetaAncho * (tarjetasOriginales.length - 1);
+
+        // Si hemos llegado al final de los clones de la derecha...
+        if (posicionActual <= limiteDerecho) {
+            pista.style.transition = 'none';
+            posicionActual = -tarjetaAncho * tarjetasOriginales.length;
+            pista.style.transform = `translateX(${posicionActual}px)`;
+        }
+
+        // Si hemos llegado al final de los clones de la izquierda...
+        if (posicionActual > limiteIzquierdo) {
+            pista.style.transition = 'none';
+            posicionActual = -tarjetaAncho * (tarjetasOriginales.length * 2 - 1);
+            // El cálculo puede ser complejo, un ajuste simple suele funcionar:
+            posicionActual = -tarjetaAncho * (tarjetasOriginales.length + (tarjetasOriginales.length - Math.floor(contenedor.querySelector('.detalle-carrusel-viewport').offsetWidth / tarjetaAncho)));
+            pista.style.transform = `translateX(${posicionActual}px)`;
+        }
+    });
+
+    // 5. Asignar eventos a las flechas
+    flechaDerecha.addEventListener('click', () => mover('derecha'));
+    flechaIzquierda.addEventListener('click', () => mover('izquierda'));
+    
+    // 6. Configuración inicial
+    // Usamos un pequeño delay para asegurar que todas las imágenes han cargado y tienen dimensiones
+    setTimeout(() => {
+        actualizarPosicion();
+        window.addEventListener('resize', actualizarPosicion);
+    }, 100);
+}
+
+}); // Fin del DOMContentLoaded

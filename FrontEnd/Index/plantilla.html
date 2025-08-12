@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="/FrontEnd/Estilos/Peliculas-style.css">
     <link rel="stylesheet" href="/FrontEnd/Estilos/Header-Footer-style.css">
     <link rel="stylesheet" href="/FrontEnd/Estilos/Pantalla-carga.css">
-    <link rel="stylesheet" href="/FrontEnd/Estilos/Index-style.css">
     <title>Witech Play</title>
 </head>
 
@@ -122,18 +121,28 @@
                 </div>
             </div>
 
-            <!-- ================= NUEVO CARRUSEL RELACIONADO ================= -->
+            <!-- ================= NUEVO CARRUSEL RELACIONADO (CON CLASES ESPECÍFICAS) ================= -->
             <div class="seccion-contenido-relacionado" id="seccion-relacionados" style="display: none;">
-                <div class="carrusel-horizontal">
-                    <h2 class="detalle-seccion-titulo">Te podría gustar</h2>
-                    <div class="carrusel-control">
-                        <button class="flecha izquierda" aria-label="Anterior">&#10094;</button>
-                        <div class="peliculas-carrusel" id="carrusel-relacionados">
+                
+                <h2 class="detalle-seccion-titulo">Te podría gustar</h2>
+                
+                <!-- Contenedor principal del carrusel de detalles -->
+                <div class="detalle-carrusel-contenedor">
+                    <button class="detalle-flecha izquierda" aria-label="Anterior">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+                    </button>
+                    
+                    <div class="detalle-carrusel-viewport">
+                        <div class="detalle-carrusel-pista" id="carrusel-relacionados">
                             <!-- El contenido relacionado se insertará aquí con JS -->
                         </div>
-                        <button class="flecha derecha" aria-label="Siguiente">&#10095;</button>
-                    </div>
+                   </div>
+                    
+                    <button class="detalle-flecha derecha" aria-label="Siguiente">
+                       <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+                    </button>
                 </div>
+            
             </div>
         </section>
     </main>

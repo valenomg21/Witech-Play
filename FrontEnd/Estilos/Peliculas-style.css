@@ -204,59 +204,150 @@ body {
 
 .lista-botones-temporadas {
     display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
+    flex-wrap: nowrap;
+    gap: 10px;
     margin-bottom: 30px;
+    
+    overflow-x: auto;
+    
+    -webkit-overflow-scrolling: touch;
+    
+    padding: 10px 5px;
+    
+    -webkit-mask-image: none;
+    mask-image: none;
 }
-.boton-temporada {
+
+/* --- ESTILOS PARA LA SCROLLBAR (WEBKIT - CHROME, SAFARI, EDGE) --- */
+.lista-botones-temporadas::-webkit-scrollbar {
+    height: 6px;
+}
+
+.lista-botones-temporadas::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.lista-botones-temporadas::-webkit-scrollbar-thumb {
     background-color: var(--color-fondo-terciario);
+    border-radius: 10px;
+}
+
+.lista-botones-temporadas::-webkit-scrollbar-thumb:hover {
+    background-color: #7359a1; 
+}
+
+.lista-botones-temporadas {
+    scrollbar-width: thin;
+    scrollbar-color: #7359a16e transparent; 
+}
+
+/* Rediseño del botón/pestaña de temporada */
+.boton-temporada {
+    /* Reseteamos estilos de botón y lo convertimos en una pestaña flexible */
+    flex-shrink: 0; /* Evita que los botones se encojan */
+    
+    background-color: transparent;
     color: var(--color-texto-secundario);
-    border: 1px solid var(--color-borde-sutil);
-    padding: 10px 20px;
-    border-radius: 50px;
+    border: none; /* Sin borde por defecto */
+    border-bottom: 2px solid transparent; /* Borde inferior para el indicador activo */
+    
+    /* Ajustamos padding y quitamos el borde redondeado completo */
+    padding: 12px 20px;
+    border-radius: 0; /* Sin bordes redondeados */
+    
     cursor: pointer;
-    transition: all 0.2s ease;
-    font-size: 0.95rem;
+    transition: color 0.2s ease, border-bottom-color 0.2s ease;
+    font-size: 1.1rem; /* Un poco más grande para darle importancia */
     font-weight: 500;
+    
+    scroll-snap-align: start; /* (Opcional) Ayuda a alinear con el snap-scroll */
 }
+
+/* Efecto hover: el texto se vuelve más claro */
 .boton-temporada:hover {
-    background-color: var(--color-acento-purpura);
     color: var(--color-texto-principal);
-    border-color: var(--color-acento-purpura);
+    background-color: transparent; /* Nos aseguramos que no cambie el fondo */
 }
+
+/* Botón activo: se resalta con el color de acento verde */
 .boton-temporada.activo {
-    background-color: var(--color-acento-verde);
-    color: var(--color-fondo-primario);
-    border-color: var(--color-acento-verde);
+    color: var(--color-acento-verde);
     font-weight: 600;
+    border-bottom-color: var(--color-acento-verde); /* Línea inferior se colorea */
+    background-color: transparent;
+    border-color: var(--color-acento-verde); /* Borde completo para el activo */
+    border-radius: 50px; /* Borde redondeado solo para el activo */
 }
 
 .lista-capitulos {
     list-style: none;
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 15px;
     margin-bottom: 40px;
 }
 .item-capitulo {
-    background-color: var(--color-fondo-secundario);
-    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    background-color: #00000040;
+    padding: 8px 10px;
     border-radius: var(--border-radius-estandar);
-    border-left: 3px solid transparent;
+    border: 1px solid var(--color-borde-sutil);
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    min-height: 40px;
+    overflow: hidden;
 }
 .item-capitulo:hover {
-    transform: translateY(-3px);
-    background-color: var(--color-fondo-terciario);
-    border-left-color: var(--color-acento-purpura);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    background-color: var(--color-fondo-secundario);
+    border-color: var(--color-acento-purpura);
+    transform: translateY(-2px);
 }
-.item-capitulo strong {
+.capitulo-numero strong {
     color: var(--color-acento-verde);
-    margin-right: 8px;
+    margin-right: 12px;
+    font-weight: 600;
 }
+.capitulo-titulo-wrapper {
+    flex-grow: 1;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.capitulo-titulo-texto {
+    display: inline-block;
+}
+.capitulo-play-icon {
+    width: 20px;
+    height: 20px;
+    margin-left: 15px;
+    opacity: 0; /* Oculto por defecto */
+    transform: translateX(-10px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.item-capitulo:hover .capitulo-play-icon {
+    opacity: 1; /* Visible en hover */
+    transform: translateX(0);
+}
+
+
+.item-capitulo.is-overflowing:hover .capitulo-titulo-texto {
+    animation: scroll-to-end var(--scroll-duration) ease-out 1s forwards;
+}
+
+.item-capitulo.is-overflowing .capitulo-titulo-texto {
+    transition: transform 0.3s ease;
+}
+
+@keyframes scroll-to-end {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(var(--scroll-distance));
+    }
+}
+
 
 .info-adicional {
     margin-top: 40px;
@@ -385,3 +476,159 @@ body {
     }
 }
 
+.seccion-contenido-relacionado {
+    margin-top: 60px;
+    padding-bottom: 30px;
+}
+
+.detalle-carrusel-contenedor {
+    position: relative;
+}
+
+.detalle-carrusel-viewport {
+    overflow: hidden;
+    /* Efecto de degradado en los bordes para ocultar el final */
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+}
+
+.detalle-carrusel-pista {
+    display: flex;
+    gap: 15px;
+    /* Damos un padding para que las tarjetas no se peguen a los bordes del viewport */
+    padding: 10px 0;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* --- Flechas de Navegación --- */
+.detalle-flecha {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(31, 27, 46, 0.5);
+    color: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    cursor: pointer;
+    backdrop-filter: blur(5px);
+    transition: all 0.25s ease;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-50%) scale(0.8);
+}
+
+.detalle-carrusel-contenedor:hover .detalle-flecha {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-50%) scale(1);
+}
+
+.detalle-flecha.izquierda { left: 20px; }
+.detalle-flecha.derecha { right: 20px; }
+
+.detalle-flecha:hover {
+    background-color: rgba(31, 27, 46, 0.8);
+    color: #ffffff;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.detalle-flecha:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    transform: translateY(-50%) scale(1);
+}
+
+.detalle-flecha svg {
+    width: 24px;
+    height: 24px;
+    stroke: currentColor;
+    stroke-width: 2.5;
+}
+
+/* --- Tarjeta de Contenido y Efectos de Hover --- */
+.detalle-tarjeta-wrapper {
+  width: 240px;
+  height: 135px;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.detalle-tarjeta-contenido {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  background-color: #1d192b;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, outline 0.3s ease;
+}
+
+.detalle-tarjeta-contenido img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.detalle-tarjeta-titulo {
+  position: absolute;
+  bottom: 0;
+  left: -10px;
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* --- Efectos de Hover --- */
+.detalle-tarjeta-contenido:hover {
+  transform: scale(1.05);
+  outline: 2px solid var(--color-acento-purpura);
+  box-shadow: var(--sombra-resaltada-purpura);
+  z-index: 5;
+}
+
+.detalle-tarjeta-contenido:hover img {
+  transform: scale(1.1);
+}
+
+.detalle-tarjeta-contenido:hover .detalle-tarjeta-titulo {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* --- Responsive para el carrusel --- */
+@media (max-width: 768px) {
+    .detalle-flecha {
+        display: none; /* Ocultamos las flechas en móvil, se usa swipe */
+    }
+    .detalle-carrusel-viewport {
+        overflow-x: auto; /* Activamos scroll nativo en móvil */
+        -webkit-mask-image: none;
+        mask-image: none;
+        
+        scrollbar-width: none; /* Ocultar scrollbar en Firefox */
+    }
+    .detalle-carrusel-viewport::-webkit-scrollbar {
+        display: none; /* Ocultar scrollbar en Chrome/Safari */
+    }
+    .detalle-carrusel-pista {
+        padding: 10px 20px; /* Padding lateral para que no se pegue al borde */
+    }
+}

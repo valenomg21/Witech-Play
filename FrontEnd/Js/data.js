@@ -41,22 +41,34 @@ window.videoHeroData = {
   },
 };
 
+const estudiosData = [
+    { nombre: "Disney", logo: "disney.png" },
+    { nombre: "Warner Bros", logo: "warner.png" },
+    { nombre: "Universal", logo: "universal.png" },
+    { nombre: "Paramount", logo: "paramount.png" },
+    { nombre: "Sony Pictures", logo: "sony.png" },
+    { nombre: "20th Century Studios", logo: "20th-century.png" },
+    { nombre: "Lionsgate", logo: "lionsgate.png" },
+    { nombre: "A24", logo: "a24.png" }
+    // Añade aquí todos los estudios que quieras
+];
+
 window.proximosEstrenos = {
-  dracula: {
-    titulo: "Dracula",
-    genero: ["Terror","Fantasía","Drama"],
-    fechaEstreno: "30 de Julio 2025",
-    imagenFondo: "/FrontEnd/Imagenes/Prox/dracula.webp",
-    imagenTarjeta: "/FrontEnd/Imagenes/Prox/dracula-mini.webp",
-    videoTrailerUrl: "https://www.youtube.com/watch?v=r_OLH6pU-EM"
+  homoargentum: {
+    titulo: "Homo-Argentum",
+    genero: ["Comedia","Familia"],
+    fechaEstreno: "14 de Agosto 2025",
+    imagenFondo: "/FrontEnd/Imagenes/Prox/homoargentum.webp",
+    imagenTarjeta: "/FrontEnd/Imagenes/Prox/homoargentum-mini.webp",
+    videoTrailerUrl: "https://youtu.be/_Tdk26fRQE0"
   },
-  fantastic4: {
-    titulo: "Los Cuatro Fantásticos: Primeros pasos",
-    genero: ["Ciencia ficción","Aventura"],
-    fechaEstreno: "25 de Julio 2025",
-    imagenFondo: "/FrontEnd/Imagenes/Prox/fantastic4.webp",
-    imagenTarjeta: "/FrontEnd/Imagenes/Prox/fantastic4-mini.webp",
-    videoTrailerUrl: "https://www.youtube.com/watch?v=waf9snfaUFw"
+  devuelvela: {
+    titulo: "Devuélvemela",
+    genero: ["Terror","Suspenso"],
+    fechaEstreno: "21 de Agosto 2025",
+    imagenFondo: "/FrontEnd/Imagenes/Prox/devuelvela.webp",
+    imagenTarjeta: "/FrontEnd/Imagenes/Prox/devuelvela-mini.webp",
+    videoTrailerUrl: "https://youtu.be/wLMRLWSsfhw"
   },
   slqhevp: {
     titulo: "Sé lo que hicieron el verano pasado",
@@ -418,6 +430,42 @@ window.peliculas = {
     imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/thunderbolts.webp",
     video: "https://player.videasy.net/movie/986056?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
   },
+  waroftheworlds: {
+    titulo: "War of the Worlds",
+    duracion: "1h 30min",
+    generos: ["Ciencia Ficcion","Accion"],
+    año: 2025,
+    sinopsis: "Will Radford, un destacado analista de ciberseguridad, pasa sus días rastreando posibles amenazas a la seguridad nacional a través de un programa de vigilancia masiva. Un ataque de una entidad desconocida le lleva a cuestionarse si el gobierno le está ocultando algo a él... y al resto del mundo.",
+    elenco: "Ice Cube, Eva Longoria, Clark Gregg, Iman Benson, Devon Bostick",
+    director: "Rich Lee",
+    imagenFondo: "/FrontEnd/Imagenes/Fondos/pelis/waroftheworlds.webp",
+    imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/waroftheworlds.webp",
+    video: "https://player.videasy.net/movie/755898?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+  },
+  megan: {
+    titulo: "Megan 2.0",
+    duracion: "2h",
+    generos: ["Ciencia Ficcion","Accion","Suspenso"],
+    año: 2025,
+    sinopsis: "Con el futuro de la existencia humana en juego, Gemma se da cuenta de que la única opción es resucitar a M3GAN y darle unas cuantas mejoras, haciéndola más rápida, más fuerte y más letal.",
+    elenco: "Allison Williams, Violet McGraw, Amie Donald, Jenna Davis, Brian Jordan Alvarez",
+    director: "Gerard Johnstone",
+    imagenFondo: "/FrontEnd/Imagenes/Fondos/pelis/megan.webp",
+    imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/megan.webp",
+    video: "https://player.videasy.net/movie/1071585?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+  },
+  guerrerakpop: {
+    titulo: "Guerreras K-pop",
+    duracion: "1h 36min",
+    generos: ["Animación", "Fantasía", "Comedia", "Música", "Familia"],
+    año: 2025,
+    sinopsis: "Cuando no están llenando estadios, las superestrellas del K-pop Rumi, Mira y Zoey usan sus poderes secretos para proteger a sus fans de una amenaza sobrenatural.",
+    elenco: "Arden Cho, May Hong, Ji-young Yoo, Ahn Hyo Seop, Yunjin Kim",
+    director: "Maggie Kang",
+    imagenFondo: "/FrontEnd/Imagenes/Fondos/pelis/guerrerakpop.webp",
+    imagenTarjeta: "/FrontEnd/Imagenes/Tarjetas/pelis/guerrerakpop.webp",
+    video: "https://player.videasy.net/movie/803796?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+  },
   
   
 // Agregar mms peliculas
@@ -678,13 +726,96 @@ window.series = {
         capitulos: [
           {
             numeroCapituloEnTemporada: 1, 
-            tituloCapitulo: "De Vuelta al Ruedo",
-            videoUrl: "https://servidor.video/serie/s01e01.mp4"
+            tituloCapitulo: "Un Grano de Verdad",
+            videoUrl: "https://player.videasy.net/tv/71912/2/1?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 2, 
+            tituloCapitulo: "Kaer Morhen",
+            videoUrl: "https://player.videasy.net/tv/71912/2/2?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 3, 
+            tituloCapitulo: "Perdidas",
+            videoUrl: "https://player.videasy.net/tv/71912/2/3?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 4, 
+            tituloCapitulo: "Inteligencia Redaniana",
+            videoUrl: "https://player.videasy.net/tv/71912/2/4?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 5, 
+            tituloCapitulo: "Decisiones",
+            videoUrl: "https://player.videasy.net/tv/71912/2/5?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 6, 
+            tituloCapitulo: "Querido Amigo",
+            videoUrl: "https://player.videasy.net/tv/71912/2/6?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 7, 
+            tituloCapitulo: "Voleth Meir",
+            videoUrl: "https://player.videasy.net/tv/71912/2/7?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 8, 
+            tituloCapitulo: "Familia",
+            videoUrl: "https://player.videasy.net/tv/71912/2/8?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
           },
           // ... más capítulos de la Temporada 2
         ]
       },
       // ... más temporadas
+      {
+        numeroTemporada: 3,
+        nombreTemporada: "Temporada Tres",
+        imagenPosterTemporada: "/FrontEnd/Imagenes/Series/Posters_Temporadas/the_office_s1_poster.webp",
+        capitulos: [
+          {
+            numeroCapituloEnTemporada: 1, 
+            tituloCapitulo: "Shaerrawedd",
+            videoUrl: "https://player.videasy.net/tv/71912/3/1?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 2, 
+            tituloCapitulo: "Rumbos Separados",
+            videoUrl: "https://player.videasy.net/tv/71912/3/2?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 3, 
+            tituloCapitulo: "Reencuentros",
+            videoUrl: "https://player.videasy.net/tv/71912/3/3?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 4, 
+            tituloCapitulo: "la Invitacion",
+            videoUrl: "https://player.videasy.net/tv/71912/3/4?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 5, 
+            tituloCapitulo: "El Arte de la Ilusion",
+            videoUrl: "https://player.videasy.net/tv/71912/3/5?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 6, 
+            tituloCapitulo: "Todos Tenemos un plan hasta que te parten la cara",
+            videoUrl: "https://player.videasy.net/tv/71912/3/6?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 7, 
+            tituloCapitulo: "Huir del fuego para caer en las brasas",
+            videoUrl: "https://player.videasy.net/tv/71912/3/7?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 8, 
+            tituloCapitulo: "El Precio del Caos",
+            videoUrl: "https://player.videasy.net/tv/71912/3/8?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+
+        ]
+      }
     ]
   },
 
@@ -695,7 +826,7 @@ window.series = {
     añoFin: 2024,
     estadoEmision: "Finalizada",
     sinopsisGeneral: "Justo después de ser liberado de prisión después de 25 años, el capo de la mafia de Nueva York, Dwight 'El General' Manfredi, es exiliado sin contemplaciones por su jefe para instalarse en Tulsa, Oklahoma. Al darse cuenta de que su familia de la mafia puede no tener sus mejores intereses en mente, Dwight construye lentamente una 'tripulación' a partir de un grupo de personajes inverosímiles, para ayudarlo a establecer un nuevo imperio criminal en un lugar que para él bien podría ser otro planeta.", 
-    generos: ["Crimen", "Drama", "Acción"],
+    generos: ["Comedia"],
     elencoPrincipal: ["Sylvester Stallone", "Martin Starr", "Jay Will", "Max Casella"],
     creadores: ["Taylor Sheridan"],
     imagenFondo: "/FrontEnd/Imagenes/Fondos/series/bigbangtheory.webp",
@@ -709,8 +840,88 @@ window.series = {
         capitulos: [
           {
             numeroCapituloEnTemporada: 1, 
-            tituloCapitulo: "Vete al Oeste, Viejo",
-            videoUrl: "https://swiftplayers.com/e/nb9dy6qoc8rh"
+            tituloCapitulo: "Piloto",
+            videoUrl: "https://player.videasy.net/tv/1418/1/1?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 2, 
+            tituloCapitulo: "La hipótesis del Gran Cerebro",
+            videoUrl: "https://player.videasy.net/tv/1418/1/2?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 3, 
+            tituloCapitulo: "El Corolario de 'Botas Peludas'",
+            videoUrl: "https://player.videasy.net/tv/1418/1/3?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 4, 
+            tituloCapitulo: "El efecto del pez luminoso",
+            videoUrl: "https://player.videasy.net/tv/1418/1/4?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 5, 
+            tituloCapitulo: "El postulado de la hamburguesa",
+            videoUrl: "https://player.videasy.net/tv/1418/1/5?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 6, 
+            tituloCapitulo: "El paradigma de la Tierra Media",
+            videoUrl: "https://player.videasy.net/tv/1418/1/6?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 7, 
+            tituloCapitulo: "La paradoja del Wan-Tun",
+            videoUrl: "https://player.videasy.net/tv/1418/1/7?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 8, 
+            tituloCapitulo: "El experimento del Grasshopper",
+            videoUrl: "https://player.videasy.net/tv/1418/1/8?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 9, 
+            tituloCapitulo: "La polarización Cooper-Hofstadter",
+            videoUrl: "https://player.videasy.net/tv/1418/1/9?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 10, 
+            tituloCapitulo: "La resultante de Loobenfeld",
+            videoUrl: "https://player.videasy.net/tv/1418/1/10?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 11, 
+            tituloCapitulo: "La anomalía de la masa de tortitas",
+            videoUrl: "https://player.videasy.net/tv/1418/1/11?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 12, 
+            tituloCapitulo: "La dualidad de Jerusalén",
+            videoUrl: "https://player.videasy.net/tv/1418/1/12?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 13, 
+            tituloCapitulo: "La conjetura del Bat-tarro",
+            videoUrl: "https://player.videasy.net/tv/1418/1/13?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 14, 
+            tituloCapitulo: "La aniquilación del paraíso frikinal",
+            videoUrl: "https://player.videasy.net/tv/1418/1/14?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 15, 
+            tituloCapitulo: "La indeterminación de la costilla de cerdo",
+            videoUrl: "https://player.videasy.net/tv/1418/1/15?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 16, 
+            tituloCapitulo: "Reacción al cacahuete",
+            videoUrl: "https://player.videasy.net/tv/1418/1/16?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 17, 
+            tituloCapitulo: "Factor mandarina",
+            videoUrl: "https://player.videasy.net/tv/1418/1/17?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
           },
           
           // ... más capítulos de la Temporada 1
@@ -723,8 +934,1393 @@ window.series = {
         capitulos: [
           {
             numeroCapituloEnTemporada: 1, 
-            tituloCapitulo: "De Vuelta al Ruedo",
-            videoUrl: "https://servidor.video/serie/s01e01.mp4"
+            tituloCapitulo: "El paradigma del pescado malo",
+            videoUrl: "https://player.videasy.net/tv/1418/2/1?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 2, 
+            tituloCapitulo: "La topología de la coquilla",
+            videoUrl: "https://player.videasy.net/tv/1418/2/2?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 3, 
+            tituloCapitulo: "La sublimación bárbara",
+            videoUrl: "https://player.videasy.net/tv/1418/2/3?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 4, 
+            tituloCapitulo: "La equivalencia de Griffin",
+            videoUrl: "https://player.videasy.net/tv/1418/2/4?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 5, 
+            tituloCapitulo: "La alternativa euclidia",
+            videoUrl: "https://player.videasy.net/tv/1418/2/5?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 6, 
+            tituloCapitulo: "El teorema de Cooper-Nowitzki",
+            videoUrl: "https://player.videasy.net/tv/1418/2/6?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 7, 
+            tituloCapitulo: "La polarización de la piñata de los pantys",
+            videoUrl: "https://player.videasy.net/tv/1418/2/7?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 8, 
+            tituloCapitulo: "La expansión Lagarto-Spock",
+            videoUrl: "https://player.videasy.net/tv/1418/2/8?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 9, 
+            tituloCapitulo: "La triangulación de los espárragos blancos",
+            videoUrl: "https://player.videasy.net/tv/1418/2/9?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 10, 
+            tituloCapitulo: "El enigma Vartabedian",
+            videoUrl: "https://player.videasy.net/tv/1418/2/10?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 11, 
+            tituloCapitulo: "La hipótesis del regalo de baño",
+            videoUrl: "https://player.videasy.net/tv/1418/2/11?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 12, 
+            tituloCapitulo: "La inestabilidad del robot asesino",
+            videoUrl: "https://player.videasy.net/tv/1418/2/12?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 13, 
+            tituloCapitulo: "El algoritmo de la amistad",
+            videoUrl: "https://player.videasy.net/tv/1418/2/13?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 14, 
+            tituloCapitulo: "La permeabilidad financiera",
+            videoUrl: "https://player.videasy.net/tv/1418/2/14?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 15, 
+            tituloCapitulo: "La capacitación maternal",
+            videoUrl: "https://player.videasy.net/tv/1418/2/15?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 16, 
+            tituloCapitulo: "La saturación del cojín",
+            videoUrl: "https://player.videasy.net/tv/1418/2/16?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 17, 
+            tituloCapitulo: "El desacoplamiento Terminator",
+            videoUrl: "https://player.videasy.net/tv/1418/2/17?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 18, 
+            tituloCapitulo: "El nano-cúmulo de las canciones para trabajar",
+            videoUrl: "https://player.videasy.net/tv/1418/2/18?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 19, 
+            tituloCapitulo: "La yuxtaposicion de la prostituta muerta",
+            videoUrl: "https://player.videasy.net/tv/1418/2/19?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 20, 
+            tituloCapitulo: "El isótopo Hofstadter",
+            videoUrl: "https://player.videasy.net/tv/1418/2/20?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 21, 
+            tituloCapitulo: "La re-normalización de Las Vegas",
+            videoUrl: "https://player.videasy.net/tv/1418/2/21?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 22, 
+            tituloCapitulo: "La turbulencia de la materia secreta",
+            videoUrl: "https://player.videasy.net/tv/1418/2/22?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          {
+            numeroCapituloEnTemporada: 23, 
+            tituloCapitulo: "La expedición monopolar",
+            videoUrl: "https://player.videasy.net/tv/1418/2/23?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&color=8B5CF6"
+          },
+          // ... más capítulos de la Temporada 2
+        ]
+      },
+      {
+        numeroTemporada: 3,
+        nombreTemporada: "Temporada Tres",
+        imagenPosterTemporada: "/FrontEnd/Imagenes/Series/Posters_Temporadas/the_office_s1_poster.webp",
+        capitulos: [
+          {
+            numeroCapituloEnTemporada: 1, 
+            tituloCapitulo: "La fluctuación del abrelatas eléctrico",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 2, 
+            tituloCapitulo: "Las conjeturas de Jiminy",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 3, 
+            tituloCapitulo: "La variante Gothowitz",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 4, 
+            tituloCapitulo: "La solucipon del pirata",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 5, 
+            tituloCapitulo: "El teorema del baño de caramelo",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 6, 
+            tituloCapitulo: "La guerra de las cometas",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 7, 
+            tituloCapitulo: "La amplificación del guitarrista",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 8, 
+            tituloCapitulo: "La constante de la fricción en bañeras",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 9, 
+            tituloCapitulo: "La fórmula de la venganza",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 10, 
+            tituloCapitulo: "El experimento gorila",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 11, 
+            tituloCapitulo: "La congruencia maternal",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 12, 
+            tituloCapitulo: "El vortex psíquico",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 13, 
+            tituloCapitulo: "La reacción de bozeman",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 14, 
+            tituloCapitulo: "La aproximación de Einstein",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 15, 
+            tituloCapitulo: "La gran colisión de Hadron",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 16, 
+            tituloCapitulo: "La adquisición excelsior",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 17, 
+            tituloCapitulo: "Una fragmentación muy valiosa",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 18, 
+            tituloCapitulo: "La alternativa a los pantalones",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 19, 
+            tituloCapitulo: "La recurrencia Wheaton",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 20, 
+            tituloCapitulo: "El catalizador de espagueti",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 21, 
+            tituloCapitulo: "La estimulación de la doctora Plimpton",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 22, 
+            tituloCapitulo: "La implementación de la escalera continua",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 23, 
+            tituloCapitulo: "La excitación lunar",
+            videoUrl: ""
+          },
+          // ... más capítulos de la Temporada 2
+        ]
+      },
+      {
+        numeroTemporada: 4,
+        nombreTemporada: "Temporada Cuatro",
+        imagenPosterTemporada: "/FrontEnd/Imagenes/Series/Posters_Temporadas/the_office_s1_poster.webp",
+        capitulos: [
+          {
+            numeroCapituloEnTemporada: 1, 
+            tituloCapitulo: "Manipulación robótica",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 2, 
+            tituloCapitulo: "La amplificación de verduras",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 3, 
+            tituloCapitulo: "Una sustitución brillante",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 4, 
+            tituloCapitulo: "La desviación de la troll que estaba como un camión",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 5, 
+            tituloCapitulo: "La emanación de la desesperación",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 6, 
+            tituloCapitulo: "La fórmula de pub irlandés",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 7, 
+            tituloCapitulo: "La insuficiencia de la disculpa",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 8, 
+            tituloCapitulo: "La excitación de 21 segundos",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 9, 
+            tituloCapitulo: "La complejidad del novio",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 10, 
+            tituloCapitulo: "La hipótesis del parásito alienígena",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 11, 
+            tituloCapitulo: "La Liga de la Justicia: recombinación",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 12, 
+            tituloCapitulo: "La utilización de los pantalones de autobús",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 13, 
+            tituloCapitulo: "El reemplazo del coche del amor",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 14, 
+            tituloCapitulo: "El catalizador de actores",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 15, 
+            tituloCapitulo: "El factor benefactor",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 16, 
+            tituloCapitulo: "La fórmula de la cohabitación",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 17, 
+            tituloCapitulo: "La derivación de un brindis",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 18, 
+            tituloCapitulo: "La aproximación a la prestidigitación",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 19, 
+            tituloCapitulo: "En guerra con Zarnecki",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 20, 
+            tituloCapitulo: "La germinación de las hierbas de jardín",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 21, 
+            tituloCapitulo: "La disección del contrato",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 22, 
+            tituloCapitulo: "La implementación del ñu",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 23, 
+            tituloCapitulo: "la reacción al compromiso",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 24, 
+            tituloCapitulo: "La gran transmogrificación",
+            videoUrl: ""
+          },
+          // ... más capítulos de la Temporada 2
+        ]
+      },
+      {
+        numeroTemporada: 5,
+        nombreTemporada: "Temporada Cinco",
+        imagenPosterTemporada: "/FrontEnd/Imagenes/Series/Posters_Temporadas/the_office_s1_poster.webp",
+        capitulos: [
+          {
+            numeroCapituloEnTemporada: 1, 
+            tituloCapitulo: "Análisis del reflejo de golfa",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 2, 
+            tituloCapitulo: "La teoría de la plaga",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 3, 
+            tituloCapitulo: "La extrapolación del tirón de ingle",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 4, 
+            tituloCapitulo: "El catalizador del dedo que se menea",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 5, 
+            tituloCapitulo: "La reacción del cohete ruso",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 6, 
+            tituloCapitulo: "La revelación de la rinitis",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 7, 
+            tituloCapitulo: "La fluctuación del buen chico",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 8, 
+            tituloCapitulo: "La permutación del aislamiento",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 9, 
+            tituloCapitulo: "La difusión de la ornitofobia",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 10, 
+            tituloCapitulo: "La adquisición de la escupidera llameante",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 11, 
+            tituloCapitulo: "La recurrencia Speckerman",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 12, 
+            tituloCapitulo: "La maniobra de la baratija brillante",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 13, 
+            tituloCapitulo: "La hipótesis de la recombinación",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 14, 
+            tituloCapitulo: "Iniciación al test Beta",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 15, 
+            tituloCapitulo: "La contracción de la amistad",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 16, 
+            tituloCapitulo: "La solución a las vacaciones",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 17, 
+            tituloCapitulo: "La desinfectación de Rothman",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 18, 
+            tituloCapitulo: "La transformación del hombre lobo",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 19, 
+            tituloCapitulo: "El vórtice del fin de semana",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 20, 
+            tituloCapitulo: "La disfunción del transportador",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 21, 
+            tituloCapitulo: "La excitación de Hawking",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 22, 
+            tituloCapitulo: "La convergencia del macho solitario",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 23, 
+            tituloCapitulo: "La aceleración del lanzamiento",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 24, 
+            tituloCapitulo: "La reflexión de la cuenta atrás",
+            videoUrl: ""
+          },
+          // ... más capítulos de la Temporada 2
+        ]
+      },
+      {
+        numeroTemporada: 6,
+        nombreTemporada: "Temporada Seis",
+        imagenPosterTemporada: "/FrontEnd/Imagenes/Series/Posters_Temporadas/the_office_s1_poster.webp",
+        capitulos: [
+          {
+            numeroCapituloEnTemporada: 1, 
+            tituloCapitulo: "La variable de la cita nocturna",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 2, 
+            tituloCapitulo: "La fluctuación del desacople",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 3, 
+            tituloCapitulo: "La observación del Bosón de Higgs",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 4, 
+            tituloCapitulo: "Minimizando la reentrada",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 5, 
+            tituloCapitulo: "La excitación holografica",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 6, 
+            tituloCapitulo: "La aniquilación del extracto",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 7, 
+            tituloCapitulo: "La configuración de la cohabitación",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 8, 
+            tituloCapitulo: "La peculiatidad del 43",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 9, 
+            tituloCapitulo: "Escalada por la plaza de aparcamiento",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 10, 
+            tituloCapitulo: "Extirpando las entrañas de un pez",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 11, 
+            tituloCapitulo: "La simulación Santa Claus",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 12, 
+            tituloCapitulo: "La equivalencia del sándwich vegetal",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 13, 
+            tituloCapitulo: "La expedición a Bakersfield",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 14, 
+            tituloCapitulo: "La inversión Cooper-Kripke",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 15, 
+            tituloCapitulo: "La segmentación de los finales desvelados",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 16, 
+            tituloCapitulo: "La prueba tangible del afecto",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 17, 
+            tituloCapitulo: "El aislamiento del monstruo",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 18, 
+            tituloCapitulo: "La implementación de la obligación contractual",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 19, 
+            tituloCapitulo: "La reconfiguración del armario",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 20, 
+            tituloCapitulo: "La turbulencia de la permanencia",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 21, 
+            tituloCapitulo: "La alternativa de la finalización",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 22, 
+            tituloCapitulo: "La resurgencia del protón",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 23, 
+            tituloCapitulo: "El potencial del conjuro de amor",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 24, 
+            tituloCapitulo: "La reacción de la despedida",
+            videoUrl: ""
+          },
+          // ... más capítulos de la Temporada 2
+        ]
+      },
+      {
+        numeroTemporada: 7,
+        nombreTemporada: "Temporada Siete",
+        imagenPosterTemporada: "/FrontEnd/Imagenes/Series/Posters_Temporadas/the_office_s1_poster.webp",
+        capitulos: [
+          {
+            numeroCapituloEnTemporada: 1, 
+            tituloCapitulo: "La insuficiencia Hofstadter",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 2, 
+            tituloCapitulo: "La verificación del engaño",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 3, 
+            tituloCapitulo: "El vórtex de la yincana",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 4, 
+            tituloCapitulo: "la minimización del arca perdida",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 5, 
+            tituloCapitulo: "La proximidad del lugar de trabajo",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 6, 
+            tituloCapitulo: "La resonancia del romance",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 7, 
+            tituloCapitulo: "El protón desplazado",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 8, 
+            tituloCapitulo: "La simulación del picor de cerebro",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 9, 
+            tituloCapitulo: "El desacoplamiento de Accion de Gracias",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 10, 
+            tituloCapitulo: "La disipación del descubrimiento",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 11, 
+            tituloCapitulo: "La extracción de Cooper",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 12, 
+            tituloCapitulo: "La ramificación de la indecisión",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 13, 
+            tituloCapitulo: "La reorganización de la profesión",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 14, 
+            tituloCapitulo: "El conflicto de la convención",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 15, 
+            tituloCapitulo: "La manipulación de la locomoción",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 16, 
+            tituloCapitulo: "La polarización de la mesa",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 17, 
+            tituloCapitulo: "La turbulencia de la amistad",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 18, 
+            tituloCapitulo: "Observando a mamá",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 19, 
+            tituloCapitulo: "La indecisión de la amalgamación",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 20, 
+            tituloCapitulo: "La disyunción de la relación",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 21, 
+            tituloCapitulo: "La recurrencia del todo es posible",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 22, 
+            tituloCapitulo: "La transmogrificacion del protón",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 23, 
+            tituloCapitulo: "La disolución del gorila",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 24, 
+            tituloCapitulo: "La combustión del status quo",
+            videoUrl: ""
+          },
+          // ... más capítulos de la Temporada 2
+        ]
+      },
+      {
+        numeroTemporada: 8,
+        nombreTemporada: "Temporada Ocho",
+        imagenPosterTemporada: "/FrontEnd/Imagenes/Series/Posters_Temporadas/the_office_s1_poster.webp",
+        capitulos: [
+          {
+            numeroCapituloEnTemporada: 1, 
+            tituloCapitulo: "La interrupción de la locomoción",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 2, 
+            tituloCapitulo: "La solución del profesor adjunto",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 3, 
+            tituloCapitulo: "La insuficiencia del primer lanzamiento",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 4, 
+            tituloCapitulo: "La reverberación del enrollamiento",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 5, 
+            tituloCapitulo: "La atenuación de la concentración",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 6, 
+            tituloCapitulo: "La aproximación de la expedición",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 7, 
+            tituloCapitulo: "La agitación de la malinterpretación",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 8, 
+            tituloCapitulo: "La equivalencia del baile del instituto",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 9, 
+            tituloCapitulo: "La desviación del tabique",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 10, 
+            tituloCapitulo: "La reflexión del champán",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 11, 
+            tituloCapitulo: "La infiltración en la sala blanca",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 12, 
+            tituloCapitulo: "La desintegración de la sonda espacial",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 13, 
+            tituloCapitulo: "La optimización de la ansiedad",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 14, 
+            tituloCapitulo: "La manifestación del troll",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 15, 
+            tituloCapitulo: "La regenración de la tienda de cómics",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 16, 
+            tituloCapitulo: "La aceleración de la intimidad",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 17, 
+            tituloCapitulo: "La solicitud de colonización",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 18, 
+            tituloCapitulo: "La termalización de las sobras",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 19, 
+            tituloCapitulo: "La incursión de Skywalker",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 20, 
+            tituloCapitulo: "La implementación de la fortificación",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 21, 
+            tituloCapitulo: "La degradación de la comunicación",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 22, 
+            tituloCapitulo: "La transmisión de la graduación",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 23, 
+            tituloCapitulo: "La combustión maternal",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 24, 
+            tituloCapitulo: "La determinación del compromiso",
+            videoUrl: ""
+          },
+          // ... más capítulos de la Temporada 2
+        ]
+      },
+      {
+        numeroTemporada: 9,
+        nombreTemporada: "Temporada Nueve",
+        imagenPosterTemporada: "/FrontEnd/Imagenes/Series/Posters_Temporadas/the_office_s1_poster.webp",
+        capitulos: [
+          {
+            numeroCapituloEnTemporada: 1, 
+            tituloCapitulo: "La inercia matrimonial",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 2, 
+            tituloCapitulo: "La oscilación de la separación",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 3, 
+            tituloCapitulo: "La corrosión de la despedida de soltero",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 4, 
+            tituloCapitulo: "La aproximación a 2003",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 5, 
+            tituloCapitulo: "La implementación de la perspiración",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 6, 
+            tituloCapitulo: "La insuficiencia de helio",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 7, 
+            tituloCapitulo: "La resonancia de Spock",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 8, 
+            tituloCapitulo: "La observación de la cita misteriosa",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 9, 
+            tituloCapitulo: "La permutación platónica",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 10, 
+            tituloCapitulo: "La reverberación de la melodía",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 11, 
+            tituloCapitulo: "La excitación del estreno",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 12, 
+            tituloCapitulo: "La sublimación de la venta",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 13, 
+            tituloCapitulo: "La optimización de la empatía",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 14, 
+            tituloCapitulo: "La materialización de la abuelita",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 15, 
+            tituloCapitulo: "La inmersión de Valentino",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 16, 
+            tituloCapitulo: "La reacción positivo-negativa",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 17, 
+            tituloCapitulo: "La experimentación de la celebración",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 18, 
+            tituloCapitulo: "El deterioro de la soledad",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 19, 
+            tituloCapitulo: "La excursión a por soldadura",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 20, 
+            tituloCapitulo: "La precipitación del oso gigante",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 21, 
+            tituloCapitulo: "La combustión de la fiesta televisiva",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 22, 
+            tituloCapitulo: "La fermentación de la bifurcación",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 23, 
+            tituloCapitulo: "La solución de la sustitución en la cola",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 24, 
+            tituloCapitulo: "La convergencia de la convergencia",
+            videoUrl: ""
+          },
+          // ... más capítulos de la Temporada 2
+        ]
+      },
+      {
+        numeroTemporada: 10,
+        nombreTemporada: "Temporada Diez",
+        imagenPosterTemporada: "/FrontEnd/Imagenes/Series/Posters_Temporadas/the_office_s1_poster.webp",
+        capitulos: [
+          {
+            numeroCapituloEnTemporada: 1, 
+            tituloCapitulo: "La conjetura conyugal",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 2, 
+            tituloCapitulo: "La miniaturización militar",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 3, 
+            tituloCapitulo: "La trascendencia de la dependencia",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 4, 
+            tituloCapitulo: "La experimentación de la cohabitación",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 5, 
+            tituloCapitulo: "La contaminacion del jacuzzi",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 6, 
+            tituloCapitulo: "El catalizador de la patada fetal",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 7, 
+            tituloCapitulo: "La elasticidad de la veracidad",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 8, 
+            tituloCapitulo: "La incubación del cerebro en un bol",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 9, 
+            tituloCapitulo: "La elevación de la geología",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 10, 
+            tituloCapitulo: "La colisión de la división de la propiedad",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 11, 
+            tituloCapitulo: "La sincronización del cumpleaños",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 12, 
+            tituloCapitulo: "El resumen de las fiestas",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 13, 
+            tituloCapitulo: "La regulación del amor",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 14, 
+            tituloCapitulo: "La automatización de la detección de emociones",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 15, 
+            tituloCapitulo: "La reverberación de la locomoción",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 16, 
+            tituloCapitulo: "La evaporación de la asignación",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 17, 
+            tituloCapitulo: "El enigma de la Comic-Con",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 18, 
+            tituloCapitulo: "La identificación de la escotilla de escape",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 19, 
+            tituloCapitulo: "La fluctuación de la colaboración",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 20, 
+            tituloCapitulo: "La disipación de los recuerdos",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 21, 
+            tituloCapitulo: "La agitación de la separación",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 22, 
+            tituloCapitulo: "La regeneración de la cognición",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 23, 
+            tituloCapitulo: "El hundimiento giroscópico",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 24, 
+            tituloCapitulo: "La disonancia de la larga distancia",
+            videoUrl: ""
+          },
+          // ... más capítulos de la Temporada 2
+        ]
+      },
+      {
+        numeroTemporada: 11,
+        nombreTemporada: "Temporada Once",
+        imagenPosterTemporada: "/FrontEnd/Imagenes/Series/Posters_Temporadas/the_office_s1_poster.webp",
+        capitulos: [
+          {
+            numeroCapituloEnTemporada: 1, 
+            tituloCapitulo: "La proposicion de la proposicion",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 2, 
+            tituloCapitulo: "La reaccion de la disculpa",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 3, 
+            tituloCapitulo: "La integracion de la relajacion",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 4, 
+            tituloCapitulo: "La implosion de la explosion",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 5, 
+            tituloCapitulo: "La contaminacion de la colaboracion",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 6, 
+            tituloCapitulo: "La regeneracion de Protón",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 7, 
+            tituloCapitulo: "La metodología de la geología",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 8, 
+            tituloCapitulo: "El efecto Tesla",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 9, 
+            tituloCapitulo: "El entedo del Bitcoin",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 10, 
+            tituloCapitulo: "La erosion de la seguridad",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 11, 
+            tituloCapitulo: "La reverberación de la celebracion",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 12, 
+            tituloCapitulo: "La métrica matrimonial",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 13, 
+            tituloCapitulo: "La oscilacion de la soledad",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 14, 
+            tituloCapitulo: "La separación de la triangulación",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 15, 
+            tituloCapitulo: "La correlación de la novelización",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 16, 
+            tituloCapitulo: "La nomenclatura neonatal",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 17, 
+            tituloCapitulo: "La reserva del Ateneo",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 18, 
+            tituloCapitulo: "La excitación por Bill Gates",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 19, 
+            tituloCapitulo: "La disociación del inquilino",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 20, 
+            tituloCapitulo: "El potencial de la reclusión",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 21, 
+            tituloCapitulo: "La polarización del cometa",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 22, 
+            tituloCapitulo: "La insuficiencia monetaria",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 23, 
+            tituloCapitulo: "La realineación fraternal",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 24, 
+            tituloCapitulo: "La asimetría de la pajarita",
+            videoUrl: ""
+          },
+          // ... más capítulos de la Temporada 2
+        ]
+      },
+      {
+        numeroTemporada: 12,
+        nombreTemporada: "Temporada Doce",
+        imagenPosterTemporada: "/FrontEnd/Imagenes/Series/Posters_Temporadas/the_office_s1_poster.webp",
+        capitulos: [
+          {
+            numeroCapituloEnTemporada: 1, 
+            tituloCapitulo: "La configuracion conyugal",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 2, 
+            tituloCapitulo: "La transferencia del regalo de boda",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 3, 
+            tituloCapitulo: "El cálculo de la procreación",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 4, 
+            tituloCapitulo: "Las turbulencias de Tam",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 5, 
+            tituloCapitulo: "La colision planetaria",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 6, 
+            tituloCapitulo: "La perturbacion de la imitacion",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 7, 
+            tituloCapitulo: "La derivacion de la concesion de la beca",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 8, 
+            tituloCapitulo: "la desviacion de la consumacion",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 9, 
+            tituloCapitulo: "La negacion de la cita",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 10, 
+            tituloCapitulo: "La iluminacion del video",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 11, 
+            tituloCapitulo: "La dispersion del paintball",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 12, 
+            tituloCapitulo: "La proposicion de la propagacion",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 13, 
+            tituloCapitulo: "La polarizacion de la confirmacion",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 14, 
+            tituloCapitulo: "La manifestacion del meteorito",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 15, 
+            tituloCapitulo: "La oscilacion de la donacion",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 16, 
+            tituloCapitulo: "Dragones y mazmorras",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 17, 
+            tituloCapitulo: "La evaluacion de la conferencia",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 18, 
+            tituloCapitulo: "La acumulacion de premiados",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 19, 
+            tituloCapitulo: "La privacion de la inspiracion",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 20, 
+            tituloCapitulo: "La reverberacion de la decision",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 21, 
+            tituloCapitulo: "El cisma del plagio",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 22, 
+            tituloCapitulo: "La conclusion maternal",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 23, 
+            tituloCapitulo: "La constante del cambio/ El sindrome de Estocolmo",
+            videoUrl: ""
+          },
+          {
+            numeroCapituloEnTemporada: 24, 
+            tituloCapitulo: "Descubriendo el misterio: La despedida",
+            videoUrl: ""
           },
           // ... más capítulos de la Temporada 2
         ]
