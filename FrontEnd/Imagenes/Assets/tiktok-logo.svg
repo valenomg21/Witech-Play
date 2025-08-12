@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg enable-background="new 0 0 32 32" version="1.1" viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <title>Twitter-TikTok Mashup (Corregido)</title>
+  
+  <g id="Twitter_Base">
+    <circle cx="16" cy="16" fill="#D3D3D3" r="16"/>
+    <circle cx="16" cy="16" fill="#FFFFFF" r="13.809"/>
+    <circle cx="16" cy="16" r="11.597" fill="#000000ff"/> 
+  </g>
+  
+  <g id="TikTok_Note">
+    <path 
+      d="M296.13,151.89H266.21V298.44s.08,26-31.28,31.36c0,0-34.18,2.81-35.45-35.19,0,0,.76-30.35,36-29.33V233.92s-40-4.59-59.42,33.92c0,0-26,49.72,21.67,82.37,0,0,39.79,29.32,81.1-9.95,0,0,15.3-12.75,17.34-42.59V211.22s17.09,28.05,51,24.48V201.53S303.78,198.89,296.13,151.89Z" 
+      fill="#FFFFFF"
+      transform="translate(16, 16) scale(0.06) translate(-256, -256)"
+    />
+  </g>
+</svg>

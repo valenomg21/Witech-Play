@@ -33,6 +33,18 @@
                     <!-- Icono SVG de Facebook -->
                     <img src="/FrontEnd/Imagenes/Assets/facebook-logo.svg" alt="">
                 </a>
+                <a href="https://x.com/witechtuc" target="_blank" aria-label="X de Witech">
+                    <!-- Icono SVG de X -->
+                    <img src="/FrontEnd/Imagenes/Assets/twitter-logo.svg" alt="">
+                </a>
+                <a href="https://www.tiktok.com/@witech.com.ar" target="_blank" aria-label="TikTok de Witech">
+                    <!-- Icono SVG de TikTok -->
+                    <img src="/FrontEnd/Imagenes/Assets/tiktok-logo.svg" alt="">
+                </a>
+                <a href="https://www.facebook.com/witech.com.ar" target="_blank" aria-label="Whatsapp de Witech">
+                    <!-- Icono SVG de Whatsapp -->
+                    <img src="/FrontEnd/Imagenes/Assets/whatsapp-logo.svg" alt="">
+                </a>
             </div>
         </div>
     </div>
