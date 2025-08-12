@@ -38,13 +38,13 @@
                 <span>Contenido</span>
             </a>
         </li>
-        <li>
+        <li style="display: none;">
             <a href="/FrontEnd/Index/trans-curso.html">
                  <img src="/FrontEnd/Imagenes/Assets/live-icon.svg" alt="">
                 <span>Transmision en VIVO</span>
             </a>
         </li>
-        <li>
+        <li style="display: none;">
             <a href="#Shorts">
                  <img src="/FrontEnd/Imagenes/Assets/shorts-icon.svg" alt="">
                 <span>Shorts</span>
@@ -54,6 +54,12 @@
             <a href="https://sportsbet.bet.ar">
                  <img src="/FrontEnd/Imagenes/Assets/sportbet-icon.svg" alt="">
                 <span>SportBet</span>
+            </a>
+        </li>
+        <li>
+            <a href="https://sportsbet.bet.ar">
+                 <img src="/FrontEnd/Imagenes/Assets/sportbet-icon.svg" alt="">
+                <span>Tucuman Apuestas</span>
             </a>
         </li>
         <li>
