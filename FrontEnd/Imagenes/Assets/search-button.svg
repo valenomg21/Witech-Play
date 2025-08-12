@@ -1,0 +1,9 @@
+<svg width="54px" height="53px" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#B79494" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <title>Icono de Búsqueda</title>
+    <!-- Círculo exterior -->
+    <circle cx="25" cy="25" r="24"/>
+    <!-- Lupa -->
+    <circle cx="22" cy="22" r="8"/>
+    <!-- Mango de la lupa -->
+    <line x1="28" y1="28" x2="35" y2="35"/>
+</svg>

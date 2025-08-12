@@ -1,0 +1,9 @@
+<svg width="54px" height="53px" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#B79494" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <title>Icono de Usuario</title>
+    <!-- Círculo exterior -->
+    <circle cx="25" cy="25" r="24"/>
+    <!-- Cabeza -->
+    <circle cx="25" cy="16.5" r="5"/>
+    <!-- Cuerpo -->
+    <path d="M15 38.41a10 10 0 0 1 20 0"/>
+</svg>
